@@ -1104,6 +1104,7 @@
 
         function setLanguage(lang) {
             currentLang = lang;
+            localStorage.setItem('lang', lang);
             document.documentElement.lang = lang;
 
             // Update active button
@@ -1118,6 +1119,9 @@
                     el.innerHTML = translations[lang][key];
                 }
             });
+
+            // Update pulse display
+            updatePulseDisplay();
         }
 
         // Language toggle handlers
@@ -1141,16 +1145,44 @@
             }, 500);
         });
 
-        // Pulse loader
+        // Pulse data (stored for language switching)
+        let pulseData = null;
+
+        const weatherTranslations = {
+            'DECOMPRESSION': { fr: 'DÉCOMPRESSION', en: 'DECOMPRESSION' },
+            'DÉCOMPRESSION': { fr: 'DÉCOMPRESSION', en: 'DECOMPRESSION' },
+            'FRICTION': { fr: 'FRICTION', en: 'FRICTION' },
+            'CRISE': { fr: 'CRISE', en: 'CRISIS' },
+            'FERTILE': { fr: 'FERTILE', en: 'FERTILE' }
+        };
+
+        function updatePulseDisplay() {
+            if (!pulseData) return;
+            const lang = localStorage.getItem('lang') || 'fr';
+
+            // Translate weather
+            const weatherKey = pulseData.weather?.toUpperCase() || 'DÉCOMPRESSION';
+            const translatedWeather = weatherTranslations[weatherKey]?.[lang] || pulseData.weather;
+            document.getElementById('pulse-weather').textContent = translatedWeather;
+
+            // Axiom quote stays in French (philosophical content)
+            document.getElementById('pulse-axiom').textContent = pulseData.axiom_quote || '';
+
+            // Translate date format
+            let breathText = pulseData.last_breath_human || '—';
+            if (lang === 'en' && breathText !== '—') {
+                // Convert "16 Dec 2025, 04h00" to "Dec 16, 2025 04:00"
+                breathText = breathText.replace(/(\d+)\s+(\w+)\s+(\d+),\s*(\d+)h(\d+)/, '$2 $1, $3 $4:$5');
+            }
+            document.getElementById('pulse-breath').textContent = breathText;
+        }
+
         async function loadPulse() {
             try {
                 const response = await fetch('pulse.json');
                 if (!response.ok) return;
-                const pulse = await response.json();
-
-                document.getElementById('pulse-weather').textContent = pulse.weather || '—';
-                document.getElementById('pulse-axiom').textContent = pulse.axiom_quote || '';
-                document.getElementById('pulse-breath').textContent = pulse.last_breath_human || '—';
+                pulseData = await response.json();
+                updatePulseDisplay();
                 document.getElementById('pulse-banner').classList.add('loaded');
             } catch (e) {
                 // Silently fail - pulse is optional
