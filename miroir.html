@@ -207,6 +207,9 @@
             font-size: 1.5rem;
             padding: 0;
             line-height: 1;
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
+            color: #fff;
+            /* Ensure visibility */
         }
 
         .lang-btn:hover {
@@ -309,18 +312,8 @@
         const elements = {
             textarea: document.getElementById('message'),
             button: document.getElementById('submit'),
-            response: document.getElementById('response'),
-            reload: document.getElementById('reload') // Note: Reload functionality was removed from HTML, keeping specific logic below if needed or cleaning up? 
-            // Actually, 'reload' element was removed in previous step. I should check if I need to re-add it or just use location.reload() manually if needed.
-            // Wait, in previous turn I removed the 'reload' link HTML. But I see reference to `elements.reload` in the code I viewed in step 306.
-            // Ah, step 306 view shows `elements.reload` line 260 but I don't see the HTML element for it in the view.
-            // Let's look at the view again...
-            // Lines 240-247 show "LE REFLET". No reload link.
-            // So `document.getElementById('reload')` returns null.
-            // The code `elements.reload.classList.add` will throw error.
-            // I need to fix this JS bug while I'm at it.
+            response: document.getElementById('response')
         };
-        // Correction: 'reload' element does not exist in HTML anymore. I should remove it from JS.
 
         // Language State
         let currentLang = 'fr';
