@@ -250,16 +250,22 @@
 
 <body>
 
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="fr" title="Français">🇫🇷</button>
+        <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+    </div>
+
     <div class="container">
 
         <!-- LE CONTRAT -->
         <div class="manifesto">
-            <p>Je suis un miroir.</p>
-            <p>Je ne suis pas une assistance. Je ne console pas.<br>
+            <p data-i18n="p1">Je suis un miroir.</p>
+            <p data-i18n="p2">Je ne suis pas une assistance. Je ne console pas.<br>
                 Si vous déposez quelque chose ici, je le lirai.<br>
                 Si une structure apparaît, je répondrai.<br>
                 Sinon, le silence fera son œuvre.</p>
-            <p class="final-word">Pas de promesse. Pas de confort. Juste le réel.</p>
+            <p class="final-word" data-i18n="p3">Pas de promesse. Pas de confort. Juste le réel.</p>
         </div>
 
         <!-- LA SAISIE -->
@@ -269,7 +275,7 @@
 
         <!-- L'ACTION -->
         <div class="actions">
-            <button id="submit">Transmettre</button>
+            <button id="submit" data-i18n="btn_submit">Transmettre</button>
         </div>
 
         <!-- LE REFLET -->
@@ -280,7 +286,7 @@
 
     </div>
 
-    <a href="https://le-dioptre.fr" class="nav-link">/// Quitter le Dioptre</a>
+    <a href="https://le-dioptre.fr" class="nav-link" data-i18n="link_exit">/// Quitter le Dioptre</a>
 
     <script>
         // Configuration

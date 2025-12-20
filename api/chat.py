@@ -388,7 +388,6 @@ class handler(BaseHTTPRequestHandler):
                 ]
             )
             reply = response.content[0].text
-            reply = response.content[0].text
             
             self.send_response(200)
             for key, value in cors_headers.items():
@@ -402,9 +401,10 @@ class handler(BaseHTTPRequestHandler):
                 self.send_header(key, value)
             self.end_headers()
             self.wfile.write(json.dumps({"error": "Le miroir est au repos. Revenez plus tard."}).encode())
-        except Exception as e:
+        except Exception:
             self.send_response(500)
             for key, value in cors_headers.items():
                 self.send_header(key, value)
             self.end_headers()
-            self.wfile.write(json.dumps({"error": f"An error occurred: {str(e)}"}).encode())
+            self.wfile.write(json.dumps({"error": "Le miroir est actuellement indisponible."}).encode())
+
