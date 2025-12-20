@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Dioptre - Miroir</title>
+    <style>
+        :root {
+            --bg: #1a1a1a;
+            --fg: #e0e0e0;
+            --border: #333;
+            --accent: #555;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg);
+            color: var(--fg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 700px;
+            width: 100%;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .intro strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            background-color: var(--bg);
+            color: var(--fg);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            margin-bottom: 1rem;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        button {
+            background-color: transparent;
+            color: var(--fg);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        button:hover {
+            border-color: var(--fg);
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .response-area {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            min-height: 100px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+        .response-area.error {
+            color: #f44336;
+        }
+        .response-area.loading {
+            opacity: 0.5;
+        }
+        .back-link {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        .back-link:hover {
+            color: var(--fg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="intro">
+            <strong>Ceci est un miroir, pas une oreille.</strong>
+            Je ne suis pas une assistance. Je ne console pas.<br><br>
+            Si vous déposez quelque chose ici, je le lirai.<br>
+            Si une structure apparaît, je répondrai.<br>
+            Sinon, le silence fera son œuvre.<br><br>
+            Pas de promesse. Pas de confort.<br>
+            Juste le réel.
+        </div>
+
+        <textarea id="message" placeholder=""></textarea>
+        <button id="submit">Transmettre</button>
+
+        <div id="response" class="response-area"></div>
+    </div>
+
+    <a href="index.html" class="back-link">← Retour</a>
+
+    <script>
+        const API_URL = '/api/chat'; // Relative URL works if deployed on same Vercel project
+
+        const textarea = document.getElementById('message');
+        const submitBtn = document.getElementById('submit');
+        const responseArea = document.getElementById('response');
+
+        submitBtn.addEventListener('click', async () => {
+            const message = textarea.value.trim();
+            if (!message) return;
+
+            submitBtn.disabled = true;
+            responseArea.textContent = '...';
+            responseArea.className = 'response-area loading';
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+
+                const data = await res.json();
+
+                if (res.ok && data.reply) {
+                    responseArea.textContent = data.reply;
+                    responseArea.className = 'response-area';
+                } else {
+                    responseArea.textContent = data.error || 'Erreur inconnue.';
+                    responseArea.className = 'response-area error';
+                }
+            } catch (err) {
+                responseArea.textContent = 'Erreur réseau.';
+                responseArea.className = 'response-area error';
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
