@@ -359,15 +359,7 @@ class handler(BaseHTTPRequestHandler):
         
         try:
             data = json.loads(body)
-            # Support both 'messages' (list) for chat history and 'message' (string) for legacy/simple calls
-            messages = data.get("messages")
-            if not messages:
-                user_message = data.get("message", "")
-                if user_message:
-                    messages = [{"role": "user", "content": user_message}]
-                else:
-                    messages = []
-
+            user_message = data.get("message", "")
         except json.JSONDecodeError:
             self.send_response(400)
             for key, value in cors_headers.items():
@@ -376,12 +368,12 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps({"error": "Invalid JSON"}).encode())
             return
 
-        if not messages:
+        if not user_message.strip():
             self.send_response(400)
             for key, value in cors_headers.items():
                 self.send_header(key, value)
             self.end_headers()
-            self.wfile.write(json.dumps({"error": "Message list is empty"}).encode())
+            self.wfile.write(json.dumps({"error": "Message is empty"}).encode())
             return
 
         try:
@@ -391,8 +383,11 @@ class handler(BaseHTTPRequestHandler):
                 model="claude-sonnet-4-20250514",
                 max_tokens=1024,
                 system=SYSTEM_PROMPT,
-                messages=messages
+                messages=[
+                    {"role": "user", "content": user_message}
+                ]
             )
+            reply = response.content[0].text
             reply = response.content[0].text
             
             self.send_response(200)
