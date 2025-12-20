@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,11 +12,13 @@
             --border: #333;
             --accent: #555;
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Courier New', Courier, monospace;
             background-color: var(--bg);
@@ -27,10 +30,12 @@
             justify-content: center;
             padding: 2rem;
         }
+
         .container {
             max-width: 700px;
             width: 100%;
         }
+
         .intro {
             text-align: center;
             margin-bottom: 2rem;
@@ -38,11 +43,13 @@
             font-size: 0.9rem;
             opacity: 0.8;
         }
+
         .intro strong {
             display: block;
             font-size: 1.1rem;
             margin-bottom: 1rem;
         }
+
         textarea {
             width: 100%;
             min-height: 150px;
@@ -55,10 +62,12 @@
             resize: vertical;
             margin-bottom: 1rem;
         }
+
         textarea:focus {
             outline: none;
             border-color: var(--accent);
         }
+
         button {
             background-color: transparent;
             color: var(--fg);
@@ -69,13 +78,16 @@
             cursor: pointer;
             transition: border-color 0.2s;
         }
+
         button:hover {
             border-color: var(--fg);
         }
+
         button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
+
         .response-area {
             margin-top: 2rem;
             padding: 1rem;
@@ -84,12 +96,15 @@
             white-space: pre-wrap;
             line-height: 1.6;
         }
+
         .response-area.error {
             color: #f44336;
         }
+
         .response-area.loading {
             opacity: 0.5;
         }
+
         .back-link {
             position: fixed;
             bottom: 1rem;
@@ -98,11 +113,13 @@
             text-decoration: none;
             font-size: 0.8rem;
         }
+
         .back-link:hover {
             color: var(--fg);
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="intro">
@@ -124,7 +141,7 @@
     <a href="index.html" class="back-link">← Retour</a>
 
     <script>
-        const API_URL = '/api/chat'; // Relative URL works if deployed on same Vercel project
+        const API_URL = '/api/chat'; // Relative URL for Vercel deployment
 
         const textarea = document.getElementById('message');
         const submitBtn = document.getElementById('submit');
@@ -163,4 +180,5 @@
         });
     </script>
 </body>
+
 </html>
