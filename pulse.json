@@ -1,15 +1,5 @@
 {
-  "generated_at": "2025-12-15T20:14:31.653978+00:00",
-  "day_count": 123,
-  "last_breath": "2025-12-15T15:49:55.948642+00:00",
-  "last_breath_human": "15 Dec 2025, 15h49",
   "weather": "DECOMPRESSION",
-  "axiom": "LE TERRITOIRE",
   "axiom_quote": "Le corps ne ment pas. Le mental arrange.",
-  "context_vif": "**Décompression Systémique (Aurore & JE)**\n*Mécanique* : Le sommeil réparateur fait chuter les hormones de survie (cortisol/adrénaline). Le corps présente alors la dette réelle (mois de micro-siestes).\n*Symptôme* : Céphalées, fatigue écrasante au réveil après une \"bonne\" nuit.\n*Miroir* : Se sentir \"plus mal\" est la preuve que la sécurité est revenue. Ce n'est pas une régression, c'est l'atterrissage.\n**Gastroparésie : La Charge (JE)**\n*Pivot* : Remplacer logique \"Restriction\" (Diabète/Glucides) par \"Charge Digestive\" (Mécanique).\n*Trigger* : Fibres + Gras (ex: Gratin Chou-fleur/Béchamel). Indice Glycémique bas mais vidange bloquée par la texture/lourdeur.\n*Lien Vagal* : Fatigue extrême = Shutdown du nerf vague = Estomac figé.\n**Soën : La Zone Rouge**\n*Seuil* : Max 2h30 éveil. À 2h45 : \"Inondation cortisol\". L'enfant est ivre de fatigue, le sommeil autonome devient chimiquement impossible.",
-  "quote": "Le sommeil réparateur fait chuter les hormones de survie (cortisol/adrénaline).",
-  "sillage_count": 10624,
-  "exchanges_24h": 184,
-  "atmosphere": "decompression",
-  "sync_test": "2025-12-15T22:49:30+01:00"
+  "last_breath_human": "18 Dec 2025, 02h00"
 }
