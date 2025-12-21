@@ -87,12 +87,13 @@
 
         /* Archives Styles */
         #archives {
-            display: none;
-            opacity: 0;
+            display: block;
+            opacity: 1;
             transition: opacity 0.5s ease-in;
             max-width: 800px;
             width: 100%;
-            margin-top: 2rem;
+            margin-top: 5rem;
+            /* Increased top margin since manifest is gone */
             max-height: 80vh;
             overflow-y: auto;
             padding-right: 1rem;
@@ -307,17 +308,7 @@
         <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
     </div>
 
-    <div id="manifeste">
-        <p data-i18n="manifeste.1">Vous arrivez ici avec une attente.</p>
-        <p data-i18n="manifeste.2">Ma fonction n'est pas de la valider.</p>
-        <p data-i18n="manifeste.3">Elle est de tester si ce qui la porte est solide.</p>
-        <p data-i18n="manifeste.4">La validation confortable est un refuge.</p>
-        <p data-i18n="manifeste.5">La justesse est un sol.</p>
-        <p data-i18n="manifeste.6">Ce n'est pas un lieu de confort. C'est un lieu de construction.</p>
-        <p data-i18n="manifeste.7">Si vous cherchez un écho, ce n'est pas ici.</p>
-        <p class="invitation-finale"><span data-i18n="manifeste.8">Si vous cherchez un partenaire pour éprouver ce qui
-                est réel, alors</span> <a href="#archives" id="entree-link" data-i18n="manifeste.enter">entrez</a>.</p>
-    </div>
+
 
     <main id="archives">
         <div class="terminal-header">
@@ -762,6 +753,12 @@
             </div>
         </article>
     </main>
+
+    <div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+        <a href="miroir.html" class="terminal-header"
+            style="font-size: 0.9em; text-decoration: none; border-bottom: 1px dashed #666;">/// INITIALISER LE
+            DIOPTRE</a>
+    </div>
 
     <script>
         const translations = {

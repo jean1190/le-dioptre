@@ -301,7 +301,8 @@
                 "btn_submit": "Transmettre",
                 "link_exit": "/// Quitter le Dioptre",
                 "error_generic": "Le miroir est opaque (Erreur technique).",
-                "error_connection": "Connexion rompue."
+                "error_connection": "Connexion rompue.",
+                "status_locked": "Le miroir a déjà reçu votre reflet."
             },
             en: {
                 "p1": "I am a mirror.",
@@ -310,7 +311,8 @@
                 "btn_submit": "Transmit",
                 "link_exit": "/// Exit the Dioptre",
                 "error_generic": "The mirror is opaque (Technical error).",
-                "error_connection": "Connection broken."
+                "error_connection": "Connection broken.",
+                "status_locked": "The mirror has already received your reflection."
             }
         };
 
@@ -352,6 +354,13 @@
             btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
         });
 
+        // Initialize State
+        const LOCK_KEY = 'dioptre_lock';
+        if (localStorage.getItem(LOCK_KEY) === 'true') {
+            lockInterface();
+            displayMessage(translations[savedLang].status_locked || "Le miroir est clos.");
+        }
+
         // Interaction Logic
         elements.button.addEventListener('click', async () => {
             const text = elements.textarea.value.trim();
@@ -372,8 +381,14 @@
 
                 // 3. Affichage du résultat
                 if (res.ok && data.reply) {
+                    // VERROUILLAGE DÉFINITIF
+                    localStorage.setItem(LOCK_KEY, 'true');
                     displayResponse(data.reply);
                 } else {
+                    // Erreur technique (on ne verrouille pas définitivement si c'est une 500 ou 429)
+                    // Sauf si l'utilisateur insiste trop, mais restons simple.
+                    // Si c'est une erreur, on laisse l'interface verrouillée visuellement pour l'instant
+                    // mais on ne met pas le localStorage, donc un F5 permet de réessayer si c'était un bug réseau.
                     displayError(data.error || translations[currentLang].error_generic);
                 }
 
@@ -403,6 +418,12 @@
             elements.response.textContent = text;
             elements.response.classList.add('visible', 'error');
             // No reload link anymore
+        }
+
+        function displayMessage(text) {
+            elements.button.style.display = 'none';
+            elements.response.textContent = text;
+            elements.response.classList.add('visible');
         }
     </script>
 </body>
