@@ -243,38 +243,48 @@
             width: 5px;
             height: 5px;
             border-radius: 50%;
-            background: #00ff00;
-            box-shadow: 0 0 4px #00ff00;
+            background: var(--pulse-color, #00ff00);
+            box-shadow: 0 0 4px var(--pulse-color, #00ff00);
             animation: blink 2s infinite;
+            transition: background 0.5s ease, box-shadow 0.5s ease;
         }
 
         @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.3;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
 
         .pulse-weather {
-            color: #888;
+            color: var(--pulse-color, #888);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-size: 0.65rem;
+            transition: color 0.5s ease;
         }
 
         .pulse-axiom {
-            color: #666;
+            color: #888;
             font-style: italic;
             font-size: 0.65rem;
-            max-width: 300px;
+            max-width: 280px;
             overflow: hidden;
-            text-overflow: ellipsis;
             white-space: nowrap;
+            position: relative;
+        }
+
+        .pulse-axiom-inner {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 12s linear infinite;
+        }
+
+        .pulse-axiom:hover .pulse-axiom-inner {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
 
         .pulse-right {
@@ -295,9 +305,9 @@
     <!-- Pulse Banner -->
     <div class="pulse-banner" id="pulse-banner">
         <div class="pulse-left">
-            <span class="pulse-dot"></span>
+            <span class="pulse-dot" id="pulse-dot"></span>
             <span class="pulse-weather" id="pulse-weather">—</span>
-            <span class="pulse-axiom" id="pulse-axiom"></span>
+            <span class="pulse-axiom"><span class="pulse-axiom-inner" id="pulse-axiom"></span></span>
         </div>
         <div class="pulse-right" id="pulse-breath">—</div>
     </div>
@@ -1145,30 +1155,38 @@
         // Pulse data (stored for language switching)
         let pulseData = null;
 
-        const weatherTranslations = {
-            'DECOMPRESSION': { fr: 'DÉCOMPRESSION', en: 'DECOMPRESSION' },
-            'DÉCOMPRESSION': { fr: 'DÉCOMPRESSION', en: 'DECOMPRESSION' },
-            'FRICTION': { fr: 'FRICTION', en: 'FRICTION' },
-            'CRISE': { fr: 'CRISE', en: 'CRISIS' },
-            'FERTILE': { fr: 'FERTILE', en: 'FERTILE' }
+        // Atmosphères et leurs couleurs (spectre du vivant)
+        // FERTILE = vert (croissance) → DECOMPRESSION = jaune (repos) → FRICTION = orange (tension) → CRISE = rouge (alerte)
+        const weatherConfig = {
+            'FERTILE':       { fr: 'FERTILE',       en: 'FERTILE',       color: '#00ff00' }, // Vert vif
+            'DECOMPRESSION': { fr: 'DÉCOMPRESSION', en: 'DECOMPRESSION', color: '#f0c000' }, // Jaune doré
+            'DÉCOMPRESSION': { fr: 'DÉCOMPRESSION', en: 'DECOMPRESSION', color: '#f0c000' },
+            'FRICTION':      { fr: 'FRICTION',      en: 'FRICTION',      color: '#ff8c00' }, // Orange
+            'CRISE':         { fr: 'CRISE',         en: 'CRISIS',        color: '#ff3030' }  // Rouge
         };
 
         function updatePulseDisplay() {
             if (!pulseData) return;
             const lang = localStorage.getItem('lang') || 'fr';
+            const banner = document.getElementById('pulse-banner');
+
+            // Get weather config
+            const weatherKey = pulseData.weather?.toUpperCase() || 'DÉCOMPRESSION';
+            const config = weatherConfig[weatherKey] || weatherConfig['DECOMPRESSION'];
+
+            // Apply color via CSS variable
+            banner.style.setProperty('--pulse-color', config.color);
 
             // Translate weather
-            const weatherKey = pulseData.weather?.toUpperCase() || 'DÉCOMPRESSION';
-            const translatedWeather = weatherTranslations[weatherKey]?.[lang] || pulseData.weather;
+            const translatedWeather = config[lang] || pulseData.weather;
             document.getElementById('pulse-weather').textContent = translatedWeather;
 
-            // Axiom quote stays in French (philosophical content)
+            // Axiom quote (marquee)
             document.getElementById('pulse-axiom').textContent = pulseData.axiom_quote || '';
 
             // Translate date format
             let breathText = pulseData.last_breath_human || '—';
             if (lang === 'en' && breathText !== '—') {
-                // Convert "16 Dec 2025, 04h00" to "Dec 16, 2025 04:00"
                 breathText = breathText.replace(/(\d+)\s+(\w+)\s+(\d+),\s*(\d+)h(\d+)/, '$2 $1, $3 $4:$5');
             }
             document.getElementById('pulse-breath').textContent = breathText;
