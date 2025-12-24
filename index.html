@@ -1142,22 +1142,6 @@
             btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
         });
 
-        // Entry link handler
-        document.getElementById('entree-link').addEventListener('click', function (e) {
-            e.preventDefault();
-            const archives = document.getElementById('archives');
-            const manifeste = document.getElementById('manifeste');
-
-            manifeste.style.opacity = '0';
-            setTimeout(() => {
-                manifeste.style.display = 'none';
-                archives.style.display = 'block';
-                setTimeout(() => {
-                    archives.style.opacity = '1';
-                }, 50);
-            }, 500);
-        });
-
         // Pulse data (stored for language switching)
         let pulseData = null;
 
