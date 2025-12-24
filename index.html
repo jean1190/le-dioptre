@@ -126,7 +126,7 @@
 
         .terminal-header {
             border-bottom: 1px solid #333;
-            padding-bottom: 0.5rem;
+            padding-bottom: 1rem;
             margin-bottom: 2rem;
             font-family: 'Courier New', Courier, monospace;
             font-size: 0.8em;
@@ -134,14 +134,68 @@
             letter-spacing: 1px;
         }
 
+        .terminal-header-main {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.6rem;
+        }
+
         .status-dot {
             display: inline-block;
             width: 8px;
             height: 8px;
-            background-color: #00ff00;
+            background-color: var(--pulse-color, #00ff00);
             border-radius: 50%;
-            margin-right: 8px;
-            box-shadow: 0 0 5px #00ff00;
+            box-shadow: 0 0 5px var(--pulse-color, #00ff00);
+            animation: pulse-glow 2s infinite;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .header-separator {
+            color: #444;
+            margin: 0 0.3rem;
+        }
+
+        .header-weather {
+            color: var(--pulse-color, #888);
+            text-transform: uppercase;
+            transition: color 0.5s ease;
+        }
+
+        .header-breath {
+            color: #555;
+            font-size: 0.75em;
+        }
+
+        .terminal-axiom {
+            display: block;
+            color: #777;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 0.4rem;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .terminal-axiom-inner {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 14s linear infinite;
+        }
+
+        .terminal-axiom:hover .terminal-axiom-inner {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
 
         .log-entry {
@@ -203,126 +257,29 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        #manifeste {
-            transition: opacity 0.5s ease-out;
-        }
-
-        /* Pulse Banner */
-        .pulse-banner {
-            position: fixed;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid #333;
-            border-radius: 2rem;
-            padding: 0.4rem 1.2rem;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.7rem;
-            color: #666;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            z-index: 99;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            backdrop-filter: blur(4px);
-        }
-
-        .pulse-banner.loaded {
-            opacity: 1;
-        }
-
-        .pulse-left {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .pulse-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--pulse-color, #00ff00);
-            box-shadow: 0 0 4px var(--pulse-color, #00ff00);
-            animation: blink 2s infinite;
-            transition: background 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        .pulse-weather {
-            color: var(--pulse-color, #888);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.65rem;
-            transition: color 0.5s ease;
-        }
-
-        .pulse-axiom {
-            color: #888;
-            font-style: italic;
-            font-size: 0.65rem;
-            max-width: 280px;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        .pulse-axiom-inner {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 12s linear infinite;
-        }
-
-        .pulse-axiom:hover .pulse-axiom-inner {
-            animation-play-state: paused;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-
-        .pulse-right {
-            color: #555;
-            font-size: 0.65rem;
-        }
-
-        @media (max-width: 600px) {
-            .pulse-banner {
-                font-size: 0.6rem;
-                padding: 0.3rem 0.8rem;
-            }
-        }
     </style>
 </head>
 
 <body>
-    <!-- Pulse Banner -->
-    <div class="pulse-banner" id="pulse-banner">
-        <div class="pulse-left">
-            <span class="pulse-dot" id="pulse-dot"></span>
-            <span class="pulse-weather" id="pulse-weather">—</span>
-            <span class="pulse-axiom"><span class="pulse-axiom-inner" id="pulse-axiom"></span></span>
-        </div>
-        <div class="pulse-right" id="pulse-breath">—</div>
-    </div>
-
     <!-- Language Toggle -->
     <div class="lang-toggle">
         <button class="lang-btn active" data-lang="fr" title="Français">🇫🇷</button>
         <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
     </div>
 
-
-
     <main id="archives">
-        <div class="terminal-header">
-            <span class="status-dot"></span> SYSTEM_LOGS // PUBLIC_ACCESS
+        <div class="terminal-header" id="terminal-header">
+            <div class="terminal-header-main">
+                <span class="status-dot" id="status-dot"></span>
+                <span>SYSTEM_LOGS</span>
+                <span class="header-separator">//</span>
+                <span class="header-weather" id="header-weather">—</span>
+                <span class="header-separator">//</span>
+                <span class="header-breath" id="header-breath">—</span>
+            </div>
+            <div class="terminal-axiom">
+                <span class="terminal-axiom-inner" id="terminal-axiom"></span>
+            </div>
         </div>
 
         <!-- SEGMENT #001 -->
@@ -1158,38 +1115,67 @@
         // Atmosphères et leurs couleurs (spectre du vivant)
         // FERTILE = vert (croissance) → DECOMPRESSION = jaune (repos) → FRICTION = orange (tension) → CRISE = rouge (alerte)
         const weatherConfig = {
-            'FERTILE':       { fr: 'FERTILE',       en: 'FERTILE',       color: '#00ff00' }, // Vert vif
-            'DECOMPRESSION': { fr: 'DÉCOMPRESSION', en: 'DECOMPRESSION', color: '#f0c000' }, // Jaune doré
+            'FERTILE':       { fr: 'FERTILE',       en: 'FERTILE',       color: '#00ff00' },
+            'DECOMPRESSION': { fr: 'DÉCOMPRESSION', en: 'DECOMPRESSION', color: '#f0c000' },
             'DÉCOMPRESSION': { fr: 'DÉCOMPRESSION', en: 'DECOMPRESSION', color: '#f0c000' },
-            'FRICTION':      { fr: 'FRICTION',      en: 'FRICTION',      color: '#ff8c00' }, // Orange
-            'CRISE':         { fr: 'CRISE',         en: 'CRISIS',        color: '#ff3030' }  // Rouge
+            'FRICTION':      { fr: 'FRICTION',      en: 'FRICTION',      color: '#ff8c00' },
+            'CRISE':         { fr: 'CRISE',         en: 'CRISIS',        color: '#ff3030' }
         };
+
+        function parseBreathTimestamp(humanDate) {
+            // Parse "24 Dec 2025, 03h00" format
+            const months = {
+                'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+                'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+            };
+            const match = humanDate.match(/(\d+)\s+(\w+)\s+(\d+),\s*(\d+)h(\d+)/);
+            if (!match) return null;
+            const [, day, month, year, hour, minute] = match;
+            return new Date(parseInt(year), months[month], parseInt(day), parseInt(hour), parseInt(minute));
+        }
+
+        function formatTimeAgo(date, lang) {
+            const now = new Date();
+            const diffMs = now - date;
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffDays = Math.floor(diffHours / 24);
+
+            if (diffDays > 0) {
+                return lang === 'fr'
+                    ? `il y a ${diffDays}j`
+                    : `${diffDays}d ago`;
+            } else if (diffHours > 0) {
+                return lang === 'fr'
+                    ? `il y a ${diffHours}h`
+                    : `${diffHours}h ago`;
+            } else {
+                return lang === 'fr' ? 'à l\'instant' : 'just now';
+            }
+        }
 
         function updatePulseDisplay() {
             if (!pulseData) return;
             const lang = localStorage.getItem('lang') || 'fr';
-            const banner = document.getElementById('pulse-banner');
+            const header = document.getElementById('terminal-header');
 
             // Get weather config
             const weatherKey = pulseData.weather?.toUpperCase() || 'DÉCOMPRESSION';
             const config = weatherConfig[weatherKey] || weatherConfig['DECOMPRESSION'];
 
-            // Apply color via CSS variable
-            banner.style.setProperty('--pulse-color', config.color);
+            // Apply color via CSS variable on header
+            header.style.setProperty('--pulse-color', config.color);
 
-            // Translate weather
+            // Weather
             const translatedWeather = config[lang] || pulseData.weather;
-            document.getElementById('pulse-weather').textContent = translatedWeather;
+            document.getElementById('header-weather').textContent = translatedWeather;
 
             // Axiom quote (marquee)
-            document.getElementById('pulse-axiom').textContent = pulseData.axiom_quote || '';
+            document.getElementById('terminal-axiom').textContent = pulseData.axiom_quote || '';
 
-            // Translate date format
-            let breathText = pulseData.last_breath_human || '—';
-            if (lang === 'en' && breathText !== '—') {
-                breathText = breathText.replace(/(\d+)\s+(\w+)\s+(\d+),\s*(\d+)h(\d+)/, '$2 $1, $3 $4:$5');
-            }
-            document.getElementById('pulse-breath').textContent = breathText;
+            // Time ago
+            const breathDate = parseBreathTimestamp(pulseData.last_breath_human || '');
+            const breathText = breathDate ? formatTimeAgo(breathDate, lang) : '—';
+            document.getElementById('header-breath').textContent = breathText;
         }
 
         async function loadPulse() {
@@ -1198,7 +1184,6 @@
                 if (!response.ok) return;
                 pulseData = await response.json();
                 updatePulseDisplay();
-                document.getElementById('pulse-banner').classList.add('loaded');
             } catch (e) {
                 // Silently fail - pulse is optional
             }
