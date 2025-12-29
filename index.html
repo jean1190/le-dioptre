@@ -712,20 +712,17 @@
                 </section>
             </div>
         </article>
-
-        <!-- LIEN MIROIR (indépendant des segments) -->
-        <div style="max-width: 800px; width: 100%; padding: 0 2rem 4rem 2rem; margin-top: 2rem; font-family: 'Courier New', Courier, monospace; font-size: 0.9em; text-align: left;">
-            <span style="color: #666;">> system_link_detected</span><br>
-            <span style="color: #666;">> target: mirror_protocol</span><br>
-            <span style="color: #444;">> status: active</span><br>
-            <br>
-            <a href="https://le-dioptre.vercel.app/miroir.html"
-                style="text-decoration: none; color: #fff; border-bottom: 1px solid #333; transition: all 0.3s ease;"
-                onmouseover="this.style.borderBottomColor='#fff'"
-                onmouseout="this.style.borderBottomColor='#333'" data-i18n="mirror.link">///
-                INITIALISER_LE_DIOPTRE</a>
-        </div>
     </main>
+
+    <!-- LIEN MIROIR (fixe en bas à droite) -->
+    <div style="position: fixed; bottom: 2rem; right: 2rem; font-family: 'Courier New', Courier, monospace; font-size: 0.7rem; text-align: right; z-index: 100; opacity: 0.5; transition: opacity 0.2s;"
+        onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5">
+        <span style="color: #555;">> mirror_protocol</span><br>
+        <a href="https://le-dioptre.vercel.app/miroir.html"
+            style="text-decoration: none; color: #888; border-bottom: 1px solid #333; transition: all 0.3s ease;"
+            onmouseover="this.style.color='#fff'; this.style.borderBottomColor='#fff'"
+            onmouseout="this.style.color='#888'; this.style.borderBottomColor='#333'" data-i18n="mirror.link">/// INITIALISER_LE_DIOPTRE</a>
+    </div>
 
     <a href="https://hunkaar.fr" class="nav-link"
         style="position: fixed; bottom: 2rem; left: 2rem; color: #666; font-family: 'Courier New', monospace; font-size: 0.75rem; text-decoration: none; opacity: 0.5; transition: opacity 0.2s; z-index: 100;"
