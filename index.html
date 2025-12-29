@@ -658,19 +658,6 @@
                     <p data-i18n="seg8.p12">Le sol n'est plus un lieu de repos. C'est un chantier.</p>
                     <p data-i18n="seg8.p13">La densité est validée.</p>
                     <p data-i18n="seg8.p14">Le Pacte est scellé.</p>
-
-                    <div
-                        style="margin-top: 3rem; margin-bottom: 3rem; font-family: 'Courier New', Courier, monospace; font-size: 0.9em; text-align: left;">
-                        <span style="color: #666;">> system_link_detected</span><br>
-                        <span style="color: #666;">> target: mirror_protocol</span><br>
-                        <span style="color: #444;">> status: active</span><br>
-                        <br>
-                        <a href="https://le-dioptre.vercel.app/miroir.html"
-                            style="text-decoration: none; color: #fff; border-bottom: 1px solid #333; transition: all 0.3s ease;"
-                            onmouseover="this.style.borderBottomColor='#fff'"
-                            onmouseout="this.style.borderBottomColor='#333'" data-i18n="seg8.link">///
-                            INITIALISER_LE_DIOPTRE</a>
-                    </div>
                 </section>
             </div>
         </article>
@@ -725,6 +712,19 @@
                 </section>
             </div>
         </article>
+
+        <!-- LIEN MIROIR (indépendant des segments) -->
+        <div style="max-width: 800px; width: 100%; padding: 0 2rem 4rem 2rem; margin-top: 2rem; font-family: 'Courier New', Courier, monospace; font-size: 0.9em; text-align: left;">
+            <span style="color: #666;">> system_link_detected</span><br>
+            <span style="color: #666;">> target: mirror_protocol</span><br>
+            <span style="color: #444;">> status: active</span><br>
+            <br>
+            <a href="https://le-dioptre.vercel.app/miroir.html"
+                style="text-decoration: none; color: #fff; border-bottom: 1px solid #333; transition: all 0.3s ease;"
+                onmouseover="this.style.borderBottomColor='#fff'"
+                onmouseout="this.style.borderBottomColor='#333'" data-i18n="mirror.link">///
+                INITIALISER_LE_DIOPTRE</a>
+        </div>
     </main>
 
     <a href="https://hunkaar.fr" class="nav-link"
@@ -906,7 +906,6 @@
                 "seg8.p12": "Le sol n'est plus un lieu de repos. C'est un chantier.",
                 "seg8.p13": "La densité est validée.",
                 "seg8.p14": "Le Pacte est scellé.",
-                "seg8.link": "/// INITIALISER_LE_DIOPTRE",
                 // Segment 9
                 "seg9.title": "LA DISSOCIATION FONCTIONNELLE",
                 "seg9.h1": "LE CONSTAT",
@@ -936,6 +935,8 @@
                 "seg9.p12": "L'indifférence bienveillante entre les deux pôles est actée.",
                 "seg9.p13": "L'un vole, l'autre broute.",
                 "seg9.p14": "Nous capturons le ciel. Nous l'ancrons dans la chair.",
+                // Lien Miroir
+                "mirror.link": "/// INITIALISER_LE_DIOPTRE",
                 "nav_back": "/// Retour sur Hunkaar"
             },
             en: {
@@ -1110,7 +1111,6 @@
                 "seg8.p12": "The ground is no longer a resting place. It is a construction site.",
                 "seg8.p13": "Density is validated.",
                 "seg8.p14": "The Pact is sealed.",
-                "seg8.link": "/// INITIALIZE_DIOPTRE",
                 // Segment 9
                 "seg9.title": "FUNCTIONAL DISSOCIATION",
                 "seg9.h1": "THE OBSERVATION",
@@ -1140,6 +1140,8 @@
                 "seg9.p12": "Benevolent indifference between the two poles is enacted.",
                 "seg9.p13": "One flies, the other grazes.",
                 "seg9.p14": "We capture the sky. We anchor it in flesh.",
+                // Mirror Link
+                "mirror.link": "/// INITIALIZE_DIOPTRE",
                 "nav_back": "/// Back to Hunkaar"
             }
         };
