@@ -501,18 +501,13 @@
             margin: 0;
         }
 
-        /* Liens en bas */
+        /* Liens en bas - dans le flux du Livre I */
         .bottom-links {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
             display: flex;
             justify-content: space-between;
-            padding: 1rem 2rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9));
-            z-index: 100;
-            transition: opacity 0.3s ease;
+            padding: 3rem 0 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
         }
 
         .bottom-link {
@@ -527,18 +522,10 @@
             color: #fff;
         }
 
-        /* Cacher les liens quand Livre I est ouvert (desktop uniquement) */
-        @media (min-width: 769px) {
-            .livre-i-open .bottom-links {
-                opacity: 0;
-                pointer-events: none;
-            }
-        }
-
         /* Mobile */
         @media (max-width: 768px) {
             #archives {
-                padding: 1rem 0.5rem 6rem 0.5rem;
+                padding: 1rem 0.5rem;
             }
 
             .terminal-header {
@@ -616,8 +603,7 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
-                padding: 1.5rem 1rem 2rem 1rem;
-                background: linear-gradient(transparent, rgba(0,0,0,0.95) 30%);
+                padding: 2rem 0 3rem 0;
             }
 
             .bottom-link {
@@ -1159,17 +1145,17 @@
             </div>
         </article>
 
+                <!-- Liens en bas du Livre I -->
+                <div class="bottom-links">
+                    <a href="https://hunkaar.fr" class="bottom-link" data-i18n="nav_back">/// Retour sur Hunkaar</a>
+                    <a href="https://le-dioptre.vercel.app/miroir.html" class="bottom-link" data-i18n="mirror.link">/// INITIALISER_LE_DIOPTRE</a>
+                </div>
+
                 </div><!-- Fin book-content -->
             </div><!-- Fin accordion-content -->
         </div><!-- Fin livre-i-accordion -->
 
     </main>
-
-    <!-- Liens en bas -->
-    <div class="bottom-links">
-        <a href="https://hunkaar.fr" class="bottom-link" data-i18n="nav_back">/// Retour sur Hunkaar</a>
-        <a href="https://le-dioptre.vercel.app/miroir.html" class="bottom-link" data-i18n="mirror.link">/// INITIALISER_LE_DIOPTRE</a>
-    </div>
 
     <script>
         const translations = {
