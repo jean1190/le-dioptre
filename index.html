@@ -504,12 +504,12 @@
             margin: 0;
         }
 
-        /* Liens en bas - dans le flux du Livre I */
+        /* Liens en bas - poussés en bas */
         .bottom-links {
             display: flex;
             justify-content: space-between;
-            padding: 3rem 0 2rem 0;
-            margin-top: 2rem;
+            padding: 1.5rem 0;
+            margin-top: auto;
             border-top: 1px solid #333;
         }
 
@@ -1640,8 +1640,20 @@
         function toggleLivreI() {
             const accordion = document.getElementById('livre-i-accordion');
             const archives = document.getElementById('archives');
+            const bottomLinks = document.querySelector('.bottom-links');
+            const accordionContent = accordion.querySelector('.accordion-content');
+
             accordion.classList.toggle('open');
             archives.classList.toggle('livre-i-open');
+
+            // Déplacer les liens dans/hors de l'accordion
+            if (accordion.classList.contains('open')) {
+                // Ouvert : liens à la fin du contenu scrollable
+                accordionContent.appendChild(bottomLinks);
+            } else {
+                // Fermé : liens en bas de main
+                archives.appendChild(bottomLinks);
+            }
         }
 
         let currentLang = 'fr';
