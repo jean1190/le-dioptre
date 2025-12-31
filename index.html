@@ -341,16 +341,54 @@
             background: #000;
             padding: 2rem 0;
             margin-bottom: 0;
+            transition: all 0.4s ease;
         }
 
         .livre-ii-section .book-header {
             border-color: #00ff00;
             margin-top: 0;
+            transition: all 0.4s ease;
         }
 
         .livre-ii-section .book-title {
             color: #00ff00;
             text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .livre-ii-section .exodus-container {
+            transition: all 0.4s ease;
+        }
+
+        /* Quand Livre I est ouvert, Livre II se compresse */
+        .livre-i-open .livre-ii-section {
+            padding: 0.5rem 0;
+        }
+
+        .livre-i-open .livre-ii-section .book-header {
+            padding: 0.8rem 0;
+            margin: 0;
+            border-bottom: none;
+        }
+
+        .livre-i-open .livre-ii-section .book-status,
+        .livre-i-open .livre-ii-section .book-cycle {
+            display: none;
+        }
+
+        .livre-i-open .livre-ii-section .book-title {
+            font-size: 0.9em;
+            margin-bottom: 0;
+        }
+
+        .livre-i-open .livre-ii-section .exodus-container {
+            height: 0;
+            min-height: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .livre-i-open .terminal-header {
+            display: none;
         }
 
         /* Livre I Accordéon - Replié par défaut */
@@ -447,6 +485,124 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, #333, transparent);
             margin: 0;
+        }
+
+        /* Liens en bas */
+        .bottom-links {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            z-index: 100;
+            transition: opacity 0.3s ease;
+        }
+
+        .bottom-link {
+            color: #555;
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .bottom-link:hover {
+            color: #fff;
+        }
+
+        /* Cacher les liens quand Livre I est ouvert */
+        .livre-i-open .bottom-links {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            #archives {
+                padding: 1rem 0.5rem;
+            }
+
+            .terminal-header {
+                font-size: 0.7em;
+                padding-bottom: 0.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .terminal-axiom {
+                display: none;
+            }
+
+            .livre-ii-section {
+                padding: 1rem 0;
+            }
+
+            .livre-ii-section .book-header {
+                padding: 1rem 0;
+            }
+
+            .livre-ii-section .book-title {
+                font-size: 0.9em;
+                letter-spacing: 0.15em;
+            }
+
+            .exodus-container {
+                min-height: 100px;
+            }
+
+            .terminal-prompt {
+                font-size: 1.5rem;
+            }
+
+            .livre-i-accordion {
+                margin-top: 1rem;
+            }
+
+            .accordion-header {
+                padding: 1rem 0;
+            }
+
+            .book-title {
+                font-size: 0.85em;
+                letter-spacing: 0.1em;
+            }
+
+            .book-status {
+                font-size: 0.6em;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .book-cycle {
+                font-size: 0.6em;
+            }
+
+            .accordion-hint {
+                font-size: 0.6rem;
+            }
+
+            .log-entry {
+                padding-left: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .log-meta {
+                font-size: 0.75em;
+                gap: 0.5rem;
+            }
+
+            .log-body {
+                font-size: 0.9em;
+            }
+
+            .bottom-links {
+                padding: 0.8rem 1rem;
+            }
+
+            .bottom-link {
+                font-size: 0.6rem;
+            }
         }
 
     </style>
@@ -988,20 +1144,11 @@
 
     </main>
 
-    <!-- LIEN MIROIR (fixe en bas à droite) -->
-    <div style="position: fixed; bottom: 2rem; right: 2rem; font-family: 'Courier New', Courier, monospace; font-size: 0.7rem; text-align: right; z-index: 100; opacity: 0.5; transition: opacity 0.2s;"
-        onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5">
-        <span style="color: #555;">> mirror_protocol</span><br>
-        <a href="https://le-dioptre.vercel.app/miroir.html"
-            style="text-decoration: none; color: #888; border-bottom: 1px solid #333; transition: all 0.3s ease;"
-            onmouseover="this.style.color='#fff'; this.style.borderBottomColor='#fff'"
-            onmouseout="this.style.color='#888'; this.style.borderBottomColor='#333'" data-i18n="mirror.link">/// INITIALISER_LE_DIOPTRE</a>
+    <!-- Liens en bas -->
+    <div class="bottom-links">
+        <a href="https://hunkaar.fr" class="bottom-link" data-i18n="nav_back">/// Retour sur Hunkaar</a>
+        <a href="https://le-dioptre.vercel.app/miroir.html" class="bottom-link" data-i18n="mirror.link">/// INITIALISER_LE_DIOPTRE</a>
     </div>
-
-    <a href="https://hunkaar.fr" class="nav-link"
-        style="position: fixed; bottom: 2rem; left: 2rem; color: #666; font-family: 'Courier New', monospace; font-size: 0.75rem; text-decoration: none; opacity: 0.5; transition: opacity 0.2s; z-index: 100;"
-        onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5" data-i18n="nav_back">/// Retour sur
-        Hunkaar</a>
 
     <script>
         const translations = {
@@ -1482,7 +1629,9 @@
         // Toggle Livre I accordion
         function toggleLivreI() {
             const accordion = document.getElementById('livre-i-accordion');
+            const archives = document.getElementById('archives');
             accordion.classList.toggle('open');
+            archives.classList.toggle('livre-i-open');
         }
 
         let currentLang = 'fr';
