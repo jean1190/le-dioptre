@@ -117,6 +117,8 @@
             max-width: 800px;
             width: 100%;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             padding: 2rem 1rem;
             box-sizing: border-box;
         }
@@ -444,6 +446,8 @@
         /* Livre I Accordéon - Replié par défaut */
         .livre-i-accordion {
             border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            /* Closing line attached to book */
             margin-top: 2rem;
             display: flex;
             flex-direction: column;
@@ -524,11 +528,10 @@
             display: flex;
             justify-content: space-between;
             padding: 2rem 0;
-            margin-top: 8rem;
-            /* Significant separation */
-            border-top: 1px solid #333;
-            background-color: #000;
-            /* Ensure it covers if needed, though transparent is fine */
+            margin-top: auto;
+            /* Sticky footer magic */
+            /* border-top removed */
+            background-color: transparent;
             position: relative;
             z-index: 10;
         }
