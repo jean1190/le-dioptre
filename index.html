@@ -466,16 +466,20 @@
             background: #555;
         }
 
-        /* Cacher les flèches haut/bas */
-        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button {
-            display: none !important;
-            height: 0 !important;
-            width: 0 !important;
-        }
-
+        /* Cacher TOUTES les flèches/boutons du scrollbar */
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button,
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:single-button,
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:vertical:start,
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:vertical:end,
         .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:vertical:start:decrement,
-        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:vertical:end:increment {
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:vertical:end:increment,
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:vertical:start:increment,
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:vertical:end:decrement {
             display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+            background: transparent !important;
+            border: none !important;
         }
 
         .accordion-hint {
@@ -523,10 +527,12 @@
             color: #fff;
         }
 
-        /* Cacher les liens quand Livre I est ouvert */
-        .livre-i-open .bottom-links {
-            opacity: 0;
-            pointer-events: none;
+        /* Cacher les liens quand Livre I est ouvert (desktop uniquement) */
+        @media (min-width: 769px) {
+            .livre-i-open .bottom-links {
+                opacity: 0;
+                pointer-events: none;
+            }
         }
 
         /* Mobile */
