@@ -443,15 +443,39 @@
             flex: 1;
             min-height: 0;
             overflow-y: auto;
-            /* Scrollbar invisible - scroll fonctionne mais pas de barre visible */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE/Edge */
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: #333 transparent; /* Firefox */
         }
 
+        /* Webkit (Chrome/Safari/Edge) - scrollbar visible, sans flèches */
         .livre-i-accordion.open .accordion-content::-webkit-scrollbar {
-            display: none; /* Chrome/Safari/Opera */
-            width: 0;
-            height: 0;
+            width: 8px;
+            background: transparent;
+        }
+
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Cacher les flèches haut/bas */
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button {
+            display: none !important;
+            height: 0 !important;
+            width: 0 !important;
+        }
+
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:vertical:start:decrement,
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:vertical:end:increment {
+            display: none !important;
         }
 
         .accordion-hint {
