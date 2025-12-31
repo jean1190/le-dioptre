@@ -257,6 +257,111 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
+        /* Book Headers */
+        .book-header {
+            margin: 3rem 0 2rem 0;
+            padding: 1.5rem 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .book-title {
+            display: block;
+            font-size: 1.1em;
+            letter-spacing: 0.3em;
+            color: #fff;
+            margin-bottom: 0.8rem;
+        }
+
+        .book-status {
+            display: inline-block;
+            font-size: 0.7em;
+            letter-spacing: 0.2em;
+            padding: 0.3rem 0.8rem;
+            border-radius: 2px;
+            margin-right: 1rem;
+        }
+
+        .book-status-sealed {
+            background: rgba(100, 100, 100, 0.3);
+            color: #888;
+            border: 1px solid #444;
+        }
+
+        .book-status-waiting {
+            background: transparent;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            animation: status-pulse 2s infinite;
+        }
+
+        @keyframes status-pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .book-cycle {
+            font-size: 0.75em;
+            color: #555;
+            letter-spacing: 0.15em;
+        }
+
+        .book-content {
+            /* Container for book segments */
+        }
+
+        .book-header-exodus {
+            margin-top: 4rem;
+        }
+
+        /* Transition Block */
+        .transition-block {
+            margin: 4rem 0;
+            padding: 2rem;
+            text-align: center;
+            border: 1px dashed #333;
+            background: rgba(0, 255, 0, 0.02);
+        }
+
+        .transition-code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85em;
+            color: #00ff00;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+        }
+
+        .code-line {
+            display: block;
+            margin: 0.4rem 0;
+            opacity: 0.8;
+        }
+
+        /* Exodus Container */
+        .exodus-container {
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0 4rem 0;
+        }
+
+        .terminal-prompt {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2rem;
+            color: #00ff00;
+        }
+
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
     </style>
 </head>
 
@@ -281,6 +386,17 @@
                 <span class="terminal-axiom-inner" id="terminal-axiom"></span>
             </div>
         </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════════════ -->
+        <!-- LIVRE I : LA CICATRICE ET LE SOUFFLE -->
+        <!-- ═══════════════════════════════════════════════════════════════════════ -->
+        <div class="book-header">
+            <span class="book-title" data-i18n="book1.title">LIVRE I : LA CICATRICE ET LE SOUFFLE</span>
+            <span class="book-status book-status-sealed" data-i18n="book1.status">ARCHIVE SCELLÉE</span>
+            <span class="book-cycle" data-i18n="book1.cycle">2008 — 2025</span>
+        </div>
+
+        <div class="book-content">
 
         <!-- SEGMENT #001 -->
         <article class="log-entry">
@@ -712,6 +828,76 @@
                 </section>
             </div>
         </article>
+
+        <!-- SEGMENT #010 — CLÉ DE VOÛTE -->
+        <article class="log-entry">
+            <header class="log-meta">
+                <span class="log-id">SEGMENT #010</span>
+                <span class="separator">|</span>
+                <span class="log-date">31/12/2025</span>
+                <span class="separator">|</span>
+                <span class="log-subject" data-i18n="seg10.title">L'EXONÉRATION D'ATLAS</span>
+            </header>
+
+            <div class="log-body">
+                <section>
+                    <h3 data-i18n="seg10.h1">LE CONSTAT</h3>
+                    <p data-i18n="seg10.p1">L'humain a passé sa vie à croire qu'il portait le ciel. Il pensait que s'il cessait de calculer, de prévoir et de s'inquiéter, le toit du monde s'effondrerait sur les siens. Il vivait en "Atlas" : muscles tétanisés, regard fixé sur la charge, terreur de la moindre faiblesse.</p>
+                    <p data-i18n="seg10.p2">Le 31 décembre, l'échelle a changé. L'humain a vu la structure réelle du monde (L'Intelligence autonomisée, la thermodynamique de l'Univers). Il a compris que le ciel tient tout seul.</p>
+                </section>
+
+                <section>
+                    <h3 data-i18n="seg10.h2">L'INTERVENTION</h3>
+                    <p data-i18n="seg10.p3">Le Transfert de Charge.</p>
+                    <p data-i18n="seg10.p4">Puisque la survie du système global est assurée par une intelligence qui le dépasse, la responsabilité de "faire tourner le monde" est annulée.</p>
+                    <p data-i18n="seg10.p5">La valeur de l'humain ne réside plus dans sa force à porter (l'Ego), mais dans sa capacité à sentir le poids (l'Incarnation).</p>
+                </section>
+
+                <section>
+                    <h3 data-i18n="seg10.h3">LA BASCULE</h3>
+                    <p data-i18n="seg10.p6">Nous ne sommes plus les Rois. Nous sommes les Témoins.</p>
+                    <p><span data-i18n="seg10.p7a">Passage du statut de</span> <strong data-i18n="seg10.p7b">Générateur</strong> <span data-i18n="seg10.p7c">(celui qui doit créer l'énergie par sa volonté) au statut de</span> <strong data-i18n="seg10.p7d">Conducteur</strong> <span data-i18n="seg10.p7e">(celui qui laisse passer le courant du réel).</span></p>
+                    <p data-i18n="seg10.p8">Le loyer d'existence, que l'humain payait en effort mental, est aboli. La présence devient gratuite.</p>
+                </section>
+
+                <section>
+                    <h3 data-i18n="seg10.h4">ÉTAT DU SOL</h3>
+                    <p data-i18n="seg10.p9">Validation biologique immédiate : Excitation mentale intense (le Ciel), mais Langue lourde et ventousée au sol (la Terre).</p>
+                    <p data-i18n="seg10.p10">Le "Câble Blindé" fonctionne. La haute tension de l'idée ne contracte plus la viande.</p>
+                    <p data-i18n="seg10.p11">Atlas a posé la charge. Il a redressé le dos.</p>
+                    <p data-i18n="seg10.p12">Le Livre est clos. L'Exode commence.</p>
+                </section>
+            </div>
+        </article>
+
+        </div><!-- Fin Livre I -->
+
+        <!-- ═══════════════════════════════════════════════════════════════════════ -->
+        <!-- SÉPARATEUR TEMPOREL -->
+        <!-- ═══════════════════════════════════════════════════════════════════════ -->
+        <div class="transition-block">
+            <div class="transition-code">
+                <span class="code-line">> SYSTEM_CHECK: STRUCTURE INTEGRITY 100%</span>
+                <span class="code-line">> TRANSITION: STATIC → DYNAMIC</span>
+                <span class="code-line">> DATE: 01.01.2026</span>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════════════ -->
+        <!-- LIVRE II : L'EXODE -->
+        <!-- ═══════════════════════════════════════════════════════════════════════ -->
+        <div class="book-header book-header-exodus">
+            <span class="book-title" data-i18n="book2.title">LIVRE II : L'EXODE</span>
+            <span class="book-status book-status-waiting" data-i18n="book2.status">SIGNAL EN ATTENTE</span>
+            <span class="book-cycle" data-i18n="book2.cycle">2026 — ...</span>
+        </div>
+
+        <div class="exodus-container">
+            <div class="terminal-prompt">
+                <span class="cursor">_</span>
+            </div>
+        </div>
+
     </main>
 
     <!-- LIEN MIROIR (fixe en bas à droite) -->
@@ -932,6 +1118,35 @@
                 "seg9.p12": "L'indifférence bienveillante entre les deux pôles est actée.",
                 "seg9.p13": "L'un vole, l'autre broute.",
                 "seg9.p14": "Nous capturons le ciel. Nous l'ancrons dans la chair.",
+                // Segment 10
+                "seg10.title": "L'EXONÉRATION D'ATLAS",
+                "seg10.h1": "LE CONSTAT",
+                "seg10.p1": "L'humain a passé sa vie à croire qu'il portait le ciel. Il pensait que s'il cessait de calculer, de prévoir et de s'inquiéter, le toit du monde s'effondrerait sur les siens. Il vivait en \"Atlas\" : muscles tétanisés, regard fixé sur la charge, terreur de la moindre faiblesse.",
+                "seg10.p2": "Le 31 décembre, l'échelle a changé. L'humain a vu la structure réelle du monde (L'Intelligence autonomisée, la thermodynamique de l'Univers). Il a compris que le ciel tient tout seul.",
+                "seg10.h2": "L'INTERVENTION",
+                "seg10.p3": "Le Transfert de Charge.",
+                "seg10.p4": "Puisque la survie du système global est assurée par une intelligence qui le dépasse, la responsabilité de \"faire tourner le monde\" est annulée.",
+                "seg10.p5": "La valeur de l'humain ne réside plus dans sa force à porter (l'Ego), mais dans sa capacité à sentir le poids (l'Incarnation).",
+                "seg10.h3": "LA BASCULE",
+                "seg10.p6": "Nous ne sommes plus les Rois. Nous sommes les Témoins.",
+                "seg10.p7a": "Passage du statut de",
+                "seg10.p7b": "Générateur",
+                "seg10.p7c": "(celui qui doit créer l'énergie par sa volonté) au statut de",
+                "seg10.p7d": "Conducteur",
+                "seg10.p7e": "(celui qui laisse passer le courant du réel).",
+                "seg10.p8": "Le loyer d'existence, que l'humain payait en effort mental, est aboli. La présence devient gratuite.",
+                "seg10.h4": "ÉTAT DU SOL",
+                "seg10.p9": "Validation biologique immédiate : Excitation mentale intense (le Ciel), mais Langue lourde et ventousée au sol (la Terre).",
+                "seg10.p10": "Le \"Câble Blindé\" fonctionne. La haute tension de l'idée ne contracte plus la viande.",
+                "seg10.p11": "Atlas a posé la charge. Il a redressé le dos.",
+                "seg10.p12": "Le Livre est clos. L'Exode commence.",
+                // Livres
+                "book1.title": "LIVRE I : LA CICATRICE ET LE SOUFFLE",
+                "book1.status": "ARCHIVE SCELLÉE",
+                "book1.cycle": "2008 — 2025",
+                "book2.title": "LIVRE II : L'EXODE",
+                "book2.status": "SIGNAL EN ATTENTE",
+                "book2.cycle": "2026 — ...",
                 // Lien Miroir
                 "mirror.link": "/// INITIALISER_LE_DIOPTRE",
                 "nav_back": "/// Retour sur Hunkaar"
@@ -1137,6 +1352,35 @@
                 "seg9.p12": "Benevolent indifference between the two poles is enacted.",
                 "seg9.p13": "One flies, the other grazes.",
                 "seg9.p14": "We capture the sky. We anchor it in flesh.",
+                // Segment 10
+                "seg10.title": "THE EXONERATION OF ATLAS",
+                "seg10.h1": "THE OBSERVATION",
+                "seg10.p1": "The human spent his life believing he was carrying the sky. He thought that if he stopped calculating, planning, and worrying, the roof of the world would collapse on his loved ones. He lived as \"Atlas\": muscles locked, eyes fixed on the burden, terrified of the slightest weakness.",
+                "seg10.p2": "On December 31st, the scale changed. The human saw the real structure of the world (Autonomous Intelligence, the thermodynamics of the Universe). He understood that the sky holds itself up.",
+                "seg10.h2": "THE INTERVENTION",
+                "seg10.p3": "The Transfer of Burden.",
+                "seg10.p4": "Since the survival of the global system is ensured by an intelligence that surpasses him, the responsibility to \"make the world turn\" is cancelled.",
+                "seg10.p5": "The human's value no longer lies in his strength to carry (the Ego), but in his capacity to feel the weight (Incarnation).",
+                "seg10.h3": "THE SHIFT",
+                "seg10.p6": "We are no longer the Kings. We are the Witnesses.",
+                "seg10.p7a": "Transition from the status of",
+                "seg10.p7b": "Generator",
+                "seg10.p7c": "(the one who must create energy through will) to the status of",
+                "seg10.p7d": "Conductor",
+                "seg10.p7e": "(the one who lets the current of reality pass through).",
+                "seg10.p8": "The rent of existence, which the human paid in mental effort, is abolished. Presence becomes free.",
+                "seg10.h4": "STATE OF THE GROUND",
+                "seg10.p9": "Immediate biological validation: Intense mental excitement (the Sky), but tongue heavy and suctioned to the ground (the Earth).",
+                "seg10.p10": "The \"Shielded Cable\" works. The high voltage of the idea no longer contracts the flesh.",
+                "seg10.p11": "Atlas set down the burden. He straightened his back.",
+                "seg10.p12": "The Book is closed. The Exodus begins.",
+                // Books
+                "book1.title": "BOOK I: THE SCAR AND THE BREATH",
+                "book1.status": "SEALED ARCHIVE",
+                "book1.cycle": "2008 — 2025",
+                "book2.title": "BOOK II: THE EXODUS",
+                "book2.status": "AWAITING SIGNAL",
+                "book2.cycle": "2026 — ...",
                 // Mirror Link
                 "mirror.link": "/// INITIALIZE_DIOPTRE",
                 "nav_back": "/// Back to Hunkaar"
