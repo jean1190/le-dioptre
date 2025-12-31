@@ -504,29 +504,13 @@
             margin: 0;
         }
 
-        /* Liens en bas - poussés en bas avec margin-top auto */
+        /* Liens en bas - dans le flux du Livre I */
         .bottom-links {
             display: flex;
             justify-content: space-between;
-            padding: 1.5rem 0;
-            margin-top: auto;
+            padding: 3rem 0 2rem 0;
+            margin-top: 2rem;
             border-top: 1px solid #333;
-        }
-
-        /* Quand Livre I ouvert : page entière scrollable */
-        .livre-i-open {
-            overflow-y: auto;
-            height: auto;
-            min-height: 100vh;
-        }
-
-        .livre-i-open .livre-i-accordion {
-            flex: none;
-        }
-
-        .livre-i-open .livre-i-accordion .accordion-content {
-            max-height: none;
-            overflow: visible;
         }
 
         .bottom-link {
@@ -1658,8 +1642,6 @@
             const archives = document.getElementById('archives');
             accordion.classList.toggle('open');
             archives.classList.toggle('livre-i-open');
-            // Toggle body scroll
-            document.body.style.overflow = accordion.classList.contains('open') ? 'auto' : 'hidden';
         }
 
         let currentLang = 'fr';
