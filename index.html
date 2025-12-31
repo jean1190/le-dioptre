@@ -117,6 +117,8 @@
             max-width: 800px;
             width: 100%;
             min-height: 100vh;
+            min-height: 100dvh;
+            /* Mobile viewport fix */
             display: flex;
             flex-direction: column;
             padding: 2rem 1rem;
@@ -551,7 +553,8 @@
         /* Mobile */
         @media (max-width: 768px) {
             #archives {
-                padding: 1rem 0.5rem;
+                padding: 1rem 0.5rem 0.5rem 0.5rem;
+                /* Reduced bottom padding */
             }
 
             .terminal-header {
@@ -578,7 +581,10 @@
             }
 
             .exodus-container {
-                min-height: 100px;
+                min-height: 80px;
+                /* Further reduced */
+                margin: 1rem 0 2rem 0;
+                /* Reduced margins from 2rem/4rem */
             }
 
             .terminal-prompt {
@@ -629,7 +635,9 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
-                padding: 2rem 0 3rem 0;
+                padding: 1.5rem 0 1rem 0;
+                /* Tighter padding for perfect fit */
+                gap: 0.5rem;
             }
 
             .bottom-link {
