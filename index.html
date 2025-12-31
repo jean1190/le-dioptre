@@ -392,27 +392,23 @@
             padding: 1.5rem 0;
             cursor: pointer;
             user-select: none;
-            transition: all 0.3s ease;
-        }
-
-        .accordion-header:hover {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .accordion-header:hover .book-title {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .accordion-toggle {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 1.5rem;
-            color: #555;
-            transition: transform 0.3s ease, color 0.3s ease;
+            font-size: 1.2rem;
+            color: #444;
+            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
             margin-left: 1rem;
         }
 
         .accordion-header:hover .accordion-toggle {
-            color: #888;
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+        }
+
+        .accordion-header:hover .accordion-hint {
+            color: #666;
         }
 
         .livre-i-accordion.open .accordion-toggle {
