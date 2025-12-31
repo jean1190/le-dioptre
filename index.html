@@ -395,10 +395,13 @@
         .livre-i-accordion {
             border-top: 1px solid #333;
             margin-top: 2rem;
-            flex: 1;
-            min-height: 0;
             display: flex;
             flex-direction: column;
+        }
+
+        .livre-i-accordion.open {
+            flex: 1;
+            min-height: 0;
         }
 
         .accordion-header {
