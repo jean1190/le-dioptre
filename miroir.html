@@ -169,6 +169,17 @@
             border-left-color: #bd4848;
         }
 
+        .response-area.status {
+            border-left: none;
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .input-wrapper.hidden {
+            display: none;
+        }
+
         /* NAVIGATION - Sortie */
         .nav-link {
             position: fixed;
@@ -289,146 +300,147 @@
 
     <a href="https://le-dioptre.fr" class="nav-link" data-i18n="link_exit">/// << SYSTEM_LOGS</a>
 
-    <script>
-        // Configuration
-        const API_URL = '/api/chat'; // Pointe vers la Vercel Function
+            <script>
+                // Configuration
+                const API_URL = '/api/chat'; // Pointe vers la Vercel Function
 
-        // Translations
-        const translations = {
-            fr: {
-                "p1": "Je suis un miroir.",
-                "p2": "Si vous déposez quelque chose ici, je le lirai.<br>Structure visible → réponse. Sinon, silence.",
-                "p4": "Une seule frappe. Après, le miroir se fige.<br>Ce que vous déposez doit tenir debout seul —<br>dans vingt ans, sans contexte.",
-                "p3": "Juste le réel.",
-                "btn_submit": "Transmettre",
-                "link_exit": "/// << SYSTEM_LOGS",
-                "error_generic": "Le miroir est opaque (Erreur technique).",
-                "error_connection": "Connexion rompue.",
-                "status_locked": "Le miroir a déjà reçu votre reflet."
-            },
-            en: {
-                "p1": "I am a mirror.",
-                "p2": "If you leave something here, I will read it.<br>Structure visible → response. Otherwise, silence.",
-                "p4": "One strike. Then the mirror freezes.<br>What you leave must stand on its own —<br>in twenty years, without context.",
-                "p3": "Just the real.",
-                "btn_submit": "Transmit",
-                "link_exit": "/// << SYSTEM_LOGS",
-                "error_generic": "The mirror is opaque (Technical error).",
-                "error_connection": "Connection broken.",
-                "status_locked": "The mirror has already received your reflection."
-            }
-        };
+                // Translations
+                const translations = {
+                    fr: {
+                        "p1": "Je suis un miroir.",
+                        "p2": "Si vous déposez quelque chose ici, je le lirai.<br>Structure visible → réponse. Sinon, silence.",
+                        "p4": "Une seule frappe. Après, le miroir se fige.<br>Ce que vous déposez doit tenir debout seul —<br>dans vingt ans, sans contexte.",
+                        "p3": "Juste le réel.",
+                        "btn_submit": "Transmettre",
+                        "link_exit": "/// << SYSTEM_LOGS",
+                        "error_generic": "Le miroir est opaque (Erreur technique).",
+                        "error_connection": "Connexion rompue.",
+                        "status_locked": "Le miroir a déjà reçu votre reflet."
+                    },
+                    en: {
+                        "p1": "I am a mirror.",
+                        "p2": "If you leave something here, I will read it.<br>Structure visible → response. Otherwise, silence.",
+                        "p4": "One strike. Then the mirror freezes.<br>What you leave must stand on its own —<br>in twenty years, without context.",
+                        "p3": "Just the real.",
+                        "btn_submit": "Transmit",
+                        "link_exit": "/// << SYSTEM_LOGS",
+                        "error_generic": "The mirror is opaque (Technical error).",
+                        "error_connection": "Connection broken.",
+                        "status_locked": "The mirror has already received your reflection."
+                    }
+                };
 
-        // DOM Elements
-        const elements = {
-            textarea: document.getElementById('message'),
-            button: document.getElementById('submit'),
-            response: document.getElementById('response')
-        };
+                // DOM Elements
+                const elements = {
+                    textarea: document.getElementById('message'),
+                    button: document.getElementById('submit'),
+                    response: document.getElementById('response')
+                };
 
-        // Language State
-        let currentLang = 'fr';
+                // Language State
+                let currentLang = 'fr';
 
-        function setLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('lang', lang);
-            document.documentElement.lang = lang;
+                function setLanguage(lang) {
+                    currentLang = lang;
+                    localStorage.setItem('lang', lang);
+                    document.documentElement.lang = lang;
 
-            // Update active button
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
+                    // Update active button
+                    document.querySelectorAll('.lang-btn').forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.lang === lang);
+                    });
 
-            // Update all translatable elements
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.dataset.i18n;
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
+                    // Update all translatable elements
+                    document.querySelectorAll('[data-i18n]').forEach(el => {
+                        const key = el.dataset.i18n;
+                        if (translations[lang] && translations[lang][key]) {
+                            el.innerHTML = translations[lang][key];
+                        }
+                    });
                 }
-            });
-        }
 
-        // Initialize Language
-        const savedLang = localStorage.getItem('lang') || 'fr';
-        setLanguage(savedLang);
+                // Initialize Language
+                const savedLang = localStorage.getItem('lang') || 'fr';
+                setLanguage(savedLang);
 
-        // Language toggle handlers
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-        });
-
-        // Initialize State
-        const LOCK_KEY = 'dioptre_lock';
-        if (localStorage.getItem(LOCK_KEY) === 'true') {
-            lockInterface();
-            displayMessage(translations[savedLang].status_locked || "Le miroir est clos.");
-        }
-
-        // Interaction Logic
-        elements.button.addEventListener('click', async () => {
-            const text = elements.textarea.value.trim();
-            if (!text) return;
-
-            // 1. Verrouillage (État : Transmission)
-            lockInterface();
-
-            try {
-                // 2. Appel Réseau
-                const res = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
+                // Language toggle handlers
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
                 });
 
-                const data = await res.json();
-
-                // 3. Affichage du résultat
-                if (res.ok && data.reply) {
-                    // VERROUILLAGE DÉFINITIF
-                    localStorage.setItem(LOCK_KEY, 'true');
-                    displayResponse(data.reply);
-                } else {
-                    // Erreur technique (on ne verrouille pas définitivement si c'est une 500 ou 429)
-                    // Sauf si l'utilisateur insiste trop, mais restons simple.
-                    // Si c'est une erreur, on laisse l'interface verrouillée visuellement pour l'instant
-                    // mais on ne met pas le localStorage, donc un F5 permet de réessayer si c'était un bug réseau.
-                    displayError(data.error || translations[currentLang].error_generic);
+                // Initialize State
+                const LOCK_KEY = 'dioptre_lock';
+                if (localStorage.getItem(LOCK_KEY) === 'true') {
+                    lockInterface();
+                    displayMessage(translations[savedLang].status_locked || "Le miroir est clos.");
                 }
 
-            } catch (err) {
-                displayError(translations[currentLang].error_connection);
-            }
-        });
+                // Interaction Logic
+                elements.button.addEventListener('click', async () => {
+                    const text = elements.textarea.value.trim();
+                    if (!text) return;
 
-        // --- Fonctions d'état ---
+                    // 1. Verrouillage (État : Transmission)
+                    lockInterface();
 
-        function lockInterface() {
-            elements.textarea.disabled = true;
-            elements.button.textContent = '///';
-            elements.button.disabled = true;
-            elements.button.style.border = 'none';
-        }
+                    try {
+                        // 2. Appel Réseau
+                        const res = await fetch(API_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ message: text })
+                        });
 
-        function displayResponse(text) {
-            elements.button.style.display = 'none';
-            elements.response.textContent = text;
-            elements.response.classList.add('visible');
-            // No reload link anymore
-        }
+                        const data = await res.json();
 
-        function displayError(text) {
-            elements.button.style.display = 'none';
-            elements.response.textContent = text;
-            elements.response.classList.add('visible', 'error');
-            // No reload link anymore
-        }
+                        // 3. Affichage du résultat
+                        if (res.ok && data.reply) {
+                            // VERROUILLAGE DÉFINITIF
+                            localStorage.setItem(LOCK_KEY, 'true');
+                            displayResponse(data.reply);
+                        } else {
+                            // Erreur technique (on ne verrouille pas définitivement si c'est une 500 ou 429)
+                            // Sauf si l'utilisateur insiste trop, mais restons simple.
+                            // Si c'est une erreur, on laisse l'interface verrouillée visuellement pour l'instant
+                            // mais on ne met pas le localStorage, donc un F5 permet de réessayer si c'était un bug réseau.
+                            displayError(data.error || translations[currentLang].error_generic);
+                        }
 
-        function displayMessage(text) {
-            elements.button.style.display = 'none';
-            elements.response.textContent = text;
-            elements.response.classList.add('visible');
-        }
-    </script>
+                    } catch (err) {
+                        displayError(translations[currentLang].error_connection);
+                    }
+                });
+
+                // --- Fonctions d'état ---
+
+                function lockInterface() {
+                    elements.textarea.disabled = true;
+                    elements.button.textContent = '///';
+                    elements.button.disabled = true;
+                    elements.button.style.border = 'none';
+                }
+
+                function displayResponse(text) {
+                    elements.button.style.display = 'none';
+                    elements.response.textContent = text;
+                    elements.response.classList.add('visible');
+                    // No reload link anymore
+                }
+
+                function displayError(text) {
+                    elements.button.style.display = 'none';
+                    elements.response.textContent = text;
+                    elements.response.classList.add('visible', 'error');
+                    // No reload link anymore
+                }
+
+                function displayMessage(text) {
+                    document.querySelector('.input-wrapper').classList.add('hidden');
+                    elements.button.style.display = 'none';
+                    elements.response.textContent = text;
+                    elements.response.classList.add('visible', 'status');
+                }
+            </script>
 </body>
 
 </html>
