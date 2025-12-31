@@ -89,39 +89,10 @@
         #archives {
             display: block;
             opacity: 1;
-            transition: opacity 0.5s ease-in;
             max-width: 800px;
             width: 100%;
             margin-top: 5rem;
-            /* Increased top margin since manifest is gone */
-            max-height: 80vh;
-            overflow-y: auto;
             padding-right: 1rem;
-        }
-
-        /* Custom Scrollbar */
-        #archives::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        #archives::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        #archives::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 3px;
-            transition: background 0.3s ease;
-        }
-
-        #archives::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        /* Firefox */
-        #archives {
-            scrollbar-width: thin;
-            scrollbar-color: #333 transparent;
         }
 
         .terminal-header {
@@ -443,6 +414,10 @@
 
         .livre-i-accordion.open .accordion-content::-webkit-scrollbar-thumb:hover {
             background: #555;
+        }
+
+        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button {
+            display: none;
         }
 
         .accordion-hint {
