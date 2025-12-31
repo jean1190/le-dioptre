@@ -443,40 +443,15 @@
             flex: 1;
             min-height: 0;
             overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: #333 transparent;
+            /* Scrollbar invisible - scroll fonctionne mais pas de barre visible */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
         }
 
         .livre-i-accordion.open .accordion-content::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 3px;
-        }
-
-        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button {
-            display: none;
+            display: none; /* Chrome/Safari/Opera */
             width: 0;
             height: 0;
-        }
-
-        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:start,
-        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-button:end {
-            display: none;
-        }
-
-        .livre-i-accordion.open .accordion-content::-webkit-scrollbar-corner {
-            display: none;
         }
 
         .accordion-hint {
