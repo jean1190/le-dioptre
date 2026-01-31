@@ -98,6 +98,28 @@ def update_index_html(articles_html: str) -> bool:
     return True
 
 
+def build_articles_txt():
+    """Generate dioptre_articles.txt with full content of all articles (for Namilele context)."""
+    output_path = SANCTUAIRE_ROOT / "dioptre_articles.txt"
+    md_files = sorted(ARTICLES_DIR.glob("*.md"))  # Sort for consistent ordering
+    
+    lines = []
+    article_count = 0
+    
+    for md_path in md_files:
+        if md_path.name.startswith("_"):
+            continue  # Skip templates
+        
+        content = md_path.read_text(encoding="utf-8")
+        lines.append(f"=== {md_path.name} ===")
+        lines.append(content)
+        lines.append("\n\n")
+        article_count += 1
+    
+    output_path.write_text("\n".join(lines), encoding="utf-8")
+    print(f"[BUILD] ✓ Generated dioptre_articles.txt ({article_count} articles)")
+
+
 def main():
     print("[BUILD] Scanning articles...")
 
@@ -128,6 +150,9 @@ def main():
         print(f"[BUILD] ✓ Updated index.html with {len(articles)} articles")
     else:
         print("[BUILD] ✗ Failed to update index.html")
+
+    # Generate dioptre_articles.txt for Namilele context
+    build_articles_txt()
 
 
 if __name__ == "__main__":
