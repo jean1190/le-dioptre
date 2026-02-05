@@ -425,21 +425,37 @@
             color: #00ff00;
         }
 
+        /* Cursor Style */
         .cursor {
-            animation: blink 1s step-end infinite;
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+            animation: pulse-cursor 1.2s infinite ease-in-out;
+            vertical-align: text-bottom;
+            margin-left: 2px;
         }
 
-        @keyframes blink {
+        @keyframes pulse-cursor {
 
             0%,
-            50% {
+            100% {
                 opacity: 1;
+                box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
             }
 
-            51%,
-            100% {
-                opacity: 0;
+            50% {
+                opacity: 0.3;
+                box-shadow: 0 0 2px rgba(0, 255, 0, 0.3);
             }
+        }
+
+        /* Roman Numeral Style */
+        .roman-numeral {
+            font-family: 'Times New Roman', Times, serif;
+            letter-spacing: 0;
+            font-weight: bold;
         }
 
         /* Livre II Section - Visible en premier */
@@ -450,282 +466,7 @@
             transition: all 0.4s ease;
         }
 
-        .livre-ii-section .book-header {
-            border-color: #00ff00;
-            margin-top: 0;
-            transition: all 0.4s ease;
-        }
-
-        .livre-ii-section .book-title {
-            color: #00ff00;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-
-        .livre-ii-section .exodus-container {
-            transition: all 0.4s ease;
-        }
-
-        /* Quand Livre I est ouvert, Livre II se compresse */
-        .livre-i-open .livre-ii-section {
-            padding: 0.5rem 0;
-        }
-
-        .livre-i-open .livre-ii-section .book-header {
-            padding: 0.8rem 0;
-            margin: 0;
-            border-bottom: none;
-        }
-
-        .livre-i-open .livre-ii-section .book-status,
-        .livre-i-open .livre-ii-section .book-cycle {
-            display: none;
-        }
-
-        .livre-i-open .livre-ii-section .book-title {
-            font-size: 0.9em;
-            margin-bottom: 0;
-        }
-
-        .livre-i-open .livre-ii-section .exodus-container {
-            height: 0;
-            min-height: 0;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        .livre-i-open .terminal-header {
-            display: none;
-        }
-
-        /* Livre I Accordéon - Replié par défaut */
-        .livre-i-accordion {
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-            /* Closing line attached to book */
-            margin-top: 2rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .accordion-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 0;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .accordion-toggle {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.2rem;
-            color: #444;
-            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-            margin-left: 1rem;
-        }
-
-        .accordion-header:hover .accordion-toggle {
-            color: #00ff00;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
-        }
-
-        .accordion-header:hover .accordion-hint {
-            color: #666;
-        }
-
-        .livre-i-accordion.open .accordion-toggle {
-            transform: rotate(180deg);
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, flex 0.4s ease-out;
-            flex: 0;
-        }
-
-        .livre-i-accordion.open .accordion-content {
-            max-height: none;
-            /* flex: 1; removed */
-            /* min-height: 0; removed */
-            /* overflow-y: auto; removed for natural flow */
-        }
-
-        /* Scrollbar styles removed from accordion as they are now global or unnecessary */
-
-        .accordion-hint {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.7rem;
-            color: #444;
-            letter-spacing: 0.1em;
-            margin-top: 0.5rem;
-        }
-
-        .livre-i-accordion.open .accordion-hint {
-            display: none;
-        }
-
-        /* Séparation visuelle forte */
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #333, transparent);
-            margin: 0;
-        }
-
-        /* Liens en bas - poussés en bas */
-        .bottom-links {
-            display: flex;
-            justify-content: space-between;
-            padding: 2rem 0;
-            margin-top: auto;
-            /* Sticky footer magic */
-            /* border-top removed */
-            background-color: transparent;
-            position: relative;
-            z-index: 10;
-        }
-
-        .bottom-link {
-            color: #555;
-            font-family: 'Courier New', monospace;
-            font-size: 0.7rem;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .bottom-link:hover {
-            color: #fff;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            #archives {
-                padding: 1rem 0.5rem 0.5rem 0.5rem;
-                /* Reduced bottom padding */
-            }
-
-            .terminal-header {
-                font-size: 0.7em;
-                padding-bottom: 0.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .terminal-axiom {
-                display: none;
-            }
-
-            .livre-ii-section {
-                padding: 1rem 0;
-            }
-
-            .livre-ii-section .book-header {
-                padding: 1rem 0;
-            }
-
-            .livre-ii-section .book-title {
-                font-size: 0.9em;
-                letter-spacing: 0.15em;
-            }
-
-            .exodus-container {
-                min-height: 80px;
-                /* Further reduced */
-                margin: 1rem 0 2rem 0;
-                /* Reduced margins from 2rem/4rem */
-            }
-
-            .terminal-prompt {
-                font-size: 1.5rem;
-            }
-
-            .livre-i-accordion {
-                margin-top: 1rem;
-            }
-
-            .accordion-header {
-                padding: 1rem 0;
-            }
-
-            .book-title {
-                font-size: 0.85em;
-                letter-spacing: 0.1em;
-            }
-
-            .book-status {
-                font-size: 0.6em;
-                padding: 0.2rem 0.5rem;
-            }
-
-            .book-cycle {
-                font-size: 0.6em;
-            }
-
-            .accordion-hint {
-                font-size: 0.6rem;
-            }
-
-            .log-entry {
-                padding-left: 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .log-meta {
-                font-size: 0.75em;
-                gap: 0.5rem;
-            }
-
-            .log-body {
-                font-size: 0.9em;
-            }
-
-            .bottom-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-                padding: 1.5rem 0 1rem 0;
-                /* Tighter padding for perfect fit */
-                gap: 0.5rem;
-            }
-
-            .bottom-link {
-                font-size: 0.65rem;
-                padding: 0.5rem 1rem;
-            }
-        }
-
-        /* Pagination / Load More */
-        .load-more-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
-            display: none;
-            /* Hidden by default, shown by JS if needed */
-        }
-
-        .load-more-btn {
-            background: transparent;
-            border: 1px solid #333;
-            color: #666;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.8em;
-            letter-spacing: 0.2em;
-            padding: 0.5rem 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .load-more-btn:hover {
-            border-color: #00ff00;
-            color: #00ff00;
-            text-shadow: 0 0 5px rgba(0, 255, 0, 0.4);
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
-        }
-
-        .exodus-article.hidden {
-            display: none;
-        }
+        /* ... existing styles ... */
     </style>
 </head>
 
@@ -756,18 +497,19 @@
         <!-- ═══════════════════════════════════════════════════════════════════════ -->
         <div class="livre-ii-section">
             <div class="book-header book-header-exodus">
-                <span class="book-title" data-i18n="book3.title">LIVRE III</span>
+                <span class="book-title" data-i18n="book3.title">LIVRE <span class="roman-numeral">Ⅲ</span></span>
                 <a href="https://ledioptre.substack.com" target="_blank" rel="noopener"
                     class="book-status book-status-active">SUBSTACK →</a>
-                <span class="book-cycle" data-i18n="book3.cycle">2026 — ...</span>
+                <span class="book-cycle" data-i18n="book3.cycle">Fév 2026 — ...</span>
             </div>
 
             <div class="exodus-container">
                 <div class="terminal-prompt">
-                    <span class="cursor">█</span>
+                    <span class="cursor"></span>
                 </div>
             </div>
         </div>
+
 
         <!-- ═══════════════════════════════════════════════════════════════════════ -->
         <!-- LIVRE II : L'EXODE — ARCHIVE SCELLÉE -->
