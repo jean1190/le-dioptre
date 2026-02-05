@@ -420,50 +420,90 @@
         }
 
         .terminal-prompt {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.2rem;
-            color: #00ff00;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.3rem;
+            gap: 0.8rem;
+            padding: 2rem;
         }
 
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.4rem;
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
             background: #00ff00;
-            box-shadow: 0 0 8px #00ff00, 0 0 12px rgba(0, 255, 0, 0.5);
-            animation: cursor-blink 1s ease-in-out infinite;
+            opacity: 0.3;
+            animation: pulse-sequence 3s ease-in-out infinite;
         }
 
-        @keyframes cursor-blink {
+        .pulse-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .pulse-dot:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .pulse-dot:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse-sequence {
 
             0%,
-            40% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.2;
-            }
-
-            60%,
             100% {
+                opacity: 0.2;
+                box-shadow: none;
+            }
+
+            33% {
                 opacity: 1;
+                box-shadow: 0 0 12px #00ff00, 0 0 20px rgba(0, 255, 0, 0.4);
             }
         }
 
         /* LIVRE III elegant styling */
         .book-title-iii {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: 1.3em;
-            letter-spacing: 0.4em;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.4em;
+            letter-spacing: 0.15em;
             color: #00ff00;
-            text-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
-            font-weight: normal;
-            font-style: italic;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            font-weight: bold;
+        }
+
+        /* Mysterious container */
+        .livre-iii-container {
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0 2rem 0;
+            border: 1px solid rgba(0, 255, 0, 0.15);
+            background: radial-gradient(ellipse at center, rgba(0, 255, 0, 0.03) 0%, transparent 70%);
+            position: relative;
+        }
+
+        .livre-iii-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent) border-box;
+            animation: border-glow 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes border-glow {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
 
         /* Livre II Section - Visible en premier */
@@ -780,15 +820,17 @@
         <!-- ═══════════════════════════════════════════════════════════════════════ -->
         <div class="livre-ii-section">
             <div class="book-header book-header-exodus">
-                <span class="book-title book-title-iii" data-i18n="book3.title">Livre III</span>
+                <span class="book-title book-title-iii" data-i18n="book3.title">LIVRE III</span>
                 <a href="https://ledioptre.substack.com" target="_blank" rel="noopener"
                     class="book-status book-status-active">SUBSTACK →</a>
                 <span class="book-cycle" data-i18n="book3.cycle">Fév 2026 — ...</span>
             </div>
 
-            <div class="exodus-container">
+            <div class="livre-iii-container">
                 <div class="terminal-prompt">
-                    <span class="cursor"></span>
+                    <span class="pulse-dot"></span>
+                    <span class="pulse-dot"></span>
+                    <span class="pulse-dot"></span>
                 </div>
             </div>
         </div>
