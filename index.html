@@ -432,34 +432,7 @@
             height: 6px;
             border-radius: 50%;
             background: #00ff00;
-            opacity: 0.3;
-            animation: pulse-sequence 3s ease-in-out infinite;
-        }
-
-        .pulse-dot:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .pulse-dot:nth-child(2) {
-            animation-delay: 1s;
-        }
-
-        .pulse-dot:nth-child(3) {
-            animation-delay: 2s;
-        }
-
-        @keyframes pulse-sequence {
-
-            0%,
-            100% {
-                opacity: 0.2;
-                box-shadow: none;
-            }
-
-            33% {
-                opacity: 1;
-                box-shadow: 0 0 12px #00ff00, 0 0 20px rgba(0, 255, 0, 0.4);
-            }
+            opacity: 0.15;
         }
 
         /* LIVRE III elegant styling */
@@ -472,38 +445,13 @@
             font-weight: bold;
         }
 
-        /* Mysterious container */
+        /* Simple container for dots */
         .livre-iii-container {
-            min-height: 120px;
+            min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 1.5rem 0 2rem 0;
-            border: 1px solid rgba(0, 255, 0, 0.15);
-            background: radial-gradient(ellipse at center, rgba(0, 255, 0, 0.03) 0%, transparent 70%);
-            position: relative;
-        }
-
-        .livre-iii-container::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 1px solid transparent;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent) border-box;
-            animation: border-glow 4s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes border-glow {
-
-            0%,
-            100% {
-                opacity: 0.3;
-            }
-
-            50% {
-                opacity: 0.8;
-            }
+            margin: 1rem 0 2rem 0;
         }
 
         /* Livre II Section - Visible en premier */
@@ -1607,6 +1555,41 @@
             const accordion = document.getElementById('livre-ii-accordion');
             accordion.classList.toggle('open');
         }
+
+        // Random pulse animation for LIVRE III dots
+        function animatePulseDots() {
+            const dots = document.querySelectorAll('.pulse-dot');
+
+            function pulseDot(dot) {
+                // Random duration between 0.3s and 2s
+                const duration = 300 + Math.random() * 1700;
+                // Random delay before next pulse between 0.5s and 4s
+                const nextDelay = 500 + Math.random() * 3500;
+
+                // Fade in
+                dot.style.transition = `opacity ${duration}ms ease-in-out, box-shadow ${duration}ms ease-in-out`;
+                dot.style.opacity = '1';
+                dot.style.boxShadow = '0 0 12px #00ff00, 0 0 20px rgba(0, 255, 0, 0.4)';
+
+                // Fade out after duration
+                setTimeout(() => {
+                    dot.style.opacity = '0.15';
+                    dot.style.boxShadow = 'none';
+
+                    // Schedule next pulse
+                    setTimeout(() => pulseDot(dot), nextDelay);
+                }, duration);
+            }
+
+            // Start each dot with random initial delay
+            dots.forEach((dot, i) => {
+                dot.style.opacity = '0.15';
+                setTimeout(() => pulseDot(dot), Math.random() * 2000);
+            });
+        }
+
+        // Start animation on load
+        document.addEventListener('DOMContentLoaded', animatePulseDots);
 
         let currentLang = 'fr';
 
