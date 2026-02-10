@@ -30,31 +30,52 @@ def parse_article(md_path: Path) -> dict | None:
 
     # Extract metadata
     title_match = re.search(r"^#\s+(.+)$|^(.+)\n={3,}$", content, re.MULTILINE)
-    date_match = re.search(r"\*\*Date de publication\*\*\s*:\s*(.+)", content)
+    date_pub_match = re.search(r"\*\*Date de publication\*\*\s*:\s*(.+)", content)
+    date_crea_match = re.search(r"\*\*Date de création\*\*\s*:\s*(.+)", content)
     link_match = re.search(r"\*\*Lien\*\*\s*:\s*(https?://\S+)", content)
+    livre_match = re.search(r"\*\*Livre\*\*\s*:\s*(.+)", content)
 
-    if not link_match:
-        return None  # No link = not a published article
+    # Determine livre
+    livre = livre_match.group(1).strip() if livre_match else None
 
-    # Get title from filename if not found in content
+    # For non-Livre III articles, require a link
+    if not link_match and livre != "III":
+        return None
+
+    # Get title
     if title_match:
         title = title_match.group(1) or title_match.group(2)
     else:
-        # Use first non-empty line after ## Contenu
         contenu_match = re.search(r"## Contenu\s*\n+(.+)", content)
         if contenu_match:
             title = contenu_match.group(1).strip()
         else:
             title = md_path.stem
 
-    # Parse date
-    date_str = date_match.group(1).strip() if date_match else ""
+    # Parse date — try publication date first, then creation date
+    date_str = ""
+    if date_pub_match:
+        date_str = date_pub_match.group(1).strip()
+    elif date_crea_match:
+        date_str = date_crea_match.group(1).strip()
+
+    parsed_date = None
+    # Try "Jan 05, 2026" format
     try:
-        # Try parsing "Jan 05, 2026" format
         parsed_date = datetime.strptime(date_str, "%b %d, %Y")
+    except ValueError:
+        pass
+    # Try ISO "2026-02-09" format
+    if not parsed_date:
+        try:
+            parsed_date = datetime.strptime(date_str, "%Y-%m-%d")
+        except ValueError:
+            pass
+
+    if parsed_date:
         date_display = parsed_date.strftime("%d %b %Y").lower()
         date_sort = parsed_date
-    except ValueError:
+    else:
         date_display = date_str.lower() if date_str else "—"
         date_sort = datetime.min
 
@@ -62,36 +83,43 @@ def parse_article(md_path: Path) -> dict | None:
         "title": title.strip(),
         "date_display": date_display,
         "date_sort": date_sort,
-        "link": link_match.group(1).strip()
+        "link": link_match.group(1).strip() if link_match else None,
+        "livre": livre,
     }
 
 
-def generate_articles_html(articles: list[dict]) -> str:
-    """Generate HTML for the articles list."""
-    lines = ['                <div class="exodus-articles">']
+def generate_livre3_html(articles: list[dict]) -> str:
+    """Generate HTML for Livre III articles list."""
+    lines = ['            <div class="exodus-articles livre-iii-articles">']
 
     for article in articles:
-        lines.append(f'                    <a href="{article["link"]}" target="_blank" rel="noopener" class="exodus-article">')
-        lines.append(f'                        <span class="article-title">{article["title"]}</span>')
-        lines.append(f'                        <span class="article-date">{article["date_display"]}</span>')
-        lines.append('                    </a>')
+        if article["link"]:
+            lines.append(f'                <a href="{article["link"]}" target="_blank" rel="noopener" class="exodus-article">')
+            lines.append(f'                    <span class="article-title">{article["title"]}</span>')
+            lines.append(f'                    <span class="article-date">{article["date_display"]}</span>')
+            lines.append('                </a>')
+        else:
+            lines.append(f'                <span class="exodus-article exodus-article-pending">')
+            lines.append(f'                    <span class="article-title">{article["title"]}</span>')
+            lines.append(f'                    <span class="article-date">{article["date_display"]}</span>')
+            lines.append('                </span>')
 
-    lines.append('                </div>')
+    lines.append('            </div>')
     return '\n'.join(lines)
 
 
-def update_index_html(articles_html: str) -> bool:
-    """Update index.html with new articles list."""
+def update_index_html(livre3_html: str) -> bool:
+    """Update index.html with Livre III articles."""
     content = INDEX_HTML.read_text(encoding="utf-8")
 
-    # Find and replace content between markers
-    pattern = r"(<!-- ARTICLES:START.*?-->)\s*.*?\s*(<!-- ARTICLES:END -->)"
-    replacement = f"\\1\n{articles_html}\n                \\2"
+    # Find and replace content between LIVRE3 markers
+    pattern = r"(<!-- LIVRE3:START.*?-->)\s*.*?\s*(<!-- LIVRE3:END -->)"
+    replacement = f"\\1\n{livre3_html}\n            \\2"
 
     new_content, count = re.subn(pattern, replacement, content, flags=re.DOTALL)
 
     if count == 0:
-        print("[BUILD] ERROR: Could not find ARTICLES markers in index.html")
+        print("[BUILD] ERROR: Could not find LIVRE3 markers in index.html")
         return False
 
     INDEX_HTML.write_text(new_content, encoding="utf-8")
@@ -102,54 +130,52 @@ def build_articles_txt():
     """Generate dioptre_articles.txt with full content of all articles (for Namilele context)."""
     output_path = SANCTUAIRE_ROOT / "dioptre_articles.txt"
     md_files = sorted(ARTICLES_DIR.glob("*.md"))  # Sort for consistent ordering
-    
+
     lines = []
     article_count = 0
-    
+
     for md_path in md_files:
         if md_path.name.startswith("_"):
             continue  # Skip templates
-        
+
         content = md_path.read_text(encoding="utf-8")
         lines.append(f"=== {md_path.name} ===")
         lines.append(content)
         lines.append("\n\n")
         article_count += 1
-    
+
     output_path.write_text("\n".join(lines), encoding="utf-8")
-    print(f"[BUILD] ✓ Generated dioptre_articles.txt ({article_count} articles)")
+    print(f"[BUILD] Generated dioptre_articles.txt ({article_count} articles)")
 
 
 def main():
-    print("[BUILD] Scanning articles...")
+    print("[BUILD] Scanning Livre III articles...")
 
-    # Find all markdown files
-    md_files = list(ARTICLES_DIR.glob("*.md"))
+    # Livre III: markdown files in root of dioptre/ (not in livre-ii/)
+    md_files = [f for f in ARTICLES_DIR.glob("*.md") if not f.name.startswith("_")]
     print(f"[BUILD] Found {len(md_files)} files in {ARTICLES_DIR}")
 
-    # Parse articles
-    articles = []
+    # Parse and filter Livre III articles
+    livre3_articles = []
     for md_path in md_files:
         article = parse_article(md_path)
-        if article:
-            articles.append(article)
-            print(f"[BUILD] ✓ {article['title']}")
+        if article and article.get("livre") == "III":
+            livre3_articles.append(article)
+            status = "link" if article["link"] else "pending"
+            print(f"[BUILD]   {article['title']} [{status}]")
 
-    if not articles:
-        print("[BUILD] No articles found!")
-        return
-
-    # Sort by date (newest first)
-    articles.sort(key=lambda a: a["date_sort"], reverse=True)
-
-    # Generate HTML
-    articles_html = generate_articles_html(articles)
-
-    # Update index.html
-    if update_index_html(articles_html):
-        print(f"[BUILD] ✓ Updated index.html with {len(articles)} articles")
+    if not livre3_articles:
+        print("[BUILD] No Livre III articles found!")
     else:
-        print("[BUILD] ✗ Failed to update index.html")
+        # Sort by date (newest first)
+        livre3_articles.sort(key=lambda a: a["date_sort"], reverse=True)
+
+        # Generate and inject HTML
+        livre3_html = generate_livre3_html(livre3_articles)
+        if update_index_html(livre3_html):
+            print(f"[BUILD] Updated index.html with {len(livre3_articles)} Livre III articles")
+        else:
+            print("[BUILD] Failed to update index.html")
 
     # Generate dioptre_articles.txt for Namilele context
     build_articles_txt()
