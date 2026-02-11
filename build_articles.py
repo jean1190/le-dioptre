@@ -127,11 +127,12 @@ def update_index_html(livre3_html: str) -> bool:
 
 
 def build_articles_txt():
-    """Generate dioptre_articles.txt with full content of all articles (for Namilele context)."""
+    """Generate dioptre_articles.txt with structured index + full content."""
     output_path = SANCTUAIRE_ROOT / "dioptre_articles.txt"
     md_files = sorted(ARTICLES_DIR.glob("*.md"))  # Sort for consistent ordering
 
-    lines = []
+    index_lines = ["=== INDEX ==="]
+    article_blocks = []
     article_count = 0
 
     for md_path in md_files:
@@ -139,13 +140,25 @@ def build_articles_txt():
             continue  # Skip templates
 
         content = md_path.read_text(encoding="utf-8")
-        lines.append(f"=== {md_path.name} ===")
-        lines.append(content)
-        lines.append("\n\n")
-        article_count += 1
 
-    output_path.write_text("\n".join(lines), encoding="utf-8")
-    print(f"[BUILD] Generated dioptre_articles.txt ({article_count} articles)")
+        # Extract metadata for index
+        title_match = re.search(r"^#\s+(.+)$", content, re.MULTILINE)
+        theme_match = re.search(r"\*\*Thème\*\*\s*:\s*(.+)", content)
+        date_match = re.search(r"\*\*Date de création\*\*\s*:\s*(.+)", content)
+
+        title = title_match.group(1).strip() if title_match else md_path.stem
+        theme = theme_match.group(1).strip() if theme_match else ""
+        date = date_match.group(1).strip() if date_match else ""
+
+        article_count += 1
+        index_lines.append(f'{article_count}. "{title}" — {theme} ({date})')
+        article_blocks.append(f"=== {md_path.name} ===\n{content}\n\n")
+
+    index_lines.append("=== FIN INDEX ===")
+
+    full_content = "\n".join(index_lines) + "\n\n" + "\n".join(article_blocks)
+    output_path.write_text(full_content, encoding="utf-8")
+    print(f"[BUILD] Generated dioptre_articles.txt ({article_count} articles, with index)")
 
 
 def main():
