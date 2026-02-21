@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 """
 Build script for Le Dioptre - Generates article links from markdown files.
-Reads from /docs/nous/dioptre/*.md and updates index.html.
+Reads from ~/Documents/dioptre/livre-iii/*.md and updates index.html.
 
 Usage:
     python build_articles.py
-
-Or from sanctuaire root:
-    python sanctuaires-publiques/le-dioptre-deploy/build_articles.py
 """
 
 import re
@@ -16,8 +13,7 @@ from datetime import datetime
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
-SANCTUAIRE_ROOT = SCRIPT_DIR.parent.parent
-ARTICLES_DIR = SANCTUAIRE_ROOT / "docs" / "nous" / "dioptre"
+ARTICLES_DIR = Path.home() / "Documents" / "dioptre" / "livre-iii"
 INDEX_HTML = SCRIPT_DIR / "index.html"
 
 
@@ -128,7 +124,7 @@ def update_index_html(livre3_html: str) -> bool:
 
 def build_articles_txt():
     """Generate dioptre_articles.txt with structured index + full content."""
-    output_path = SANCTUAIRE_ROOT / "dioptre_articles.txt"
+    output_path = ARTICLES_DIR / "dioptre_articles.txt"
     md_files = sorted(ARTICLES_DIR.glob("*.md"))  # Sort for consistent ordering
 
     index_lines = ["=== INDEX ==="]
