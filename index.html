@@ -834,6 +834,9 @@
                     <span class="article-date">10 feb 2026</span>
                 </a>
             </div>
+            <div class="load-more-container" id="livre3-load-more" style="display:none;">
+                <button class="load-more-btn" id="livre3-load-more-btn" data-i18n="book3.loadMore">AFFICHER PLUS</button>
+            </div>
             <!-- LIVRE3:END -->
         </div>
 
@@ -1762,15 +1765,15 @@
 
 
     <script>
-        // Pagination Logic for Livre II
+        // Pagination Logic for Livre III
         document.addEventListener('DOMContentLoaded', function () {
             const BATCH_SIZE = 5;
-            const container = document.querySelector('.exodus-articles');
+            const container = document.querySelector('.livre-iii-articles');
             if (!container) return;
 
             const articles = container.querySelectorAll('.exodus-article');
-            const loadMoreContainer = document.getElementById('load-more-container');
-            const loadMoreBtn = document.getElementById('load-more-btn');
+            const loadMoreContainer = document.getElementById('livre3-load-more');
+            const loadMoreBtn = document.getElementById('livre3-load-more-btn');
 
             if (!articles.length || !loadMoreContainer || !loadMoreBtn) return;
 
@@ -1790,8 +1793,6 @@
 
                 for (let i = visibleCount; i < articles.length && i < newCount; i++) {
                     articles[i].classList.remove('hidden');
-                    // Add a tiny fade-in effect via inline style or class if desired, 
-                    // but simple display toggle works well for terminal vibe.
                     revealed++;
                 }
 

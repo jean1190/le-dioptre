@@ -222,5 +222,6 @@
   "accordion.hint": "[ click to expand ]",
   "mirror.link": "/// INITIALIZE_DIOPTRE",
   "nav_back": "/// Back to Hunkaar",
-  "loadMore": "[ LOAD MORE DATA ]"
+  "loadMore": "[ LOAD MORE DATA ]",
+  "book3.loadMore": "[ LOAD MORE ]"
 }

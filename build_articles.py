@@ -101,6 +101,9 @@ def generate_livre3_html(articles: list[dict]) -> str:
             lines.append('                </span>')
 
     lines.append('            </div>')
+    lines.append('            <div class="load-more-container" id="livre3-load-more" style="display:none;">')
+    lines.append('                <button class="load-more-btn" id="livre3-load-more-btn" data-i18n="book3.loadMore">AFFICHER PLUS</button>')
+    lines.append('            </div>')
     return '\n'.join(lines)
 
 
