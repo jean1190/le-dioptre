@@ -1,13 +1,21 @@
 #!/usr/bin/env python3
 """
-Build script for Le Dioptre - Generates article links from markdown files.
-Reads from ~/Documents/dioptre/livre-iii/*.md and updates index.html.
+Build script for Le Dioptre — regenerates index.html + dioptre_articles.txt
+from markdown sources, then auto-commits + pushes to trigger Vercel deploy.
+
+Source unique du flow de publication Dioptre :
+    ~/.nous/harness/tunnels/voix-publique.md §Flow technique — Dioptre
+
+Ne pas répliquer ici les règles de publication — elles vivent dans voix-publique.md.
+Ce fichier implémente l'étape 6 du flow (rebuild + deploy).
 
 Usage:
-    python build_articles.py
+    python3 build_articles.py
 """
 
 import re
+import subprocess
+import sys
 from pathlib import Path
 from datetime import datetime
 
@@ -167,14 +175,20 @@ def main():
     md_files = [f for f in ARTICLES_DIR.glob("*.md") if not f.name.startswith("_")]
     print(f"[BUILD] Found {len(md_files)} files in {ARTICLES_DIR}")
 
-    # Parse and filter Livre III articles
+    # Parse and filter Livre III articles.
+    # Pending articles (no link) are EXCLUDED from the public site by default —
+    # cf. voix-publique.md §Flow technique — Dioptre, règle du 21/4 (le site public
+    # n'annonce pas ce qui n'est pas publié). Pour teaser un article à venir,
+    # ajouter `**Teaser public** : oui` dans ses métadonnées et étendre le filtre.
     livre3_articles = []
     for md_path in md_files:
         article = parse_article(md_path)
         if article and article.get("livre") == "III":
+            if not article["link"]:
+                print(f"[BUILD]   {article['title']} [pending, skipped]")
+                continue
             livre3_articles.append(article)
-            status = "link" if article["link"] else "pending"
-            print(f"[BUILD]   {article['title']} [{status}]")
+            print(f"[BUILD]   {article['title']} [link]")
 
     if not livre3_articles:
         print("[BUILD] No Livre III articles found!")
@@ -191,6 +205,36 @@ def main():
 
     # Generate dioptre_articles.txt for Namilele context
     build_articles_txt()
+
+    # Commit + push obligatoire si index.html a changé (sinon le site Vercel
+    # reste stale — la blessure du 16 avril→21 avril s'est passée ici).
+    commit_and_push()
+
+
+def commit_and_push():
+    """Si index.html diffère de HEAD, auto-commit + push vers origin/main.
+
+    Vercel déploie depuis le push. Silencieux si rien à commit."""
+    cwd = SCRIPT_DIR
+    try:
+        status = subprocess.run(
+            ["git", "status", "--porcelain", "index.html"],
+            cwd=cwd, capture_output=True, text=True, check=True
+        )
+        if not status.stdout.strip():
+            print("[DEPLOY] index.html clean — rien à commit.")
+            return
+
+        subprocess.run(["git", "add", "index.html"], cwd=cwd, check=True)
+        msg = f"publish: build_articles {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+        subprocess.run(["git", "commit", "-m", msg], cwd=cwd, check=True)
+        print(f"[DEPLOY] Commit posé : {msg}")
+
+        subprocess.run(["git", "push", "origin", "main"], cwd=cwd, check=True)
+        print("[DEPLOY] Push origin/main OK — Vercel déploie.")
+    except subprocess.CalledProcessError as e:
+        print(f"[DEPLOY] ERROR git: {e}", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
