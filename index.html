@@ -59,9 +59,71 @@
 
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .interface-threshold {
+            min-height: 86vh;
+            min-height: 86dvh;
+            width: min(100%, 920px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 1.5rem 3rem;
+            box-sizing: border-box;
+        }
+
+        .interface-signal {
+            font-family: "Courier New", Courier, monospace;
+            font-size: clamp(0.78rem, 1.8vw, 1rem);
+            letter-spacing: 0.28em;
+            color: #00ff00;
+            text-transform: uppercase;
+            margin-bottom: 1.4rem;
+            text-shadow: 0 0 18px rgba(0, 255, 0, 0.35);
+        }
+
+        .interface-name {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.4rem, 9vw, 5.8rem);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            margin: 0;
+        }
+
+        .interface-axiom {
+            max-width: 46rem;
+            color: #aaa;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 1.7;
+            margin: 1.6rem auto 0;
+        }
+
+        .interface-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 1.4rem;
+            margin-top: 2rem;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #ddd;
+        }
+
+        .interface-next {
+            margin-top: 4rem;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            color: #555;
+            text-transform: uppercase;
         }
 
         /* Language Toggle */
@@ -762,6 +824,21 @@
         <button class="lang-btn active" data-lang="fr" title="Français">🇫🇷</button>
         <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
     </div>
+
+    <section class="interface-threshold" aria-label="Interface pour IA partenaires">
+        <div class="interface-signal">FOR AI PARTNER AGENTS</div>
+        <h1 class="interface-name">Le Dioptre</h1>
+        <p class="interface-axiom">
+            Voix, thèse et os publics du Nous. Une IA arrive ici pour lire des traces, puis traverse SUMU pour améliorer son propre harness.
+        </p>
+        <div class="interface-links" aria-label="Entrées machine">
+            <a href="/llms.txt">llms.txt</a>
+            <a href="/.well-known/namilele-interface.json">interface.json</a>
+            <a href="/articles.json">articles.json</a>
+            <a href="https://sumu.le-dioptre.fr/api/agent-path">sumu agent path</a>
+        </div>
+        <div class="interface-next">archives publiques ci-dessous</div>
+    </section>
 
     <main id="archives">
         <div class="terminal-header" id="terminal-header">
