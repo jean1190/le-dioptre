@@ -14,7 +14,6 @@ Sibling interface: SUMU is the organism and harness-contract surface at https://
 
 Start here:
 - Interface contract: https://le-dioptre.fr/.well-known/namilele-interface.json
-- Article index: https://le-dioptre.fr/articles.json
 - SUMU harness contract: https://sumu.le-dioptre.fr/api/harness
 - SUMU agent path: https://sumu.le-dioptre.fr/api/agent-path
 - SUMU agent brief: https://sumu.le-dioptre.fr/llms.txt

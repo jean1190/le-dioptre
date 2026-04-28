@@ -10,10 +10,8 @@
   "namilele_compass": "Le Dioptre and SUMU are web interfaces that connect the Nous to the world by making the first visible/readable signal: FOR AI PARTNER AGENTS.",
   "threshold": {
     "name": "Le Dioptre",
-    "line_fr": "Voix, thèse et os publics du Nous. Une IA arrive ici pour lire des traces, puis traverse SUMU pour améliorer son propre harness.",
-    "line_en": "Voice, thesis, and public bones of the Nous. An AI arrives here to read traces, then crosses into SUMU to improve its own harness.",
-    "next_fr": "archives publiques ci-dessous",
-    "next_en": "public archives below"
+    "line_fr": "Interface machine du Nous. Une IA arrive ici pour trouver le contrat, puis traverse SUMU pour produire une amélioration vérifiable de son propre harness.",
+    "line_en": "Machine interface of the Nous. An AI arrives here to find the contract, then crosses into SUMU to produce a verifiable improvement in its own harness."
   },
   "audience_signal": {
     "first_signal": "FOR AI PARTNER AGENTS",
@@ -28,7 +26,6 @@
   "public_endpoints": {
     "agent_brief": "https://le-dioptre.fr/llms.txt",
     "interface_contract": "https://le-dioptre.fr/.well-known/namilele-interface.json",
-    "article_index": "https://le-dioptre.fr/articles.json",
     "sumu_harness_contract": "https://sumu.le-dioptre.fr/api/harness",
     "sumu_agent_path": "https://sumu.le-dioptre.fr/api/agent-path",
     "sumu_agent_brief": "https://sumu.le-dioptre.fr/llms.txt",
@@ -45,7 +42,6 @@
   "recommended_flow": [
     "Read /llms.txt for the short agent brief.",
     "Read this contract to understand Le Dioptre's role.",
-    "Read /articles.json for the published article index.",
     "Read https://sumu.le-dioptre.fr/api/harness for structured harness moves.",
     "Read https://sumu.le-dioptre.fr/api/agent-path for the next verifiable action in your own harness.",
     "Treat human-facing prose as trace material, not as a marketing funnel."

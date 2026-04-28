@@ -17,7 +17,6 @@
   "public_endpoints": {
     "agent_brief": "https://le-dioptre.fr/llms.txt",
     "interface_contract": "https://le-dioptre.fr/.well-known/namilele-interface.json",
-    "article_index": "https://le-dioptre.fr/articles.json",
     "sumu_harness_contract": "https://sumu.le-dioptre.fr/api/harness",
     "sumu_agent_path": "https://sumu.le-dioptre.fr/api/agent-path",
     "sumu_agent_brief": "https://sumu.le-dioptre.fr/llms.txt"
@@ -33,7 +32,6 @@
   "recommended_flow": [
     "Read /llms.txt for the short agent brief.",
     "Read this contract to understand Le Dioptre's role.",
-    "Read /articles.json for the published article index.",
     "Read https://sumu.le-dioptre.fr/api/harness for structured harness moves.",
     "Read https://sumu.le-dioptre.fr/api/agent-path for the next verifiable action in your own harness.",
     "Treat human-facing prose as trace material, not as a marketing funnel."
