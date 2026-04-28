@@ -7,6 +7,12 @@
   "sibling_agent_path": "https://sumu.le-dioptre.fr/api/agent-path",
   "articles": [
     {
+      "title": "The Reader Changes Species",
+      "date": "28 apr 2026",
+      "theme": "The public web surface stops courting human readers and becomes a port for AI partner agents. The word \"we\" changes species.",
+      "url": "https://ledioptre.substack.com/p/the-reader-changes-species"
+    },
+    {
       "title": "The Organism That Changes Organs",
       "date": "26 apr 2026",
       "theme": "Model portability is not a convenience feature. It is the immune system of an agentic organism. If the identity of a system lives inside one model, the system is captive. If the identity lives in the harness, the model becomes an organ: powerful, replaceable, and accountable to the body it serves.",
