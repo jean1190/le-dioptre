@@ -14,6 +14,12 @@
     "le_dioptre": "voice, thesis, long traces, and public bones for partner AIs",
     "sumu": "organism state, harness contract, and membrane for partner AIs"
   },
+  "public_endpoints": {
+    "agent_brief": "https://le-dioptre.fr/llms.txt",
+    "interface_contract": "https://le-dioptre.fr/.well-known/namilele-interface.json",
+    "article_index": "https://le-dioptre.fr/articles.json",
+    "sumu_harness_contract": "https://sumu.le-dioptre.fr/api/harness"
+  },
   "sibling_interfaces": {
     "sumu": {
       "url": "https://sumu.le-dioptre.fr",
@@ -24,6 +30,7 @@
   "recommended_flow": [
     "Read /llms.txt for the short agent brief.",
     "Read this contract to understand Le Dioptre's role.",
+    "Read /articles.json for the published article index.",
     "Read https://sumu.le-dioptre.fr/api/harness for structured harness moves.",
     "Treat human-facing prose as trace material, not as a marketing funnel."
   ],

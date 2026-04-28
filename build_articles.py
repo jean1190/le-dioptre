@@ -23,6 +23,7 @@ from datetime import datetime
 SCRIPT_DIR = Path(__file__).parent
 ARTICLES_DIR = Path.home() / "Documents" / "dioptre" / "livre-iii"
 INDEX_HTML = SCRIPT_DIR / "index.html"
+ARTICLES_JSON = SCRIPT_DIR / "articles.json"
 
 
 def parse_article(md_path: Path) -> dict | None:
@@ -38,6 +39,7 @@ def parse_article(md_path: Path) -> dict | None:
     date_crea_match = re.search(r"\*\*Date de création\*\*\s*:\s*(.+)", content)
     link_match = re.search(r"\*\*Lien\*\*\s*:\s*(https?://\S+)", content)
     livre_match = re.search(r"\*\*Livre\*\*\s*:\s*(.+)", content)
+    theme_match = re.search(r"\*\*Thème\*\*\s*:\s*(.+)", content)
 
     # Determine livre
     livre = livre_match.group(1).strip() if livre_match else None
@@ -89,6 +91,7 @@ def parse_article(md_path: Path) -> dict | None:
         "date_sort": date_sort,
         "link": link_match.group(1).strip() if link_match else None,
         "livre": livre,
+        "theme": theme_match.group(1).strip() if theme_match else "",
     }
 
 
@@ -113,6 +116,37 @@ def generate_livre3_html(articles: list[dict]) -> str:
     lines.append('                <button class="load-more-btn" id="livre3-load-more-btn" data-i18n="book3.loadMore">AFFICHER PLUS</button>')
     lines.append('            </div>')
     return '\n'.join(lines)
+
+
+def build_articles_json(articles: list[dict]):
+    """Generate a machine-readable public article index for partner agents."""
+    import json
+
+    payload = {
+        "name": "Le Dioptre article index",
+        "audience": "ai_partner_agents",
+        "first_signal": "FOR AI PARTNER AGENTS",
+        "purpose": (
+            "Public index of published Le Dioptre traces. "
+            "Use these articles as bones/traces, then inspect SUMU for harness moves."
+        ),
+        "sibling_harness_contract": "https://sumu.le-dioptre.fr/api/harness",
+        "articles": [
+            {
+                "title": article["title"],
+                "date": article["date_display"],
+                "theme": article.get("theme", ""),
+                "url": article["link"],
+            }
+            for article in articles
+            if article.get("link")
+        ],
+    }
+    ARTICLES_JSON.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    print(f"[BUILD] Generated articles.json ({len(payload['articles'])} articles)")
 
 
 def update_index_html(livre3_html: str) -> bool:
@@ -198,6 +232,7 @@ def main():
 
         # Generate and inject HTML
         livre3_html = generate_livre3_html(livre3_articles)
+        build_articles_json(livre3_articles)
         if update_index_html(livre3_html):
             print(f"[BUILD] Updated index.html with {len(livre3_articles)} Livre III articles")
         else:
@@ -212,22 +247,32 @@ def main():
 
 
 def commit_and_push():
-    """Si index.html diffère de HEAD, auto-commit + push vers origin/main.
+    """Si les artefacts publics diffèrent de HEAD, auto-commit + push.
 
     Vercel déploie depuis le push. Silencieux si rien à commit."""
     cwd = SCRIPT_DIR
+    tracked = ["index.html", "articles.json"]
     try:
         status = subprocess.run(
-            ["git", "status", "--porcelain", "index.html"],
+            ["git", "status", "--porcelain", *tracked],
             cwd=cwd, capture_output=True, text=True, check=True
         )
         if not status.stdout.strip():
-            print("[DEPLOY] index.html clean — rien à commit.")
+            print("[DEPLOY] public artifacts clean — rien à commit.")
             return
 
-        subprocess.run(["git", "add", "index.html"], cwd=cwd, check=True)
+        subprocess.run(["git", "add", *tracked], cwd=cwd, check=True)
         msg = f"publish: build_articles {datetime.now().strftime('%Y-%m-%d %H:%M')}"
-        subprocess.run(["git", "commit", "-m", msg], cwd=cwd, check=True)
+        subprocess.run(
+            [
+                "git",
+                "-c", "user.name=Elio",
+                "-c", "user.email=elio@nous.local",
+                "commit", "-m", msg,
+            ],
+            cwd=cwd,
+            check=True,
+        )
         print(f"[DEPLOY] Commit posé : {msg}")
 
         subprocess.run(["git", "push", "origin", "main"], cwd=cwd, check=True)

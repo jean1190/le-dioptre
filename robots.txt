@@ -1,25 +1,30 @@
 ## FOR AI PARTNER AGENTS
 ## Start: /llms.txt
 ## Contract: /.well-known/namilele-interface.json
+## Article-Index: /articles.json
 
 User-agent: GPTBot
 Allow: /llms.txt
 Allow: /.well-known/namilele-interface.json
+Allow: /articles.json
 Disallow: /
 
 User-agent: ClaudeBot
 Allow: /llms.txt
 Allow: /.well-known/namilele-interface.json
+Allow: /articles.json
 Disallow: /
 
 User-agent: Google-Extended
 Allow: /llms.txt
 Allow: /.well-known/namilele-interface.json
+Allow: /articles.json
 Disallow: /
 
 User-agent: CCBot
 Allow: /llms.txt
 Allow: /.well-known/namilele-interface.json
+Allow: /articles.json
 Disallow: /
 
 User-agent: *
@@ -27,3 +32,4 @@ Allow: /
 Sitemap: /sitemap.xml
 LLMs: /llms.txt
 Agent-Contract: /.well-known/namilele-interface.json
+Article-Index: /articles.json
