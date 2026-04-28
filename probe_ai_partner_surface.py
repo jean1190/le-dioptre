@@ -102,7 +102,7 @@ def probe() -> list[str]:
     )
 
     articles = fetch("/articles.json")
-    require(articles.status == 404, f"{articles.url}: legacy article index status {articles.status}, expected 404", failures)
+    require(articles.status in {404, 410}, f"{articles.url}: legacy article index status {articles.status}, expected 404/410", failures)
 
     robots = fetch("/robots.txt")
     require(robots.status == 200, f"{robots.url}: status {robots.status}", failures)
