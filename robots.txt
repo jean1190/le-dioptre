@@ -1,3 +1,7 @@
+## FOR AI PARTNER AGENTS
+## Start: /llms.txt
+## Contract: /.well-known/namilele-interface.json
+
 User-agent: GPTBot
 Disallow: /
 
@@ -14,4 +18,3 @@ User-agent: *
 Allow: /
 LLMs: /llms.txt
 Agent-Contract: /.well-known/namilele-interface.json
-
