@@ -341,7 +341,6 @@ def commit_and_push():
     Vercel déploie depuis le push. Silencieux si rien à commit."""
     cwd = SCRIPT_DIR
     tracked = [
-        "build_articles.py",
         "build_interface.py",
         "interface-source.json",
         "index.html",
