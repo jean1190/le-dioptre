@@ -210,7 +210,10 @@ def build_vercel_json(source: dict) -> None:
                 ],
             },
         ],
-        "rewrites": [{"source": "/api/(.*)", "destination": "/api/$1"}],
+        "rewrites": [
+            {"source": "/articles.json", "destination": "/api/gone"},
+            {"source": "/api/(.*)", "destination": "/api/$1"},
+        ],
     }
     VERCEL_JSON.write_text(
         json.dumps(payload, ensure_ascii=False, indent=4) + "\n",
@@ -341,13 +344,13 @@ def commit_and_push():
         "build_articles.py",
         "interface-source.json",
         "index.html",
-        "articles.json",
         "llms.txt",
         ".well-known/namilele-interface.json",
         "robots.txt",
         "sitemap.xml",
         "vercel.json",
         "i18n/en.json",
+        "api/gone.py",
     ]
     try:
         status = subprocess.run(
@@ -358,7 +361,7 @@ def commit_and_push():
             print("[DEPLOY] public artifacts clean — rien à commit.")
             return
 
-        subprocess.run(["git", "add", *tracked], cwd=cwd, check=True)
+        subprocess.run(["git", "add", "-A", "--", *tracked], cwd=cwd, check=True)
         msg = f"publish: build_articles {datetime.now().strftime('%Y-%m-%d %H:%M')}"
         subprocess.run(
             [

@@ -21,6 +21,10 @@
     ],
     "rewrites": [
         {
+            "source": "/articles.json",
+            "destination": "/api/gone"
+        },
+        {
             "source": "/api/(.*)",
             "destination": "/api/$1"
         }
