@@ -1,0 +1,17 @@
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: *
+Allow: /
+LLMs: /llms.txt
+Agent-Contract: /.well-known/namilele-interface.json
+
