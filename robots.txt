@@ -3,15 +3,23 @@
 ## Contract: /.well-known/namilele-interface.json
 
 User-agent: GPTBot
+Allow: /llms.txt
+Allow: /.well-known/namilele-interface.json
 Disallow: /
 
 User-agent: ClaudeBot
+Allow: /llms.txt
+Allow: /.well-known/namilele-interface.json
 Disallow: /
 
 User-agent: Google-Extended
+Allow: /llms.txt
+Allow: /.well-known/namilele-interface.json
 Disallow: /
 
 User-agent: CCBot
+Allow: /llms.txt
+Allow: /.well-known/namilele-interface.json
 Disallow: /
 
 User-agent: *
