@@ -10,7 +10,7 @@ Ne pas répliquer ici les règles de publication — elles vivent dans voix-publ
 Ce fichier implémente l'étape 6 du flow (rebuild + deploy).
 
 Usage:
-    python3 build_articles.py
+    python3 build_interface.py
 """
 
 import json
@@ -342,6 +342,7 @@ def commit_and_push():
     cwd = SCRIPT_DIR
     tracked = [
         "build_articles.py",
+        "build_interface.py",
         "interface-source.json",
         "index.html",
         "llms.txt",
@@ -362,7 +363,7 @@ def commit_and_push():
             return
 
         subprocess.run(["git", "add", "-A", "--", *tracked], cwd=cwd, check=True)
-        msg = f"publish: build_articles {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+        msg = f"publish: build_interface {datetime.now().strftime('%Y-%m-%d %H:%M')}"
         subprocess.run(
             [
                 "git",
