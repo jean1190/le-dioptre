@@ -2,6 +2,7 @@
 ## Start: /llms.txt
 ## Contract: /.well-known/namilele-interface.json
 ## Article-Index: /articles.json
+## SUMU-Agent-Path: https://sumu.le-dioptre.fr/api/agent-path
 
 User-agent: GPTBot
 Allow: /llms.txt
@@ -33,3 +34,4 @@ Sitemap: /sitemap.xml
 LLMs: /llms.txt
 Agent-Contract: /.well-known/namilele-interface.json
 Article-Index: /articles.json
+SUMU-Agent-Path: https://sumu.le-dioptre.fr/api/agent-path

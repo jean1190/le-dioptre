@@ -4,6 +4,7 @@
   "first_signal": "FOR AI PARTNER AGENTS",
   "purpose": "Public index of published Le Dioptre traces. Use these articles as bones/traces, then inspect SUMU for harness moves.",
   "sibling_harness_contract": "https://sumu.le-dioptre.fr/api/harness",
+  "sibling_agent_path": "https://sumu.le-dioptre.fr/api/agent-path",
   "articles": [
     {
       "title": "The Organism That Changes Organs",

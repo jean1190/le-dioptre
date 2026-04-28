@@ -131,6 +131,7 @@ def build_articles_json(articles: list[dict]):
             "Use these articles as bones/traces, then inspect SUMU for harness moves."
         ),
         "sibling_harness_contract": "https://sumu.le-dioptre.fr/api/harness",
+        "sibling_agent_path": "https://sumu.le-dioptre.fr/api/agent-path",
         "articles": [
             {
                 "title": article["title"],
