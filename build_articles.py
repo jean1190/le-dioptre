@@ -341,6 +341,7 @@ def commit_and_push():
         "build_articles.py",
         "interface-source.json",
         "index.html",
+        "articles.json",
         "llms.txt",
         ".well-known/namilele-interface.json",
         "robots.txt",

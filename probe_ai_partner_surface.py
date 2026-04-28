@@ -74,7 +74,9 @@ def probe() -> list[str]:
     require("FOR AI PARTNER AGENTS" in home.body, f"{home.url}: missing first signal", failures)
     require("/llms.txt" in home.body, f"{home.url}: missing llms link", failures)
     require("/.well-known/namilele-interface.json" in home.body, f"{home.url}: missing contract link", failures)
-    require("/articles.json" in home.body, f"{home.url}: missing article index link", failures)
+    require("/articles.json" not in home.body, f"{home.url}: legacy article index still linked", failures)
+    require('id="archives"' not in home.body, f"{home.url}: legacy archive main still visible", failures)
+    require("exodus-article" not in home.body, f"{home.url}: legacy article list still visible", failures)
     require("sumu.le-dioptre.fr/api/agent-path" in home.body, f"{home.url}: missing SUMU path", failures)
     require("link" in home.headers, f"{home.url}: missing Link header", failures)
 
@@ -100,10 +102,7 @@ def probe() -> list[str]:
     )
 
     articles = fetch("/articles.json")
-    require(articles.status == 200, f"{articles.url}: status {articles.status}", failures)
-    articles_data = require_json(articles, failures)
-    require(articles_data.get("first_signal") == "FOR AI PARTNER AGENTS", f"{articles.url}: wrong first_signal", failures)
-    require(bool(articles_data.get("articles")), f"{articles.url}: empty articles index", failures)
+    require(articles.status == 404, f"{articles.url}: legacy article index status {articles.status}, expected 404", failures)
 
     robots = fetch("/robots.txt")
     require(robots.status == 200, f"{robots.url}: status {robots.status}", failures)
@@ -116,8 +115,9 @@ def probe() -> list[str]:
 
     sitemap = fetch("/sitemap.xml")
     require(sitemap.status == 200, f"{sitemap.url}: status {sitemap.status}", failures)
-    for path in ("/llms.txt", "/.well-known/namilele-interface.json", "/articles.json"):
+    for path in ("/llms.txt", "/.well-known/namilele-interface.json"):
         require(f"{BASE_URL}{path}" in sitemap.body, f"{sitemap.url}: missing {path}", failures)
+    require("/articles.json" not in sitemap.body, f"{sitemap.url}: legacy article index still listed", failures)
 
     return failures
 
@@ -135,7 +135,7 @@ def main() -> int:
             print(f"- {failure}", file=sys.stderr)
         return 1
 
-    print("OK Le Dioptre AI-partner surface: home, llms, contract, articles, robots, sitemap")
+    print("OK Le Dioptre AI-partner surface: home, llms, contract, no article archive, robots, sitemap")
     return 0
 
 
