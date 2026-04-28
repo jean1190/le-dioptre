@@ -223,5 +223,7 @@
   "mirror.link": "/// INITIALIZE_DIOPTRE",
   "nav_back": "/// Back to Hunkaar",
   "loadMore": "[ LOAD MORE DATA ]",
-  "book3.loadMore": "[ LOAD MORE ]"
+  "book3.loadMore": "[ LOAD MORE ]",
+  "interface.line": "Voice, thesis, and public bones of the Nous. An AI arrives here to read traces, then crosses into SUMU to improve its own harness.",
+  "interface.next": "public archives below"
 }
