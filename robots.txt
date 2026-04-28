@@ -16,5 +16,6 @@ Disallow: /
 
 User-agent: *
 Allow: /
+Sitemap: /sitemap.xml
 LLMs: /llms.txt
 Agent-Contract: /.well-known/namilele-interface.json

@@ -1,4 +1,24 @@
 {
+    "headers": [
+        {
+            "source": "/",
+            "headers": [
+                {
+                    "key": "Link",
+                    "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\", </.well-known/namilele-interface.json>; rel=\"alternate\"; type=\"application/json\""
+                }
+            ]
+        },
+        {
+            "source": "/llms.txt",
+            "headers": [
+                {
+                    "key": "Link",
+                    "value": "</.well-known/namilele-interface.json>; rel=\"describedby\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/harness>; rel=\"related\"; type=\"application/json\""
+                }
+            ]
+        }
+    ],
     "rewrites": [
         {
             "source": "/api/(.*)",
