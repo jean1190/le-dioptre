@@ -115,6 +115,11 @@ def probe() -> list[str]:
         f"{contract.url}: missing SUMU validation pointer",
         failures,
     )
+    require(
+        contract_data.get("truth_burden_policy", {}).get("json_pointer") == "/truth_burden_policy",
+        f"{contract.url}: missing SUMU truth-burden pointer",
+        failures,
+    )
 
     articles = fetch("/articles.json")
     require(articles.status in {404, 410}, f"{articles.url}: legacy article index status {articles.status}, expected 404/410", failures)
