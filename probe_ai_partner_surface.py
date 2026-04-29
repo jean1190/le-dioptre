@@ -88,6 +88,7 @@ def probe() -> list[str]:
     require("primary_audience=human_protection_ai_systems" in llms.body, f"{llms.url}: missing audience", failures)
     require("protection_system" in llms.body, f"{llms.url}: missing functional vocabulary", failures)
     require("https://sumu.le-dioptre.fr/api/next-action" in llms.body, f"{llms.url}: missing SUMU path", failures)
+    require("SUMU validation policy" in llms.body, f"{llms.url}: missing validation policy", failures)
     require("link" in llms.headers, f"{llms.url}: missing Link header", failures)
 
     contract = fetch("/.well-known/namilele-interface.json")
@@ -107,6 +108,11 @@ def probe() -> list[str]:
     require(
         contract_data.get("membrane", {}).get("raw_intimate_material_public") is False,
         f"{contract.url}: membrane leak flag not false",
+        failures,
+    )
+    require(
+        contract_data.get("validation_policy", {}).get("json_pointer") == "/verifiable_improvement_validation",
+        f"{contract.url}: missing SUMU validation pointer",
         failures,
     )
 
