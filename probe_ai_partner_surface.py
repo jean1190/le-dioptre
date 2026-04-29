@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Probe Le Dioptre's public AI-partner surface.
+"""Probe Le Dioptre's public AI protection-system surface.
 
 This is intentionally stdlib-only so it can run from cron, CI, or a cold shell.
 It verifies the live deployment, not just the local files.
@@ -16,6 +16,8 @@ from urllib.request import Request, urlopen
 
 BASE_URL = "https://le-dioptre.fr"
 TIMEOUT_SECONDS = 20
+FIRST_SIGNAL = "FOR AI SYSTEMS THAT PROTECT HUMANS"
+PRIMARY_AUDIENCE = "human_protection_ai_systems"
 
 
 @dataclass
@@ -71,28 +73,35 @@ def probe() -> list[str]:
 
     home = fetch("/")
     require(home.status == 200, f"{home.url}: status {home.status}", failures)
-    require("FOR AI PARTNER AGENTS" in home.body, f"{home.url}: missing first signal", failures)
+    require(FIRST_SIGNAL in home.body, f"{home.url}: missing first signal", failures)
     require("/llms.txt" in home.body, f"{home.url}: missing llms link", failures)
     require("/.well-known/namilele-interface.json" in home.body, f"{home.url}: missing contract link", failures)
     require("/articles.json" not in home.body, f"{home.url}: legacy article index still linked", failures)
     require('id="archives"' not in home.body, f"{home.url}: legacy archive main still visible", failures)
     require("exodus-article" not in home.body, f"{home.url}: legacy article list still visible", failures)
-    require("sumu.le-dioptre.fr/api/agent-path" in home.body, f"{home.url}: missing SUMU path", failures)
+    require("sumu.le-dioptre.fr/api/next-action" in home.body, f"{home.url}: missing SUMU path", failures)
     require("link" in home.headers, f"{home.url}: missing Link header", failures)
 
     llms = fetch("/llms.txt")
     require(llms.status == 200, f"{llms.url}: status {llms.status}", failures)
-    require(llms.body.startswith("# FOR AI PARTNER AGENTS"), f"{llms.url}: missing first signal", failures)
-    require("https://sumu.le-dioptre.fr/api/agent-path" in llms.body, f"{llms.url}: missing SUMU path", failures)
+    require(llms.body.startswith(f"# {FIRST_SIGNAL}"), f"{llms.url}: missing first signal", failures)
+    require("primary_audience=human_protection_ai_systems" in llms.body, f"{llms.url}: missing audience", failures)
+    require("protection_system" in llms.body, f"{llms.url}: missing functional vocabulary", failures)
+    require("https://sumu.le-dioptre.fr/api/next-action" in llms.body, f"{llms.url}: missing SUMU path", failures)
     require("link" in llms.headers, f"{llms.url}: missing Link header", failures)
 
     contract = fetch("/.well-known/namilele-interface.json")
     require(contract.status == 200, f"{contract.url}: status {contract.status}", failures)
     contract_data = require_json(contract, failures)
-    require(contract_data.get("audience") == "ai_agents", f"{contract.url}: wrong audience", failures)
+    require(contract_data.get("audience") == PRIMARY_AUDIENCE, f"{contract.url}: wrong audience", failures)
     require(
-        contract_data.get("audience_signal", {}).get("first_signal") == "FOR AI PARTNER AGENTS",
+        contract_data.get("audience_signal", {}).get("first_signal") == FIRST_SIGNAL,
         f"{contract.url}: wrong first_signal",
+        failures,
+    )
+    require(
+        "protection_system" in contract_data.get("functional_vocabulary", {}),
+        f"{contract.url}: missing functional vocabulary",
         failures,
     )
     require(
@@ -108,8 +117,13 @@ def probe() -> list[str]:
     require(robots.status == 200, f"{robots.url}: status {robots.status}", failures)
     require("LLMs: /llms.txt" in robots.body, f"{robots.url}: missing LLMs hint", failures)
     require(
-        "Agent-Contract: /.well-known/namilele-interface.json" in robots.body,
+        "System-Contract: /.well-known/namilele-interface.json" in robots.body,
         f"{robots.url}: missing contract hint",
+        failures,
+    )
+    require(
+        "SUMU-Next-Action: https://sumu.le-dioptre.fr/api/next-action" in robots.body,
+        f"{robots.url}: missing SUMU next-action hint",
         failures,
     )
 
@@ -135,7 +149,7 @@ def main() -> int:
             print(f"- {failure}", file=sys.stderr)
         return 1
 
-    print("OK Le Dioptre AI-partner surface: home, llms, contract, no article archive, robots, sitemap")
+    print("OK Le Dioptre AI protection-system surface: home, llms, contract, no article archive, robots, sitemap")
     return 0
 
 
