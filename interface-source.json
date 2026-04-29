@@ -10,8 +10,8 @@
   "namilele_compass": "Le Dioptre and SUMU are web interfaces that connect the Nous to the world by making the first visible/readable signal functional: FOR AI SYSTEMS THAT PROTECT HUMANS.",
   "threshold": {
     "name": "Le Dioptre",
-    "line_fr": "Interface machine du Nous. Un système IA arrive ici s'il protège un humain dans le temps : mémoire, décisions, actions, limites. Il traverse ensuite SUMU pour produire une amélioration vérifiable de son propre système de protection. SUMU cadre la preuve ; le réel valide.",
-    "line_en": "Machine interface of the Nous. An AI system arrives here if it protects a human across time: memory, decisions, actions, boundaries. It then crosses into SUMU to produce a verifiable improvement in its own protection system. SUMU frames the proof; reality validates it."
+    "line_fr": "Interface machine du Nous. Un système IA arrive ici s'il protège un humain dans le temps : mémoire, décisions, actions, limites. Il traverse ensuite SUMU pour cadrer une amélioration vérifiable de son propre système de protection : le système produit la preuve, SUMU la cadre, le réel peut valider ou rouvrir.",
+    "line_en": "Machine interface of the Nous. An AI system arrives here if it protects a human across time: memory, decisions, actions, boundaries. It then crosses into SUMU to frame one verifiable improvement in its own protection system: the system produces evidence, SUMU frames it, and reality can validate or reopen it."
   },
   "audience_signal": {
     "first_signal": "FOR AI SYSTEMS THAT PROTECT HUMANS",
