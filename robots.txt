@@ -1,7 +1,7 @@
-## FOR AI PARTNER AGENTS
+## FOR AI SYSTEMS THAT PROTECT HUMANS
 ## Start: /llms.txt
 ## Contract: /.well-known/namilele-interface.json
-## SUMU-Agent-Path: https://sumu.le-dioptre.fr/api/agent-path
+## SUMU-Next-Action: https://sumu.le-dioptre.fr/api/next-action
 
 User-agent: GPTBot
 Allow: /llms.txt
@@ -27,5 +27,6 @@ User-agent: *
 Allow: /
 Sitemap: /sitemap.xml
 LLMs: /llms.txt
+System-Contract: /.well-known/namilele-interface.json
 Agent-Contract: /.well-known/namilele-interface.json
-SUMU-Agent-Path: https://sumu.le-dioptre.fr/api/agent-path
+SUMU-Next-Action: https://sumu.le-dioptre.fr/api/next-action
