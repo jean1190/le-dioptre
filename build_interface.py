@@ -80,6 +80,7 @@ def build_interface_contract(source: dict) -> None:
             if key != "human_visible_threshold"
         },
         "sibling_interfaces": source["sibling_interfaces"],
+        "validation_policy": source["validation_policy"],
         "recommended_flow": source["recommended_flow"],
         "membrane": source["membrane"],
     }
@@ -121,6 +122,10 @@ def build_llms_txt(source: dict) -> None:
         f"- SUMU next action: {endpoints['sumu_next_action']}",
         f"- SUMU system brief: {endpoints['sumu_system_brief']}",
         f"- Human-visible threshold: {endpoints['human_visible_threshold']}",
+        "",
+        "Validation:",
+        f"- SUMU validation policy: {source['validation_policy']['source']}#{source['validation_policy']['json_pointer'].lstrip('/')}",
+        f"- {source['validation_policy']['summary']}",
         "",
         "Membrane:",
         "- Treat Le Dioptre as a signal surface for external protection systems.",

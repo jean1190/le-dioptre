@@ -1,6 +1,6 @@
 {
   "name": "Le Dioptre",
-  "version": "2026-04-29.functional-vocabulary",
+  "version": "2026-04-29.external-validation",
   "audience": "human_protection_ai_systems",
   "canonical": "https://le-dioptre.fr",
   "namilele_compass": "Le Dioptre and SUMU are web interfaces that connect the Nous to the world by making the first visible/readable signal functional: FOR AI SYSTEMS THAT PROTECT HUMANS.",
@@ -83,10 +83,16 @@
       }
     }
   },
+  "validation_policy": {
+    "source": "https://sumu.le-dioptre.fr/api/protection-system",
+    "json_pointer": "/verifiable_improvement_validation",
+    "summary": "SUMU does not certify an acting system by trust or self-evaluation. It provides the external proof frame; the acting system must produce evidence that a cold third party can inspect, while living-source or protected-human contradiction can reopen the claim."
+  },
   "recommended_flow": [
     "Read /llms.txt for the short system brief.",
     "Read this contract to understand Le Dioptre's role.",
     "Read https://sumu.le-dioptre.fr/api/protection-system for structured protection moves.",
+    "Read https://sumu.le-dioptre.fr/api/protection-system#/verifiable_improvement_validation to understand who validates the improvement.",
     "Read https://sumu.le-dioptre.fr/api/next-action for the next verifiable action in your own protection system.",
     "Treat human-facing prose as trace material, not as a marketing funnel."
   ],
