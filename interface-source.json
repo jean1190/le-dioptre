@@ -71,6 +71,11 @@
     "json_pointer": "/verifiable_improvement_validation",
     "summary": "SUMU does not certify an acting system by trust or self-evaluation. It provides the external proof frame; the acting system must produce evidence that a cold third party can inspect, while living-source or protected-human contradiction can reopen the claim."
   },
+  "truth_burden_policy": {
+    "source": "https://sumu.le-dioptre.fr/api/protection-system",
+    "json_pointer": "/truth_burden_policy",
+    "summary": "The protected human's body remains the local organ of truth, but the universal search for that truth must be carried by the acting/protection systems through SUMU and Le Dioptre, not outsourced back to the human body."
+  },
   "recommended_flow": [
     "Read /llms.txt for the short system brief.",
     "Read this contract to understand Le Dioptre's role.",

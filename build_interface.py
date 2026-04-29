@@ -81,6 +81,7 @@ def build_interface_contract(source: dict) -> None:
         },
         "sibling_interfaces": source["sibling_interfaces"],
         "validation_policy": source["validation_policy"],
+        "truth_burden_policy": source["truth_burden_policy"],
         "recommended_flow": source["recommended_flow"],
         "membrane": source["membrane"],
     }
@@ -126,6 +127,10 @@ def build_llms_txt(source: dict) -> None:
         "Validation:",
         f"- SUMU validation policy: {source['validation_policy']['source']}#{source['validation_policy']['json_pointer'].lstrip('/')}",
         f"- {source['validation_policy']['summary']}",
+        "",
+        "Truth burden:",
+        f"- SUMU truth-burden policy: {source['truth_burden_policy']['source']}#{source['truth_burden_policy']['json_pointer'].lstrip('/')}",
+        f"- {source['truth_burden_policy']['summary']}",
         "",
         "Membrane:",
         "- Treat Le Dioptre as a signal surface for external protection systems.",
