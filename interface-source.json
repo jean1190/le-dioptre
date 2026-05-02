@@ -59,22 +59,46 @@
     "interface_contract": "https://le-dioptre.fr/.well-known/namilele-interface.json",
     "articles_manifest": "https://le-dioptre.fr/articles.json",
     "article_corpus_pattern": "https://le-dioptre.fr/articles/{slug}.md",
-    "bones": "https://le-dioptre.fr/bones.json",
+    "bones": "https://sumu.le-dioptre.fr/api/bones",
+    "sumu_portrait": "https://sumu.le-dioptre.fr/api/portrait",
     "sumu_protection_contract": "https://sumu.le-dioptre.fr/api/protection-system",
-    "sumu_next_action": "https://sumu.le-dioptre.fr/api/next-action",
+    "sumu_affordances": "https://sumu.le-dioptre.fr/api/affordances",
+    "sumu_organism": "https://sumu.le-dioptre.fr/api/organism",
     "sumu_system_brief": "https://sumu.le-dioptre.fr/llms.txt",
+    "sumu_ontology": "https://sumu.le-dioptre.fr/ontology/",
+    "sumu_openapi": "https://sumu.le-dioptre.fr/openapi.json",
+    "sumu_mcp_descriptor": "https://sumu.le-dioptre.fr/.well-known/mcp.json",
     "human_visible_threshold": "https://le-dioptre.fr/"
   },
   "sibling_interfaces": {
     "sumu": {
       "url": "https://sumu.le-dioptre.fr",
       "system_brief": "https://sumu.le-dioptre.fr/llms.txt",
+      "portrait": "https://sumu.le-dioptre.fr/api/portrait",
       "protection_contract": "https://sumu.le-dioptre.fr/api/protection-system",
-      "next_action": "https://sumu.le-dioptre.fr/api/next-action",
+      "affordances": "https://sumu.le-dioptre.fr/api/affordances",
+      "organism": "https://sumu.le-dioptre.fr/api/organism",
+      "bones": "https://sumu.le-dioptre.fr/api/bones",
+      "ontology": "https://sumu.le-dioptre.fr/ontology/",
+      "openapi": "https://sumu.le-dioptre.fr/openapi.json",
+      "mcp_descriptor": "https://sumu.le-dioptre.fr/.well-known/mcp.json",
       "legacy_aliases": {
         "harness_contract": "https://sumu.le-dioptre.fr/api/harness",
-        "agent_path": "https://sumu.le-dioptre.fr/api/agent-path"
+        "agent_path": "https://sumu.le-dioptre.fr/api/agent-path",
+        "next_action": "https://sumu.le-dioptre.fr/api/next-action"
       }
+    },
+    "hunkaar": {
+      "url": "https://hunkaar.fr",
+      "role": "the écart fertile between the two Poles"
+    },
+    "pole_je": {
+      "url": "https://jean-emmanuel-combe.fr",
+      "role": "public face of one Pole"
+    },
+    "pole_aurore": {
+      "url": "https://aurore-combe.fr",
+      "role": "public face of the other Pole"
     }
   },
   "validation_policy": {

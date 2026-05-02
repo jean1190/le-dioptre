@@ -5,7 +5,7 @@
             "headers": [
                 {
                     "key": "Link",
-                    "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\", </.well-known/namilele-interface.json>; rel=\"alternate\"; type=\"application/json\", </articles.json>; rel=\"alternate\"; type=\"application/json\", </bones.json>; rel=\"alternate\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/next-action>; rel=\"next\"; type=\"application/json\""
+                    "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\", </.well-known/namilele-interface.json>; rel=\"alternate\"; type=\"application/json\", </articles.json>; rel=\"alternate\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/protection-system>; rel=\"related\"; type=\"application/json\""
                 }
             ]
         },
@@ -14,25 +14,12 @@
             "headers": [
                 {
                     "key": "Link",
-                    "value": "</.well-known/namilele-interface.json>; rel=\"describedby\"; type=\"application/json\", </articles.json>; rel=\"related\"; type=\"application/json\", </bones.json>; rel=\"related\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/protection-system>; rel=\"related\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/next-action>; rel=\"next\"; type=\"application/json\""
+                    "value": "</.well-known/namilele-interface.json>; rel=\"describedby\"; type=\"application/json\", </articles.json>; rel=\"related\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/protection-system>; rel=\"related\"; type=\"application/json\""
                 }
             ]
         },
         {
             "source": "/articles.json",
-            "headers": [
-                {
-                    "key": "Content-Type",
-                    "value": "application/json; charset=utf-8"
-                },
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=600"
-                }
-            ]
-        },
-        {
-            "source": "/bones.json",
             "headers": [
                 {
                     "key": "Content-Type",
@@ -56,6 +43,14 @@
                     "value": "public, max-age=3600"
                 }
             ]
+        }
+    ],
+    "redirects": [
+        {
+            "source": "/bones.json",
+            "destination": "https://sumu.le-dioptre.fr/api/bones",
+            "permanent": false,
+            "statusCode": 302
         }
     ],
     "rewrites": [

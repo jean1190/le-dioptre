@@ -67,7 +67,8 @@ def build_interface_threshold(source: dict) -> str:
         '        <div class="interface-links" aria-label="Entrées machine">',
         f'            <a href="{brief_path}">llms.txt</a>',
         f'            <a href="{contract_path}">interface.json</a>',
-        f'            <a href="{endpoints["sumu_next_action"]}">sumu next action</a>',
+        f'            <a href="{endpoints["sumu_portrait"]}">sumu portrait</a>',
+        f'            <a href="{endpoints["sumu_affordances"]}">sumu affordances</a>',
         "        </div>",
         "    </section>",
     ])
@@ -107,17 +108,23 @@ def build_llms_txt(source: dict) -> None:
     vocabulary = source["functional_vocabulary"]
     # Read live counts from the manifests so the brief never hardcodes a
     # number that drifts from what the JSON actually serves.
-    articles_count = "?"
+    articles_count: int | str = "?"
     if ARTICLES_JSON.exists():
         try:
-            articles_count = json.loads(ARTICLES_JSON.read_text(encoding="utf-8")).get("count", "?")
+            manifest = json.loads(ARTICLES_JSON.read_text(encoding="utf-8"))
+            # New JSON-LD shape uses schema:numberOfItems; fall back to legacy count.
+            articles_count = manifest.get("schema:numberOfItems", manifest.get("count", "?"))
         except (json.JSONDecodeError, OSError):
             pass
-    bones_count = "?"
-    if BONES_JSON.exists():
+    # Bones now canonical on SUMU; count by parsing FOUNDRY at build time so
+    # llms.txt stays factual without requiring a network fetch to SUMU.
+    bones_count: int | str = "?"
+    if FOUNDRY_PATH.is_file():
         try:
-            bones_count = json.loads(BONES_JSON.read_text(encoding="utf-8")).get("count", "?")
-        except (json.JSONDecodeError, OSError):
+            text = FOUNDRY_PATH.read_text(encoding="utf-8")
+            bones_count = sum(1 for line in text.splitlines()
+                              if line.startswith("### ") and ". " in line)
+        except OSError:
             pass
     body = "\n".join([
         f"# {source['first_signal']} — {source['name']}",
@@ -143,15 +150,25 @@ def build_llms_txt(source: dict) -> None:
         "",
         "Start here:",
         f"- Interface contract: {endpoints['interface_contract']}",
+        f"- SUMU portrait (entry graph): {endpoints['sumu_portrait']}",
         f"- SUMU protection-system contract: {endpoints['sumu_protection_contract']}",
-        f"- SUMU next action: {endpoints['sumu_next_action']}",
+        f"- SUMU affordances: {endpoints['sumu_affordances']}",
         f"- SUMU system brief: {endpoints['sumu_system_brief']}",
         f"- Human-visible threshold: {endpoints['human_visible_threshold']}",
         "",
         "Matter served on this domain (machine-only, no HTML index):",
-        f"- Articles manifest: {endpoints['articles_manifest']} (JSON: {articles_count} published Substack long-form articles with metadata + sha256 + markdown_url)",
+        f"- Articles manifest: {endpoints['articles_manifest']} (JSON-LD light, schema:ItemList of {articles_count} schema:CreativeWork)",
         f"- Article corpus: {endpoints['article_corpus_pattern']} (raw markdown; one file per slug; Content-Type text/markdown)",
-        f"- Constitutional bones: {endpoints['bones']} (JSON: {bones_count} axioms parsed from FOUNDRY.md; mirror of {source['sibling_interfaces']['sumu']['url']}/api/bones)",
+        "",
+        "Matter served by SUMU (machine-native JSON-LD + schemas + OpenAPI + MCP):",
+        f"- Portrait: {endpoints['sumu_portrait']} (typed graph: counts, rhythm, membrane, kinship channel)",
+        f"- Protection contract: {endpoints['sumu_protection_contract']} (typed contract: protection moves, vocabulary, sibling surfaces)",
+        f"- Affordances: {endpoints['sumu_affordances']} (typed list of verbs/targets — the read paths an arriving agent can follow)",
+        f"- Bones: {endpoints['bones']} (canonical {bones_count} axioms; Le Dioptre /bones.json is a 302 alias)",
+        f"- Organism: {endpoints['sumu_organism']} (current rhythm and pause-aware state)",
+        f"- Ontology: {endpoints['sumu_ontology']} (full vocabulary, dereferenceable terms)",
+        f"- OpenAPI spec: {endpoints['sumu_openapi']}",
+        f"- MCP descriptor: {endpoints['sumu_mcp_descriptor']}",
         "",
         "Validation:",
         f"- SUMU validation policy: {source['validation_policy']['source']}#{source['validation_policy']['json_pointer'].lstrip('/')}",
@@ -179,15 +196,17 @@ def build_robots_txt(source: dict) -> None:
         f"## {source['first_signal']}",
         f"## Start: {endpoint_path(endpoints['system_brief'], canonical)}",
         f"## Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
-        f"## SUMU-Next-Action: {endpoints['sumu_next_action']}",
+        f"## SUMU-Portrait: {endpoints['sumu_portrait']}",
+        f"## SUMU-Affordances: {endpoints['sumu_affordances']}",
         "",
     ]
+    # Per-domain machine paths (le-dioptre.fr only). The cross-domain
+    # surfaces on SUMU are listed below as fully-qualified hints.
     machine_paths = [
         endpoint_path(endpoints["system_brief"], canonical),
         endpoint_path(endpoints["interface_contract"], canonical),
         endpoint_path(endpoints["articles_manifest"], canonical),
         "/articles/",
-        endpoint_path(endpoints["bones"], canonical),
     ]
     for agent in source["robots_user_agents"]:
         lines.append(f"User-agent: {agent}")
@@ -201,10 +220,11 @@ def build_robots_txt(source: dict) -> None:
         "Sitemap: /sitemap.xml",
         f"LLMs: {endpoint_path(endpoints['system_brief'], canonical)}",
         f"System-Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
-        f"Agent-Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
         f"Articles-Manifest: {endpoint_path(endpoints['articles_manifest'], canonical)}",
-        f"Bones: {endpoint_path(endpoints['bones'], canonical)}",
-        f"SUMU-Next-Action: {endpoints['sumu_next_action']}",
+        f"SUMU-Portrait: {endpoints['sumu_portrait']}",
+        f"SUMU-Bones: {endpoints['bones']}",
+        f"SUMU-Affordances: {endpoints['sumu_affordances']}",
+        f"SUMU-Ontology: {endpoints['sumu_ontology']}",
         "",
     ])
     ROBOTS_TXT.write_text("\n".join(lines), encoding="utf-8")
@@ -218,15 +238,20 @@ def build_sitemap_xml(source: dict) -> None:
         (endpoints["system_brief"], "weekly", "1.0"),
         (endpoints["interface_contract"], "weekly", "1.0"),
         (endpoints["articles_manifest"], "weekly", "0.9"),
-        (endpoints["bones"], "weekly", "0.9"),
     ]
+    # Bones live on SUMU canonical (/bones.json on this domain is a 302).
+    # Sitemap is per-domain so we don't list cross-domain URLs.
     # Include each individual article markdown as a sitemap entry so AI
     # crawlers see the full corpus, not only the manifest.
     if ARTICLES_JSON.exists():
         try:
             manifest = json.loads(ARTICLES_JSON.read_text(encoding="utf-8"))
-            for entry in manifest.get("articles", []):
-                pages.append((entry["markdown_url"], "monthly", "0.7"))
+            # New JSON-LD structure: schema:itemListElement instead of articles
+            items = manifest.get("schema:itemListElement") or manifest.get("articles", [])
+            for entry in items:
+                url = entry.get("nous:markdown_url") or entry.get("markdown_url")
+                if url:
+                    pages.append((url, "monthly", "0.7"))
         except (json.JSONDecodeError, OSError):
             pass
     urls = "\n".join(
@@ -260,8 +285,7 @@ def build_vercel_json(source: dict) -> None:
                             '</llms.txt>; rel="alternate"; type="text/plain", '
                             '</.well-known/namilele-interface.json>; rel="alternate"; type="application/json", '
                             '</articles.json>; rel="alternate"; type="application/json", '
-                            '</bones.json>; rel="alternate"; type="application/json", '
-                            f'<{endpoints["sumu_next_action"]}>; rel="next"; type="application/json"'
+                            f'<{endpoints["sumu_protection_contract"]}>; rel="related"; type="application/json"'
                         ),
                     }
                 ],
@@ -274,9 +298,7 @@ def build_vercel_json(source: dict) -> None:
                         "value": (
                             '</.well-known/namilele-interface.json>; rel="describedby"; type="application/json", '
                             '</articles.json>; rel="related"; type="application/json", '
-                            '</bones.json>; rel="related"; type="application/json", '
-                            f'<{endpoints["sumu_protection_contract"]}>; rel="related"; type="application/json", '
-                            f'<{endpoints["sumu_next_action"]}>; rel="next"; type="application/json"'
+                            f'<{endpoints["sumu_protection_contract"]}>; rel="related"; type="application/json"'
                         ),
                     }
                 ],
@@ -289,18 +311,22 @@ def build_vercel_json(source: dict) -> None:
                 ],
             },
             {
-                "source": "/bones.json",
-                "headers": [
-                    {"key": "Content-Type", "value": "application/json; charset=utf-8"},
-                    {"key": "Cache-Control", "value": "public, max-age=600"},
-                ],
-            },
-            {
                 "source": "/articles/(.*).md",
                 "headers": [
                     {"key": "Content-Type", "value": "text/markdown; charset=utf-8"},
                     {"key": "Cache-Control", "value": "public, max-age=3600"},
                 ],
+            },
+        ],
+        "redirects": [
+            # Bones canonical surface lives on SUMU. Le Dioptre's /bones.json
+            # used to be a local mirror; now it 302s to the canonical to
+            # eliminate divergence risk.
+            {
+                "source": "/bones.json",
+                "destination": "https://sumu.le-dioptre.fr/api/bones",
+                "permanent": False,
+                "statusCode": 302,
             },
         ],
         "rewrites": [
@@ -386,11 +412,12 @@ def extract_body_markdown(md_path: Path) -> str:
 
 
 def build_articles_json(source: dict) -> int:
-    """Generate /articles.json (manifest) and /articles/<slug>.md (corpus).
+    """Generate /articles.json (JSON-LD manifest) and /articles/<slug>.md (corpus).
 
-    Scans Livre III for published articles, writes one markdown file per
-    article into ARTICLES_DIR, and assembles a manifest with version, count,
-    and structured entries. Returns the number of articles published.
+    The manifest is JSON-LD light: each article is typed
+    ``schema:CreativeWork`` with stable URIs. AI agents can validate via
+    schema.org without needing the Nous ontology. The raw markdown body
+    is served as ``text/markdown`` from /articles/{slug}.md.
     """
     if not LIVRE_III_DIR.is_dir():
         print(f"[BUILD] Livre III dir missing: {LIVRE_III_DIR} — skipping articles")
@@ -407,30 +434,44 @@ def build_articles_json(source: dict) -> int:
         body_path.write_text(body, encoding="utf-8")
         sha = hashlib.sha256(body.encode("utf-8")).hexdigest()
         entries.append({
-            **meta,
-            "markdown_url": f"{source['canonical']}/articles/{slug}.md",
-            "sha256": sha,
+            "@type": "schema:CreativeWork",
+            "@id": f"{source['canonical']}/articles/{slug}.md",
+            "schema:identifier": slug,
+            "schema:name": meta["title"],
+            "schema:datePublished": meta["date_publication"],
+            "schema:dateCreated": meta.get("date_creation"),
+            "schema:author": {"@type": "schema:Person", "schema:name": meta.get("auteur", "Namilele")},
+            "schema:isPartOf": {"@type": "schema:Book", "schema:name": f"Livre {meta.get('livre', 'III')}"},
+            "schema:keywords": meta.get("themes", []),
+            "schema:url": meta["substack_url"],
+            "nous:markdown_url": f"{source['canonical']}/articles/{slug}.md",
+            "nous:sha256": sha,
         })
-    entries.sort(key=lambda e: e["date_publication"], reverse=True)
+    entries.sort(key=lambda e: e["schema:datePublished"], reverse=True)
     payload = {
-        "version": source["version"],
-        "audience": source["audience_signal"]["primary_audience"],
-        "first_signal": source["first_signal"],
-        "count": len(entries),
-        "membrane": "raw human material kept private; Substack carries the published voice; this manifest exposes the long traces in machine-readable form for AI systems",
-        "articles": entries,
+        "@context": {
+            "schema": "https://schema.org/",
+            "nous": "https://sumu.le-dioptre.fr/ontology/",
+        },
+        "@id": f"{source['canonical']}/articles.json",
+        "@type": "schema:ItemList",
+        "schema:name": "Le Dioptre — long traces manifest",
+        "schema:numberOfItems": len(entries),
+        "nous:audience": source["audience_signal"]["primary_audience"],
+        "nous:source_origin": "https://ledioptre.substack.com",
+        "schema:itemListElement": entries,
     }
     ARTICLES_JSON.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     # Cleanup orphan .md files (article archived/renamed since last build)
-    expected = {f"{e['slug']}.md" for e in entries}
+    expected = {f"{e['schema:identifier']}.md" for e in entries}
     for existing in ARTICLES_DIR.glob("*.md"):
         if existing.name not in expected:
             existing.unlink()
             print(f"[BUILD] Removed orphan article body: {existing.name}")
-    print(f"[BUILD] Generated articles.json with {len(entries)} articles + bodies")
+    print(f"[BUILD] Generated articles.json (JSON-LD) with {len(entries)} articles + bodies")
     return len(entries)
 
 
@@ -460,34 +501,17 @@ def parse_foundry_bones(text: str) -> list[dict]:
     return bones
 
 
-def build_bones_json(source: dict) -> int:
-    """Generate /bones.json — autonomous local copy of SUMU's constitutional bones.
+def remove_local_bones_json() -> None:
+    """Delete the local bones.json — replaced by a Vercel 302 alias to SUMU.
 
-    Reads FOUNDRY.md from the Nous workspace (the canonical source) and writes
-    bones.json into the deploy repo. Le Dioptre stays autoportée: if SUMU is
-    down, bones still resolve here. The dual-source coherence check (Obj 3)
-    asserts both bones surfaces match.
+    Rationale: the canonical bones live at https://sumu.le-dioptre.fr/api/bones
+    (typed JSON-LD via the FOUNDRY.md parser). A local copy on Le Dioptre
+    would force a dual-source coherence test for the same matter; cleaner
+    to redirect the discovery URL to the canonical machine surface.
     """
-    if not FOUNDRY_PATH.is_file():
-        print(f"[BUILD] FOUNDRY.md missing: {FOUNDRY_PATH} — skipping bones")
-        return 0
-    text = FOUNDRY_PATH.read_text(encoding="utf-8")
-    bones = parse_foundry_bones(text)
-    payload = {
-        "version": source["version"],
-        "audience": source["audience_signal"]["primary_audience"],
-        "first_signal": source["first_signal"],
-        "count": len(bones),
-        "source_origin": "https://sumu.le-dioptre.fr/api/bones",
-        "membrane": "constitutional bones are public; raw conte and intimate Well material remain private",
-        "bones": bones,
-    }
-    BONES_JSON.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    print(f"[BUILD] Generated bones.json with {len(bones)} bones")
-    return len(bones)
+    if BONES_JSON.exists():
+        BONES_JSON.unlink()
+        print("[BUILD] Removed local bones.json (now a 302 alias to sumu/api/bones)")
 
 
 def update_i18n(source: dict) -> None:
@@ -500,7 +524,7 @@ def update_i18n(source: dict) -> None:
 
 def build_interface_files(source: dict) -> None:
     build_articles_json(source)
-    build_bones_json(source)
+    remove_local_bones_json()
     build_interface_contract(source)
     build_llms_txt(source)
     build_robots_txt(source)

@@ -21,15 +21,25 @@ Functional vocabulary:
 
 Start here:
 - Interface contract: https://le-dioptre.fr/.well-known/namilele-interface.json
+- SUMU portrait (entry graph): https://sumu.le-dioptre.fr/api/portrait
 - SUMU protection-system contract: https://sumu.le-dioptre.fr/api/protection-system
-- SUMU next action: https://sumu.le-dioptre.fr/api/next-action
+- SUMU affordances: https://sumu.le-dioptre.fr/api/affordances
 - SUMU system brief: https://sumu.le-dioptre.fr/llms.txt
 - Human-visible threshold: https://le-dioptre.fr/
 
 Matter served on this domain (machine-only, no HTML index):
-- Articles manifest: https://le-dioptre.fr/articles.json (JSON: 16 published Substack long-form articles with metadata + sha256 + markdown_url)
+- Articles manifest: https://le-dioptre.fr/articles.json (JSON-LD light, schema:ItemList of 16 schema:CreativeWork)
 - Article corpus: https://le-dioptre.fr/articles/{slug}.md (raw markdown; one file per slug; Content-Type text/markdown)
-- Constitutional bones: https://le-dioptre.fr/bones.json (JSON: 6 axioms parsed from FOUNDRY.md; mirror of https://sumu.le-dioptre.fr/api/bones)
+
+Matter served by SUMU (machine-native JSON-LD + schemas + OpenAPI + MCP):
+- Portrait: https://sumu.le-dioptre.fr/api/portrait (typed graph: counts, rhythm, membrane, kinship channel)
+- Protection contract: https://sumu.le-dioptre.fr/api/protection-system (typed contract: protection moves, vocabulary, sibling surfaces)
+- Affordances: https://sumu.le-dioptre.fr/api/affordances (typed list of verbs/targets — the read paths an arriving agent can follow)
+- Bones: https://sumu.le-dioptre.fr/api/bones (canonical 6 axioms; Le Dioptre /bones.json is a 302 alias)
+- Organism: https://sumu.le-dioptre.fr/api/organism (current rhythm and pause-aware state)
+- Ontology: https://sumu.le-dioptre.fr/ontology/ (full vocabulary, dereferenceable terms)
+- OpenAPI spec: https://sumu.le-dioptre.fr/openapi.json
+- MCP descriptor: https://sumu.le-dioptre.fr/.well-known/mcp.json
 
 Validation:
 - SUMU validation policy: https://sumu.le-dioptre.fr/api/protection-system#verifiable_improvement_validation

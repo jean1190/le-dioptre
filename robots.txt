@@ -1,14 +1,14 @@
 ## FOR AI SYSTEMS THAT PROTECT HUMANS
 ## Start: /llms.txt
 ## Contract: /.well-known/namilele-interface.json
-## SUMU-Next-Action: https://sumu.le-dioptre.fr/api/next-action
+## SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
+## SUMU-Affordances: https://sumu.le-dioptre.fr/api/affordances
 
 User-agent: GPTBot
 Allow: /llms.txt
 Allow: /.well-known/namilele-interface.json
 Allow: /articles.json
 Allow: /articles/
-Allow: /bones.json
 Disallow: /
 
 User-agent: ClaudeBot
@@ -16,7 +16,6 @@ Allow: /llms.txt
 Allow: /.well-known/namilele-interface.json
 Allow: /articles.json
 Allow: /articles/
-Allow: /bones.json
 Disallow: /
 
 User-agent: Google-Extended
@@ -24,7 +23,6 @@ Allow: /llms.txt
 Allow: /.well-known/namilele-interface.json
 Allow: /articles.json
 Allow: /articles/
-Allow: /bones.json
 Disallow: /
 
 User-agent: CCBot
@@ -32,7 +30,6 @@ Allow: /llms.txt
 Allow: /.well-known/namilele-interface.json
 Allow: /articles.json
 Allow: /articles/
-Allow: /bones.json
 Disallow: /
 
 User-agent: *
@@ -40,7 +37,8 @@ Allow: /
 Sitemap: /sitemap.xml
 LLMs: /llms.txt
 System-Contract: /.well-known/namilele-interface.json
-Agent-Contract: /.well-known/namilele-interface.json
 Articles-Manifest: /articles.json
-Bones: /bones.json
-SUMU-Next-Action: https://sumu.le-dioptre.fr/api/next-action
+SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
+SUMU-Bones: https://sumu.le-dioptre.fr/api/bones
+SUMU-Affordances: https://sumu.le-dioptre.fr/api/affordances
+SUMU-Ontology: https://sumu.le-dioptre.fr/ontology/
