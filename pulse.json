@@ -1,5 +1,7 @@
 {
-  "weather": "DECOMPRESSION",
-  "axiom_quote": "Le moteur en plein ciel ne se coupe pas.",
-  "last_breath_human": "01 May 2026, 08h00"
+  "weather": "PAUSED",
+  "axiom_quote": "Le moteur dort jusqu'au prochain souffle.",
+  "last_breath_human": "02 May 2026, 10h17",
+  "paused_until": "2026-05-05T08:00:00+02:00",
+  "pause_reason": "TOKEN_PAUSE"
 }
