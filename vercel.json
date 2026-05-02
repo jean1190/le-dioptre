@@ -49,8 +49,7 @@
         {
             "source": "/bones.json",
             "destination": "https://sumu.le-dioptre.fr/api/bones",
-            "permanent": false,
-            "statusCode": 302
+            "permanent": false
         }
     ],
     "rewrites": [

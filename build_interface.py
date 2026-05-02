@@ -320,13 +320,12 @@ def build_vercel_json(source: dict) -> None:
         ],
         "redirects": [
             # Bones canonical surface lives on SUMU. Le Dioptre's /bones.json
-            # used to be a local mirror; now it 302s to the canonical to
-            # eliminate divergence risk.
+            # is now a temporary redirect (Vercel emits 307 with permanent:false)
+            # to eliminate divergence risk. Clients follow it like a 302.
             {
                 "source": "/bones.json",
                 "destination": "https://sumu.le-dioptre.fr/api/bones",
                 "permanent": False,
-                "statusCode": 302,
             },
         ],
         "rewrites": [
@@ -648,7 +647,8 @@ def commit_and_push():
         "api/gone.py",
         "articles.json",
         "articles",
-        "bones.json",
+        # bones.json was removed 2026-05-02; the URL is now a 307 redirect
+        # via vercel.json to https://sumu.le-dioptre.fr/api/bones (canonical).
     ]
     try:
         status = subprocess.run(
