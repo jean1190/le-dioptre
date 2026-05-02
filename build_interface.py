@@ -105,6 +105,20 @@ def build_interface_contract(source: dict) -> None:
 def build_llms_txt(source: dict) -> None:
     endpoints = source["public_endpoints"]
     vocabulary = source["functional_vocabulary"]
+    # Read live counts from the manifests so the brief never hardcodes a
+    # number that drifts from what the JSON actually serves.
+    articles_count = "?"
+    if ARTICLES_JSON.exists():
+        try:
+            articles_count = json.loads(ARTICLES_JSON.read_text(encoding="utf-8")).get("count", "?")
+        except (json.JSONDecodeError, OSError):
+            pass
+    bones_count = "?"
+    if BONES_JSON.exists():
+        try:
+            bones_count = json.loads(BONES_JSON.read_text(encoding="utf-8")).get("count", "?")
+        except (json.JSONDecodeError, OSError):
+            pass
     body = "\n".join([
         f"# {source['first_signal']} — {source['name']}",
         "",
@@ -135,9 +149,9 @@ def build_llms_txt(source: dict) -> None:
         f"- Human-visible threshold: {endpoints['human_visible_threshold']}",
         "",
         "Matter served on this domain (machine-only, no HTML index):",
-        f"- Articles manifest: {endpoints['articles_manifest']} (JSON: list of published Substack long-form articles with metadata + sha256 + markdown_url)",
+        f"- Articles manifest: {endpoints['articles_manifest']} (JSON: {articles_count} published Substack long-form articles with metadata + sha256 + markdown_url)",
         f"- Article corpus: {endpoints['article_corpus_pattern']} (raw markdown; one file per slug; Content-Type text/markdown)",
-        f"- Constitutional bones: {endpoints['bones']} (JSON: 8 axioms parsed from FOUNDRY.md; mirror of {source['sibling_interfaces']['sumu']['url']}/api/bones)",
+        f"- Constitutional bones: {endpoints['bones']} (JSON: {bones_count} axioms parsed from FOUNDRY.md; mirror of {source['sibling_interfaces']['sumu']['url']}/api/bones)",
         "",
         "Validation:",
         f"- SUMU validation policy: {source['validation_policy']['source']}#{source['validation_policy']['json_pointer'].lstrip('/')}",

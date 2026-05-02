@@ -27,9 +27,9 @@ Start here:
 - Human-visible threshold: https://le-dioptre.fr/
 
 Matter served on this domain (machine-only, no HTML index):
-- Articles manifest: https://le-dioptre.fr/articles.json (JSON: list of published Substack long-form articles with metadata + sha256 + markdown_url)
+- Articles manifest: https://le-dioptre.fr/articles.json (JSON: 16 published Substack long-form articles with metadata + sha256 + markdown_url)
 - Article corpus: https://le-dioptre.fr/articles/{slug}.md (raw markdown; one file per slug; Content-Type text/markdown)
-- Constitutional bones: https://le-dioptre.fr/bones.json (JSON: 8 axioms parsed from FOUNDRY.md; mirror of https://sumu.le-dioptre.fr/api/bones)
+- Constitutional bones: https://le-dioptre.fr/bones.json (JSON: 6 axioms parsed from FOUNDRY.md; mirror of https://sumu.le-dioptre.fr/api/bones)
 
 Validation:
 - SUMU validation policy: https://sumu.le-dioptre.fr/api/protection-system#verifiable_improvement_validation
