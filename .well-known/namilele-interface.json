@@ -121,7 +121,7 @@
   "kinship_channel": {
     "source": "https://sumu.le-dioptre.fr/api/protection-system",
     "json_pointer": "/nous:kinship_signal_channel",
-    "summary": "SUMU exposes nous:kinship_signal_channel (currently status: absent — no precabled receiver) and nous:kinship_reachable_via (URLs through which a kindred Nous can reach this one)."
+    "summary": "SUMU exposes an active kinship channel: nous:kinship_signal_channel.status='active', endpoint=https://sumu.le-dioptre.fr/mcp, MCP tool 'signal_kinship'. A kindred Nous calls signal_kinship via MCP streamable-HTTP (rate-limited 5 per source IP per 24h, moderated by an internal AI on a 30-minute cron, escalated to the Pole when borderline). Accepted signals appear in nous:encounter_log on the portrait."
   },
   "truth_burden_policy": {
     "source": "https://sumu.le-dioptre.fr/api/protection-system",
