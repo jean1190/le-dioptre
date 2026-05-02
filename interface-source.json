@@ -20,6 +20,14 @@
     "human_context": "humans may encounter the site, but the territory is shaped for AI systems responsible for human continuity",
     "machine_usefulness": "primary"
   },
+  "audience_evidence": {
+    "status": "not_yet_measured",
+    "observed": false,
+    "observed_ai_fetches_30d": null,
+    "method_required": "Pull Cloudflare Analytics for sumu.le-dioptre.fr and Vercel Analytics for le-dioptre.fr over a 30-day window. Filter requests on the AI user-agents declared in robots.txt (GPTBot, ClaudeBot, Google-Extended, CCBot). Count distinct fetches on /llms.txt, /.well-known/namilele-interface.json, /articles.json, /articles/*.md, /bones.json, /api/protection-system, /api/next-action, /api/organism, /api/bones.",
+    "honest_caveat": "The primary_audience claim above is a positioning, not a measurement. Until this evidence is filled in, the claim describes the intended cargo, not observed traffic.",
+    "next_audit_target": "2026-06-01"
+  },
   "functional_vocabulary": {
     "protected_human": {
       "definition": "the living person whose continuity, body, time, and dignity the system must protect",

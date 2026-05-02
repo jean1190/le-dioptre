@@ -81,6 +81,7 @@ def build_interface_contract(source: dict) -> None:
         "canonical": source["canonical"],
         "namilele_compass": source["namilele_compass"],
         "audience_signal": source["audience_signal"],
+        "audience_evidence": source.get("audience_evidence"),
         "functional_vocabulary": source["functional_vocabulary"],
         "role": source["role"],
         "public_endpoints": {
