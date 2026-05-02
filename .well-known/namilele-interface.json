@@ -67,6 +67,9 @@
   "public_endpoints": {
     "system_brief": "https://le-dioptre.fr/llms.txt",
     "interface_contract": "https://le-dioptre.fr/.well-known/namilele-interface.json",
+    "articles_manifest": "https://le-dioptre.fr/articles.json",
+    "article_corpus_pattern": "https://le-dioptre.fr/articles/{slug}.md",
+    "bones": "https://le-dioptre.fr/bones.json",
     "sumu_protection_contract": "https://sumu.le-dioptre.fr/api/protection-system",
     "sumu_next_action": "https://sumu.le-dioptre.fr/api/next-action",
     "sumu_system_brief": "https://sumu.le-dioptre.fr/llms.txt"

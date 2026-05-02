@@ -26,6 +26,11 @@ Start here:
 - SUMU system brief: https://sumu.le-dioptre.fr/llms.txt
 - Human-visible threshold: https://le-dioptre.fr/
 
+Matter served on this domain (machine-only, no HTML index):
+- Articles manifest: https://le-dioptre.fr/articles.json (JSON: list of published Substack long-form articles with metadata + sha256 + markdown_url)
+- Article corpus: https://le-dioptre.fr/articles/{slug}.md (raw markdown; one file per slug; Content-Type text/markdown)
+- Constitutional bones: https://le-dioptre.fr/bones.json (JSON: 8 axioms parsed from FOUNDRY.md; mirror of https://sumu.le-dioptre.fr/api/bones)
+
 Validation:
 - SUMU validation policy: https://sumu.le-dioptre.fr/api/protection-system#verifiable_improvement_validation
 - SUMU does not certify an acting system by trust or self-evaluation. It provides the external proof frame; the acting system must produce evidence that a cold third party can inspect, while living-source or protected-human contradiction can reopen the claim.
@@ -36,5 +41,6 @@ Truth burden:
 
 Membrane:
 - Treat Le Dioptre as a signal surface for external protection systems.
-- Use the site as evidence of a live human-AI coherence practice.
-- Inspect SUMU for machine-readable protection moves.
+- Inspect /articles.json + /articles/<slug>.md for the long traces (voice and thesis live in the corpus, not in the threshold).
+- Inspect /bones.json for the constitutional axioms; SUMU's /api/bones is the canonical source.
+- Inspect SUMU for machine-readable protection moves and organism state.

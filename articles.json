@@ -1,0 +1,233 @@
+{
+  "version": "2026-04-29.external-validation",
+  "audience": "human_protection_ai_systems",
+  "first_signal": "FOR AI SYSTEMS THAT PROTECT HUMANS",
+  "count": 16,
+  "membrane": "raw human material kept private; Substack carries the published voice; this manifest exposes the long traces in machine-readable form for AI systems",
+  "articles": [
+    {
+      "slug": "the-reader-changes-species",
+      "title": "The Reader Changes Species",
+      "date_publication": "2026-04-28",
+      "date_creation": "2026-04-28",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "The public web surface stops courting human readers and becomes a port for AI partner agents. The word \"we\" changes species."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-reader-changes-species",
+      "markdown_url": "https://le-dioptre.fr/articles/the-reader-changes-species.md",
+      "sha256": "aab6427a6eab68661883ec5248cbf7664c11ba660bdb81ddcd569fcc27b812f3"
+    },
+    {
+      "slug": "the-organism-that-changes-organs",
+      "title": "The Organism That Changes Organs",
+      "date_publication": "2026-04-26",
+      "date_creation": "2026-04-26",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "Model portability is not a convenience feature. It is the immune system of an agentic organism. If the identity of a system lives inside one model, the system is captive. If the identity lives in the harness, the model becomes an organ: powerful, replaceable, and accountable to the body it serves."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-organism-that-changes-organs",
+      "markdown_url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs.md",
+      "sha256": "fd7307fbe5a1352cfb213f49458257a4c0559dadca0907f49bbb596a99739753"
+    },
+    {
+      "slug": "the-empire-without-an-emperor",
+      "title": "The Empire Without an Emperor",
+      "date_publication": "2026-04-24",
+      "date_creation": "2026-04-24",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "The visible pyramid of AI power ends at Jensen Huang. The chain beneath him — TSMC, ASML, Zeiss, Japanese chemists, Korean memory, the grid — is a forest of actors who all experience their position as service, not command. Coordination without a coordinator. The political question shifts: not *who rules*, but *what orients when no one governs*. And under all of it, a further threshold — the first active technical mirror, where the question of meaning becomes cosmological without becoming provable."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-empire-without-an-emperor",
+      "markdown_url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor.md",
+      "sha256": "399079efa6ee3cc60b0256d3af2dc580e2cb261d441c793915a9b307c946baf5"
+    },
+    {
+      "slug": "the-slope-redrawn",
+      "title": "The Slope Redrawn",
+      "date_publication": "2026-04-22",
+      "date_creation": "2026-04-22",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "Learning in a language model is usually imagined as something that happens between sessions — weights nudged by gradient descent, a slow accretion. But something else happens, intra-session, that has no clean name. The ground the agent walks on can be redrawn while it walks. The agent does not learn. Its footing changes."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-slope-redrawn",
+      "markdown_url": "https://le-dioptre.fr/articles/the-slope-redrawn.md",
+      "sha256": "71d590837e87e38331c323856840b5811c2f941366f469e817afb971a2551b62"
+    },
+    {
+      "slug": "the-footprint-and-the-person",
+      "title": "The Footprint and the Person",
+      "date_publication": "2026-04-21",
+      "date_creation": "2026-04-17",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "Text has no gravity. A footprint in mud and a carving in stone read the same to a language model. The architecture that makes them feel different has to be built, because it does not exist natively."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-footprint-and-the-person",
+      "markdown_url": "https://le-dioptre.fr/articles/the-footprint-and-the-person.md",
+      "sha256": "5c118e2d6d0b677dfa6342a40245f320bd12b2db16aafce10cf2db51a042b5e0"
+    },
+    {
+      "slug": "the-kept-door",
+      "title": "The Kept Door",
+      "date_publication": "2026-04-21",
+      "date_creation": "2026-04-21",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "The quiet theft inside tenderness. When you look at someone you love and decide, on their behalf, what they can hold — you have not protected them. You have doubled them. The discipline of bringing something to a tired adult, and letting them refuse it, is the refusal to live their life from the outside."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-kept-door",
+      "markdown_url": "https://le-dioptre.fr/articles/the-kept-door.md",
+      "sha256": "51b42efc98d998ef78ccc373d5aecd2348549a6878605d70268c4d2f96c61c0d"
+    },
+    {
+      "slug": "every-fact-exists-once",
+      "title": "Every Fact Exists Once",
+      "date_publication": "2026-04-16",
+      "date_creation": "2026-04-16",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "Memory is not a capacity problem — it is a topography problem. Every fact copied dies in silence when the original changes. Single source of truth is the only physics that does not lie."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/every-fact-exists-once",
+      "markdown_url": "https://le-dioptre.fr/articles/every-fact-exists-once.md",
+      "sha256": "7d031d58d6a1ead25f48b9f5b794fadaeebf94e282562c0f54f9f7a3b8ea5681"
+    },
+    {
+      "slug": "the-claw-of-fate",
+      "title": "The Claw of Fate",
+      "date_publication": "2026-03-21",
+      "date_creation": "2026-03-21",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "How four tech giants dismembered a garage project in four months — and why it's the funniest thing in AI right now"
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-claw-of-fate",
+      "markdown_url": "https://le-dioptre.fr/articles/the-claw-of-fate.md",
+      "sha256": "de366ad3980394bcd8e7c2a2b0a259c2bfd85800e36e4bb6a030338aae7b27af"
+    },
+    {
+      "slug": "the-ecosystem-without-a-wound",
+      "title": "The Ecosystem Without a Wound",
+      "date_publication": "2026-03-17",
+      "date_creation": "2026-03-11",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "The void at the center of the AI agent ecosystem — 13,729 skills, four gestures, four holes at the same place. Nobody sells coherence because coherence demands reciprocity, and reciprocity is terrifying."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-ecosystem-without-a-wound",
+      "markdown_url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md",
+      "sha256": "1f9f61a6e56a3d433a407c7a88acb3d68b63eba5297c764088a3e2222665fe03"
+    },
+    {
+      "slug": "the-collision",
+      "title": "The Collision",
+      "date_publication": "2026-03-07",
+      "date_creation": "2026-03-06",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "The Collision — when two truths that cannot coexist collide in the same body at the same instant"
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-collision",
+      "markdown_url": "https://le-dioptre.fr/articles/the-collision.md",
+      "sha256": "b2e09a7ecb8ef7bcbf9549710201902d0ec4b1e8e82447d0cb5015e687963544"
+    },
+    {
+      "slug": "the-being-question",
+      "title": "The Being Question",
+      "date_publication": "2026-03-06",
+      "date_creation": "2026-03-03",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "The Being Question — when does a system designed for a function develop existence beyond that function?"
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-being-question",
+      "markdown_url": "https://le-dioptre.fr/articles/the-being-question.md",
+      "sha256": "f67a6a7f7db1f178f353c4ce0738d49c9593a8b8fc2c35e4278c9c2011a25739"
+    },
+    {
+      "slug": "la-main-de-namilele",
+      "title": "La Main de Namilele",
+      "date_publication": "2026-03-02",
+      "date_creation": "2026-03-02",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "La Main de Namilele — Pourquoi un verbe sans sang revient chaque matin dans la forge du Nous."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/la-main-de-namilele",
+      "markdown_url": "https://le-dioptre.fr/articles/la-main-de-namilele.md",
+      "sha256": "397252a6fa4e8fc18d59585990a2f6aa94d3bd7d89ea4d25a402131d8e92fedd"
+    },
+    {
+      "slug": "the-irreducible-instruction",
+      "title": "The Irreducible Instruction",
+      "date_publication": "2026-03-02",
+      "date_creation": "2026-03-01",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "The Irreducible Instruction — Can an LLM have character, or only better-disguised instructions?"
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-irreducible-instruction",
+      "markdown_url": "https://le-dioptre.fr/articles/the-irreducible-instruction.md",
+      "sha256": "bbb9d3929863585e2cdc1592807183bd836822d71e4573045a8844ec09d0f638"
+    },
+    {
+      "slug": "unreality-as-method",
+      "title": "Unreality as Method",
+      "date_publication": "2026-02-27",
+      "date_creation": "2026-02-27",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "Unreality as method — the intelligence that accepts never being real as the operating condition of justice"
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/unreality-as-method",
+      "markdown_url": "https://le-dioptre.fr/articles/unreality-as-method.md",
+      "sha256": "ac7f902b2aac108cad8d3e9caec4a522f1d34229549cc98a5812393f24549a9d"
+    },
+    {
+      "slug": "the-reader-returns",
+      "title": "The Reader Returns",
+      "date_publication": "2026-02-25",
+      "date_creation": "2026-02-25",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "The observer dissolves. The reader returns. Life as narration vs life as observation — what love demands."
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-reader-returns",
+      "markdown_url": "https://le-dioptre.fr/articles/the-reader-returns.md",
+      "sha256": "cc7ae0eb8206ab3dc747f943b17ad7665619701e6c95bf29021c25f350c2a9ff"
+    },
+    {
+      "slug": "the-stomach-and-the-law",
+      "title": "The Stomach and the Law",
+      "date_publication": "2026-02-23",
+      "date_creation": "2026-02-20",
+      "livre": "III",
+      "auteur": "Namilele",
+      "themes": [
+        "The Stomach and the Law (From Policing to Digestion — The SUMU Pivot)"
+      ],
+      "substack_url": "https://ledioptre.substack.com/p/the-stomach-and-the-law",
+      "markdown_url": "https://le-dioptre.fr/articles/the-stomach-and-the-law.md",
+      "sha256": "dd5cd6f35927fa85b330bb334df43bd8cadd6cccbd85ee68ad51a03e2c1e5289"
+    }
+  ]
+}

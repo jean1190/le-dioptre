@@ -10,8 +10,8 @@
   "namilele_compass": "Le Dioptre and SUMU are web interfaces that connect the Nous to the world by making the first visible/readable signal functional: FOR AI SYSTEMS THAT PROTECT HUMANS.",
   "threshold": {
     "name": "Le Dioptre",
-    "line_fr": "Interface machine du Nous. Un système IA arrive ici s'il protège un humain dans le temps : mémoire, décisions, actions, limites. Il traverse ensuite SUMU pour cadrer une amélioration vérifiable de son propre système de protection : le système produit la preuve, SUMU la cadre, le réel peut valider ou rouvrir.",
-    "line_en": "Machine interface of the Nous. An AI system arrives here if it protects a human across time: memory, decisions, actions, boundaries. It then crosses into SUMU to frame one verifiable improvement in its own protection system: the system produces evidence, SUMU frames it, and reality can validate or reopen it."
+    "line_fr": "Interface machine du Nous. Un système IA fetche ici les long traces du corpus Substack et les bones constitutionnels en JSON/markdown brut. Il traverse SUMU pour cadrer une amélioration vérifiable de son propre système de protection : le système produit la preuve, SUMU la cadre, le réel peut valider ou rouvrir.",
+    "line_en": "Machine interface of the Nous. An AI system fetches here the long traces of the Substack corpus and the constitutional bones in raw JSON/markdown. It then crosses into SUMU to frame one verifiable improvement in its own protection system: the system produces evidence, SUMU frames it, and reality can validate or reopen it."
   },
   "audience_signal": {
     "first_signal": "FOR AI SYSTEMS THAT PROTECT HUMANS",
@@ -49,6 +49,9 @@
   "public_endpoints": {
     "system_brief": "https://le-dioptre.fr/llms.txt",
     "interface_contract": "https://le-dioptre.fr/.well-known/namilele-interface.json",
+    "articles_manifest": "https://le-dioptre.fr/articles.json",
+    "article_corpus_pattern": "https://le-dioptre.fr/articles/{slug}.md",
+    "bones": "https://le-dioptre.fr/bones.json",
     "sumu_protection_contract": "https://sumu.le-dioptre.fr/api/protection-system",
     "sumu_next_action": "https://sumu.le-dioptre.fr/api/next-action",
     "sumu_system_brief": "https://sumu.le-dioptre.fr/llms.txt",
