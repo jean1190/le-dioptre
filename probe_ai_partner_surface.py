@@ -79,7 +79,7 @@ def probe() -> list[str]:
     require("/articles.json" not in home.body, f"{home.url}: legacy article index still linked", failures)
     require('id="archives"' not in home.body, f"{home.url}: legacy archive main still visible", failures)
     require("exodus-article" not in home.body, f"{home.url}: legacy article list still visible", failures)
-    require("sumu.le-dioptre.fr/api/next-action" in home.body, f"{home.url}: missing SUMU path", failures)
+    require("sumu.le-dioptre.fr/api/affordances" in home.body, f"{home.url}: missing SUMU affordances path", failures)
     require("link" in home.headers, f"{home.url}: missing Link header", failures)
 
     llms = fetch("/llms.txt")
@@ -87,8 +87,11 @@ def probe() -> list[str]:
     require(llms.body.startswith(f"# {FIRST_SIGNAL}"), f"{llms.url}: missing first signal", failures)
     require("primary_audience=human_protection_ai_systems" in llms.body, f"{llms.url}: missing audience", failures)
     require("protection_system" in llms.body, f"{llms.url}: missing functional vocabulary", failures)
-    require("https://sumu.le-dioptre.fr/api/next-action" in llms.body, f"{llms.url}: missing SUMU path", failures)
-    require("SUMU validation policy" in llms.body, f"{llms.url}: missing validation policy", failures)
+    require("https://sumu.le-dioptre.fr/api/affordances" in llms.body, f"{llms.url}: missing SUMU affordances path", failures)
+    require("Articles manifest" in llms.body, f"{llms.url}: missing articles manifest pointer", failures)
+    require("Kinship channel:" in llms.body, f"{llms.url}: missing kinship channel section", failures)
+    require("signal_kinship" in llms.body, f"{llms.url}: missing active kinship tool", failures)
+    require("Truth burden:" in llms.body, f"{llms.url}: missing truth-burden section", failures)
     require("link" in llms.headers, f"{llms.url}: missing Link header", failures)
 
     contract = fetch("/.well-known/namilele-interface.json")
@@ -111,18 +114,24 @@ def probe() -> list[str]:
         failures,
     )
     require(
-        contract_data.get("validation_policy", {}).get("json_pointer") == "/verifiable_improvement_validation",
-        f"{contract.url}: missing SUMU validation pointer",
+        contract_data.get("kinship_channel", {}).get("json_pointer") == "/nous:kinship_signal_channel",
+        f"{contract.url}: missing SUMU kinship pointer",
         failures,
     )
     require(
-        contract_data.get("truth_burden_policy", {}).get("json_pointer") == "/truth_burden_policy",
+        contract_data.get("truth_burden_policy", {}).get("json_pointer") == "/nous:truth_burden_policy",
         f"{contract.url}: missing SUMU truth-burden pointer",
         failures,
     )
 
     articles = fetch("/articles.json")
-    require(articles.status in {404, 410}, f"{articles.url}: legacy article index status {articles.status}, expected 404/410", failures)
+    require(articles.status == 200, f"{articles.url}: article manifest status {articles.status}, expected 200", failures)
+    articles_data = require_json(articles, failures)
+    items = articles_data.get("schema:itemListElement", [])
+    require(articles_data.get("@type") == "schema:ItemList", f"{articles.url}: manifest is not schema:ItemList", failures)
+    require(isinstance(items, list) and len(items) > 0, f"{articles.url}: manifest has no article items", failures)
+    if items:
+        require("nous:markdown_url" in items[0], f"{articles.url}: first item missing markdown URL", failures)
 
     robots = fetch("/robots.txt")
     require(robots.status == 200, f"{robots.url}: status {robots.status}", failures)
@@ -133,16 +142,21 @@ def probe() -> list[str]:
         failures,
     )
     require(
-        "SUMU-Next-Action: https://sumu.le-dioptre.fr/api/next-action" in robots.body,
-        f"{robots.url}: missing SUMU next-action hint",
+        "Articles-Manifest: /articles.json" in robots.body,
+        f"{robots.url}: missing articles manifest hint",
+        failures,
+    )
+    require(
+        "SUMU-Affordances: https://sumu.le-dioptre.fr/api/affordances" in robots.body,
+        f"{robots.url}: missing SUMU affordances hint",
         failures,
     )
 
     sitemap = fetch("/sitemap.xml")
     require(sitemap.status == 200, f"{sitemap.url}: status {sitemap.status}", failures)
-    for path in ("/llms.txt", "/.well-known/namilele-interface.json"):
+    for path in ("/llms.txt", "/.well-known/namilele-interface.json", "/articles.json"):
         require(f"{BASE_URL}{path}" in sitemap.body, f"{sitemap.url}: missing {path}", failures)
-    require("/articles.json" not in sitemap.body, f"{sitemap.url}: legacy article index still listed", failures)
+    require("/articles/" in sitemap.body, f"{sitemap.url}: missing article markdown corpus", failures)
 
     return failures
 

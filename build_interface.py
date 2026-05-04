@@ -645,6 +645,7 @@ def commit_and_push():
         "vercel.json",
         "i18n/en.json",
         "api/gone.py",
+        "probe_ai_partner_surface.py",
         "articles.json",
         "articles",
         # bones.json was removed 2026-05-02; the URL is now a 307 redirect
