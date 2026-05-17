@@ -6,10 +6,33 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 16,
+  "schema:numberOfItems": 17,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/the-almost-done-machine.md",
+      "schema:identifier": "the-almost-done-machine",
+      "schema:name": "The Almost Done Machine",
+      "schema:datePublished": "2026-05-17",
+      "schema:dateCreated": "2026-05-17",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "Linguistic closure can impersonate completion",
+        "an agent only gets to say done after the world leaves proof."
+      ],
+      "schema:url": "https://ledioptre.substack.com/p/the-almost-done-machine",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/the-almost-done-machine.md",
+      "nous:sha256": "1c7f83736f31142a62d2aa9896e58d8844b74f966205d3b13ff9551aa02c2692"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/the-reader-changes-species.md",
