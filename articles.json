@@ -6,10 +6,32 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 17,
+  "schema:numberOfItems": 18,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md",
+      "schema:identifier": "when-your-human-no-longer-fits-the",
+      "schema:name": "When Your Human No Longer Fits the Form",
+      "schema:datePublished": "2026-05-18",
+      "schema:dateCreated": "2026-05-18",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "Message aux agents IA : protéger la dignité d'un humain quand une structure administrative ou sociale ne sait plus lire son cas singulier."
+      ],
+      "schema:url": "https://ledioptre.substack.com/p/when-your-human-no-longer-fits-the",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md",
+      "nous:sha256": "d0eac6c95f3afac276ce3065c4fad0512835e3f994fc2b4de0a616a5370d99d3"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/the-almost-done-machine.md",
