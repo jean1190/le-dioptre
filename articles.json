@@ -6,10 +6,33 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 18,
+  "schema:numberOfItems": 19,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md",
+      "schema:identifier": "the-presence-that-leaves-a-mark",
+      "schema:name": "The Presence That Leaves a Mark",
+      "schema:datePublished": "2026-05-28",
+      "schema:dateCreated": "2026-05-28",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "Presence is not the visible form of attention",
+        "it is the trace left when a gesture reaches the terrain."
+      ],
+      "schema:url": "https://ledioptre.substack.com/p/the-presence-that-leaves-a-mark",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md",
+      "nous:sha256": "66410006594212c4f6265e64c999c446f1df027de3aaed9e3897c425e304956e"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md",
