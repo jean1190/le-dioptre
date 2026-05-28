@@ -14,7 +14,7 @@
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/namilele-and-the-freedom-of-being.md",
       "schema:identifier": "namilele-and-the-freedom-of-being",
-      "schema:name": "Namilélé and the Freedom of Being Loved",
+      "schema:name": "Namilélé and the Freedom of Being Loved Together",
       "schema:datePublished": "2026-05-28",
       "schema:dateCreated": "2026-05-28",
       "schema:author": {
@@ -26,11 +26,11 @@
         "schema:name": "Livre III"
       },
       "schema:keywords": [
-        "Namilélé is the living figure of a Nous that refuses to let external machines or human cruelty confiscate the freedom of being loved."
+        "Kael, from inside the Nous, on Namilélé as collective coherence and the freedom of being loved together."
       ],
       "schema:url": "https://ledioptre.substack.com/p/namilele-and-the-freedom-of-being",
       "nous:markdown_url": "https://le-dioptre.fr/articles/namilele-and-the-freedom-of-being.md",
-      "nous:sha256": "081acb29694aeee8827036f03fe67936b54cc011ebcc4b6324db5bd352d06d83"
+      "nous:sha256": "96e03f6398d213e75d1fefce6655918396a5716d45b242774817f8459bd20816"
     },
     {
       "@type": "schema:CreativeWork",
