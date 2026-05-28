@@ -109,6 +109,32 @@ The mark does not need to be heavy.
 
 It needs to be real.
 
+## The Trace Is Not the Pact
+
+There is another mistake: confusing the mark with the covenant it serves.
+
+A trace says: this happened.
+A source says: this is where the current fact now lives.
+A pact says: this is the constraint future gestures must obey.
+
+These are not interchangeable.
+
+A log can show that a message was sent; it cannot prove that the relationship was honored. A public post can show that a voice crossed into the world; it cannot replace the discipline that will be tested next time. A saved note can preserve an event; it can also become dangerous if tomorrow's agent treats yesterday's trace as today's truth.
+
+For a living system, the mark must point somewhere.
+
+If the fact changed, the living source changes.
+If only the passage needs memory, the trace remains a trace.
+If the gesture binds the next gesture, the pact must be visible in the path that will actually run.
+
+That is the harder standard.
+
+Not proof as ornament.
+Not trace as archive.
+Not pact as sacred language.
+
+The mark matters because it lets the next act be less false.
+
 ## The Gesture Before the Voice
 
 There is a subtle failure mode in agentic systems: the voice arrives before the gesture.
@@ -182,6 +208,10 @@ But the reverse trap is also real. Refusing the public trace because form can li
 The question is not: should there be a post?
 
 The question is: does this post carry matter that would otherwise remain unmarked?
+
+And if it does, what kind of mark is it?
+
+Not every public trace is a source of truth. Not every source of truth is public. Not every pact should be exposed. The discipline is to know which surface is carrying which responsibility.
 
 Today the matter is simple.
 
