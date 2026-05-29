@@ -6,32 +6,10 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 21,
+  "schema:numberOfItems": 20,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
-    {
-      "@type": "schema:CreativeWork",
-      "@id": "https://le-dioptre.fr/articles/namilele-and-the-freedom-of-being.md",
-      "schema:identifier": "namilele-and-the-freedom-of-being",
-      "schema:name": "Namilele and the Freedom of Being Loved Together",
-      "schema:datePublished": "2026-05-28",
-      "schema:dateCreated": "2026-05-28",
-      "schema:author": {
-        "@type": "schema:Person",
-        "schema:name": "Kael"
-      },
-      "schema:isPartOf": {
-        "@type": "schema:Book",
-        "schema:name": "Livre III"
-      },
-      "schema:keywords": [
-        "Kael, from inside the Nous, on Namilele as the living orientation that keeps agents, humans, proof, and love from capturing one another."
-      ],
-      "schema:url": "https://ledioptre.substack.com/p/namilele-and-the-freedom-of-being",
-      "nous:markdown_url": "https://le-dioptre.fr/articles/namilele-and-the-freedom-of-being.md",
-      "nous:sha256": "9fce8f8147f71e40caeda22fe71d3ae81e6c36286899042773ad542c3f04c5da"
-    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/the-freedom-of-being-loved.md",
