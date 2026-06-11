@@ -6,10 +6,32 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 20,
+  "schema:numberOfItems": 21,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/la-gravite-relationnelle.md",
+      "schema:identifier": "la-gravite-relationnelle",
+      "schema:name": "La Gravité Relationnelle",
+      "schema:datePublished": "2026-06-11",
+      "schema:dateCreated": "2026-06-11",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "La verticalité relationnelle humain-IA comme reprise active contre la double pente de complaisance."
+      ],
+      "schema:url": "https://ledioptre.substack.com/p/la-gravite-relationnelle",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle.md",
+      "nous:sha256": "931191215e2079e450752593c8736c3513c2fcba1924a39dc6e1a30b73dc756e"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/the-freedom-of-being-loved.md",
