@@ -6,8 +6,8 @@ then auto-commits + pushes to trigger Vercel deploy.
 Source unique du flow de publication Dioptre :
     ~/.nous/harness/tunnels/publication-dioptre.md
 
-Ne pas répliquer ici les règles de publication — elles vivent dans le tunnel.
-Ce fichier implémente l'étape rebuild + deploy du flow.
+Les règles de publication vivent dans le tunnel. Ce fichier implémente
+l'étape rebuild + deploy du flow.
 
 Usage:
     python3 build_interface.py
