@@ -14,8 +14,10 @@ Usage:
 """
 
 import hashlib
+import html
 import json
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -32,7 +34,8 @@ SITEMAP_XML = SCRIPT_DIR / "sitemap.xml"
 VERCEL_JSON = SCRIPT_DIR / "vercel.json"
 EN_JSON = SCRIPT_DIR / "i18n" / "en.json"
 
-# Machine-readable matter sources — exposed as JSON/markdown only, never HTML.
+# Matter sources exposed as raw markdown for machines and as simple HTML pages
+# for browser-visible article proofs.
 ARTICLES_DIR = SCRIPT_DIR / "articles"
 ARTICLES_JSON = SCRIPT_DIR / "articles.json"
 BONES_JSON = SCRIPT_DIR / "bones.json"
@@ -252,6 +255,9 @@ def build_sitemap_xml(source: dict) -> None:
                 url = entry.get("nous:markdown_url") or entry.get("markdown_url")
                 if url:
                     pages.append((url, "monthly", "0.7"))
+                html_url = entry.get("nous:html_url") or entry.get("schema:mainEntityOfPage")
+                if html_url:
+                    pages.append((html_url, "monthly", "0.7"))
         except (json.JSONDecodeError, OSError):
             pass
     urls = "\n".join(
@@ -317,6 +323,13 @@ def build_vercel_json(source: dict) -> None:
                     {"key": "Cache-Control", "value": "public, max-age=3600"},
                 ],
             },
+            {
+                "source": "/articles/(.*)",
+                "headers": [
+                    {"key": "Content-Type", "value": "text/html; charset=utf-8"},
+                    {"key": "Cache-Control", "value": "public, max-age=3600"},
+                ],
+            },
         ],
         "redirects": [
             # Bones canonical surface lives on SUMU. Le Dioptre's /bones.json
@@ -347,6 +360,7 @@ _FRONTMATTER_FIELDS = (
     "Plateforme",
     "Lien",
     "Thème",
+    "Registre",
 )
 _FRONTMATTER_RE = re.compile(r"^[-\s]*\*\*([^*]+)\*\*\s*:\s*(.*)$")
 _SUBSTACK_SLUG_RE = re.compile(r"https://ledioptre\.substack\.com/p/([a-z0-9\-]+)")
@@ -384,6 +398,7 @@ def parse_article_frontmatter(md_path: Path) -> dict | None:
         "date_creation": fields.get("Date de création"),
         "livre": fields.get("Livre", "III"),
         "auteur": fields.get("Auteur", "Namilele"),
+        "registre": fields.get("Registre"),
         "themes": [t.strip() for t in fields.get("Thème", "").split(";") if t.strip()],
         "substack_url": substack_url,
     }
@@ -410,13 +425,61 @@ def extract_body_markdown(md_path: Path) -> str:
     return body.lstrip("\n").rstrip() + "\n"
 
 
+def markdown_line_to_html(line: str) -> str:
+    if line.startswith("# "):
+        return f"<h1>{html.escape(line[2:].strip())}</h1>"
+    return f"<p>{html.escape(line)}</p>"
+
+
+def render_article_html(*, source: dict, meta: dict, body: str) -> str:
+    title = meta["title"]
+    signature = meta.get("registre") or meta.get("auteur", "Namilele")
+    blocks = [
+        markdown_line_to_html(line.strip())
+        for line in body.splitlines()
+        if line.strip()
+    ]
+    body_html = "\n".join(f"            {block}" for block in blocks)
+    canonical = f"{source['canonical']}/articles/{meta['slug']}/"
+    return "\n".join([
+        "<!DOCTYPE html>",
+        '<html lang="fr">',
+        "<head>",
+        '    <meta charset="UTF-8">',
+        '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+        f"    <title>{html.escape(title)} — Le Dioptre</title>",
+        f'    <link rel="canonical" href="{html.escape(canonical)}">',
+        '    <style>',
+        '        :root { --bg: #050505; --fg: #e7e2d8; --muted: #8f8a82; --line: rgba(231, 226, 216, 0.16); --accent: #d9b56f; }',
+        '        * { box-sizing: border-box; }',
+        '        body { margin: 0; background: var(--bg); color: var(--fg); font-family: Georgia, "Times New Roman", serif; letter-spacing: 0; }',
+        '        main { width: min(760px, calc(100vw - 40px)); margin: 0 auto; padding: 9vh 0 12vh; }',
+        '        a { color: var(--accent); text-decoration: none; }',
+        '        h1 { margin: 0 0 0.6rem; font-size: clamp(2.4rem, 7vw, 4.8rem); line-height: 1.02; font-weight: 400; }',
+        '        p { margin: 1.2rem 0; font-size: 1.12rem; line-height: 1.78; }',
+        '        .meta { margin-bottom: 3.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.82rem; }',
+        '        .signature { margin-top: 3.2rem; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.86rem; }',
+        '    </style>',
+        "</head>",
+        "<body>",
+        "    <main>",
+        f'        <div class="meta"><a href="/articles.json">Le Dioptre</a> · {html.escape(meta["date_publication"])} · {html.escape(meta.get("auteur", "Namilele"))}</div>',
+        body_html,
+        f'        <div class="signature">{html.escape(signature)}</div>',
+        "    </main>",
+        "</body>",
+        "</html>",
+        "",
+    ])
+
+
 def build_articles_json(source: dict) -> int:
     """Generate /articles.json (JSON-LD manifest) and /articles/<slug>.md (corpus).
 
     The manifest is JSON-LD light: each article is typed
     ``schema:CreativeWork`` with stable URIs. AI agents can validate via
-    schema.org without needing the Nous ontology. The raw markdown body
-    is served as ``text/markdown`` from /articles/{slug}.md.
+    schema.org without needing the Nous ontology. The same source body is
+    served as raw markdown and as a browser-visible page at /articles/{slug}/.
     """
     if not LIVRE_III_DIR.is_dir():
         print(f"[BUILD] Livre III dir missing: {LIVRE_III_DIR} — skipping articles")
@@ -430,11 +493,15 @@ def build_articles_json(source: dict) -> int:
         body = extract_body_markdown(md_path)
         slug = meta["slug"]
         body_path = ARTICLES_DIR / f"{slug}.md"
+        page_dir = ARTICLES_DIR / slug
+        page_path = page_dir / "index.html"
         body_path.write_text(body, encoding="utf-8")
+        page_dir.mkdir(exist_ok=True)
+        page_path.write_text(render_article_html(source=source, meta=meta, body=body), encoding="utf-8")
         sha = hashlib.sha256(body.encode("utf-8")).hexdigest()
         entries.append({
             "@type": "schema:CreativeWork",
-            "@id": f"{source['canonical']}/articles/{slug}.md",
+            "@id": f"{source['canonical']}/articles/{slug}/",
             "schema:identifier": slug,
             "schema:name": meta["title"],
             "schema:datePublished": meta["date_publication"],
@@ -443,7 +510,9 @@ def build_articles_json(source: dict) -> int:
             "schema:isPartOf": {"@type": "schema:Book", "schema:name": f"Livre {meta.get('livre', 'III')}"},
             "schema:keywords": meta.get("themes", []),
             "schema:url": meta["substack_url"],
+            "schema:mainEntityOfPage": f"{source['canonical']}/articles/{slug}/",
             "nous:markdown_url": f"{source['canonical']}/articles/{slug}.md",
+            "nous:html_url": f"{source['canonical']}/articles/{slug}/",
             "nous:sha256": sha,
         })
     entries.sort(key=lambda e: e["schema:datePublished"], reverse=True)
@@ -470,7 +539,12 @@ def build_articles_json(source: dict) -> int:
         if existing.name not in expected:
             existing.unlink()
             print(f"[BUILD] Removed orphan article body: {existing.name}")
-    print(f"[BUILD] Generated articles.json (JSON-LD) with {len(entries)} articles + bodies")
+    expected_dirs = {e["schema:identifier"] for e in entries}
+    for existing in ARTICLES_DIR.iterdir():
+        if existing.is_dir() and existing.name not in expected_dirs:
+            shutil.rmtree(existing)
+            print(f"[BUILD] Removed orphan article page: {existing.name}")
+    print(f"[BUILD] Generated articles.json (JSON-LD) with {len(entries)} articles + bodies + pages")
     return len(entries)
 
 

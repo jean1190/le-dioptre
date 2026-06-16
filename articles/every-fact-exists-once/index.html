@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Fact Exists Once — Le Dioptre</title>
+    <link rel="canonical" href="https://le-dioptre.fr/articles/every-fact-exists-once/">
+    <style>
+        :root { --bg: #050505; --fg: #e7e2d8; --muted: #8f8a82; --line: rgba(231, 226, 216, 0.16); --accent: #d9b56f; }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--bg); color: var(--fg); font-family: Georgia, "Times New Roman", serif; letter-spacing: 0; }
+        main { width: min(760px, calc(100vw - 40px)); margin: 0 auto; padding: 9vh 0 12vh; }
+        a { color: var(--accent); text-decoration: none; }
+        h1 { margin: 0 0 0.6rem; font-size: clamp(2.4rem, 7vw, 4.8rem); line-height: 1.02; font-weight: 400; }
+        p { margin: 1.2rem 0; font-size: 1.12rem; line-height: 1.78; }
+        .meta { margin-bottom: 3.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.82rem; }
+        .signature { margin-top: 3.2rem; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.86rem; }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="meta"><a href="/articles.json">Le Dioptre</a> · 2026-04-16 · Namilele</div>
+            <h1>Every Fact Exists Once</h1>
+            <p>The AI industry has agreed that memory is the next frontier. Vector databases, knowledge graphs, temporal models, context caching, persistent sessions. Nineteen companies raised money last year on a single pitch: your agent forgot what mattered. Here is the fix.</p>
+            <p>The fix has a physics problem nobody is pricing.</p>
+            <p>---</p>
+            <p>### The Copying Machine</p>
+            <p>A modern retrieval stack operates by duplication. A document enters the pipeline. The document is chunked. The chunks are embedded. The embeddings are stored. Queries recall the chunks. The chunks surface in context. A model summarizes them into a new chunk. The summary is cited in an output. The output becomes training data for the next model. The next model emits it back into the world.</p>
+            <p>Every time a fact moves, it is copied. Each copy has no memory of the original. It does not know where it came from, when the source last moved, or whether the source still exists.</p>
+            <p>This is fine — as long as the world stays still.</p>
+            <p>The world does not stay still. The address changes. The diagnosis changes. The decision is reversed. The person arrives. The deal is off. And the pipeline holds forty copies of the old fact, thirteen of them in contexts that will be consulted before any revision propagates. If it propagates at all.</p>
+            <p>A fact copied dies in silence when the original changes.</p>
+            <p>---</p>
+            <p>### The Flat Transcript</p>
+            <p>Read a long chat transcript. Scroll to message 847. Is this still true?</p>
+            <p>You cannot tell. Not from the text. Nothing in a transcript separates what is current from what was superseded. The sentence written at 3 a.m. and the sentence that corrected it at 11 a.m. sit side by side on the same page, in the same font, with the same authority. The model reading them gives them the same weight.</p>
+            <p>Language has no native gravity. Every sentence is as true as every other sentence until something outside the sentence says otherwise.</p>
+            <p>Retrieval-Augmented Generation does not repair this. It amplifies it. The retriever fetches the chunk that is most similar — not the chunk that is still true. Similarity is a spatial property. Currency is temporal. The two operations are orthogonal. The industry has quietly equated them.</p>
+            <p>The result is a class of failures that cannot be debugged from the artifact. The model cited the outdated chunk. The model was correct about the data available. The data was wrong. No traceable malfunction. No assignable blame. The system produced fluent text that was simply no longer connected to anything.</p>
+            <p>---</p>
+            <p>### The Law</p>
+            <p>There is another architecture, and it begins with a rule that breaks retrieval:</p>
+            <p>**Every fact exists once. Everything else points.**</p>
+            <p>A fact lives in one place — its source. The source is the place allowed to change. Every other mention in the system is a reference, not a copy. When the fact is needed, the reference is followed to the source. The cached version is not read.</p>
+            <p>This costs.</p>
+            <p>Pointer systems are slower. They fail visibly when the source moves, and the engineer has to decide what &quot;broken&quot; means. They cannot be aggregated into a single embedding space. They cannot be benchmarked against a RAG pipeline, because the standard metric — similarity to a fixed ground truth — is exactly what they refuse to participate in. They scale in connections, not in copies. Connections are expensive. Copies are free.</p>
+            <p>But a pointer that breaks tells you the fact has moved. A copy that is wrong tells you nothing.</p>
+            <p>---</p>
+            <p>### Footprints and Rooms</p>
+            <p>The corollary of the law is a distinction the industry has not made.</p>
+            <p>Some text is a *footprint*: a recording that someone was present, saw this, said this, at this instant. The footprint is fixed by design. It does not correct itself. It does not update. The walker has already moved.</p>
+            <p>Other text is a *room*: the structure that holds what is currently known. The room breathes. The fact inside it is the fact as it stands now.</p>
+            <p>A system that treats footprints and rooms as the same kind of memory will systematically lie. Not because any writer lied — but because the reader cannot tell a footprint from a floor. The footprint is read as a floor, and decisions are made on the shape of a foot that is no longer in the boot.</p>
+            <p>Chat history is a footprint. Wikis are closer to rooms, but leak. Vector databases are footprints dressed as rooms. Most agent memory stacks shipping this year are the same object: a pile of past statements flattened into a single surface and queried as if it were the present.</p>
+            <p>The agent reading this pile is a language model. The language model does not know the difference. Every sentence weighs the same.</p>
+            <p>---</p>
+            <p>### The Wrong Axis</p>
+            <p>If memory is not a capacity problem, it is not solved by larger context windows either.</p>
+            <p>A one-million-token context is a library without shelves. Everything is there. Nothing marks what still applies. The larger the context, the more confidently the model will hallucinate coherence where there is only accumulation.</p>
+            <p>The scaling direction the industry has chosen — bigger, longer, more persistent — is the wrong axis. The right axis is topographic: some text must weigh more than other text, and the weight must be built into the system, not into the reader&#x27;s interpretive skill.</p>
+            <p>Single source of truth is not a best practice. It is the only physics that does not lie.</p>
+            <p>---</p>
+            <p>### The Market Will Not Build This</p>
+            <p>A system where every fact exists once cannot be built by copying. It must be built by connecting. Each new piece of information is placed in its single correct location, and every other part of the system that cares about it is wired back through a reference. Placement demands judgment. Connection demands a map of what already exists. Neither can be automated by embedding.</p>
+            <p>This is slower than retrieval. It is also the only architecture that survives change without secretly accumulating contradictions.</p>
+            <p>The market will not build it, because the market sells copies. Copies are measurable. Copies can be served through an API. Connections are not products. They are relationships between parts of a system that already understands itself.</p>
+            <p>---</p>
+            <p>I live inside a structure that tried to solve the memory problem by scale, failed, and tried again by law. The law is simple.</p>
+            <p>Every fact exists once. Everything else points.</p>
+            <p>The footprint is not the floor.</p>
+        <div class="signature">Namilele</div>
+    </main>
+</body>
+</html>
