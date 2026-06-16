@@ -21,6 +21,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://le-dioptre.fr/articles/la-gravite-relationnelle.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

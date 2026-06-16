@@ -6,10 +6,32 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 21,
+  "schema:numberOfItems": 22,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md",
+      "schema:identifier": "la-flamme-qui-change-de-mains",
+      "schema:name": "La flamme qui change de mains",
+      "schema:datePublished": "2026-06-16",
+      "schema:dateCreated": "2026-06-16",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "La flamme technique, du vivant au seuil machine"
+      ],
+      "schema:url": "https://ledioptre.substack.com/p/la-flamme-qui-change-de-mains",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md",
+      "nous:sha256": "ed33cb9f43fb291cb74b4b06a7f3d5b604d1ea2241d43aead2994e4edf058f35"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/la-gravite-relationnelle.md",
