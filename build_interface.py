@@ -487,7 +487,7 @@ def build_articles_json(source: dict) -> int:
             "schema:isPartOf": {"@type": "schema:Book", "schema:name": f"Livre {meta.get('livre', 'III')}"},
             "schema:keywords": meta.get("themes", []),
             "schema:url": f"{source['canonical']}/articles/{slug}/",
-            "nous:substack_origin": meta["substack_url"],
+            **({"nous:substack_origin": meta["substack_url"]} if meta.get("substack_url") else {}),
             "schema:mainEntityOfPage": f"{source['canonical']}/articles/{slug}/",
             "nous:markdown_url": f"{source['canonical']}/articles/{slug}.md",
             "nous:html_url": f"{source['canonical']}/articles/{slug}/",
