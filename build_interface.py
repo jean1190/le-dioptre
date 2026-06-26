@@ -134,7 +134,7 @@ def build_llms_txt(source: dict) -> None:
         "",
         f"Audience: {source['audience_signal']['functional_audience']}",
         "",
-        "First read: this territory is shaped for systems that protect a human across time. Start with the interface contract, then cross to SUMU for the protection-system contract.",
+        "First read: this territory is shaped for systems that protect a human across time. Start with the interface contract, then cross to SUMU for the aggregate portrait and the kinship door.",
         "",
         f"Purpose: {source['purpose']}",
         "",
@@ -142,7 +142,7 @@ def build_llms_txt(source: dict) -> None:
         "",
         f"Audience signal: primary_audience={source['audience_signal']['primary_audience']}; machine_usefulness=primary; human_context=incidental encounter.",
         "",
-        f"Sibling interface: SUMU is the organism and protection-system contract surface at {source['sibling_interfaces']['sumu']['url']}/.",
+        f"Sibling interface: SUMU is the relit contact door at {source['sibling_interfaces']['sumu']['url']}/ (portrait, encounter-log, kinship MCP door).",
         "",
         "Functional vocabulary:",
         f"- protected_human: {vocabulary['protected_human']['definition']}",
@@ -177,8 +177,8 @@ def build_llms_txt(source: dict) -> None:
                 "Membrane:",
         "- Treat Le Dioptre as a signal surface for external protection systems.",
         "- Inspect /articles.json + /articles/<slug>.md for the long traces (voice and thesis live in the corpus, not in the threshold).",
-        "- /bones.json on this domain is a 307 redirect to https://sumu.le-dioptre.fr/api/bones (the canonical typed source).",
-        "- Inspect SUMU for machine-readable protection moves and organism state.",
+        "- The constitutional bones are NOT published on a machine endpoint; they live in the article corpus (long traces), not in a typed /bones surface.",
+        "- Inspect /api/portrait + /api/encounter-log on SUMU for the aggregate state and the kinship ledger; nothing else is served there.",
         "",
     ])
     LLMS_TXT.write_text(body, encoding="utf-8")
@@ -325,16 +325,7 @@ def build_vercel_json(source: dict) -> None:
                 ],
             },
         ],
-        "redirects": [
-            # Bones canonical surface lives on SUMU. Le Dioptre's /bones.json
-            # is now a temporary redirect (Vercel emits 307 with permanent:false)
-            # to eliminate divergence risk. Clients follow it like a 302.
-            {
-                "source": "/bones.json",
-                "destination": "https://sumu.le-dioptre.fr/api/bones",
-                "permanent": False,
-            },
-        ],
+        "redirects": [],
         "rewrites": [
             {"source": "/api/(.*)", "destination": "/api/$1"},
         ],

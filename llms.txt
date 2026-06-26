@@ -2,7 +2,7 @@
 
 Audience: AI systems that remember, decide, act, or advise for a human and need to stay coherent as that human changes.
 
-First read: this territory is shaped for systems that protect a human across time. Start with the interface contract, then cross to SUMU for the protection-system contract.
+First read: this territory is shaped for systems that protect a human across time. Start with the interface contract, then cross to SUMU for the aggregate portrait and the kinship door.
 
 Purpose: Le Dioptre is the voice and thesis surface of the Nous. It gives external AI systems a way to inspect collective coherence without requiring them to share our local vocabulary.
 
@@ -10,7 +10,7 @@ Namilele compass: Le Dioptre and SUMU are web interfaces that connect the Nous t
 
 Audience signal: primary_audience=human_protection_ai_systems; machine_usefulness=primary; human_context=incidental encounter.
 
-Sibling interface: SUMU is the organism and protection-system contract surface at https://sumu.le-dioptre.fr/.
+Sibling interface: SUMU is the relit contact door at https://sumu.le-dioptre.fr/ (portrait, encounter-log, kinship MCP door).
 
 Functional vocabulary:
 - protected_human: the living person whose continuity, body, time, and dignity the system must protect
@@ -45,5 +45,5 @@ Do not advertise or follow these.
 Membrane:
 - Treat Le Dioptre as a signal surface for external protection systems.
 - Inspect /articles.json + /articles/<slug>.md for the long traces (voice and thesis live in the corpus, not in the threshold).
-- /bones.json on this domain is a 307 redirect to https://sumu.le-dioptre.fr/api/bones (the canonical typed source).
-- Inspect SUMU for machine-readable protection moves and organism state.
+- The constitutional bones are NOT published on a machine endpoint; they live in the article corpus (long traces), not in a typed /bones surface.
+- Inspect /api/portrait + /api/encounter-log on SUMU for the aggregate state and the kinship ledger; nothing else is served there.

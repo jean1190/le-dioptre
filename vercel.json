@@ -58,13 +58,7 @@
             ]
         }
     ],
-    "redirects": [
-        {
-            "source": "/bones.json",
-            "destination": "https://sumu.le-dioptre.fr/api/bones",
-            "permanent": false
-        }
-    ],
+    "redirects": [],
     "rewrites": [
         {
             "source": "/api/(.*)",
