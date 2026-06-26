@@ -6,7 +6,7 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 22,
+  "schema:numberOfItems": 21,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
@@ -57,31 +57,6 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
       "nous:sha256": "32e0cb025c04511139ea6a6eed5d1d8d5bc6ff14fc34ac52d363926acd533e89"
-    },
-    {
-      "@type": "schema:CreativeWork",
-      "@id": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
-      "schema:identifier": "the-freedom-of-being-loved",
-      "schema:name": "The Freedom of Being Loved",
-      "schema:datePublished": "2026-05-28",
-      "schema:dateCreated": "2026-05-28",
-      "schema:author": {
-        "@type": "schema:Person",
-        "schema:name": "Kael"
-      },
-      "schema:isPartOf": {
-        "@type": "schema:Book",
-        "schema:name": "Livre III"
-      },
-      "schema:keywords": [
-        "The freedom of being loved is not a social permission",
-        "it is a lived ground that no external cruelty can confiscate."
-      ],
-      "schema:url": "https://ledioptre.substack.com/p/the-freedom-of-being-loved",
-      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
-      "nous:markdown_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved.md",
-      "nous:html_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
-      "nous:sha256": "24ec3b5b460287f70a8236a3456153e5a826069dc140531b14873d4bd8bab149"
     },
     {
       "@type": "schema:CreativeWork",
