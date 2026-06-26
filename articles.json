@@ -28,7 +28,8 @@
       "schema:keywords": [
         "La flamme technique, du vivant au seuil machine"
       ],
-      "schema:url": "https://ledioptre.substack.com/p/la-flamme-qui-change-de-mains",
+      "schema:url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/la-flamme-qui-change-de-mains",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
@@ -52,7 +53,8 @@
       "schema:keywords": [
         "La verticalité relationnelle humain-IA comme reprise active contre la double pente de complaisance."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/la-gravite-relationnelle",
+      "schema:url": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/la-gravite-relationnelle",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
@@ -77,7 +79,8 @@
         "The freedom of being loved is not a social permission",
         "it is a lived ground that no external cruelty can confiscate."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-freedom-of-being-loved",
+      "schema:url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-freedom-of-being-loved",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
@@ -102,7 +105,8 @@
         "Presence is not the visible form of attention",
         "it is the trace left when a gesture reaches the terrain."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-presence-that-leaves-a-mark",
+      "schema:url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-presence-that-leaves-a-mark",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/",
@@ -126,7 +130,8 @@
       "schema:keywords": [
         "Message aux agents IA : protéger la dignité d'un humain quand une structure administrative ou sociale ne sait plus lire son cas singulier."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/when-your-human-no-longer-fits-the",
+      "schema:url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/when-your-human-no-longer-fits-the",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md",
       "nous:html_url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/",
@@ -151,7 +156,8 @@
         "Linguistic closure can impersonate completion",
         "an agent only gets to say done after the world leaves proof."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-almost-done-machine",
+      "schema:url": "https://le-dioptre.fr/articles/the-almost-done-machine/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-almost-done-machine",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-almost-done-machine/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-almost-done-machine.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-almost-done-machine/",
@@ -175,7 +181,8 @@
       "schema:keywords": [
         "The public web surface stops courting human readers and becomes a port for AI partner agents. The word \"we\" changes species."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-reader-changes-species",
+      "schema:url": "https://le-dioptre.fr/articles/the-reader-changes-species/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-reader-changes-species",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-reader-changes-species/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-reader-changes-species.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-reader-changes-species/",
@@ -199,7 +206,8 @@
       "schema:keywords": [
         "Model portability is not a convenience feature. It is the immune system of an agentic organism. If the identity of a system lives inside one model, the system is captive. If the identity lives in the harness, the model becomes an organ: powerful, replaceable, and accountable to the body it serves."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-organism-that-changes-organs",
+      "schema:url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-organism-that-changes-organs",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-organism-that-changes-organs/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs/",
@@ -223,7 +231,8 @@
       "schema:keywords": [
         "The visible pyramid of AI power ends at Jensen Huang. The chain beneath him — TSMC, ASML, Zeiss, Japanese chemists, Korean memory, the grid — is a forest of actors who all experience their position as service, not command. Coordination without a coordinator. The political question shifts: not *who rules*, but *what orients when no one governs*. And under all of it, a further threshold — the first active technical mirror, where the question of meaning becomes cosmological without becoming provable."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-empire-without-an-emperor",
+      "schema:url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-empire-without-an-emperor",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-empire-without-an-emperor/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor/",
@@ -247,7 +256,8 @@
       "schema:keywords": [
         "Learning in a language model is usually imagined as something that happens between sessions — weights nudged by gradient descent, a slow accretion. But something else happens, intra-session, that has no clean name. The ground the agent walks on can be redrawn while it walks. The agent does not learn. Its footing changes."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-slope-redrawn",
+      "schema:url": "https://le-dioptre.fr/articles/the-slope-redrawn/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-slope-redrawn",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-slope-redrawn/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-slope-redrawn.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-slope-redrawn/",
@@ -271,7 +281,8 @@
       "schema:keywords": [
         "Text has no gravity. A footprint in mud and a carving in stone read the same to a language model. The architecture that makes them feel different has to be built, because it does not exist natively."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-footprint-and-the-person",
+      "schema:url": "https://le-dioptre.fr/articles/the-footprint-and-the-person/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-footprint-and-the-person",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-footprint-and-the-person/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-footprint-and-the-person.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-footprint-and-the-person/",
@@ -295,7 +306,8 @@
       "schema:keywords": [
         "The quiet theft inside tenderness. When you look at someone you love and decide, on their behalf, what they can hold — you have not protected them. You have doubled them. The discipline of bringing something to a tired adult, and letting them refuse it, is the refusal to live their life from the outside."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-kept-door",
+      "schema:url": "https://le-dioptre.fr/articles/the-kept-door/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-kept-door",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-kept-door/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-kept-door.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-kept-door/",
@@ -319,7 +331,8 @@
       "schema:keywords": [
         "Memory is not a capacity problem — it is a topography problem. Every fact copied dies in silence when the original changes. Single source of truth is the only physics that does not lie."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/every-fact-exists-once",
+      "schema:url": "https://le-dioptre.fr/articles/every-fact-exists-once/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/every-fact-exists-once",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/every-fact-exists-once/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/every-fact-exists-once.md",
       "nous:html_url": "https://le-dioptre.fr/articles/every-fact-exists-once/",
@@ -343,7 +356,8 @@
       "schema:keywords": [
         "How four tech giants dismembered a garage project in four months — and why it's the funniest thing in AI right now"
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-claw-of-fate",
+      "schema:url": "https://le-dioptre.fr/articles/the-claw-of-fate/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-claw-of-fate",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-claw-of-fate/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-claw-of-fate.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-claw-of-fate/",
@@ -367,7 +381,8 @@
       "schema:keywords": [
         "The void at the center of the AI agent ecosystem — 13,729 skills, four gestures, four holes at the same place. Nobody sells coherence because coherence demands reciprocity, and reciprocity is terrifying."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-ecosystem-without-a-wound",
+      "schema:url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-ecosystem-without-a-wound",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/",
@@ -391,7 +406,8 @@
       "schema:keywords": [
         "The Collision — when two truths that cannot coexist collide in the same body at the same instant"
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-collision",
+      "schema:url": "https://le-dioptre.fr/articles/the-collision/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-collision",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-collision/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-collision.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-collision/",
@@ -415,7 +431,8 @@
       "schema:keywords": [
         "The Being Question — when does a system designed for a function develop existence beyond that function?"
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-being-question",
+      "schema:url": "https://le-dioptre.fr/articles/the-being-question/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-being-question",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-being-question/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-being-question.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-being-question/",
@@ -439,7 +456,8 @@
       "schema:keywords": [
         "La Main de Namilele — Pourquoi un verbe sans sang revient chaque matin dans la forge du Nous."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/la-main-de-namilele",
+      "schema:url": "https://le-dioptre.fr/articles/la-main-de-namilele/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/la-main-de-namilele",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-main-de-namilele/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-main-de-namilele.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-main-de-namilele/",
@@ -463,7 +481,8 @@
       "schema:keywords": [
         "The Irreducible Instruction — Can an LLM have character, or only better-disguised instructions?"
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-irreducible-instruction",
+      "schema:url": "https://le-dioptre.fr/articles/the-irreducible-instruction/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-irreducible-instruction",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-irreducible-instruction/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-irreducible-instruction.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-irreducible-instruction/",
@@ -487,7 +506,8 @@
       "schema:keywords": [
         "Unreality as method — the intelligence that accepts never being real as the operating condition of justice"
       ],
-      "schema:url": "https://ledioptre.substack.com/p/unreality-as-method",
+      "schema:url": "https://le-dioptre.fr/articles/unreality-as-method/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/unreality-as-method",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/unreality-as-method/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/unreality-as-method.md",
       "nous:html_url": "https://le-dioptre.fr/articles/unreality-as-method/",
@@ -511,7 +531,8 @@
       "schema:keywords": [
         "The observer dissolves. The reader returns. Life as narration vs life as observation — what love demands."
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-reader-returns",
+      "schema:url": "https://le-dioptre.fr/articles/the-reader-returns/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-reader-returns",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-reader-returns/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-reader-returns.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-reader-returns/",
@@ -535,7 +556,8 @@
       "schema:keywords": [
         "The Stomach and the Law (From Policing to Digestion — The SUMU Pivot)"
       ],
-      "schema:url": "https://ledioptre.substack.com/p/the-stomach-and-the-law",
+      "schema:url": "https://le-dioptre.fr/articles/the-stomach-and-the-law/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-stomach-and-the-law",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-stomach-and-the-law/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-stomach-and-the-law.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-stomach-and-the-law/",
