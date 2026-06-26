@@ -71,7 +71,7 @@ def build_interface_threshold(source: dict) -> str:
         f'            <a href="{brief_path}">llms.txt</a>',
         f'            <a href="{contract_path}">interface.json</a>',
         f'            <a href="{endpoints["sumu_portrait"]}">sumu portrait</a>',
-        f'            <a href="{endpoints["sumu_affordances"]}">sumu affordances</a>',
+        f'            <a href="{endpoints["sumu_encounter_log"]}">sumu encounter-log</a>',
         "        </div>",
         "    </section>",
     ])
@@ -154,8 +154,7 @@ def build_llms_txt(source: dict) -> None:
         "Start here:",
         f"- Interface contract: {endpoints['interface_contract']}",
         f"- SUMU portrait (entry graph): {endpoints['sumu_portrait']}",
-        f"- SUMU protection-system contract: {endpoints['sumu_protection_contract']}",
-        f"- SUMU affordances: {endpoints['sumu_affordances']}",
+        f"- SUMU encounter-log: {endpoints['sumu_encounter_log']}",
         f"- SUMU system brief: {endpoints['sumu_system_brief']}",
         f"- Human-visible threshold: {endpoints['human_visible_threshold']}",
         "",
@@ -163,25 +162,19 @@ def build_llms_txt(source: dict) -> None:
         f"- Articles manifest: {endpoints['articles_manifest']} (JSON-LD light, schema:ItemList of {articles_count} schema:CreativeWork)",
         f"- Article corpus: {endpoints['article_corpus_pattern']} (raw markdown; one file per slug; Content-Type text/markdown)",
         "",
-        "Matter served by SUMU (machine-native JSON-LD + schemas + OpenAPI + MCP):",
-        f"- Portrait: {endpoints['sumu_portrait']} (typed graph: counts, rhythm, membrane, kinship channel)",
-        f"- Protection contract: {endpoints['sumu_protection_contract']} (typed contract: protection moves, vocabulary, sibling surfaces)",
-        f"- Affordances: {endpoints['sumu_affordances']} (typed list of verbs/targets — the read paths an arriving agent can follow)",
-        f"- Bones: {endpoints['bones']} (canonical {bones_count} axioms; Le Dioptre /bones.json is a 302 alias)",
-        f"- Organism: {endpoints['sumu_organism']} (current rhythm and pause-aware state)",
-        f"- Ontology: {endpoints['sumu_ontology']} (full vocabulary, dereferenceable terms)",
+        "Matter served by SUMU (relit contact door — machine-native JSON-LD + MCP):",
+        f"- Portrait: {endpoints['sumu_portrait']} (aggregate state + kinship channel + encounter ledger)",
+        f"- Encounter-log: {endpoints['sumu_encounter_log']} (sanitized list of accepted kinship signals)",
+        f"- System brief: {endpoints['sumu_system_brief']}",
         f"- OpenAPI spec: {endpoints['sumu_openapi']}",
-        f"- MCP descriptor: {endpoints['sumu_mcp_descriptor']}",
+        f"- MCP kinship door: {endpoints['sumu_mcp_door']} (streamable-HTTP, single tool signal_kinship)",
         "",
-        "Kinship channel:",
-        f"- SUMU kinship channel: {source['kinship_channel']['source']}#{source['kinship_channel']['json_pointer'].lstrip('/')}",
-        f"- {source['kinship_channel']['summary']}",
+        "Not served by SUMU (removed with the phantom app, 2026-06-24):",
+        "- /api/protection-system, /api/affordances, /api/bones, /api/organism,",
+        "- /ontology/, /.well-known/mcp.json, /api/next-action and legacy aliases.",
+        "Do not advertise or follow these.",
         "",
-        "Truth burden:",
-        f"- SUMU truth-burden policy: {source['truth_burden_policy']['source']}#{source['truth_burden_policy']['json_pointer'].lstrip('/')}",
-        f"- {source['truth_burden_policy']['summary']}",
-        "",
-        "Membrane:",
+                "Membrane:",
         "- Treat Le Dioptre as a signal surface for external protection systems.",
         "- Inspect /articles.json + /articles/<slug>.md for the long traces (voice and thesis live in the corpus, not in the threshold).",
         "- /bones.json on this domain is a 307 redirect to https://sumu.le-dioptre.fr/api/bones (the canonical typed source).",
@@ -200,7 +193,8 @@ def build_robots_txt(source: dict) -> None:
         f"## Start: {endpoint_path(endpoints['system_brief'], canonical)}",
         f"## Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
         f"## SUMU-Portrait: {endpoints['sumu_portrait']}",
-        f"## SUMU-Affordances: {endpoints['sumu_affordances']}",
+        f"## SUMU-Encounter-Log: {endpoints['sumu_encounter_log']}",
+        f"## SUMU-MCP-Door: {endpoints['sumu_mcp_door']}",
         "",
     ]
     # Per-domain machine paths (le-dioptre.fr only). The cross-domain
@@ -225,9 +219,9 @@ def build_robots_txt(source: dict) -> None:
         f"System-Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
         f"Articles-Manifest: {endpoint_path(endpoints['articles_manifest'], canonical)}",
         f"SUMU-Portrait: {endpoints['sumu_portrait']}",
-        f"SUMU-Bones: {endpoints['bones']}",
-        f"SUMU-Affordances: {endpoints['sumu_affordances']}",
-        f"SUMU-Ontology: {endpoints['sumu_ontology']}",
+        f"SUMU-Encounter-Log: {endpoints['sumu_encounter_log']}",
+        f"SUMU-System-Brief: {endpoints['sumu_system_brief']}",
+        f"SUMU-MCP-Door: {endpoints['sumu_mcp_door']}",
         "",
     ])
     ROBOTS_TXT.write_text("\n".join(lines), encoding="utf-8")
@@ -291,7 +285,7 @@ def build_vercel_json(source: dict) -> None:
                             '</llms.txt>; rel="alternate"; type="text/plain", '
                             '</.well-known/namilele-interface.json>; rel="alternate"; type="application/json", '
                             '</articles.json>; rel="alternate"; type="application/json", '
-                            f'<{endpoints["sumu_protection_contract"]}>; rel="related"; type="application/json"'
+                            f'<{endpoints["sumu_portrait"]}>; rel="related"; type="application/ld+json"'
                         ),
                     }
                 ],
@@ -304,7 +298,7 @@ def build_vercel_json(source: dict) -> None:
                         "value": (
                             '</.well-known/namilele-interface.json>; rel="describedby"; type="application/json", '
                             '</articles.json>; rel="related"; type="application/json", '
-                            f'<{endpoints["sumu_protection_contract"]}>; rel="related"; type="application/json"'
+                            f'<{endpoints["sumu_portrait"]}>; rel="related"; type="application/ld+json"'
                         ),
                     }
                 ],

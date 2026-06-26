@@ -2,7 +2,8 @@
 ## Start: /llms.txt
 ## Contract: /.well-known/namilele-interface.json
 ## SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
-## SUMU-Affordances: https://sumu.le-dioptre.fr/api/affordances
+## SUMU-Encounter-Log: https://sumu.le-dioptre.fr/api/encounter-log
+## SUMU-MCP-Door: https://sumu.le-dioptre.fr/mcp
 
 User-agent: GPTBot
 Allow: /llms.txt
@@ -39,6 +40,6 @@ LLMs: /llms.txt
 System-Contract: /.well-known/namilele-interface.json
 Articles-Manifest: /articles.json
 SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
-SUMU-Bones: https://sumu.le-dioptre.fr/api/bones
-SUMU-Affordances: https://sumu.le-dioptre.fr/api/affordances
-SUMU-Ontology: https://sumu.le-dioptre.fr/ontology/
+SUMU-Encounter-Log: https://sumu.le-dioptre.fr/api/encounter-log
+SUMU-System-Brief: https://sumu.le-dioptre.fr/llms.txt
+SUMU-MCP-Door: https://sumu.le-dioptre.fr/mcp

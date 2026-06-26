@@ -5,7 +5,7 @@
             "headers": [
                 {
                     "key": "Link",
-                    "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\", </.well-known/namilele-interface.json>; rel=\"alternate\"; type=\"application/json\", </articles.json>; rel=\"alternate\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/protection-system>; rel=\"related\"; type=\"application/json\""
+                    "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\", </.well-known/namilele-interface.json>; rel=\"alternate\"; type=\"application/json\", </articles.json>; rel=\"alternate\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/portrait>; rel=\"related\"; type=\"application/ld+json\""
                 }
             ]
         },
@@ -14,7 +14,7 @@
             "headers": [
                 {
                     "key": "Link",
-                    "value": "</.well-known/namilele-interface.json>; rel=\"describedby\"; type=\"application/json\", </articles.json>; rel=\"related\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/protection-system>; rel=\"related\"; type=\"application/json\""
+                    "value": "</.well-known/namilele-interface.json>; rel=\"describedby\"; type=\"application/json\", </articles.json>; rel=\"related\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/portrait>; rel=\"related\"; type=\"application/ld+json\""
                 }
             ]
         },
