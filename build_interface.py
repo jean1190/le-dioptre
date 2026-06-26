@@ -339,6 +339,7 @@ _FRONTMATTER_FIELDS = (
 )
 _FRONTMATTER_RE = re.compile(r"^[-\s]*\*\*([^*]+)\*\*\s*:\s*(.*)$")
 _SUBSTACK_SLUG_RE = re.compile(r"https://ledioptre\.substack\.com/p/([a-z0-9\-]+)")
+_DIOPTRE_SLUG_RE = re.compile(r"https://le-dioptre\.fr/articles/([a-z0-9\-]+)/?")
 
 
 def parse_article_frontmatter(md_path: Path) -> dict | None:
@@ -360,12 +361,13 @@ def parse_article_frontmatter(md_path: Path) -> dict | None:
         value = match.group(2).strip()
         if key in _FRONTMATTER_FIELDS and value:
             fields[key] = value
-    substack_url = fields.get("Lien", "")
-    if not fields.get("Date de publication") or not substack_url.startswith("https://ledioptre.substack.com/p/"):
+    lien = fields.get("Lien", "")
+    if not fields.get("Date de publication") or not lien:
         return None
-    slug = derive_slug(substack_url)
+    slug = derive_slug(lien)
     if not slug:
         return None
+    substack_url = lien if lien.startswith("https://ledioptre.substack.com/p/") else ""
     return {
         "slug": slug,
         "title": md_path.stem,
@@ -379,10 +381,10 @@ def parse_article_frontmatter(md_path: Path) -> dict | None:
     }
 
 
-def derive_slug(substack_url: str) -> str | None:
-    """Extract the canonical slug from a Substack article URL."""
-    match = _SUBSTACK_SLUG_RE.match(substack_url)
-    return match.group(1) if match else None
+def derive_slug(lien: str) -> str | None:
+    """Extract the canonical slug from a Substack or le-dioptre.fr article URL."""
+    m = _SUBSTACK_SLUG_RE.match(lien) or _DIOPTRE_SLUG_RE.match(lien)
+    return m.group(1) if m else None
 
 
 def extract_body_markdown(md_path: Path) -> str:
