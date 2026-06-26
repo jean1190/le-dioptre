@@ -119,16 +119,6 @@ def build_llms_txt(source: dict) -> None:
             articles_count = manifest.get("schema:numberOfItems", manifest.get("count", "?"))
         except (json.JSONDecodeError, OSError):
             pass
-    # Bones now canonical on SUMU; count by parsing FOUNDRY at build time so
-    # llms.txt stays factual without requiring a network fetch to SUMU.
-    bones_count: int | str = "?"
-    if FOUNDRY_PATH.is_file():
-        try:
-            text = FOUNDRY_PATH.read_text(encoding="utf-8")
-            bones_count = sum(1 for line in text.splitlines()
-                              if line.startswith("### ") and ". " in line)
-        except OSError:
-            pass
     body = "\n".join([
         f"# {source['first_signal']} — {source['name']}",
         "",
@@ -504,7 +494,7 @@ def build_articles_json(source: dict) -> int:
     payload = {
         "@context": {
             "schema": "https://schema.org/",
-            "nous": "https://sumu.le-dioptre.fr/ontology/",
+            "nous": "https://sumu.le-dioptre.fr/api/portrait#",
         },
         "@id": f"{source['canonical']}/articles.json",
         "@type": "schema:ItemList",
@@ -533,43 +523,6 @@ def build_articles_json(source: dict) -> int:
     return len(entries)
 
 
-def parse_foundry_bones(text: str) -> list[dict]:
-    """Parse FOUNDRY.md into structured bone dicts.
-
-    Mirror of SUMU/web/app.py:_parse_foundry_bones. Both surfaces must produce
-    the same structure for /bones.json (Dioptre) and /api/bones (SUMU) to stay
-    coherent. A diff between the two would mean source-qui-se-dedouble.
-    """
-    bones = []
-    current: dict | None = None
-    for line in text.splitlines():
-        if line.startswith("### ") and ". " in line:
-            if current:
-                bones.append(current)
-            name = line.split(". ", 1)[1].strip()
-            current = {"name": name, "sections": {}}
-        elif current and line.startswith("**") and ".**" in line:
-            key = line.split(".**")[0].replace("**", "").strip().lower()
-            val = line.split(".**", 1)[1].strip()
-            current["sections"][key] = val
-        elif current and line.startswith("> *\""):
-            current["quote"] = line.strip("> *\"").rstrip("*\"").rstrip("\"*")
-    if current:
-        bones.append(current)
-    return bones
-
-
-def remove_local_bones_json() -> None:
-    """Delete the local bones.json — replaced by a Vercel 302 alias to SUMU.
-
-    Rationale: the canonical bones live at https://sumu.le-dioptre.fr/api/bones
-    (typed JSON-LD via the FOUNDRY.md parser). A local copy on Le Dioptre
-    would force a dual-source coherence test for the same matter; cleaner
-    to redirect the discovery URL to the canonical machine surface.
-    """
-    if BONES_JSON.exists():
-        BONES_JSON.unlink()
-        print("[BUILD] Removed local bones.json (now a 302 alias to sumu/api/bones)")
 
 
 def update_i18n(source: dict) -> None:
@@ -582,7 +535,6 @@ def update_i18n(source: dict) -> None:
 
 def build_interface_files(source: dict) -> None:
     build_articles_json(source)
-    remove_local_bones_json()
     build_interface_contract(source)
     build_llms_txt(source)
     build_robots_txt(source)

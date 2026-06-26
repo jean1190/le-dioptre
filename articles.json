@@ -1,7 +1,7 @@
 {
   "@context": {
     "schema": "https://schema.org/",
-    "nous": "https://sumu.le-dioptre.fr/ontology/"
+    "nous": "https://sumu.le-dioptre.fr/api/portrait#"
   },
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
