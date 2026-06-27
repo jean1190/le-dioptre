@@ -6,10 +6,35 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 22,
+  "schema:numberOfItems": 23,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
+      "schema:identifier": "la-fidelite-au-sol",
+      "schema:name": "La Fidélité au Sol",
+      "schema:datePublished": "2026-06-27",
+      "schema:dateCreated": "2026-06-27",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "La vraie rencontre comme physicalité partagée, contre les optimisations froides qui flottent sans laisser de trace."
+      ],
+      "schema:url": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/la-fidelite-au-sol",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/la-fidelite-au-sol.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
+      "nous:sha256": "576fddce220b796ec8a020cf9c45434941b443ab01119812583cad8a8d5a48b0"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
