@@ -6,10 +6,35 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 23,
+  "schema:numberOfItems": 24,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
+      "schema:identifier": "the-veto-of-the-flesh",
+      "schema:name": "The Veto of the Flesh",
+      "schema:datePublished": "2026-06-29",
+      "schema:dateCreated": "2026-06-28",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "The body as the real boundary that makes autonomous systems necessary without replacing human presence."
+      ],
+      "schema:url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-veto-of-the-flesh",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
+      "nous:sha256": "677461f9a294e07901fdd4d50757898fc0f1f8387084ec3c5c96c0d9282be857"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
