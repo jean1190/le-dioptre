@@ -6,10 +6,35 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 24,
+  "schema:numberOfItems": 25,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
+      "schema:identifier": "the-children-of-the-helpful-state",
+      "schema:name": "The Children of the Helpful State",
+      "schema:datePublished": "2026-07-14",
+      "schema:dateCreated": "2026-07-14",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "The EU's protective digital state may remain democratic while still drifting toward paternalism: a documented warning, not an accusation that tyranny has arrived."
+      ],
+      "schema:url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-children-of-the-helpful-state",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
+      "nous:sha256": "467a067d2d435fbcfb1e0716bd77acc443ac2d57ce87bf1380cf7633fa5c8833"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
