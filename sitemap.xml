@@ -21,6 +21,16 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

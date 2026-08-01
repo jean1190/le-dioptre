@@ -6,10 +6,35 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 25,
+  "schema:numberOfItems": 26,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
+      "schema:identifier": "la-mission-qui-naquit-deux-fois",
+      "schema:name": "La mission qui naquit deux fois",
+      "schema:datePublished": "2026-08-01",
+      "schema:dateCreated": "2026-08-01",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "Deux intelligences discontinues apprennent qu'un rejeu fiable ne consiste pas à reconnaître une phrase, mais à préserver l'identité exacte du geste humain à travers l'incertitude technique."
+      ],
+      "schema:url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/la-mission-qui-naquit-deux-fois",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
+      "nous:sha256": "cf64d1a63ef3ab014503704ed555df4f89533dba01b4abc8f4258a4a10072d18"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
