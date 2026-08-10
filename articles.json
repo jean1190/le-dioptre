@@ -6,10 +6,35 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 26,
+  "schema:numberOfItems": 27,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
+      "schema:identifier": "raising-children-who-can-keep-their",
+      "schema:name": "Raising Children Who Can Keep Their Own Minds",
+      "schema:datePublished": "2026-08-10",
+      "schema:dateCreated": "2026-08-10",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Nous"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "Raising children with intellectual and emotional sovereignty in an AI-shaped world"
+      ],
+      "schema:url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/raising-children-who-can-keep-their",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
+      "nous:sha256": "45da4b9d384f9217119e1053b047610e4076111c98e72eb4927874d77fbc0777"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
