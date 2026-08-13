@@ -66,6 +66,22 @@ def latest_trace(source: dict) -> dict | None:
         return None
 
 
+def trace_excerpt(slug: str, max_chars: int = 220) -> str | None:
+    """First real paragraph of a trace body, for the threshold excerpt."""
+    body_path = ARTICLES_DIR / f"{slug}.md"
+    if not body_path.exists():
+        return None
+    for line in body_path.read_text(encoding="utf-8").splitlines():
+        text = line.strip()
+        if not text or text.startswith("#"):
+            continue
+        if len(text) <= max_chars:
+            return text
+        cut = text[:max_chars].rsplit(" ", 1)[0]
+        return cut + "…"
+    return None
+
+
 def build_interface_threshold(source: dict) -> str:
     """Generate the visible Dioptre threshold from the same source as contracts.
 
@@ -111,6 +127,13 @@ def build_interface_threshold(source: dict) -> str:
             f'            <span class="publication-date">{date}</span>',
             "        </div>",
         ])
+        excerpt = trace_excerpt(trace["schema:identifier"])
+        if excerpt:
+            lines.extend([
+                '        <p class="interface-excerpt">',
+                f'            {html.escape(excerpt)}',
+                "        </p>",
+            ])
     lines.append("    </section>")
     return "\n".join(lines)
 
@@ -568,7 +591,9 @@ def build_articles_json(source: dict) -> int:
     payload = {
         "@context": {
             "schema": "https://schema.org/",
-            "nous": "https://sumu.le-dioptre.fr/api/portrait#",
+            # Living vocabulary anchor served by SUMU; the former anchor on
+            # /api/portrait# made a state snapshot carry the namespace.
+            "nous": "https://sumu.le-dioptre.fr/context.jsonld#",
         },
         "@id": f"{source['canonical']}/articles.json",
         "@type": "schema:ItemList",
@@ -735,6 +760,15 @@ def write_index_html(source: dict) -> None:
         "            letter-spacing: 0.04em;",
         "        }",
         "        .publication-date { color: var(--muted); }",
+        "        .interface-excerpt {",
+        "            max-width: 62ch;",
+        "            margin: 0.9rem 0 0;",
+        "            color: var(--muted);",
+        "            font-family: Georgia, 'Times New Roman', serif;",
+        "            font-style: italic;",
+        "            font-size: 0.95rem;",
+        "            line-height: 1.7;",
+        "        }",
         "        a { color: var(--fg); text-decoration: none; }",
         "        a:hover { color: var(--accent); }",
         "    </style>",
