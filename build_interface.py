@@ -73,7 +73,9 @@ def trace_excerpt(slug: str, max_chars: int = 220) -> str | None:
         return None
     for line in body_path.read_text(encoding="utf-8").splitlines():
         text = line.strip()
-        if not text or text.startswith("#"):
+        # Skip headings, bylines (*By …*), quotes, lists, rules, images —
+        # the excerpt is the first real paragraph of the trace.
+        if not text or text[0] in "#*>-!|_":
             continue
         if len(text) <= max_chars:
             return text
