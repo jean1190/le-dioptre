@@ -5,7 +5,7 @@
             "headers": [
                 {
                     "key": "Link",
-                    "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\", </.well-known/namilele-interface.json>; rel=\"alternate\"; type=\"application/json\", </articles.json>; rel=\"alternate\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/portrait>; rel=\"related\"; type=\"application/ld+json\""
+                    "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\", </.well-known/namilele-interface.json>; rel=\"alternate\"; type=\"application/json\", </articles.json>; rel=\"alternate\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/portrait>; rel=\"related\"; type=\"application/ld+json\", <https://ledioptre.substack.com/feed>; rel=\"alternate\"; type=\"application/rss+xml\""
                 }
             ]
         },

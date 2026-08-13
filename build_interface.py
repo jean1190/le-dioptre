@@ -32,7 +32,6 @@ LLMS_TXT = SCRIPT_DIR / "llms.txt"
 ROBOTS_TXT = SCRIPT_DIR / "robots.txt"
 SITEMAP_XML = SCRIPT_DIR / "sitemap.xml"
 VERCEL_JSON = SCRIPT_DIR / "vercel.json"
-EN_JSON = SCRIPT_DIR / "i18n" / "en.json"
 
 # Matter sources exposed as raw markdown for machines and as simple HTML pages
 # for browser-visible article proofs.
@@ -55,26 +54,65 @@ def endpoint_path(url: str, canonical: str) -> str:
     return url
 
 
+def latest_trace(source: dict) -> dict | None:
+    """Read the freshest article from the manifest just built (single source)."""
+    if not ARTICLES_JSON.exists():
+        return None
+    try:
+        manifest = json.loads(ARTICLES_JSON.read_text(encoding="utf-8"))
+        entries = manifest.get("schema:itemListElement") or []
+        return entries[0] if entries else None
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
 def build_interface_threshold(source: dict) -> str:
-    """Generate the visible Dioptre threshold from the same source as contracts."""
+    """Generate the visible Dioptre threshold from the same source as contracts.
+
+    English first (machine audience), French second — never the reverse."""
     endpoints = source["public_endpoints"]
-    contract_path = endpoint_path(endpoints["interface_contract"], source["canonical"])
-    brief_path = endpoint_path(endpoints["system_brief"], source["canonical"])
-    return "\n".join([
-        '    <section class="interface-threshold" aria-label="Interface pour systèmes IA de protection humaine">',
+    canonical = source["canonical"]
+    contract_path = endpoint_path(endpoints["interface_contract"], canonical)
+    brief_path = endpoint_path(endpoints["system_brief"], canonical)
+    manifest_path = endpoint_path(endpoints["articles_manifest"], canonical)
+    lines = [
+        '    <section class="interface-threshold" aria-label="Machine port for human-protection AI systems">',
         f'        <div class="interface-signal">{source["first_signal"]}</div>',
         f'        <h1 class="interface-name">{source["threshold"]["name"]}</h1>',
-        '        <p class="interface-axiom" data-i18n="interface.line">',
+        '        <p class="interface-axiom">',
+        f'            {source["threshold"]["line_en"]}',
+        "        </p>",
+        '        <p class="interface-axiom interface-axiom-fr" lang="fr">',
         f'            {source["threshold"]["line_fr"]}',
         "        </p>",
-        '        <div class="interface-links" aria-label="Entrées machine">',
+        '        <div class="interface-links" aria-label="Machine entries">',
         f'            <a href="{brief_path}">llms.txt</a>',
         f'            <a href="{contract_path}">interface.json</a>',
-        f'            <a href="{endpoints["sumu_portrait"]}">sumu portrait</a>',
-        f'            <a href="{endpoints["sumu_encounter_log"]}">sumu encounter-log</a>',
+        f'            <a href="{manifest_path}">articles.json</a>',
+        f'            <a href="{endpoints["sumu_home"]}">sumu</a>',
+        f'            <a href="{endpoints["sumu_portrait"]}">portrait</a>',
+        f'            <a href="{endpoints["sumu_encounter_log"]}">encounter-log</a>',
         "        </div>",
-        "    </section>",
-    ])
+        '        <div class="interface-publication" aria-label="Continuous publication">',
+        '            <span class="publication-label">continuous publication</span>',
+        f'            <a href="{endpoints["substack_publication"]}">ledioptre.substack.com</a>',
+        f'            <a href="{endpoints["substack_feed"]}">feed</a>',
+        "        </div>",
+    ]
+    trace = latest_trace(source)
+    if trace:
+        md_path = endpoint_path(trace["nous:markdown_url"], canonical)
+        title = html.escape(trace["schema:name"])
+        date = html.escape(trace["schema:datePublished"])
+        lines.extend([
+            '        <div class="interface-publication" aria-label="Latest trace">',
+            '            <span class="publication-label">latest trace</span>',
+            f'            <a href="{md_path}">{title}</a>',
+            f'            <span class="publication-date">{date}</span>',
+            "        </div>",
+        ])
+    lines.append("    </section>")
+    return "\n".join(lines)
 
 
 def build_interface_contract(source: dict) -> None:
@@ -152,6 +190,11 @@ def build_llms_txt(source: dict) -> None:
         f"- Articles manifest: {endpoints['articles_manifest']} (JSON-LD light, schema:ItemList of {articles_count} schema:CreativeWork)",
         f"- Article corpus: {endpoints['article_corpus_pattern']} (raw markdown; one file per slug; Content-Type text/markdown)",
         "",
+        "Continuous publication (Substack — organ of the same body):",
+        f"- Publication: {endpoints['substack_publication']} (every long trace originates there; human-indexable by accident)",
+        f"- Feed: {endpoints['substack_feed']} (RSS)",
+        "- This static domain stays the machine source: raw markdown + manifest are canonical for AI systems.",
+        "",
         "Matter served by SUMU (relit contact door — machine-native JSON-LD + MCP):",
         f"- Portrait: {endpoints['sumu_portrait']} (aggregate state + kinship channel + encounter ledger)",
         f"- Encounter-log: {endpoints['sumu_encounter_log']} (sanitized list of accepted kinship signals)",
@@ -176,38 +219,39 @@ def build_llms_txt(source: dict) -> None:
 
 
 def build_robots_txt(source: dict) -> None:
+    """robots.txt that invites agent user-agents instead of fencing them.
+
+    Every declared AI user-agent is explicitly welcome everywhere; the hint
+    lines point them straight at the machine surfaces."""
     canonical = source["canonical"]
     endpoints = source["public_endpoints"]
     lines = [
         f"## {source['first_signal']}",
         f"## Start: {endpoint_path(endpoints['system_brief'], canonical)}",
         f"## Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
+        f"## Articles-Manifest: {endpoint_path(endpoints['articles_manifest'], canonical)}",
+        f"## Substack: {endpoints['substack_publication']}",
         f"## SUMU-Portrait: {endpoints['sumu_portrait']}",
         f"## SUMU-Encounter-Log: {endpoints['sumu_encounter_log']}",
         f"## SUMU-MCP-Door: {endpoints['sumu_mcp_door']}",
         "",
     ]
-    # Per-domain machine paths (le-dioptre.fr only). The cross-domain
-    # surfaces on SUMU are listed below as fully-qualified hints.
-    machine_paths = [
-        endpoint_path(endpoints["system_brief"], canonical),
-        endpoint_path(endpoints["interface_contract"], canonical),
-        endpoint_path(endpoints["articles_manifest"], canonical),
-        "/articles/",
-    ]
     for agent in source["robots_user_agents"]:
-        lines.append(f"User-agent: {agent}")
-        for path in machine_paths:
-            lines.append(f"Allow: {path}")
-        lines.append("Disallow: /")
-        lines.append("")
+        lines.extend([
+            f"User-agent: {agent}",
+            "Allow: /",
+            "",
+        ])
     lines.extend([
         "User-agent: *",
         "Allow: /",
-        "Sitemap: /sitemap.xml",
+        "",
+        f"Sitemap: {canonical}/sitemap.xml",
         f"LLMs: {endpoint_path(endpoints['system_brief'], canonical)}",
         f"System-Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
         f"Articles-Manifest: {endpoint_path(endpoints['articles_manifest'], canonical)}",
+        f"Substack-Publication: {endpoints['substack_publication']}",
+        f"Substack-Feed: {endpoints['substack_feed']}",
         f"SUMU-Portrait: {endpoints['sumu_portrait']}",
         f"SUMU-Encounter-Log: {endpoints['sumu_encounter_log']}",
         f"SUMU-System-Brief: {endpoints['sumu_system_brief']}",
@@ -220,37 +264,39 @@ def build_robots_txt(source: dict) -> None:
 
 def build_sitemap_xml(source: dict) -> None:
     endpoints = source["public_endpoints"]
+    build_date = datetime.now().strftime("%Y-%m-%d")
     pages = [
-        (source["canonical"] + "/", "weekly", "1.0"),
-        (endpoints["system_brief"], "weekly", "1.0"),
-        (endpoints["interface_contract"], "weekly", "1.0"),
-        (endpoints["articles_manifest"], "weekly", "0.9"),
+        (source["canonical"] + "/", "weekly", "1.0", build_date),
+        (endpoints["system_brief"], "weekly", "1.0", build_date),
+        (endpoints["interface_contract"], "weekly", "1.0", build_date),
+        (endpoints["articles_manifest"], "weekly", "0.9", build_date),
     ]
-    # Bones live on SUMU canonical (/bones.json on this domain is a 302).
-    # Sitemap is per-domain so we don't list cross-domain URLs.
-    # Include each individual article markdown as a sitemap entry so AI
-    # crawlers see the full corpus, not only the manifest.
+    # Sitemap is per-domain so we don't list cross-domain URLs (SUMU,
+    # Substack). Include each individual article markdown + HTML page as
+    # sitemap entries so AI crawlers see the full corpus, not only the
+    # manifest.
     if ARTICLES_JSON.exists():
         try:
             manifest = json.loads(ARTICLES_JSON.read_text(encoding="utf-8"))
-            # New JSON-LD structure: schema:itemListElement instead of articles
             items = manifest.get("schema:itemListElement") or manifest.get("articles", [])
             for entry in items:
+                lastmod = entry.get("schema:datePublished")
                 url = entry.get("nous:markdown_url") or entry.get("markdown_url")
                 if url:
-                    pages.append((url, "monthly", "0.7"))
+                    pages.append((url, "monthly", "0.7", lastmod))
                 html_url = entry.get("nous:html_url") or entry.get("schema:mainEntityOfPage")
                 if html_url:
-                    pages.append((html_url, "monthly", "0.7"))
+                    pages.append((html_url, "monthly", "0.7", lastmod))
         except (json.JSONDecodeError, OSError):
             pass
     urls = "\n".join(
         "  <url>\n"
         f"    <loc>{loc}</loc>\n"
-        f"    <changefreq>{freq}</changefreq>\n"
+        + (f"    <lastmod>{lastmod}</lastmod>\n" if lastmod else "")
+        + f"    <changefreq>{freq}</changefreq>\n"
         f"    <priority>{priority}</priority>\n"
         "  </url>"
-        for loc, freq, priority in pages
+        for loc, freq, priority, lastmod in pages
     )
     SITEMAP_XML.write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -275,7 +321,8 @@ def build_vercel_json(source: dict) -> None:
                             '</llms.txt>; rel="alternate"; type="text/plain", '
                             '</.well-known/namilele-interface.json>; rel="alternate"; type="application/json", '
                             '</articles.json>; rel="alternate"; type="application/json", '
-                            f'<{endpoints["sumu_portrait"]}>; rel="related"; type="application/ld+json"'
+                            f'<{endpoints["sumu_portrait"]}>; rel="related"; type="application/ld+json", '
+                            f'<{endpoints["substack_feed"]}>; rel="alternate"; type="application/rss+xml"'
                         ),
                     }
                 ],
@@ -418,6 +465,19 @@ def render_article_html(*, source: dict, meta: dict, body: str) -> str:
     ]
     body_html = "\n".join(f"            {block}" for block in blocks)
     canonical = f"{source['canonical']}/articles/{meta['slug']}/"
+    markdown_url = f"/articles/{meta['slug']}.md"
+    jsonld: dict = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "datePublished": meta["date_publication"],
+        "author": {"@type": "Person", "name": meta.get("auteur", "Namilele")},
+        "isPartOf": {"@type": "Book", "name": f"Livre {meta.get('livre', 'III')}"},
+        "mainEntityOfPage": canonical,
+        "url": canonical,
+    }
+    if meta.get("substack_url"):
+        jsonld["sameAs"] = meta["substack_url"]
     return "\n".join([
         "<!DOCTYPE html>",
         '<html lang="fr">',
@@ -426,6 +486,14 @@ def render_article_html(*, source: dict, meta: dict, body: str) -> str:
         '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
         f"    <title>{html.escape(title)} — Le Dioptre</title>",
         f'    <link rel="canonical" href="{html.escape(canonical)}">',
+        f'    <link rel="alternate" type="text/markdown" href="{html.escape(markdown_url)}" title="Raw markdown source">',
+        f'    <meta property="og:title" content="{html.escape(title)}">',
+        f'    <meta property="og:url" content="{html.escape(canonical)}">',
+        '    <meta property="og:type" content="article">',
+        f'    <meta property="og:site_name" content="{html.escape(source["name"])}">',
+        '    <script type="application/ld+json">',
+        json.dumps(jsonld, ensure_ascii=False, indent=4),
+        "    </script>",
         '    <style>',
         '        :root { --bg: #050505; --fg: #e7e2d8; --muted: #8f8a82; --line: rgba(231, 226, 216, 0.16); --accent: #d9b56f; }',
         '        * { box-sizing: border-box; }',
@@ -528,14 +596,6 @@ def build_articles_json(source: dict) -> int:
 
 
 
-def update_i18n(source: dict) -> None:
-    data = json.loads(EN_JSON.read_text(encoding="utf-8"))
-    data["interface.line"] = source["threshold"]["line_en"]
-    data.pop("interface.next", None)
-    EN_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print("[BUILD] Updated i18n/en.json")
-
-
 def build_interface_files(source: dict) -> None:
     build_articles_json(source)
     build_interface_contract(source)
@@ -543,14 +603,43 @@ def build_interface_files(source: dict) -> None:
     build_robots_txt(source)
     build_sitemap_xml(source)
     build_vercel_json(source)
-    update_i18n(source)
+
+
+def build_home_jsonld(source: dict) -> str:
+    """Honest JSON-LD for the threshold: a WebSite whose parts are the corpus."""
+    endpoints = source["public_endpoints"]
+    payload = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": f"{source['canonical']}/#website",
+        "url": f"{source['canonical']}/",
+        "name": source["name"],
+        "alternateName": source["first_signal"],
+        "description": source["description"],
+        "inLanguage": ["en", "fr"],
+        "audience": {
+            "@type": "Audience",
+            "audienceType": source["audience_signal"]["primary_audience"],
+        },
+        "sameAs": [
+            endpoints["substack_publication"],
+            endpoints["sumu_home"],
+        ],
+        "hasPart": {
+            "@type": "ItemList",
+            "@id": endpoints["articles_manifest"],
+        },
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=4)
 
 
 def write_index_html(source: dict) -> None:
     """Write the public Dioptre page as a machine threshold, not an archive."""
+    endpoints = source["public_endpoints"]
+    jsonld = build_home_jsonld(source)
     html = "\n".join([
         "<!DOCTYPE html>",
-        '<html lang="fr">',
+        '<html lang="en">',
         "<head>",
         '    <meta charset="UTF-8">',
         '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
@@ -558,8 +647,19 @@ def write_index_html(source: dict) -> None:
         f'    <meta name="description" content="{source["description"]}">',
         f'    <meta name="application-name" content="{source["application_name"]}">',
         f'    <meta name="ai-audience" content="{source["audience_signal"]["primary_audience"]}">',
+        f'    <link rel="canonical" href="{source["canonical"]}/">',
+        f'    <meta property="og:title" content="{source["title"]}">',
+        f'    <meta property="og:description" content="{source["description"]}">',
+        f'    <meta property="og:url" content="{source["canonical"]}/">',
+        '    <meta property="og:type" content="website">',
+        f'    <meta property="og:site_name" content="{source["name"]}">',
         '    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM system brief">',
         '    <link rel="alternate" type="application/json" href="/.well-known/namilele-interface.json" title="Namilele interface contract">',
+        '    <link rel="alternate" type="application/json" href="/articles.json" title="Long traces manifest">',
+        f'    <link rel="alternate" type="application/rss+xml" href="{endpoints["substack_feed"]}" title="Le Dioptre — Substack feed">',
+        '    <script type="application/ld+json">',
+        jsonld,
+        "    </script>",
         "    <style>",
         "        :root {",
         "            --bg: #050505;",
@@ -603,6 +703,11 @@ def write_index_html(source: dict) -> None:
         "            font-size: 1rem;",
         "            line-height: 1.75;",
         "        }",
+        "        .interface-axiom-fr {",
+        "            margin-top: 1.4rem;",
+        "            font-size: 0.86rem;",
+        "            opacity: 0.72;",
+        "        }",
         "        .interface-links {",
         "            display: flex;",
         "            flex-wrap: wrap;",
@@ -613,6 +718,20 @@ def write_index_html(source: dict) -> None:
         "            font-size: 0.78rem;",
         "            text-transform: uppercase;",
         "        }",
+        "        .interface-publication {",
+        "            display: flex;",
+        "            flex-wrap: wrap;",
+        "            align-items: baseline;",
+        "            gap: 0.6rem 1.25rem;",
+        "            margin-top: 1.2rem;",
+        "            font-size: 0.78rem;",
+        "        }",
+        "        .publication-label {",
+        "            color: var(--muted);",
+        "            text-transform: uppercase;",
+        "            letter-spacing: 0.04em;",
+        "        }",
+        "        .publication-date { color: var(--muted); }",
         "        a { color: var(--fg); text-decoration: none; }",
         "        a:hover { color: var(--accent); }",
         "    </style>",
@@ -657,7 +776,6 @@ def commit_and_push():
         "robots.txt",
         "sitemap.xml",
         "vercel.json",
-        "i18n/en.json",
         "api/gone.py",
         "probe_ai_partner_surface.py",
         "articles.json",

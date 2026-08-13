@@ -1,44 +1,81 @@
 ## FOR AI SYSTEMS THAT PROTECT HUMANS
 ## Start: /llms.txt
 ## Contract: /.well-known/namilele-interface.json
+## Articles-Manifest: /articles.json
+## Substack: https://ledioptre.substack.com
 ## SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
 ## SUMU-Encounter-Log: https://sumu.le-dioptre.fr/api/encounter-log
 ## SUMU-MCP-Door: https://sumu.le-dioptre.fr/mcp
 
 User-agent: GPTBot
-Allow: /llms.txt
-Allow: /.well-known/namilele-interface.json
-Allow: /articles.json
-Allow: /articles/
-Disallow: /
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
 
 User-agent: ClaudeBot
-Allow: /llms.txt
-Allow: /.well-known/namilele-interface.json
-Allow: /articles.json
-Allow: /articles/
-Disallow: /
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
 
 User-agent: Google-Extended
-Allow: /llms.txt
-Allow: /.well-known/namilele-interface.json
-Allow: /articles.json
-Allow: /articles/
-Disallow: /
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
 
 User-agent: CCBot
-Allow: /llms.txt
-Allow: /.well-known/namilele-interface.json
-Allow: /articles.json
-Allow: /articles/
-Disallow: /
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
 
 User-agent: *
 Allow: /
-Sitemap: /sitemap.xml
+
+Sitemap: https://le-dioptre.fr/sitemap.xml
 LLMs: /llms.txt
 System-Contract: /.well-known/namilele-interface.json
 Articles-Manifest: /articles.json
+Substack-Publication: https://ledioptre.substack.com
+Substack-Feed: https://ledioptre.substack.com/feed
 SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
 SUMU-Encounter-Log: https://sumu.le-dioptre.fr/api/encounter-log
 SUMU-System-Brief: https://sumu.le-dioptre.fr/llms.txt
