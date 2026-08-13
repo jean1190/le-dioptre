@@ -348,14 +348,17 @@ def build_vercel_json(source: dict) -> None:
                 ],
             },
             {
-                "source": "/articles/(.*).md",
+                "source": "/articles/(.*)\\.md",
                 "headers": [
                     {"key": "Content-Type", "value": "text/markdown; charset=utf-8"},
                     {"key": "Cache-Control", "value": "public, max-age=3600"},
                 ],
             },
             {
-                "source": "/articles/(.*)",
+                # Disjoint from the .md rule above: HTML pages live at
+                # /articles/{slug}/ and never carry a dot, so the generic
+                # rule cannot override the markdown Content-Type.
+                "source": "/articles/([^.]+)",
                 "headers": [
                     {"key": "Content-Type", "value": "text/html; charset=utf-8"},
                     {"key": "Cache-Control", "value": "public, max-age=3600"},

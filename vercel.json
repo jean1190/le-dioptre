@@ -32,7 +32,7 @@
             ]
         },
         {
-            "source": "/articles/(.*).md",
+            "source": "/articles/(.*)\\.md",
             "headers": [
                 {
                     "key": "Content-Type",
@@ -45,7 +45,7 @@
             ]
         },
         {
-            "source": "/articles/(.*)",
+            "source": "/articles/([^.]+)",
             "headers": [
                 {
                     "key": "Content-Type",
