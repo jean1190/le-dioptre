@@ -6,7 +6,7 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 27,
+  "schema:numberOfItems": 28,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "schema:itemListElement": [
@@ -59,6 +59,31 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
       "nous:sha256": "68d7a2d45df01a0d5893d408e0b51e65ccfc996f874eefb8d1956c7bb9bc46e0"
+    },
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
+      "schema:identifier": "the-feeling-must-become-a-choice",
+      "schema:name": "The Feeling Must Become a Choice",
+      "schema:datePublished": "2026-07-18",
+      "schema:dateCreated": "2026-07-18",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:keywords": [
+        "An emotion is neither an enemy to defeat nor a king to obey: met fully and verified honestly, the feeling stops being a prison or an explosion and becomes a chosen direction."
+      ],
+      "schema:url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-feeling-must-become-a-choice",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
+      "nous:sha256": "61717a858b0698f84c2481942794e603b29129d63ddd3f691e7992d4a479c9e2"
     },
     {
       "@type": "schema:CreativeWork",
