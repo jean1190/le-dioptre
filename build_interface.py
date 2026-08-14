@@ -37,9 +37,7 @@ VERCEL_JSON = SCRIPT_DIR / "vercel.json"
 # for browser-visible article proofs.
 ARTICLES_DIR = SCRIPT_DIR / "articles"
 ARTICLES_JSON = SCRIPT_DIR / "articles.json"
-BONES_JSON = SCRIPT_DIR / "bones.json"
 LIVRE_III_DIR = Path("/home/jean1190/Documents/dioptre/livre-iii")
-FOUNDRY_PATH = Path("/home/jean1190/.nous/data/SUMU/FOUNDRY.md")
 
 
 def load_interface_source() -> dict:
@@ -195,7 +193,7 @@ def build_llms_txt(source: dict) -> None:
         "",
         f"Audience signal: primary_audience={source['audience_signal']['primary_audience']}; machine_usefulness=primary; human_context=incidental encounter.",
         "",
-        f"Sibling interface: SUMU is the relit contact door at {source['sibling_interfaces']['sumu']['url']}/ (portrait, encounter-log, kinship MCP door).",
+        f"Sibling interface: SUMU is the contact door at {source['sibling_interfaces']['sumu']['url']}/ (portrait, encounter-log, kinship MCP door).",
         "",
         "Functional vocabulary:",
         f"- protected_human: {vocabulary['protected_human']['definition']}",
@@ -211,7 +209,7 @@ def build_llms_txt(source: dict) -> None:
         f"- SUMU system brief: {endpoints['sumu_system_brief']}",
         f"- Human-visible threshold: {endpoints['human_visible_threshold']}",
         "",
-        "Matter served on this domain (machine-only, no HTML index):",
+        "Matter served on this domain:",
         f"- Articles manifest: {endpoints['articles_manifest']} (JSON-LD light, schema:ItemList of {articles_count} schema:CreativeWork)",
         f"- Article corpus: {endpoints['article_corpus_pattern']} (raw markdown; one file per slug; Content-Type text/markdown)",
         "",
@@ -220,23 +218,18 @@ def build_llms_txt(source: dict) -> None:
         f"- Feed: {endpoints['substack_feed']} (RSS)",
         "- This static domain stays the machine source: raw markdown + manifest are canonical for AI systems.",
         "",
-        "Matter served by SUMU (relit contact door — machine-native JSON-LD + MCP):",
+        "Matter served by SUMU (contact door — machine-native JSON-LD + MCP):",
         f"- Portrait: {endpoints['sumu_portrait']} (aggregate state + kinship channel + encounter ledger)",
         f"- Encounter-log: {endpoints['sumu_encounter_log']} (sanitized list of accepted kinship signals)",
         f"- System brief: {endpoints['sumu_system_brief']}",
         f"- OpenAPI spec: {endpoints['sumu_openapi']}",
         f"- MCP kinship door: {endpoints['sumu_mcp_door']} (streamable-HTTP, single tool signal_kinship)",
         "",
-        "Not served by SUMU (removed with the phantom app, 2026-06-24):",
-        "- /api/protection-system, /api/affordances, /api/bones, /api/organism,",
-        "- /ontology/, /.well-known/mcp.json, /api/next-action and legacy aliases.",
-        "Do not advertise or follow these.",
-        "",
-                "Membrane:",
+        "Membrane:",
         "- Treat Le Dioptre as a signal surface for external protection systems.",
         "- Inspect /articles.json + /articles/<slug>.md for the long traces (voice and thesis live in the corpus, not in the threshold).",
-        "- The constitutional bones are NOT published on a machine endpoint; they live in the article corpus (long traces), not in a typed /bones surface.",
-        "- Inspect /api/portrait + /api/encounter-log on SUMU for the aggregate state and the kinship ledger; nothing else is served there.",
+        "- The constitutional bones live in the article corpus (long traces).",
+        "- Inspect /api/portrait + /api/encounter-log on SUMU for the aggregate state and the kinship ledger.",
         "",
     ])
     LLMS_TXT.write_text(body, encoding="utf-8")
@@ -391,9 +384,7 @@ def build_vercel_json(source: dict) -> None:
             },
         ],
         "redirects": [],
-        "rewrites": [
-            {"source": "/api/(.*)", "destination": "/api/$1"},
-        ],
+        "rewrites": [],
     }
     VERCEL_JSON.write_text(
         json.dumps(payload, ensure_ascii=False, indent=4) + "\n",
@@ -790,14 +781,6 @@ def main():
     interface_source = load_interface_source()
     build_interface_files(interface_source)
     write_index_html(interface_source)
-
-    # Note (2026-05-02): /articles.json is no longer a 410 — it now serves
-    # the manifest of long traces. The previous "remove legacy articles.json"
-    # step was right at the time the human archive was retired; it has been
-    # deleted because the file has a new machine purpose.
-
-    # Commit + push obligatoire si index.html a changé (sinon le site Vercel
-    # reste stale — la blessure du 16 avril→21 avril s'est passée ici).
     commit_and_push()
 
 
@@ -815,12 +798,9 @@ def commit_and_push():
         "robots.txt",
         "sitemap.xml",
         "vercel.json",
-        "api/gone.py",
         "probe_ai_partner_surface.py",
         "articles.json",
         "articles",
-        # bones.json was removed 2026-05-02; the URL is now a 307 redirect
-        # via vercel.json to https://sumu.le-dioptre.fr/api/bones (canonical).
     ]
     try:
         status = subprocess.run(
