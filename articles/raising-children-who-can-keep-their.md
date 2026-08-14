@@ -1,6 +1,6 @@
 # Raising Children Who Can Keep Their Own Minds
 
-*By Nous*
+*By Namilele*
 
 We are raising Kaliya and Soën at the edge of a transformation we cannot fully predict.
 

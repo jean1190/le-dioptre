@@ -468,20 +468,83 @@ def extract_body_markdown(md_path: Path) -> str:
     return body.lstrip("\n").rstrip() + "\n"
 
 
-def markdown_line_to_html(line: str) -> str:
-    if line.startswith("# "):
-        return f"<h1>{html.escape(line[2:].strip())}</h1>"
-    return f"<p>{html.escape(line)}</p>"
+def markdown_inline_to_html(text: str) -> str:
+    """Render inline markdown (links, emphasis, code) after escaping."""
+    text = html.escape(text, quote=False)
+    text = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2">\1</a>', text)
+    text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
+    text = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"<em>\1</em>", text)
+    text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
+    return text
+
+
+def markdown_to_html_blocks(body: str) -> list[str]:
+    """Render the article body block by block: headings, blockquotes, lists,
+    horizontal rules, and paragraphs (consecutive lines joined)."""
+    blocks: list[str] = []
+    paragraph: list[str] = []
+    quote: list[str] = []
+    items: list[str] = []
+
+    def flush_paragraph() -> None:
+        if paragraph:
+            blocks.append(f"<p>{markdown_inline_to_html(' '.join(paragraph))}</p>")
+            paragraph.clear()
+
+    def flush_quote() -> None:
+        if quote:
+            inner = markdown_inline_to_html(" ".join(quote))
+            blocks.append(f"<blockquote><p>{inner}</p></blockquote>")
+            quote.clear()
+
+    def flush_items() -> None:
+        if items:
+            lis = "".join(f"<li>{markdown_inline_to_html(item)}</li>" for item in items)
+            blocks.append(f"<ul>{lis}</ul>")
+            items.clear()
+
+    def flush_all() -> None:
+        flush_paragraph()
+        flush_quote()
+        flush_items()
+
+    for raw in body.splitlines():
+        line = raw.strip()
+        if not line:
+            flush_all()
+            continue
+        heading = re.match(r"(#{1,4})\s+(.*)", line)
+        if heading:
+            flush_all()
+            level = len(heading.group(1))
+            blocks.append(f"<h{level}>{markdown_inline_to_html(heading.group(2).strip())}</h{level}>")
+            continue
+        if re.fullmatch(r"(---+|\*\*\*+|___+)", line):
+            flush_all()
+            blocks.append("<hr>")
+            continue
+        if line.startswith(">"):
+            flush_paragraph()
+            flush_items()
+            quote.append(line.lstrip(">").strip())
+            continue
+        list_item = re.match(r"[-*+]\s+(.*)", line)
+        if list_item:
+            flush_paragraph()
+            flush_quote()
+            items.append(list_item.group(1).strip())
+            continue
+        flush_quote()
+        flush_items()
+        paragraph.append(line)
+    flush_all()
+    return blocks
 
 
 def render_article_html(*, source: dict, meta: dict, body: str) -> str:
     title = meta["title"]
     signature = meta.get("registre") or meta.get("auteur", "Namilele")
-    blocks = [
-        markdown_line_to_html(line.strip())
-        for line in body.splitlines()
-        if line.strip()
-    ]
+    blocks = markdown_to_html_blocks(body)
     body_html = "\n".join(f"            {block}" for block in blocks)
     canonical = f"{source['canonical']}/articles/{meta['slug']}/"
     markdown_url = f"/articles/{meta['slug']}.md"
@@ -521,6 +584,13 @@ def render_article_html(*, source: dict, meta: dict, body: str) -> str:
         '        a { color: var(--accent); text-decoration: none; }',
         '        h1 { margin: 0 0 0.6rem; font-size: clamp(2.4rem, 7vw, 4.8rem); line-height: 1.02; font-weight: 400; }',
         '        p { margin: 1.2rem 0; font-size: 1.12rem; line-height: 1.78; }',
+        '        h2 { margin: 2.6rem 0 0.8rem; font-size: 1.7rem; font-weight: 400; line-height: 1.2; }',
+        '        h3, h4 { margin: 2.2rem 0 0.6rem; font-size: 1.3rem; font-weight: 400; line-height: 1.25; }',
+        '        blockquote { margin: 1.6rem 0; padding: 0.1rem 0 0.1rem 1.4rem; border-left: 2px solid var(--accent); color: var(--muted); font-style: italic; }',
+        '        ul { margin: 1.2rem 0; padding-left: 1.4rem; }',
+        '        li { margin: 0.5rem 0; font-size: 1.12rem; line-height: 1.7; }',
+        '        hr { margin: 2.8rem auto; width: 72px; border: none; border-top: 1px solid var(--line); }',
+        '        code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.92em; color: var(--accent); }',
         '        .meta { margin-bottom: 3.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.82rem; }',
         '        .signature { margin-top: 3.2rem; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.86rem; }',
         '    </style>',
