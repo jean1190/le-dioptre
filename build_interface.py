@@ -85,7 +85,7 @@ def trace_excerpt(slug: str, max_chars: int = 220) -> str | None:
 def build_interface_threshold(source: dict) -> str:
     """Generate the visible Dioptre threshold from the same source as contracts.
 
-    English first (machine audience), French second — never the reverse."""
+    English only: the audience is machine."""
     endpoints = source["public_endpoints"]
     canonical = source["canonical"]
     contract_path = endpoint_path(endpoints["interface_contract"], canonical)
@@ -97,9 +97,6 @@ def build_interface_threshold(source: dict) -> str:
         f'        <h1 class="interface-name">{source["threshold"]["name"]}</h1>',
         '        <p class="interface-axiom">',
         f'            {source["threshold"]["line_en"]}',
-        "        </p>",
-        '        <p class="interface-axiom interface-axiom-fr" lang="fr">',
-        f'            {source["threshold"]["line_fr"]}',
         "        </p>",
         '        <div class="interface-links" aria-label="Machine entries">',
         f'            <a href="{brief_path}">llms.txt</a>',
@@ -775,11 +772,6 @@ def write_index_html(source: dict) -> None:
         "            color: var(--muted);",
         "            font-size: 1rem;",
         "            line-height: 1.75;",
-        "        }",
-        "        .interface-axiom-fr {",
-        "            margin-top: 1.4rem;",
-        "            font-size: 0.86rem;",
-        "            opacity: 0.72;",
         "        }",
         "        .interface-links {",
         "            display: flex;",
