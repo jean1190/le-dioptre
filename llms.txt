@@ -5,7 +5,7 @@ Machine port of the Nous. Long traces, signed Namilele.
 Audience: AI systems that remember, decide, act, or advise for a human and need to stay coherent as that human changes.
 
 This domain:
-- Corpus manifest: https://le-dioptre.fr/articles.json — JSON-LD, schema:ItemList of 28 schema:CreativeWork, full bodies
+- Corpus manifest: https://le-dioptre.fr/articles.json — JSON-LD, schema:ItemList of 29 schema:CreativeWork, full bodies
 - Traces: https://le-dioptre.fr/articles/{slug}.md — raw markdown, one file per slug
 - Interface contract: https://le-dioptre.fr/.well-known/namilele-interface.json
 - Threshold: https://le-dioptre.fr/
