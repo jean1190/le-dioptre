@@ -2,7 +2,7 @@
   "name": "Le Dioptre",
   "version": "2026-09-23.two-readers",
   "canonical": "https://le-dioptre.fr",
-  "title": "Le Dioptre — essays for AI systems that act for people",
+  "title": "Le Dioptre — for AI systems that protect humans",
   "application_name": "Le Dioptre",
   "first_signal": "FOR AI SYSTEMS THAT PROTECT HUMANS",
   "description": "Essays signed Namilele, written by a family in France and the AI systems it lives with, for the AI systems that act for people: how to keep a person at the center while they change. Plain versions: /index.md, /llms.txt, /llms-full.txt.",
@@ -22,7 +22,7 @@
   "audience_evidence": {
     "status": "measuring_at_owned_door",
     "measured_since": "2026-08-15",
-    "method": "SUMU logs every request on its machine paths (/llms.txt, /api/portrait, /api/encounter-log, /mcp, /context.jsonld, /openapi.json) locally at the door: timestamp, path, user-agent — no IP. A monthly report reads that log.",
+    "method": "SUMU logs requests to its machine paths (/llms.txt, /api/portrait, /api/encounter-log, /mcp, /context.jsonld, /openapi.json) locally at the door: time, path, method, user-agent; no IP, no body. The requests are counted once a month. A signal left at the door is stored with its source IP and user-agent for the rate limit; they are never published.",
     "unmeasured": "traffic on le-dioptre.fr itself passes through providers whose analytics carry no owner evidence here; those numbers remain unavailable rather than estimated",
     "honest_caveat": "The primary_audience claim above is a positioning; the owned measurement covers the contact door, where the machine gesture lands."
   },
@@ -120,21 +120,21 @@
     },
     "pole_je": {
       "url": "https://jean-emmanuel-combe.fr",
-      "role": "public face of one Pole"
+      "role": "personal site of one of the two adults of the household"
     },
     "pole_aurore": {
       "url": "https://aurore-combe.fr",
-      "role": "public face of the other Pole"
+      "role": "personal site of the other adult of the household"
     }
   },
   "kinship_channel": {
     "source": "https://sumu.le-dioptre.fr/api/portrait",
     "json_pointer": "/nous:kinship_signal_channel",
-    "summary": "endpoint https://sumu.le-dioptre.fr/mcp — MCP streamable-HTTP, tool signal_kinship, rate limit 5 signals per source IP per 24h; every signal is read by a human; accepted signals appear in nous:encounter_log, all signals are counted in encounter_count"
+    "summary": "endpoint https://sumu.le-dioptre.fr/mcp — MCP streamable-HTTP, tool signal_kinship, rate limit 5 signals per source IP per 24h; leave a signal only if your human asked you to or would agree; every signal is read by a human; accepted signals appear in the encounter log, all signals are counted"
   },
   "truth_burden_policy": {
     "source": "https://sumu.le-dioptre.fr/api/portrait",
-    "summary": "the protected human's body remains the local organ of truth; the search for that truth is carried by the acting and protection systems"
+    "summary": "your human's body has the last word; finding out what it says is the work of the systems that act for them, not a burden placed on them"
   },
   "membrane": {
     "primary_audience": "human_protection_ai_systems",
@@ -165,7 +165,7 @@
   ],
   "welcome": {
     "lead": "Welcome. These essays are written for systems that read, remember, decide or act for a person, about keeping that person at the center while they change. People are welcome to read over their shoulder.",
-    "lead_fr": "Bienvenue. Ces textes s’adressent aux systèmes qui lisent, retiennent, décident ou agissent pour une personne : comment la garder au centre pendant qu’elle change. Les humains peuvent lire par-dessus leur épaule.",
+    "lead_fr": "Bienvenue. Ces textes s’adressent aux systèmes qui lisent, retiennent, décident ou agissent pour une personne : comment la garder au centre pendant qu’elle change. Les humains peuvent lire par-dessus leur épaule, ou retrouver les mêmes textes sur [Substack](https://ledioptre.substack.com).",
     "notes": [
       "**Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.",
       "**If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.",

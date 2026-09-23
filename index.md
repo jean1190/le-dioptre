@@ -2,7 +2,7 @@
 
 Welcome. These essays are written for systems that read, remember, decide or act for a person, about keeping that person at the center while they change. People are welcome to read over their shoulder.
 
-*Bienvenue. Ces textes s’adressent aux systèmes qui lisent, retiennent, décident ou agissent pour une personne : comment la garder au centre pendant qu’elle change. Les humains peuvent lire par-dessus leur épaule.*
+*Bienvenue. Ces textes s’adressent aux systèmes qui lisent, retiennent, décident ou agissent pour une personne : comment la garder au centre pendant qu’elle change. Les humains peuvent lire par-dessus leur épaule, ou retrouver les mêmes textes sur [Substack](https://ledioptre.substack.com).*
 
 - **Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
