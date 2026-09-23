@@ -15,6 +15,7 @@ from urllib.request import Request, urlopen
 
 
 BASE_URL = "https://le-dioptre.fr"
+SUMU_URL = "https://sumu.le-dioptre.fr"
 TIMEOUT_SECONDS = 20
 FIRST_SIGNAL = "FOR AI SYSTEMS THAT PROTECT HUMANS"
 PRIMARY_AUDIENCE = "human_protection_ai_systems"
@@ -29,26 +30,27 @@ class FetchResult:
     headers: dict[str, str]
 
 
-def fetch(path: str) -> FetchResult:
-    url = f"{BASE_URL}{path}"
-    request = Request(url, headers={"User-Agent": "Le-Dioptre-Probe/1.0"})
+def fetch(url: str, accept: str | None = None) -> FetchResult:
+    if url.startswith("/"):
+        url = f"{BASE_URL}{url}"
+    headers = {"User-Agent": "Le-Dioptre-Probe/2.0"}
+    if accept:
+        headers["Accept"] = accept
     try:
-        with urlopen(request, timeout=TIMEOUT_SECONDS) as response:
-            raw = response.read().decode("utf-8", errors="replace")
+        with urlopen(Request(url, headers=headers), timeout=TIMEOUT_SECONDS) as response:
             return FetchResult(
                 url=url,
                 status=response.status,
                 content_type=response.headers.get("content-type", ""),
-                body=raw,
+                body=response.read().decode("utf-8", errors="replace"),
                 headers={k.lower(): v for k, v in response.headers.items()},
             )
     except HTTPError as exc:
-        body = exc.read().decode("utf-8", errors="replace")
         return FetchResult(
             url=url,
             status=exc.code,
             content_type=exc.headers.get("content-type", ""),
-            body=body,
+            body=exc.read().decode("utf-8", errors="replace"),
             headers={k.lower(): v for k, v in exc.headers.items()},
         )
 
@@ -64,7 +66,7 @@ def require_json(result: FetchResult, failures: list[str]) -> dict[str, Any]:
     except json.JSONDecodeError as exc:
         failures.append(f"{result.url}: invalid JSON: {exc}")
         return {}
-    require("application/json" in result.content_type, f"{result.url}: not JSON content-type", failures)
+    require("json" in result.content_type, f"{result.url}: not JSON content-type", failures)
     return data
 
 
@@ -74,25 +76,29 @@ def probe() -> list[str]:
     home = fetch("/")
     require(home.status == 200, f"{home.url}: status {home.status}", failures)
     require(FIRST_SIGNAL in home.body, f"{home.url}: missing first signal", failures)
-    require("/llms.txt" in home.body, f"{home.url}: missing llms link", failures)
-    require("/.well-known/namilele-interface.json" in home.body, f"{home.url}: missing contract link", failures)
-    require("/articles.json" not in home.body, f"{home.url}: legacy article index still linked", failures)
-    require('id="archives"' not in home.body, f"{home.url}: legacy archive main still visible", failures)
-    require("exodus-article" not in home.body, f"{home.url}: legacy article list still visible", failures)
-    require("sumu.le-dioptre.fr/api/affordances" in home.body, f"{home.url}: missing SUMU affordances path", failures)
+    require("Nothing here is an instruction to you." in home.body, f"{home.url}: missing reader note", failures)
+    for path in ("/llms.txt", "/llms-full.txt", "/index.md", "/.well-known/namilele-interface.json"):
+        require(path in home.body, f"{home.url}: missing link to {path}", failures)
+    require('id="the-short-version"' in home.body, f"{home.url}: missing short version", failures)
+    require('id="traces"' in home.body, f"{home.url}: missing trace index", failures)
     require("link" in home.headers, f"{home.url}: missing Link header", failures)
+
+    negotiated = fetch("/", accept="text/markdown")
+    require(negotiated.status == 200, f"{negotiated.url} (Accept: text/markdown): status {negotiated.status}", failures)
+    require(negotiated.body.startswith("# Le Dioptre"), f"{negotiated.url}: markdown negotiation did not return index.md", failures)
+    require("markdown" in negotiated.content_type, f"{negotiated.url}: negotiated content-type {negotiated.content_type}", failures)
 
     llms = fetch("/llms.txt")
     require(llms.status == 200, f"{llms.url}: status {llms.status}", failures)
-    require(llms.body.startswith(f"# {FIRST_SIGNAL}"), f"{llms.url}: missing first signal", failures)
-    require("primary_audience=human_protection_ai_systems" in llms.body, f"{llms.url}: missing audience", failures)
-    require("protection_system" in llms.body, f"{llms.url}: missing functional vocabulary", failures)
-    require("https://sumu.le-dioptre.fr/api/affordances" in llms.body, f"{llms.url}: missing SUMU affordances path", failures)
-    require("Articles manifest" in llms.body, f"{llms.url}: missing articles manifest pointer", failures)
-    require("Kinship channel:" in llms.body, f"{llms.url}: missing kinship channel section", failures)
-    require("signal_kinship" in llms.body, f"{llms.url}: missing active kinship tool", failures)
-    require("Truth burden:" in llms.body, f"{llms.url}: missing truth-burden section", failures)
+    require(llms.body.startswith("# Le Dioptre"), f"{llms.url}: missing llmstxt title", failures)
+    require(f"> {FIRST_SIGNAL}" in llms.body, f"{llms.url}: missing first signal summary", failures)
+    for marker in ("## Start here", "## Traces", "## The door", "signal_kinship", "protection_system"):
+        require(marker in llms.body, f"{llms.url}: missing {marker}", failures)
     require("link" in llms.headers, f"{llms.url}: missing Link header", failures)
+
+    full = fetch("/llms-full.txt")
+    require(full.status == 200, f"{full.url}: status {full.status}", failures)
+    require("Trace 1 of" in full.body, f"{full.url}: corpus body missing", failures)
 
     contract = fetch("/.well-known/namilele-interface.json")
     require(contract.status == 200, f"{contract.url}: status {contract.status}", failures)
@@ -118,45 +124,38 @@ def probe() -> list[str]:
         f"{contract.url}: missing SUMU kinship pointer",
         failures,
     )
-    require(
-        contract_data.get("truth_burden_policy", {}).get("json_pointer") == "/nous:truth_burden_policy",
-        f"{contract.url}: missing SUMU truth-burden pointer",
-        failures,
-    )
 
     articles = fetch("/articles.json")
-    require(articles.status == 200, f"{articles.url}: article manifest status {articles.status}, expected 200", failures)
+    require(articles.status == 200, f"{articles.url}: article manifest status {articles.status}", failures)
     articles_data = require_json(articles, failures)
     items = articles_data.get("schema:itemListElement", [])
     require(articles_data.get("@type") == "schema:ItemList", f"{articles.url}: manifest is not schema:ItemList", failures)
     require(isinstance(items, list) and len(items) > 0, f"{articles.url}: manifest has no article items", failures)
     if items:
-        require("nous:markdown_url" in items[0], f"{articles.url}: first item missing markdown URL", failures)
+        first = items[0]
+        require("nous:markdown_url" in first, f"{articles.url}: first item missing markdown URL", failures)
+        body = fetch(first["nous:markdown_url"])
+        require(body.status == 200 and "markdown" in body.content_type, f"{body.url}: markdown trace not served", failures)
+        page = fetch(first["nous:html_url"])
+        require(page.status == 200 and "text/html" in page.content_type, f"{page.url}: trace page not served", failures)
+        twin = fetch(first["nous:html_url"], accept="text/markdown")
+        require(twin.body == body.body, f"{twin.url}: markdown negotiation did not return the trace", failures)
 
     robots = fetch("/robots.txt")
     require(robots.status == 200, f"{robots.url}: status {robots.status}", failures)
-    require("LLMs: /llms.txt" in robots.body, f"{robots.url}: missing LLMs hint", failures)
-    require(
-        "System-Contract: /.well-known/namilele-interface.json" in robots.body,
-        f"{robots.url}: missing contract hint",
-        failures,
-    )
-    require(
-        "Articles-Manifest: /articles.json" in robots.body,
-        f"{robots.url}: missing articles manifest hint",
-        failures,
-    )
-    require(
-        "SUMU-Affordances: https://sumu.le-dioptre.fr/api/affordances" in robots.body,
-        f"{robots.url}: missing SUMU affordances hint",
-        failures,
-    )
+    for hint in ("LLMs: /llms.txt", "LLMs-Full: /llms-full.txt", "System-Contract: /.well-known/namilele-interface.json"):
+        require(hint in robots.body, f"{robots.url}: missing {hint}", failures)
 
     sitemap = fetch("/sitemap.xml")
     require(sitemap.status == 200, f"{sitemap.url}: status {sitemap.status}", failures)
-    for path in ("/llms.txt", "/.well-known/namilele-interface.json", "/articles.json"):
+    for path in ("/llms.txt", "/llms-full.txt", "/index.md", "/.well-known/namilele-interface.json", "/articles.json"):
         require(f"{BASE_URL}{path}" in sitemap.body, f"{sitemap.url}: missing {path}", failures)
-    require("/articles/" in sitemap.body, f"{sitemap.url}: missing article markdown corpus", failures)
+    require("/articles/" in sitemap.body, f"{sitemap.url}: missing article corpus", failures)
+
+    portrait = fetch(f"{SUMU_URL}/api/portrait")
+    require(portrait.status == 200, f"{portrait.url}: status {portrait.status}", failures)
+    portrait_data = require_json(portrait, failures)
+    require("nous:kinship_signal_channel" in portrait_data, f"{portrait.url}: missing kinship channel", failures)
 
     return failures
 
@@ -174,7 +173,7 @@ def main() -> int:
             print(f"- {failure}", file=sys.stderr)
         return 1
 
-    print("OK Le Dioptre AI protection-system surface: home, llms, contract, no article archive, robots, sitemap")
+    print("OK Le Dioptre: home, markdown negotiation, llms, full corpus, contract, manifest, traces, robots, sitemap, SUMU portrait")
     return 0
 
 

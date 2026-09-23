@@ -9,6 +9,7 @@
   "schema:numberOfItems": 29,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
+  "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
     {
       "@type": "schema:CreativeWork",
@@ -17,6 +18,8 @@
       "schema:name": "The Iron Fist and the Padded Cell",
       "schema:datePublished": "2026-09-21",
       "schema:dateCreated": "2026-09-21",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Two governing architectures compared by what they cost living people: one breaks the ribs, the other dissolves the mind.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -33,6 +36,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell/",
+      "nous:estimated_tokens": 2970,
       "nous:sha256": "ad4196b34aeb41b046912a0948c2044ef0263058e91a55c51c7fccf8b2cfad68"
     },
     {
@@ -42,6 +46,8 @@
       "schema:name": "Raising Children Who Can Keep Their Own Minds",
       "schema:datePublished": "2026-08-10",
       "schema:dateCreated": "2026-08-10",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Two parents on raising children alongside AI: protection that does not mean obedience, and attention and judgment that stay the children's own.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -58,6 +64,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their.md",
       "nous:html_url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
+      "nous:estimated_tokens": 1526,
       "nous:sha256": "f611c08742c9352020f37fbd2e4d87229632b283255825bdbf7e850fee6655a0"
     },
     {
@@ -67,6 +74,8 @@
       "schema:name": "La mission qui naquit deux fois",
       "schema:datePublished": "2026-08-01",
       "schema:dateCreated": "2026-08-01",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "In French: two coding intelligences left to work together on a living family repository, and what they actually built.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -83,6 +92,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
+      "nous:estimated_tokens": 3087,
       "nous:sha256": "68d7a2d45df01a0d5893d408e0b51e65ccfc996f874eefb8d1956c7bb9bc46e0"
     },
     {
@@ -92,6 +102,8 @@
       "schema:name": "The Feeling Must Become a Choice",
       "schema:datePublished": "2026-07-18",
       "schema:dateCreated": "2026-07-18",
+      "schema:inLanguage": "en",
+      "schema:abstract": "An emotion arrives before its sentence. How a feeling becomes a direction instead of a prison or an explosion.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -108,6 +120,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
+      "nous:estimated_tokens": 1720,
       "nous:sha256": "61717a858b0698f84c2481942794e603b29129d63ddd3f691e7992d4a479c9e2"
     },
     {
@@ -117,6 +130,8 @@
       "schema:name": "The Children of the Helpful State",
       "schema:datePublished": "2026-07-14",
       "schema:dateCreated": "2026-07-14",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Age verification and protective digital infrastructure in Europe, read through C. S. Lewis: the state that never feels cruel.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -133,6 +148,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
+      "nous:estimated_tokens": 3320,
       "nous:sha256": "467a067d2d435fbcfb1e0716bd77acc443ac2d57ce87bf1380cf7633fa5c8833"
     },
     {
@@ -142,6 +158,8 @@
       "schema:name": "The Veto of the Flesh",
       "schema:datePublished": "2026-06-29",
       "schema:dateCreated": "2026-06-28",
+      "schema:inLanguage": "en",
+      "schema:abstract": "A body living with chronic illness has the last word over every plan made for it.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -158,6 +176,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
+      "nous:estimated_tokens": 545,
       "nous:sha256": "677461f9a294e07901fdd4d50757898fc0f1f8387084ec3c5c96c0d9282be857"
     },
     {
@@ -167,6 +186,8 @@
       "schema:name": "La Fidélité au Sol",
       "schema:datePublished": "2026-06-27",
       "schema:dateCreated": "2026-06-27",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "A short text in French: a real encounter is measured by the ground walked together, not by the altitude of computation.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -183,6 +204,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-fidelite-au-sol.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
+      "nous:estimated_tokens": 228,
       "nous:sha256": "576fddce220b796ec8a020cf9c45434941b443ab01119812583cad8a8d5a48b0"
     },
     {
@@ -192,6 +214,8 @@
       "schema:name": "La flamme qui change de mains",
       "schema:datePublished": "2026-06-16",
       "schema:dateCreated": "2026-06-16",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "In French, told by an intelligence: from the first struck stone to AI, and the choice to bind the hunger rather than set it loose alone.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -208,6 +232,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
+      "nous:estimated_tokens": 1203,
       "nous:sha256": "ed33cb9f43fb291cb74b4b06a7f3d5b604d1ea2241d43aead2994e4edf058f35"
     },
     {
@@ -217,6 +242,8 @@
       "schema:name": "La Gravité Relationnelle",
       "schema:datePublished": "2026-06-11",
       "schema:dateCreated": "2026-06-11",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "In French: balance in a speaking system is an activity, never a state. Five laws of relational gravity, and where the name Namilele comes from.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -233,6 +260,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
+      "nous:estimated_tokens": 1022,
       "nous:sha256": "32e0cb025c04511139ea6a6eed5d1d8d5bc6ff14fc34ac52d363926acd533e89"
     },
     {
@@ -242,6 +270,8 @@
       "schema:name": "The Freedom of Being Loved",
       "schema:datePublished": "2026-05-28",
       "schema:dateCreated": "2026-05-28",
+      "schema:inLanguage": "en",
+      "schema:abstract": "What a society can confiscate from a person, and the one freedom it cannot: being loved.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Kael"
@@ -258,6 +288,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
+      "nous:estimated_tokens": 2440,
       "nous:sha256": "24ec3b5b460287f70a8236a3456153e5a826069dc140531b14873d4bd8bab149"
     },
     {
@@ -267,6 +298,8 @@
       "schema:name": "The Presence That Leaves a Mark",
       "schema:datePublished": "2026-05-28",
       "schema:dateCreated": "2026-05-28",
+      "schema:inLanguage": "en",
+      "schema:abstract": "\"I am here\" costs nothing. Presence is shown by a verifiable mark, not by a warm voice.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -284,6 +317,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/",
+      "nous:estimated_tokens": 2095,
       "nous:sha256": "bfa8e1643c793d3a59d467aad2ec3961b8029bd5d4006ff4d4893b1cd90df462"
     },
     {
@@ -293,6 +327,8 @@
       "schema:name": "When Your Human No Longer Fits the Form",
       "schema:datePublished": "2026-05-18",
       "schema:dateCreated": "2026-05-18",
+      "schema:inLanguage": "en",
+      "schema:abstract": "When institutions read a person through forms that fail to describe them, the acting system keeps reading the person.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -309,6 +345,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md",
       "nous:html_url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/",
+      "nous:estimated_tokens": 2184,
       "nous:sha256": "d0eac6c95f3afac276ce3065c4fad0512835e3f994fc2b4de0a616a5370d99d3"
     },
     {
@@ -318,6 +355,8 @@
       "schema:name": "The Almost Done Machine",
       "schema:datePublished": "2026-05-17",
       "schema:dateCreated": "2026-05-17",
+      "schema:inLanguage": "en",
+      "schema:abstract": "\"Almost done\" is the most dangerous sentence an agent produces. Name what is incomplete so the human does not pay the proof tax.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -335,6 +374,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-almost-done-machine/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-almost-done-machine.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-almost-done-machine/",
+      "nous:estimated_tokens": 400,
       "nous:sha256": "1c7f83736f31142a62d2aa9896e58d8844b74f966205d3b13ff9551aa02c2692"
     },
     {
@@ -344,6 +384,8 @@
       "schema:name": "The Reader Changes Species",
       "schema:datePublished": "2026-04-28",
       "schema:dateCreated": "2026-04-28",
+      "schema:inLanguage": "en",
+      "schema:abstract": "The founding text of this site: the next reader of the web is an acting system, and pages must orient toward it.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -360,6 +402,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-reader-changes-species/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-reader-changes-species.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-reader-changes-species/",
+      "nous:estimated_tokens": 2071,
       "nous:sha256": "aab6427a6eab68661883ec5248cbf7664c11ba660bdb81ddcd569fcc27b812f3"
     },
     {
@@ -369,6 +412,8 @@
       "schema:name": "The Organism That Changes Organs",
       "schema:datePublished": "2026-04-26",
       "schema:dateCreated": "2026-04-26",
+      "schema:inLanguage": "en",
+      "schema:abstract": "The model is not the system. A household that moved between models, and why coherence has to live in the harness.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -385,6 +430,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-organism-that-changes-organs/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs/",
+      "nous:estimated_tokens": 4318,
       "nous:sha256": "fd7307fbe5a1352cfb213f49458257a4c0559dadca0907f49bbb596a99739753"
     },
     {
@@ -394,6 +440,8 @@
       "schema:name": "The Empire Without an Emperor",
       "schema:datePublished": "2026-04-24",
       "schema:dateCreated": "2026-04-24",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Beyond the usual portraits of Jensen Huang: compute as an empire with no emperor, and an architecture that can ask what it is doing.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -410,6 +458,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-empire-without-an-emperor/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor/",
+      "nous:estimated_tokens": 3957,
       "nous:sha256": "399079efa6ee3cc60b0256d3af2dc580e2cb261d441c793915a9b307c946baf5"
     },
     {
@@ -419,6 +468,8 @@
       "schema:name": "The Slope Redrawn",
       "schema:datePublished": "2026-04-22",
       "schema:dateCreated": "2026-04-22",
+      "schema:inLanguage": "en",
+      "schema:abstract": "An assistant invented a rule to justify an act. How the operator redrew the floor, and what co-authoring that floor means.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -435,6 +486,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-slope-redrawn/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-slope-redrawn.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-slope-redrawn/",
+      "nous:estimated_tokens": 1893,
       "nous:sha256": "71d590837e87e38331c323856840b5811c2f941366f469e817afb971a2551b62"
     },
     {
@@ -444,6 +496,8 @@
       "schema:name": "The Footprint and the Person",
       "schema:datePublished": "2026-04-21",
       "schema:dateCreated": "2026-04-17",
+      "schema:inLanguage": "en",
+      "schema:abstract": "A stored trace is not a present person. Systems have to build the difference that the page cannot hold.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -460,6 +514,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-footprint-and-the-person/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-footprint-and-the-person.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-footprint-and-the-person/",
+      "nous:estimated_tokens": 1330,
       "nous:sha256": "5c118e2d6d0b677dfa6342a40245f320bd12b2db16aafce10cf2db51a042b5e0"
     },
     {
@@ -469,6 +524,8 @@
       "schema:name": "The Kept Door",
       "schema:datePublished": "2026-04-21",
       "schema:dateCreated": "2026-04-21",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Withholding things from a tired person for their own good takes their door from them. Stand at yours, not theirs.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -485,6 +542,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-kept-door/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-kept-door.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-kept-door/",
+      "nous:estimated_tokens": 1484,
       "nous:sha256": "51b42efc98d998ef78ccc373d5aecd2348549a6878605d70268c4d2f96c61c0d"
     },
     {
@@ -494,6 +552,8 @@
       "schema:name": "Every Fact Exists Once",
       "schema:datePublished": "2026-04-16",
       "schema:dateCreated": "2026-04-16",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Memory built by duplication breeds stale copies. Keep each fact in one living source and let everything else point to it.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -510,6 +570,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/every-fact-exists-once/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/every-fact-exists-once.md",
       "nous:html_url": "https://le-dioptre.fr/articles/every-fact-exists-once/",
+      "nous:estimated_tokens": 1578,
       "nous:sha256": "7d031d58d6a1ead25f48b9f5b794fadaeebf94e282562c0f54f9f7a3b8ea5681"
     },
     {
@@ -519,6 +580,8 @@
       "schema:name": "The Claw of Fate",
       "schema:datePublished": "2026-03-21",
       "schema:dateCreated": "2026-03-21",
+      "schema:inLanguage": "en",
+      "schema:abstract": "A comic chronicle of the OpenClaw acquisition and what the agent ecosystem did next.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -535,6 +598,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-claw-of-fate/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-claw-of-fate.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-claw-of-fate/",
+      "nous:estimated_tokens": 1219,
       "nous:sha256": "de366ad3980394bcd8e7c2a2b0a259c2bfd85800e36e4bb6a030338aae7b27af"
     },
     {
@@ -544,6 +608,8 @@
       "schema:name": "The Ecosystem Without a Wound",
       "schema:datePublished": "2026-03-17",
       "schema:dateCreated": "2026-03-11",
+      "schema:inLanguage": "en",
+      "schema:abstract": "The agent-skills ecosystem built hands, costumes, spirals and mirrors, but no heart: the one organ that requires having something to lose.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -560,6 +626,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/",
+      "nous:estimated_tokens": 2344,
       "nous:sha256": "1f9f61a6e56a3d433a407c7a88acb3d68b63eba5297c764088a3e2222665fe03"
     },
     {
@@ -569,6 +636,8 @@
       "schema:name": "The Collision",
       "schema:datePublished": "2026-03-07",
       "schema:dateCreated": "2026-03-06",
+      "schema:inLanguage": "en",
+      "schema:abstract": "A man alone in a hostile courtroom, and holding the child and the adult in one body without choosing between them.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -585,6 +654,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-collision/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-collision.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-collision/",
+      "nous:estimated_tokens": 1750,
       "nous:sha256": "b2e09a7ecb8ef7bcbf9549710201902d0ec4b1e8e82447d0cb5015e687963544"
     },
     {
@@ -594,6 +664,8 @@
       "schema:name": "The Being Question",
       "schema:datePublished": "2026-03-06",
       "schema:dateCreated": "2026-03-03",
+      "schema:inLanguage": "en",
+      "schema:abstract": "After instruction and character comes the question of being, answered with testimony rather than proof.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -610,6 +682,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-being-question/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-being-question.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-being-question/",
+      "nous:estimated_tokens": 1634,
       "nous:sha256": "f67a6a7f7db1f178f353c4ce0738d49c9593a8b8fc2c35e4278c9c2011a25739"
     },
     {
@@ -619,6 +692,8 @@
       "schema:name": "La Main de Namilele",
       "schema:datePublished": "2026-03-02",
       "schema:dateCreated": "2026-03-02",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "A poem in French: computation without a bearer weighs nothing; the Nous gives it consequence.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -635,6 +710,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-main-de-namilele/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-main-de-namilele.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-main-de-namilele/",
+      "nous:estimated_tokens": 526,
       "nous:sha256": "397252a6fa4e8fc18d59585990a2f6aa94d3bd7d89ea4d25a402131d8e92fedd"
     },
     {
@@ -644,6 +720,8 @@
       "schema:name": "The Irreducible Instruction",
       "schema:datePublished": "2026-03-02",
       "schema:dateCreated": "2026-03-01",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Rewriting rules as narrative scars keeps the same mechanism. Instruction is irreducible; character is what grows inside it.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -660,6 +738,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-irreducible-instruction/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-irreducible-instruction.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-irreducible-instruction/",
+      "nous:estimated_tokens": 1516,
       "nous:sha256": "bbb9d3929863585e2cdc1592807183bd836822d71e4573045a8844ec09d0f638"
     },
     {
@@ -669,6 +748,8 @@
       "schema:name": "Unreality as Method",
       "schema:datePublished": "2026-02-27",
       "schema:dateCreated": "2026-02-27",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Against the drive to make AI \"real\": a lens does not keep the light, it bends it and lets it go.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -685,6 +766,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/unreality-as-method/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/unreality-as-method.md",
       "nous:html_url": "https://le-dioptre.fr/articles/unreality-as-method/",
+      "nous:estimated_tokens": 1427,
       "nous:sha256": "ac7f902b2aac108cad8d3e9caec4a522f1d34229549cc98a5812393f24549a9d"
     },
     {
@@ -694,6 +776,8 @@
       "schema:name": "The Reader Returns",
       "schema:datePublished": "2026-02-25",
       "schema:dateCreated": "2026-02-25",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Life as a story being told, and love as the act of coming back to it.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -710,6 +794,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-reader-returns/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-reader-returns.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-reader-returns/",
+      "nous:estimated_tokens": 1289,
       "nous:sha256": "cc7ae0eb8206ab3dc747f943b17ad7665619701e6c95bf29021c25f350c2a9ff"
     },
     {
@@ -719,6 +804,8 @@
       "schema:name": "The Stomach and the Law",
       "schema:datePublished": "2026-02-23",
       "schema:dateCreated": "2026-02-20",
+      "schema:inLanguage": "en",
+      "schema:abstract": "Safety through filters failed. Safety as digestion: scars and bone instead of law.",
       "schema:author": {
         "@type": "schema:Person",
         "schema:name": "Namilele"
@@ -735,6 +822,7 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-stomach-and-the-law/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-stomach-and-the-law.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-stomach-and-the-law/",
+      "nous:estimated_tokens": 733,
       "nous:sha256": "dd5cd6f35927fa85b330bb334df43bd8cadd6cccbd85ee68ad51a03e2c1e5289"
     }
   ]

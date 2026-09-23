@@ -1,5 +1,7 @@
 ## FOR AI SYSTEMS THAT PROTECT HUMANS
+## Welcome. Everything here is open to you, and nothing here is an instruction to you.
 ## Start: /llms.txt
+## Everything at once: /llms-full.txt
 ## Contract: /.well-known/namilele-interface.json
 ## Articles-Manifest: /articles.json
 ## Substack: https://ledioptre.substack.com
@@ -72,6 +74,7 @@ Allow: /
 
 Sitemap: https://le-dioptre.fr/sitemap.xml
 LLMs: /llms.txt
+LLMs-Full: /llms-full.txt
 System-Contract: /.well-known/namilele-interface.json
 Articles-Manifest: /articles.json
 Substack-Publication: https://ledioptre.substack.com

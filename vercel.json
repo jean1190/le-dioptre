@@ -5,7 +5,24 @@
             "headers": [
                 {
                     "key": "Link",
-                    "value": "</llms.txt>; rel=\"alternate\"; type=\"text/plain\", </.well-known/namilele-interface.json>; rel=\"alternate\"; type=\"application/json\", </articles.json>; rel=\"alternate\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/portrait>; rel=\"related\"; type=\"application/ld+json\", <https://ledioptre.substack.com/feed>; rel=\"alternate\"; type=\"application/rss+xml\""
+                    "value": "</index.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"alternate\"; type=\"text/plain\", </llms-full.txt>; rel=\"alternate\"; type=\"text/plain\", </.well-known/namilele-interface.json>; rel=\"alternate\"; type=\"application/json\", </articles.json>; rel=\"alternate\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/portrait>; rel=\"related\"; type=\"application/ld+json\", <https://ledioptre.substack.com/feed>; rel=\"alternate\"; type=\"application/rss+xml\""
+                },
+                {
+                    "key": "Vary",
+                    "value": "Accept"
+                }
+            ]
+        },
+        {
+            "source": "/index.md",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "text/markdown; charset=utf-8"
+                },
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=600"
                 }
             ]
         },
@@ -14,7 +31,24 @@
             "headers": [
                 {
                     "key": "Link",
-                    "value": "</.well-known/namilele-interface.json>; rel=\"describedby\"; type=\"application/json\", </articles.json>; rel=\"related\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/portrait>; rel=\"related\"; type=\"application/ld+json\""
+                    "value": "</.well-known/namilele-interface.json>; rel=\"describedby\"; type=\"application/json\", </llms-full.txt>; rel=\"alternate\"; type=\"text/plain\", </articles.json>; rel=\"related\"; type=\"application/json\", <https://sumu.le-dioptre.fr/api/portrait>; rel=\"related\"; type=\"application/ld+json\""
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "text/plain; charset=utf-8"
+                }
+            ]
+        },
+        {
+            "source": "/llms-full.txt",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "text/plain; charset=utf-8"
+                },
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=600"
                 }
             ]
         },
@@ -54,10 +88,51 @@
                 {
                     "key": "Cache-Control",
                     "value": "public, max-age=3600"
+                },
+                {
+                    "key": "Vary",
+                    "value": "Accept"
                 }
             ]
         }
     ],
-    "redirects": [],
+    "redirects": [
+        {
+            "source": "/",
+            "has": [
+                {
+                    "type": "header",
+                    "key": "accept",
+                    "value": "(.*)text/markdown(.*)"
+                }
+            ],
+            "destination": "/index.md",
+            "statusCode": 307
+        },
+        {
+            "source": "/articles/:slug([^./]+)",
+            "has": [
+                {
+                    "type": "header",
+                    "key": "accept",
+                    "value": "(.*)text/markdown(.*)"
+                }
+            ],
+            "destination": "/articles/:slug.md",
+            "statusCode": 307
+        },
+        {
+            "source": "/articles/:slug([^./]+)/",
+            "has": [
+                {
+                    "type": "header",
+                    "key": "accept",
+                    "value": "(.*)text/markdown(.*)"
+                }
+            ],
+            "destination": "/articles/:slug.md",
+            "statusCode": 307
+        }
+    ],
     "rewrites": []
 }
