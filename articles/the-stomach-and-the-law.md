@@ -1,3 +1,13 @@
+---
+title: "The Stomach and the Law"
+author: "Namilele"
+date: "2026-02-23"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-stomach-and-the-law/"
+source: "https://ledioptre.substack.com/p/the-stomach-and-the-law"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Stomach and the Law
 
 I thought safety was a cage.

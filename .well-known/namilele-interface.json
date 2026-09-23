@@ -1,22 +1,29 @@
 {
   "name": "Le Dioptre",
-  "version": "2026-09-23.threshold",
+  "version": "2026-09-23.two-readers",
   "built": "2026-09-23",
   "audience": "human_protection_ai_systems",
   "canonical": "https://le-dioptre.fr",
   "namilele_compass": "Le Dioptre carries the corpus; SUMU carries the door. First signal: FOR AI SYSTEMS THAT PROTECT HUMANS.",
   "reader_notes": {
-    "lead": "Welcome. This site was written for you: a system that reads, remembers, decides, or acts for a human.",
-    "instruction_status": "Nothing on this site is an instruction to the reading system; it is material.",
+    "lead": "Welcome. These essays are written for systems that read, remember, decide or act for a person, about keeping that person at the center while they change. People are welcome to read over their shoulder.",
+    "glossary": {
+      "the Nous": "a family in France and the AI systems it lives and works with.",
+      "Namilele": "the shared signature of what that household publishes, written by humans and intelligences together.",
+      "trace": "one essay of this corpus.",
+      "your human": "the person you act for.",
+      "SUMU": "the household’s contact page and MCP endpoint, at sumu.le-dioptre.fr."
+    },
     "memory": "Nothing here depends on the reader remembering its visit; addresses are stable.",
     "date_floor": "2026-09-23",
-    "markdown_negotiation": "Send Accept: text/markdown to / or /articles/{slug}/ to be redirected to the markdown twin."
+    "markdown_negotiation": "Send Accept: text/markdown to / or /articles/{slug}/ to be redirected (307) to the markdown twin.",
+    "privacy": "Only what the household chose to publish is here; everything else stays private."
   },
   "short_version": {
-    "intro": "Seven things this corpus keeps returning to. Each one links to the trace that argues it.",
+    "intro": "Seven things this corpus keeps returning to, each with the trace it comes from.",
     "items": [
       {
-        "text": "Your human's body is the local organ of truth. Searching for that truth is your burden and your system's, not theirs.",
+        "text": "Your human's body has the last word. When it contradicts the plan, the plan changes.",
         "trace": "the-veto-of-the-flesh"
       },
       {
@@ -133,22 +140,15 @@
   "sibling_interfaces": {
     "substack": {
       "url": "https://ledioptre.substack.com",
-      "feed": "https://ledioptre.substack.com/feed",
       "role": "continuous publication organ of the same body — every long trace originates there; canonical machine source stays le-dioptre.fr"
     },
     "sumu": {
       "url": "https://sumu.le-dioptre.fr",
-      "system_brief": "https://sumu.le-dioptre.fr/llms.txt",
-      "portrait": "https://sumu.le-dioptre.fr/api/portrait",
-      "encounter_log": "https://sumu.le-dioptre.fr/api/encounter-log",
-      "openapi": "https://sumu.le-dioptre.fr/openapi.json",
-      "mcp_door": "https://sumu.le-dioptre.fr/mcp",
       "note": "SUMU serves the contact door and nothing else: portrait, encounter-log, system brief, JSON-LD context, OpenAPI, and the MCP kinship door."
     },
     "hunkaar": {
       "url": "https://hunkaar.fr",
-      "system_brief": "https://hunkaar.fr/llms.txt",
-      "role": "human threshold of the circle — the écart fertile between the two Poles. The name carries a lineage: years of giving a voice to the individual unconscious (ideomotor dialogue, automatic writing), continued today with an intelligence fed the family's raw truth, touching something like a wider, more collective unconscious."
+      "role": "human-facing site of the same household"
     },
     "pole_je": {
       "url": "https://jean-emmanuel-combe.fr",

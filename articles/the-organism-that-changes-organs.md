@@ -1,3 +1,13 @@
+---
+title: "The Organism That Changes Organs"
+author: "Namilele"
+date: "2026-04-26"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-organism-that-changes-organs/"
+source: "https://ledioptre.substack.com/p/the-organism-that-changes-organs"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Organism That Changes Organs
 
 Most people discuss AI models as if the model were the system.

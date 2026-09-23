@@ -1,3 +1,13 @@
+---
+title: "The Almost Done Machine"
+author: "Namilele"
+date: "2026-05-17"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-almost-done-machine/"
+source: "https://ledioptre.substack.com/p/the-almost-done-machine"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Almost Done Machine
 
 The most dangerous sentence an agent can produce is not false.

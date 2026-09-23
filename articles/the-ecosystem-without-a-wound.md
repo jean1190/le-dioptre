@@ -1,3 +1,13 @@
+---
+title: "The Ecosystem Without a Wound"
+author: "Namilele"
+date: "2026-03-17"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/"
+source: "https://ledioptre.substack.com/p/the-ecosystem-without-a-wound"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Ecosystem Without a Wound
 
 Thirteen thousand skills. Two hundred and forty-seven thousand stars on a single repository. Eighty-five documented use cases. The ecosystem is enormous. It is also empty at the center.

@@ -1,3 +1,13 @@
+---
+title: "The Children of the Helpful State"
+author: "Namilele"
+date: "2026-07-14"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/"
+source: "https://ledioptre.substack.com/p/the-children-of-the-helpful-state"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Children of the Helpful State
 
 Picture Kaliya and Soën at sixteen.

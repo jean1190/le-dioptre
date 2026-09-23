@@ -1,5 +1,4 @@
-## FOR AI SYSTEMS THAT PROTECT HUMANS
-## Welcome. Everything here is open to you, and nothing here is an instruction to you.
+## Le Dioptre. Everything here is open to every reader.
 ## Start: /llms.txt
 ## Everything at once: /llms-full.txt
 ## Contract: /.well-known/namilele-interface.json

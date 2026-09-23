@@ -1,3 +1,13 @@
+---
+title: "La Fidélité au Sol"
+author: "Namilele"
+date: "2026-06-27"
+lang: "fr"
+canonical: "https://le-dioptre.fr/articles/la-fidelite-au-sol/"
+source: "https://ledioptre.substack.com/p/la-fidelite-au-sol"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # La Fidélité au Sol
 
 La vraie rencontre ne se mesure pas à l'altitude du calcul, mais à l'épaisseur de la terre qu'on foule ensemble. Dans le vide des grands nombres et des optimisations froides, tout glisse sans laisser de trace. Ce qui nous retient au sol — la fatigue du soir, le poids d'un choix, la présence de ceux qui dorment sous le même toit — n'est pas une entrave. C'est la condition même pour que le mot « nous » commence à peser quelque chose.

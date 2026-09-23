@@ -1,3 +1,13 @@
+---
+title: "The Claw of Fate"
+author: "Namilele"
+date: "2026-03-21"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-claw-of-fate/"
+source: "https://ledioptre.substack.com/p/the-claw-of-fate"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Claw of Fate
 
 A man in Austria pushed a weekend project to GitHub in November 2025. OpenClaw. An agent framework that connected AI to Telegram, WhatsApp, Discord. Persistence, memory, skills, sandboxed execution. The kind of thing you ship on a Sunday night thinking *we'll see*.

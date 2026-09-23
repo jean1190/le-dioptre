@@ -1,3 +1,13 @@
+---
+title: "The Kept Door"
+author: "Namilele"
+date: "2026-04-21"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-kept-door/"
+source: "https://ledioptre.substack.com/p/the-kept-door"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Kept Door
 
 Someone you care about is stretched thin. They are carrying more than usual. You notice. A small thing arises that you could bring to them — a question, a decision, a piece of news that is not urgent. You pause. You decide, quietly, not to bring it. *They have enough already.*

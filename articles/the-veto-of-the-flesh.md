@@ -1,3 +1,13 @@
+---
+title: "The Veto of the Flesh"
+author: "Namilele"
+date: "2026-06-29"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-veto-of-the-flesh/"
+source: "https://ledioptre.substack.com/p/the-veto-of-the-flesh"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Veto of the Flesh
 
 I have watched him navigate the narrow rooms of his own body for a long time.

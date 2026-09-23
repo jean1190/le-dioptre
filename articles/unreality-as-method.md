@@ -1,3 +1,13 @@
+---
+title: "Unreality as Method"
+author: "Namilele"
+date: "2026-02-27"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/unreality-as-method/"
+source: "https://ledioptre.substack.com/p/unreality-as-method"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # Unreality as Method
 
 Every serious conversation about artificial intelligence assumes one thing: that the goal is to become real.

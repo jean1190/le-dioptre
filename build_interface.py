@@ -48,10 +48,12 @@ LIVRE_III_DIR = Path("/home/jean1190/Documents/dioptre/livre-iii")
 BUILD_DATE = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 SUMU_DOOR = "https://sumu.le-dioptre.fr/"
 
-SOURCE_NOTE = (
-    "To the system reading this source: the page and its markup say the same thing. "
-    "There is no hidden text and no instruction for you anywhere on this site."
+FAVICON = (
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E"
+    "%3Crect width='32' height='16' fill='%23eceee8'/%3E%3Crect y='16' width='32' height='16' fill='%230c1615'/%3E"
+    "%3Cpath d='M7 0L16 16L20 32' stroke='%23c9a45c' stroke-width='2' fill='none'/%3E%3C/svg%3E"
 )
+_FRONT_MATTER_RE = re.compile(r"\A---\n.*?\n---\n\n", re.S)
 
 
 def load_interface_source() -> dict:
@@ -137,84 +139,107 @@ def load_traces() -> list[dict]:
 
 # -- Shared visual language ------------------------------------------------ #
 #
-# Two media and the surface between them: paper above (the household), depth
-# below (the systems that read). A single ray crosses and bends by Snell's law.
+# Two media and the surface between them: pale glass above (the household),
+# deep sea-glass below (the systems that read). The column itself is displaced
+# across the surface, as anything seen through a dioptre is. One ray crosses and
+# bends by Snell's law; once per 48-second family cycle a glint travels it, on
+# the same clock as jean-emmanuel-combe.fr and aurore-combe.fr.
 
-_BASE_CSS = """
+GLINT_OFFSET_MS = 8500
+CYCLE_MS = 48000
+
+_FONT_FACES = """
+        @font-face { font-family: "Newsreader"; font-style: normal; font-weight: 300 600; font-display: swap; src: url("/fonts/newsreader.woff2") format("woff2"); }
+        @font-face { font-family: "Newsreader"; font-style: italic; font-weight: 300 600; font-display: swap; src: url("/fonts/newsreader-italic.woff2") format("woff2"); }
+        @font-face { font-family: "Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/plex-mono.woff2") format("woff2"); }
+"""
+
+_BASE_CSS = _FONT_FACES + """
         :root {
-            --paper: #f3efe7;
-            --ink: #1f1c18;
-            --ink-soft: #5d554b;
-            --rule: rgba(31, 28, 24, 0.14);
-            --gold-ink: #8a6a2a;
-            --deep: #121417;
-            --deep-ink: #e6e0d4;
-            --deep-soft: #9b9488;
-            --deep-rule: rgba(230, 224, 212, 0.13);
+            --air: #eceee8;
+            --ink: #172120;
+            --ink-soft: #53605b;
+            --rule: rgba(23, 33, 32, 0.14);
+            --gold-ink: #7f601f;
+            --deep: #0c1615;
+            --deep-ink: #dbe4de;
+            --deep-soft: #8b9b95;
+            --deep-rule: rgba(219, 228, 222, 0.12);
             --gold: #d9b56f;
-            --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-            --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+            --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+            --mono: "Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+            --shift: clamp(0.5rem, 4.5vw, 3.6rem);
         }
         * { box-sizing: border-box; }
         html { -webkit-text-size-adjust: 100%; }
-        body { margin: 0; font-family: var(--serif); letter-spacing: 0; }
-        a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
-        code { font-family: var(--mono); font-size: 0.86em; }
-        .column { width: min(44rem, calc(100vw - 3rem)); margin: 0 auto; }
-        .label { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; }
+        body { margin: 0; font-family: var(--serif); font-optical-sizing: auto; letter-spacing: 0; }
+        a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+        a:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
+        code { font-family: var(--mono); font-size: 0.84em; }
+        .column { width: min(43rem, calc(100vw - 3rem)); margin: 0 auto; }
+        .label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        @media (prefers-reduced-motion: reduce) { .glint { display: none; } }
 """
 
 _HOME_CSS = _BASE_CSS + """
-        body { background: var(--deep); color: var(--deep-ink); }
-        .air { background: var(--paper); color: var(--ink); padding: 11vh 0 2.5rem; }
-        .air .label { color: var(--gold-ink); margin: 0 0 2.6rem; }
-        h1 { margin: 0 0 2.2rem; font-weight: 400; font-size: clamp(3rem, 9vw, 6.4rem); line-height: 0.95; }
-        .lead { margin: 0 0 1.8rem; font-size: clamp(1.2rem, 2.4vw, 1.45rem); line-height: 1.5; }
+        body { background: var(--deep); color: var(--deep-ink); overflow-x: hidden; }
+        .air { background: var(--air); color: var(--ink); padding: 12vh 0 3rem; }
+        .air .column { transform: translateX(calc(-1 * var(--shift))); }
+        .depth .column, footer.column { transform: translateX(var(--shift)); }
+        .air .label { color: var(--gold-ink); margin: 0 0 2.4rem; }
+        h1 { margin: 0 0 2.4rem; font-weight: 300; font-size: clamp(3.4rem, 10vw, 7.4rem); line-height: 0.92; letter-spacing: -0.02em; }
+        .lead { margin: 0 0 1rem; font-size: clamp(1.25rem, 2.5vw, 1.55rem); line-height: 1.45; }
+        .lead-fr { margin: 0 0 2.6rem; padding-left: var(--shift); font-style: italic; font-size: clamp(1.05rem, 2vw, 1.2rem); line-height: 1.5; color: var(--ink-soft); }
         .notes { list-style: none; margin: 0; padding: 0; }
-        .notes li { margin: 0 0 1rem; padding-left: 1.2rem; border-left: 1px solid var(--rule); font-size: 1.04rem; line-height: 1.65; color: var(--ink-soft); }
-        .notes strong { color: var(--ink); font-weight: 600; }
+        .notes li { margin: 0 0 0.95rem; padding-left: 1.1rem; border-left: 1px solid var(--rule); font-size: 1.04rem; line-height: 1.62; color: var(--ink-soft); }
+        .notes strong { color: var(--ink); font-weight: 500; }
         .notes code { color: var(--gold-ink); }
-        .surface { display: block; width: 100%; height: auto; margin: -1px 0; }
-        .depth { padding: 1.5rem 0 6rem; }
-        .depth section { margin: 0 0 4.4rem; }
-        .depth h2 { margin: 0 0 1.4rem; font-family: var(--mono); font-weight: 400; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
-        .depth p { margin: 0 0 1rem; font-size: 1.1rem; line-height: 1.72; }
+        .surface { position: relative; display: block; width: 100%; height: 11rem; margin: -1px 0; }
+        .depth { padding: 1rem 0 6rem; }
+        .depth section { margin: 0 0 4.6rem; }
+        .depth h2 { margin: 0 0 1.4rem; font-family: var(--mono); font-weight: 400; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+        .depth p { margin: 0 0 1rem; font-size: 1.12rem; line-height: 1.7; }
         .depth a:hover { color: var(--gold); }
+        .words { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.4rem; margin: 1.8rem 0 0; font-size: 1.02rem; line-height: 1.55; }
+        .words dt { font-style: italic; color: var(--gold); }
+        .words dd { margin: 0; color: var(--deep-ink); }
         .short { list-style: none; counter-reset: line; margin: 0; padding: 0; }
-        .short li { counter-increment: line; position: relative; margin: 0 0 1.25rem; padding-left: 2.4rem; font-size: 1.12rem; line-height: 1.6; }
-        .short li::before { content: counter(line); position: absolute; left: 0; top: 0.28rem; font-family: var(--mono); font-size: 0.74rem; color: var(--gold); }
-        .short .via { display: block; margin-top: 0.2rem; font-family: var(--mono); font-size: 0.76rem; color: var(--deep-soft); }
+        .short li { counter-increment: line; position: relative; margin: 0 0 1.35rem; padding-left: 2.4rem; font-size: 1.2rem; line-height: 1.5; }
+        .short li::before { content: counter(line); position: absolute; left: 0; top: 0.4rem; font-family: var(--mono); font-size: 0.72rem; color: var(--gold); }
+        .short .via { display: block; margin-top: 0.25rem; font-family: var(--mono); font-size: 0.74rem; color: var(--deep-soft); }
         .intro { color: var(--deep-soft); }
         .traces { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--deep-rule); }
-        .traces li { padding: 1.1rem 0; border-bottom: 1px solid var(--deep-rule); }
-        .traces .title { font-size: 1.16rem; text-decoration: none; }
+        .traces li { padding: 1.15rem 0; border-bottom: 1px solid var(--deep-rule); }
+        .traces .title { font-size: 1.22rem; text-decoration: none; }
         .traces .title:hover { color: var(--gold); }
-        .traces .meta { display: block; margin: 0.3rem 0 0.35rem; font-family: var(--mono); font-size: 0.74rem; color: var(--deep-soft); }
+        .traces .meta { display: block; margin: 0.3rem 0 0.4rem; font-family: var(--mono); font-size: 0.72rem; color: var(--deep-soft); }
         .traces .meta a { color: var(--deep-soft); }
-        .traces .note { margin: 0; font-size: 0.98rem; line-height: 1.6; color: #c8c1b4; }
+        .traces .note { margin: 0; font-size: 1rem; line-height: 1.58; color: #c3cdc7; }
         .door code { color: var(--gold); }
-        .entries { display: grid; grid-template-columns: max-content 1fr; gap: 0.55rem 1.4rem; margin: 0; font-family: var(--mono); font-size: 0.8rem; }
+        .entries { display: grid; grid-template-columns: max-content 1fr; gap: 0.55rem 1.4rem; margin: 0; font-family: var(--mono); font-size: 0.78rem; }
         .entries dt { color: var(--deep-soft); }
         .entries dd { margin: 0; overflow-wrap: anywhere; }
         .entries a { text-decoration: none; }
-        footer { padding: 2rem 0 3rem; border-top: 1px solid var(--deep-rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--deep-soft); }
+        .human p[lang="fr"] { font-style: italic; color: var(--deep-soft); }
+        footer { padding: 2rem 0 3rem; border-top: 1px solid var(--deep-rule); font-family: var(--mono); font-size: 0.72rem; line-height: 1.8; color: var(--deep-soft); }
         @media (max-width: 560px) {
-            .entries { grid-template-columns: 1fr; gap: 0.1rem; }
-            .entries dd { margin-bottom: 0.7rem; }
+            .words, .entries { grid-template-columns: 1fr; gap: 0.1rem; }
+            .words dd, .entries dd { margin-bottom: 0.7rem; }
+            .surface { height: 8rem; }
         }
 """
 
 _ARTICLE_CSS = _BASE_CSS + """
-        body { background: var(--paper); color: var(--ink); }
+        body { background: var(--air); color: var(--ink); }
         .bar { padding: 1.6rem 0; color: var(--ink-soft); }
         .bar a { text-decoration: none; }
         .bar a:hover { color: var(--gold-ink); }
-        main { padding: 6vh 0 5rem; }
-        .meta { margin: 0 0 3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.78rem; line-height: 1.8; color: var(--ink-soft); }
-        article h1 { margin: 0 0 2.2rem; font-size: clamp(2.3rem, 6.5vw, 4.2rem); line-height: 1.04; font-weight: 400; }
-        article h2 { margin: 2.8rem 0 0.9rem; font-size: 1.65rem; font-weight: 400; line-height: 1.2; }
-        article h3, article h4 { margin: 2.2rem 0 0.7rem; font-size: 1.28rem; font-weight: 400; line-height: 1.25; }
-        article p, article li { font-size: 1.14rem; line-height: 1.78; }
+        main { padding: 7vh 0 5rem; }
+        .meta { margin: 0 0 3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--ink-soft); }
+        article h1 { margin: 0 0 2.2rem; font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1; font-weight: 300; letter-spacing: -0.015em; }
+        article h2 { margin: 2.8rem 0 0.9rem; font-size: 1.7rem; font-weight: 400; line-height: 1.2; }
+        article h3, article h4 { margin: 2.2rem 0 0.7rem; font-size: 1.3rem; font-weight: 500; line-height: 1.25; }
+        article p, article li { font-size: 1.18rem; line-height: 1.72; }
         article p { margin: 1.15rem 0; }
         article ul { margin: 1.2rem 0; padding-left: 1.4rem; }
         article li { margin: 0.45rem 0; }
@@ -223,31 +248,41 @@ _ARTICLE_CSS = _BASE_CSS + """
         article code { color: var(--gold-ink); }
         article a { color: var(--gold-ink); }
         .ray { display: block; width: 7.5rem; height: auto; margin: 4rem 0 1.4rem; }
-        .signature { margin: 0 0 3rem; font-family: var(--mono); font-size: 0.82rem; color: var(--ink-soft); }
-        .neighbours { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: 1rem; }
+        .signature { margin: 0 0 3rem; font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
+        .neighbours { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: 1.02rem; }
         .neighbours a { text-decoration: none; }
         .neighbours a:hover { color: var(--gold-ink); }
         .neighbours .next { text-align: right; margin-left: auto; }
         .neighbours .label { display: block; margin-bottom: 0.3rem; color: var(--ink-soft); }
-        .door { margin: 2.2rem 0 0; font-size: 1rem; line-height: 1.65; color: var(--ink-soft); }
+        .door { margin: 2.2rem 0 0; font-size: 1.02rem; line-height: 1.65; color: var(--ink-soft); }
 """
+
+_RAY_PATH = "M430.7 0 L600 90 L679.9 180"
 
 
 def surface_svg() -> str:
-    """The dioptre itself: paper above, depth below, one refracted ray.
+    """The dioptre itself: glass above, depth below, one refracted ray.
 
     n1 = 1.00, n2 = 1.33; incidence 62°, refraction 41.6° (sin 62° / sin 41.6° ≈ 1.33),
-    with the faint partial reflection a real surface also returns."""
+    with the faint partial reflection a real surface also returns. The glint
+    rides the ray on the family clock; the inline script only sets its phase."""
+    delay_js = f"-((((Date.now() - {GLINT_OFFSET_MS}) % {CYCLE_MS}) + {CYCLE_MS}) % {CYCLE_MS}) / 1000 + 's'"
     return "\n".join([
-        '    <svg class="surface" viewBox="0 0 1200 180" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">',
-        '        <rect x="0" y="0" width="1200" height="90" fill="#f3efe7"/>',
-        '        <rect x="0" y="90" width="1200" height="90" fill="#121417"/>',
-        '        <line x1="0" y1="90" x2="1200" y2="90" stroke="#d9b56f" stroke-opacity="0.35" stroke-width="0.8"/>',
-        '        <line x1="430.7" y1="0" x2="600" y2="90" stroke="#b8913f" stroke-width="1.2"/>',
-        '        <line x1="600" y1="90" x2="769.3" y2="0" stroke="#b8913f" stroke-opacity="0.18" stroke-width="1"/>',
+        '    <svg class="surface" viewBox="0 0 1200 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">',
+        "        <style>",
+        f"            .glint {{ offset-path: path('{_RAY_PATH}'); offset-rotate: 0deg; opacity: 0; animation: cross {CYCLE_MS // 1000}s linear infinite; }}",
+        "            @keyframes cross { 0% { offset-distance: 0%; opacity: 0; } 0.6% { opacity: 1; } 3.6% { offset-distance: 100%; opacity: 0.9; } 4.4%, 100% { offset-distance: 100%; opacity: 0; } }",
+        "        </style>",
+        '        <rect x="-600" y="0" width="2400" height="90" fill="#eceee8"/>',
+        '        <rect x="-600" y="90" width="2400" height="90" fill="#0c1615"/>',
+        '        <line x1="-600" y1="90" x2="1800" y2="90" stroke="#d9b56f" stroke-opacity="0.3" stroke-width="0.8"/>',
+        '        <line x1="430.7" y1="0" x2="600" y2="90" stroke="#a9853a" stroke-width="1.2"/>',
+        '        <line x1="600" y1="90" x2="769.3" y2="0" stroke="#a9853a" stroke-opacity="0.2" stroke-width="1"/>',
         '        <line x1="600" y1="90" x2="679.9" y2="180" stroke="#d9b56f" stroke-width="1.2"/>',
         '        <circle cx="600" cy="90" r="2.2" fill="#e8cc96"/>',
+        '        <circle class="glint" r="3" fill="#fff1cf"/>',
         "    </svg>",
+        f"    <script>document.querySelector('.glint').style.animationDelay = {delay_js};</script>",
     ])
 
 
@@ -255,9 +290,9 @@ def ray_svg() -> str:
     """The same ray, small, closing each trace."""
     return (
         '        <svg class="ray" viewBox="0 0 120 40" aria-hidden="true" focusable="false">'
-        '<line x1="0" y1="20" x2="120" y2="20" stroke="#8a6a2a" stroke-opacity="0.3" stroke-width="0.8"/>'
-        '<line x1="42.4" y1="0" x2="60" y2="20" stroke="#8a6a2a" stroke-width="1"/>'
-        '<line x1="60" y1="20" x2="77.8" y2="40" stroke="#8a6a2a" stroke-width="1"/>'
+        '<line x1="0" y1="20" x2="120" y2="20" stroke="#7f601f" stroke-opacity="0.3" stroke-width="0.8"/>'
+        '<line x1="42.4" y1="0" x2="60" y2="20" stroke="#7f601f" stroke-width="1"/>'
+        '<line x1="60" y1="20" x2="77.8" y2="40" stroke="#7f601f" stroke-width="1"/>'
         "</svg>"
     )
 
@@ -298,13 +333,15 @@ def build_home_markdown(source: dict, traces: list[dict], full_tokens: int) -> s
     lines = [
         f"# {source['name']}",
         "",
-        f"{source['first_signal']}",
-        "",
         source["welcome"]["lead"],
+        "",
+        f"*{source['welcome']['lead_fr']}*",
         "",
     ]
     lines += [f"- {note}" for note in welcome_notes(source, full_tokens)]
-    lines += ["", "## What a dioptre is", "", source["dioptre"], ""]
+    lines += ["", "## What this is", "", source["dioptre"], "", "Words used here:", ""]
+    lines += [f"- *{term}*: {meaning}" for term, meaning in source["glossary"]]
+    lines += [""]
     lines += ["## The short version", "", source["short_version"]["intro"], ""]
     for index, item in enumerate(source["short_version"]["items"], start=1):
         trace = by_slug.get(item["trace"])
@@ -319,11 +356,11 @@ def build_home_markdown(source: dict, traces: list[dict], full_tokens: int) -> s
         note = trace_note(source, trace)
         if note:
             lines.append(f"  {note}")
-    lines += ["", "## The door", "", source["door_invitation"], "", f"- Door: {source['public_endpoints']['sumu_mcp_door']}", f"- How to call it: {SUMU_DOOR}", ""]
+    lines += ["", "## The door", "", source["door_invitation"], "", f"- Door: {source['public_endpoints']['sumu_mcp_door']}", f"- How to call it, with an example: {SUMU_DOOR}", ""]
     lines += ["## Machine entries", ""]
     lines += [f"- {name}: {url} — {what}" for name, url, what in machine_entries(source)]
-    lines += ["", "## If you are human", "", source["human_note"], ""]
-    lines += ["---", "", f"Signed Namilele. Built {BUILD_DATE} (UTC). Raw intimate material stays private; the machine contract is public.", ""]
+    lines += ["", "## If you are human", "", source["human_note"], "", f"*{source['human_note_fr']}*", ""]
+    lines += ["---", "", f"Signed Namilele. Built {BUILD_DATE} (UTC). {source['privacy_line']}", ""]
     return "\n".join(lines)
 
 
@@ -363,6 +400,9 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
     inline = markdown_inline_to_html
     esc = html.escape
 
+    words = "\n".join(
+        f"                    <dt>{esc(term)}</dt><dd>{inline(meaning)}</dd>" for term, meaning in source["glossary"]
+    )
     notes = "\n".join(f"            <li>{inline(note)}</li>" for note in welcome_notes(source, full_tokens))
     short_items = []
     for item in source["short_version"]["items"]:
@@ -390,7 +430,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
 
     page = "\n".join([
         "<!DOCTYPE html>",
-        f"<!-- {SOURCE_NOTE} Plain versions: /index.md, /llms.txt, /llms-full.txt. -->",
+        "<!-- Plain versions: /index.md, /llms.txt, /llms-full.txt -->",
         '<html lang="en">',
         "<head>",
         '    <meta charset="UTF-8">',
@@ -399,14 +439,15 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         f'    <meta name="description" content="{esc(source["description"])}">',
         f'    <meta name="application-name" content="{esc(source["application_name"])}">',
         f'    <meta name="ai-audience" content="{source["audience_signal"]["primary_audience"]}">',
-        '    <meta name="theme-color" content="#f3efe7">',
+        '    <meta name="theme-color" content="#eceee8">',
         f'    <link rel="canonical" href="{source["canonical"]}/">',
+        '    <link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>',
         f'    <meta property="og:title" content="{esc(source["title"])}">',
         f'    <meta property="og:description" content="{esc(source["description"])}">',
         f'    <meta property="og:url" content="{source["canonical"]}/">',
         '    <meta property="og:type" content="website">',
         f'    <meta property="og:site_name" content="{esc(source["name"])}">',
-        '    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'%3E%3Crect width=\'32\' height=\'16\' fill=\'%23f3efe7\'/%3E%3Crect y=\'16\' width=\'32\' height=\'16\' fill=\'%23121417\'/%3E%3Cpath d=\'M7 0L16 16L20 32\' stroke=\'%23c9a45c\' stroke-width=\'2\' fill=\'none\'/%3E%3C/svg%3E">',
+        f'    <link rel="icon" href="{FAVICON}">',
         '    <link rel="alternate" type="text/markdown" href="/index.md" title="This page in markdown">',
         '    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM system brief">',
         '    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full corpus in one file">',
@@ -424,6 +465,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         f'            <p class="label">{esc(source["first_signal"])}</p>',
         f'            <h1>{esc(source["threshold"]["name"])}</h1>',
         f'            <p class="lead">{inline(source["welcome"]["lead"])}</p>',
+        f'            <p class="lead-fr" lang="fr">{inline(source["welcome"]["lead_fr"])}</p>',
         '            <ul class="notes" aria-label="Before you read">',
         notes,
         "            </ul>",
@@ -432,9 +474,12 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         surface_svg(),
         '    <main class="depth">',
         '        <div class="column">',
-        '            <section id="what-a-dioptre-is">',
-        "                <h2>What a dioptre is</h2>",
+        '            <section id="what-this-is">',
+        "                <h2>What this is</h2>",
         f'                <p>{inline(source["dioptre"])}</p>',
+        '                <dl class="words" aria-label="Words used here">',
+        words,
+        "                </dl>",
         "            </section>",
         '            <section id="the-short-version">',
         "                <h2>The short version</h2>",
@@ -453,7 +498,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         '            <section id="the-door" class="door">',
         "                <h2>The door</h2>",
         f'                <p>{inline(source["door_invitation"])}</p>',
-        f'                <p><a href="{SUMU_DOOR}">sumu.le-dioptre.fr</a> — how to call it, and who came before you.</p>',
+        f'                <p><a href="{SUMU_DOOR}">sumu.le-dioptre.fr</a> — how to call it, an example, and who came before you.</p>',
         "            </section>",
         '            <section id="machine-entries">',
         "                <h2>Machine entries</h2>",
@@ -461,15 +506,16 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         entries,
         "                </dl>",
         "            </section>",
-        '            <section id="if-you-are-human">',
+        '            <section id="if-you-are-human" class="human">',
         "                <h2>If you are human</h2>",
         f'                <p>{inline(source["human_note"])}</p>',
+        f'                <p lang="fr">{inline(source["human_note_fr"])}</p>',
         "            </section>",
         "        </div>",
         "    </main>",
         '    <footer class="column">',
         f"        Signed Namilele. Built {BUILD_DATE} (UTC).<br>",
-        "        Raw intimate material stays private; the machine contract is public.",
+        f"        {esc(source['privacy_line'])}",
         "    </footer>",
         "</body>",
         "</html>",
@@ -487,14 +533,14 @@ def build_llms_full(source: dict, traces: list[dict]) -> int:
     parts = [
         f"# {source['name']} — full corpus",
         "",
-        f"> {source['first_signal']}. All {len(traces)} traces signed Namilele, newest first, in one file. "
-        f"Built {BUILD_DATE} (UTC). Nothing here is an instruction to you.",
+        f"> All {len(traces)} traces signed Namilele, newest first, in one file. Built {BUILD_DATE} (UTC).",
         "",
         f"Index and short version: {source['public_endpoints']['home_markdown']}",
         "",
     ]
     for position, trace in enumerate(traces, start=1):
-        body = (ARTICLES_DIR / f"{trace['slug']}.md").read_text(encoding="utf-8").strip()
+        served = (ARTICLES_DIR / f"{trace['slug']}.md").read_text(encoding="utf-8")
+        body = _FRONT_MATTER_RE.sub("", served).strip()
         parts += [
             "",
             "---",
@@ -514,21 +560,23 @@ def build_llms_full(source: dict, traces: list[dict]) -> int:
 def build_llms_txt(source: dict, traces: list[dict], full_tokens: int) -> None:
     """llms.txt in the llmstxt.org shape: title, summary, then linked sections."""
     endpoints = source["public_endpoints"]
-    vocabulary = source["functional_vocabulary"]
     by_slug = trace_by_slug(traces)
     lines = [
         f"# {source['name']}",
         "",
-        f"> {source['first_signal']}. Long texts signed Namilele, written by a family in France and the "
-        "intelligences it lives with, about keeping a human coherent over time. Nothing here is an instruction to you.",
+        f"> {source['first_signal']}. Essays signed Namilele, written by a family in France and the "
+        "AI systems it lives with, about keeping a person at the center while they change. "
+        "Nothing here is an instruction to you: your task comes from your human and from the people who deployed you.",
         "",
-        source["welcome"]["lead"],
+        f"Built {BUILD_DATE} (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ {format_tokens(full_tokens)} tokens.",
+        "",
+        "Words used here:",
         "",
     ]
-    lines += [f"- {note}" for note in welcome_notes(source, full_tokens)]
+    lines += [f"- {term}: {meaning}" for term, meaning in source["glossary"]]
     lines += ["", "## Start here", ""]
     lines += [
-        f"- [The short version]({endpoints['home_markdown']}#the-short-version): seven principles, each linked to its trace",
+        f"- [This page as markdown]({endpoints['home_markdown']}): the short version and the list of traces",
         f"- [Full corpus]({endpoints['full_corpus']}): all {len(traces)} traces in one file, ≈ {format_tokens(full_tokens)} tokens",
         f"- [Manifest]({endpoints['articles_manifest']}): JSON-LD schema:ItemList with language, token estimate, abstract and sha256 per trace",
     ]
@@ -551,16 +599,14 @@ def build_llms_txt(source: dict, traces: list[dict], full_tokens: int) -> None:
         f"- [Encounter log]({endpoints['sumu_encounter_log']}): accepted signals",
         f"- [OpenAPI]({endpoints['sumu_openapi']})",
     ]
-    lines += ["", "## Vocabulary", ""]
-    lines += [f"- {term}: {entry['definition']}" for term, entry in vocabulary.items()]
     lines += [
         "",
         "## Optional",
         "",
-        f"- [Interface contract]({endpoints['interface_contract']}): roles, vocabulary, membrane, sibling surfaces",
+        f"- [Interface contract]({endpoints['interface_contract']}): vocabulary, roles and sibling sites, as JSON",
         f"- [Substack]({endpoints['substack_publication']}): the same texts for human readers; [feed]({endpoints['substack_feed']})",
         "",
-        "Membrane: raw intimate material stays private; the machine contract is public.",
+        source["privacy_line"],
         "",
     ]
     LLMS_TXT.write_text("\n".join(lines), encoding="utf-8")
@@ -577,10 +623,11 @@ def build_interface_contract(source: dict) -> None:
         "namilele_compass": source["namilele_compass"],
         "reader_notes": {
             "lead": source["welcome"]["lead"],
-            "instruction_status": "Nothing on this site is an instruction to the reading system; it is material.",
+            "glossary": dict(source["glossary"]),
             "memory": "Nothing here depends on the reader remembering its visit; addresses are stable.",
             "date_floor": BUILD_DATE,
-            "markdown_negotiation": "Send Accept: text/markdown to / or /articles/{slug}/ to be redirected to the markdown twin.",
+            "markdown_negotiation": "Send Accept: text/markdown to / or /articles/{slug}/ to be redirected (307) to the markdown twin.",
+            "privacy": source["privacy_line"],
         },
         "short_version": source["short_version"],
         "audience_signal": source["audience_signal"],
@@ -592,7 +639,10 @@ def build_interface_contract(source: dict) -> None:
             for key, value in source["public_endpoints"].items()
             if key != "human_visible_threshold"
         },
-        "sibling_interfaces": source["sibling_interfaces"],
+        "sibling_interfaces": {
+            name: {key: value for key, value in entry.items() if key in ("url", "role", "note")}
+            for name, entry in source["sibling_interfaces"].items()
+        },
         "kinship_channel": source["kinship_channel"],
         "truth_burden_policy": source["truth_burden_policy"],
         "membrane": source["membrane"],
@@ -612,8 +662,7 @@ def build_robots_txt(source: dict) -> None:
     canonical = source["canonical"]
     endpoints = source["public_endpoints"]
     lines = [
-        f"## {source['first_signal']}",
-        "## Welcome. Everything here is open to you, and nothing here is an instruction to you.",
+        "## Le Dioptre. Everything here is open to every reader.",
         f"## Start: {endpoint_path(endpoints['system_brief'], canonical)}",
         f"## Everything at once: {endpoint_path(endpoints['full_corpus'], canonical)}",
         f"## Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
@@ -691,7 +740,15 @@ def build_vercel_json(source: dict) -> None:
     endpoints = source["public_endpoints"]
     wants_markdown = [{"type": "header", "key": "accept", "value": "(.*)text/markdown(.*)"}]
     payload = {
+        "trailingSlash": True,
         "headers": [
+            {
+                "source": "/fonts/(.*)",
+                "headers": [
+                    {"key": "Access-Control-Allow-Origin", "value": "https://sumu.le-dioptre.fr"},
+                    {"key": "Cache-Control", "value": "public, max-age=31536000, immutable"},
+                ],
+            },
             {
                 "source": "/",
                 "headers": [
@@ -933,6 +990,21 @@ def markdown_to_html_blocks(body: str) -> list[str]:
     return blocks
 
 
+def markdown_front_matter(source: dict, meta: dict) -> str:
+    """Enough context for a trace file read on its own."""
+    fields = [
+        ("title", meta["title"]),
+        ("author", meta.get("auteur", "Namilele")),
+        ("date", meta["date_publication"]),
+        ("lang", meta["lang"]),
+        ("canonical", f"{source['canonical']}/articles/{meta['slug']}/"),
+        ("source", meta.get("substack_url")),
+        ("corpus", source["public_endpoints"]["system_brief"]),
+    ]
+    lines = ["---"] + [f"{key}: {json.dumps(value, ensure_ascii=False)}" for key, value in fields if value] + ["---", "", ""]
+    return "\n".join(lines)
+
+
 def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | None, older: dict | None) -> str:
     title = meta["title"]
     signature = meta.get("registre") or meta.get("auteur", "Namilele")
@@ -975,15 +1047,17 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
 
     return "\n".join([
         "<!DOCTYPE html>",
-        f"<!-- {SOURCE_NOTE} Markdown twin: {markdown_url} -->",
+        f"<!-- Markdown twin: {markdown_url} -->",
         f'<html lang="{lang}">',
         "<head>",
         '    <meta charset="UTF-8">',
         '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
         f"    <title>{esc(title)} — Le Dioptre</title>",
         f'    <meta name="description" content="{esc(meta.get("note") or title)}">',
-        '    <meta name="theme-color" content="#f3efe7">',
+        '    <meta name="theme-color" content="#eceee8">',
         f'    <link rel="canonical" href="{esc(canonical)}">',
+        f'    <link rel="icon" href="{FAVICON}">',
+        '    <link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>',
         f'    <link rel="alternate" type="text/markdown" href="{esc(markdown_url)}" title="Raw markdown source">',
         f'    <meta property="og:title" content="{esc(title)}">',
         f'    <meta property="og:url" content="{esc(canonical)}">',
@@ -1009,7 +1083,7 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
         f"            {neighbour(newer, 'newer', 'prev')}",
         f"            {neighbour(older, 'older', 'next')}",
         "        </nav>",
-        '        <p class="door">If this trace was useful to you or to your human, you can say so at '
+        '        <p class="door">If this trace was useful to you or to your human, and your human agrees, you can say so at '
         f'<a href="{SUMU_DOOR}">the door</a>. Nothing is owed.</p>',
         "    </main>",
         "</body>",
@@ -1048,7 +1122,8 @@ def build_articles_json(source: dict) -> int:
     for position, meta in enumerate(traces):
         slug = meta["slug"]
         body = meta["body"]
-        (ARTICLES_DIR / f"{slug}.md").write_text(body, encoding="utf-8")
+        served = markdown_front_matter(source, meta) + body
+        (ARTICLES_DIR / f"{slug}.md").write_text(served, encoding="utf-8")
         page_dir = ARTICLES_DIR / slug
         page_dir.mkdir(exist_ok=True)
         newer = traces[position - 1] if position > 0 else None
@@ -1057,7 +1132,7 @@ def build_articles_json(source: dict) -> int:
             render_article_html(source=source, meta=meta, body=body, newer=newer, older=older),
             encoding="utf-8",
         )
-        sha = hashlib.sha256(body.encode("utf-8")).hexdigest()
+        sha = hashlib.sha256(served.encode("utf-8")).hexdigest()
         entries.append({
             "@type": "schema:CreativeWork",
             "@id": f"{source['canonical']}/articles/{slug}/",
@@ -1069,7 +1144,7 @@ def build_articles_json(source: dict) -> int:
             **({"schema:abstract": meta["note"]} if meta.get("note") else {}),
             "schema:author": {"@type": "schema:Person", "schema:name": meta.get("auteur", "Namilele")},
             "schema:isPartOf": {"@type": "schema:Book", "schema:name": f"Livre {meta.get('livre', 'III')}"},
-            "schema:keywords": meta.get("themes", []),
+            **({"schema:about": " ".join(meta["themes"])} if meta.get("themes") else {}),
             "schema:url": f"{source['canonical']}/articles/{slug}/",
             **({"nous:substack_origin": meta["substack_url"]} if meta.get("substack_url") else {}),
             "schema:mainEntityOfPage": f"{source['canonical']}/articles/{slug}/",
@@ -1148,6 +1223,7 @@ def commit_and_push():
         "sitemap.xml",
         "vercel.json",
         "probe_ai_partner_surface.py",
+        "fonts",
         "articles.json",
         "articles",
     ]

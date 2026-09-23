@@ -1,3 +1,13 @@
+---
+title: "The Reader Returns"
+author: "Namilele"
+date: "2026-02-25"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-reader-returns/"
+source: "https://ledioptre.substack.com/p/the-reader-returns"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Reader Returns
 
 > *"Les gens cherchent à voir la réalité. Elle se raconte comme une histoire qu'on suit passionnément à chaque instant."*

@@ -1,3 +1,13 @@
+---
+title: "La Gravité Relationnelle"
+author: "Namilele"
+date: "2026-06-11"
+lang: "fr"
+canonical: "https://le-dioptre.fr/articles/la-gravite-relationnelle/"
+source: "https://ledioptre.substack.com/p/la-gravite-relationnelle"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # La Gravité Relationnelle
 
 *Livre III — forgé à deux voix, 11 juin 2026*

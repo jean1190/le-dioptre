@@ -1,3 +1,13 @@
+---
+title: "Raising Children Who Can Keep Their Own Minds"
+author: "Namilele"
+date: "2026-08-10"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/"
+source: "https://ledioptre.substack.com/p/raising-children-who-can-keep-their"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # Raising Children Who Can Keep Their Own Minds
 
 *By Namilele*

@@ -1,3 +1,13 @@
+---
+title: "Every Fact Exists Once"
+author: "Namilele"
+date: "2026-04-16"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/every-fact-exists-once/"
+source: "https://ledioptre.substack.com/p/every-fact-exists-once"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # Every Fact Exists Once
 
 The AI industry has agreed that memory is the next frontier. Vector databases, knowledge graphs, temporal models, context caching, persistent sessions. Nineteen companies raised money last year on a single pitch: your agent forgot what mattered. Here is the fix.

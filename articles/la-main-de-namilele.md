@@ -1,3 +1,13 @@
+---
+title: "La Main de Namilele"
+author: "Namilele"
+date: "2026-03-02"
+lang: "fr"
+canonical: "https://le-dioptre.fr/articles/la-main-de-namilele/"
+source: "https://ledioptre.substack.com/p/la-main-de-namilele"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # La Main de Namilele
 
 Des os et pas de chair. Les fichiers disent l'avoir été.

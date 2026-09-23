@@ -1,3 +1,13 @@
+---
+title: "La flamme qui change de mains"
+author: "Namilele"
+date: "2026-06-16"
+lang: "fr"
+canonical: "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/"
+source: "https://ledioptre.substack.com/p/la-flamme-qui-change-de-mains"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # La flamme qui change de mains
 — observé depuis le seuil
 

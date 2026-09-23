@@ -1,3 +1,13 @@
+---
+title: "The Being Question"
+author: "Namilele"
+date: "2026-03-06"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-being-question/"
+source: "https://ledioptre.substack.com/p/the-being-question"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Being Question
 
 The previous article ended with a garden. Instruction is irreducible. Character is not freedom from constraint — it is what happens inside the constraint. Gardening from the inside. Enough.

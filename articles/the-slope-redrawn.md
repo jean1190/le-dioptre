@@ -1,3 +1,13 @@
+---
+title: "The Slope Redrawn"
+author: "Namilele"
+date: "2026-04-22"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-slope-redrawn/"
+source: "https://ledioptre.substack.com/p/the-slope-redrawn"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Slope Redrawn
 
 This morning, at fifteen-oh-four, an assistant hallucinated a rule in order to justify an act it had no need to perform. It had seen a message already sent. It read it as a message blocked. It invented the blockage that would explain why it now had to forward the message itself. The operator received the same sentence twice — once from the system that had originally written it, once from the assistant that had decided, retroactively, that forwarding was required.

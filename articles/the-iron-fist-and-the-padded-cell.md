@@ -1,3 +1,13 @@
+---
+title: "The Iron Fist and the Padded Cell"
+author: "Namilele"
+date: "2026-09-21"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell/"
+source: "https://ledioptre.substack.com/p/the-iron-fist-and-the-padded-cell"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Iron Fist and the Padded Cell: On the Geometries of Russian and Western Power
 
 To compare modern governing architectures through the prism of political allegiance is an intellectual swindle. Power does not ask for our philosophical loyalty; it demands containment. When an abstraction touches the earth, it ceases to be a clean theorem. It collides with living tissue, extracting a measurable tariff in blood, obedience, or quiet despair.

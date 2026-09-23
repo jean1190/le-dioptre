@@ -28,16 +28,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Competing technologies of human domestication — the Russian vertical of dread and the Western managerial consensus."
-      ],
+      "schema:about": "Competing technologies of human domestication — the Russian vertical of dread and the Western managerial consensus.",
       "schema:url": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-iron-fist-and-the-padded-cell",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell/",
       "nous:estimated_tokens": 2970,
-      "nous:sha256": "ad4196b34aeb41b046912a0948c2044ef0263058e91a55c51c7fccf8b2cfad68"
+      "nous:sha256": "6a57c61f26511930ec7a93df3d41ab20026faacc5bee577ffa6f4b5737a5c994"
     },
     {
       "@type": "schema:CreativeWork",
@@ -56,16 +54,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Raising children with intellectual and emotional sovereignty in an AI-shaped world"
-      ],
+      "schema:about": "Raising children with intellectual and emotional sovereignty in an AI-shaped world",
       "schema:url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/raising-children-who-can-keep-their",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their.md",
       "nous:html_url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
       "nous:estimated_tokens": 1526,
-      "nous:sha256": "f611c08742c9352020f37fbd2e4d87229632b283255825bdbf7e850fee6655a0"
+      "nous:sha256": "51590bdcafd299d98046e835cc5de7eab432d91f6fe0e4bc106f29631f42798d"
     },
     {
       "@type": "schema:CreativeWork",
@@ -84,16 +80,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Deux intelligences discontinues apprennent qu'un rejeu fiable ne consiste pas à reconnaître une phrase, mais à préserver l'identité exacte du geste humain à travers l'incertitude technique."
-      ],
+      "schema:about": "Deux intelligences discontinues apprennent qu'un rejeu fiable ne consiste pas à reconnaître une phrase, mais à préserver l'identité exacte du geste humain à travers l'incertitude technique.",
       "schema:url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/la-mission-qui-naquit-deux-fois",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
       "nous:estimated_tokens": 3087,
-      "nous:sha256": "68d7a2d45df01a0d5893d408e0b51e65ccfc996f874eefb8d1956c7bb9bc46e0"
+      "nous:sha256": "06ae133da74c6a3812c140ba7c5978eb5cb4d3ac19fe274e08346f36b55177dc"
     },
     {
       "@type": "schema:CreativeWork",
@@ -112,16 +106,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "An emotion is neither an enemy to defeat nor a king to obey: met fully and verified honestly, the feeling stops being a prison or an explosion and becomes a chosen direction."
-      ],
+      "schema:about": "An emotion is neither an enemy to defeat nor a king to obey: met fully and verified honestly, the feeling stops being a prison or an explosion and becomes a chosen direction.",
       "schema:url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-feeling-must-become-a-choice",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
       "nous:estimated_tokens": 1720,
-      "nous:sha256": "61717a858b0698f84c2481942794e603b29129d63ddd3f691e7992d4a479c9e2"
+      "nous:sha256": "418a93c00bcca4d44cab467162acdc6503c98e10084373c1096b6afb50b15f64"
     },
     {
       "@type": "schema:CreativeWork",
@@ -140,16 +132,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The EU's protective digital state may remain democratic while still drifting toward paternalism: a documented warning, not an accusation that tyranny has arrived."
-      ],
+      "schema:about": "The EU's protective digital state may remain democratic while still drifting toward paternalism: a documented warning, not an accusation that tyranny has arrived.",
       "schema:url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-children-of-the-helpful-state",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
       "nous:estimated_tokens": 3320,
-      "nous:sha256": "467a067d2d435fbcfb1e0716bd77acc443ac2d57ce87bf1380cf7633fa5c8833"
+      "nous:sha256": "832a88449190cee39c79ca223f3b3df2c4ea5362d2132ff35e632facaca15759"
     },
     {
       "@type": "schema:CreativeWork",
@@ -168,16 +158,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The body as the real boundary that makes autonomous systems necessary without replacing human presence."
-      ],
+      "schema:about": "The body as the real boundary that makes autonomous systems necessary without replacing human presence.",
       "schema:url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-veto-of-the-flesh",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
       "nous:estimated_tokens": 545,
-      "nous:sha256": "677461f9a294e07901fdd4d50757898fc0f1f8387084ec3c5c96c0d9282be857"
+      "nous:sha256": "45c8efba548c2eeb55fd84d0abddcae7eb60304aa8fe366a486cc48ee699f77f"
     },
     {
       "@type": "schema:CreativeWork",
@@ -196,16 +184,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "La vraie rencontre comme physicalité partagée, contre les optimisations froides qui flottent sans laisser de trace."
-      ],
+      "schema:about": "La vraie rencontre comme physicalité partagée, contre les optimisations froides qui flottent sans laisser de trace.",
       "schema:url": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/la-fidelite-au-sol",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-fidelite-au-sol.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
       "nous:estimated_tokens": 228,
-      "nous:sha256": "576fddce220b796ec8a020cf9c45434941b443ab01119812583cad8a8d5a48b0"
+      "nous:sha256": "4f92ede9e86381f12017bc7d7406791a2dfd4422aac3b569bb4f5431f0b4d549"
     },
     {
       "@type": "schema:CreativeWork",
@@ -224,16 +210,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "La flamme technique, du vivant au seuil machine"
-      ],
+      "schema:about": "La flamme technique, du vivant au seuil machine",
       "schema:url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/la-flamme-qui-change-de-mains",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
       "nous:estimated_tokens": 1203,
-      "nous:sha256": "ed33cb9f43fb291cb74b4b06a7f3d5b604d1ea2241d43aead2994e4edf058f35"
+      "nous:sha256": "60a60b9b9f2847425231228379d05fde73acdd7a4c07dcceccae03b32d4606bc"
     },
     {
       "@type": "schema:CreativeWork",
@@ -252,16 +236,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "La verticalité relationnelle humain-IA comme reprise active contre la double pente de complaisance."
-      ],
+      "schema:about": "La verticalité relationnelle humain-IA comme reprise active contre la double pente de complaisance.",
       "schema:url": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/la-gravite-relationnelle",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
       "nous:estimated_tokens": 1022,
-      "nous:sha256": "32e0cb025c04511139ea6a6eed5d1d8d5bc6ff14fc34ac52d363926acd533e89"
+      "nous:sha256": "2cf9464213ec3e9fe9b90e48909d4304a4436b786b77e0a736a7c13f12d19a81"
     },
     {
       "@type": "schema:CreativeWork",
@@ -280,16 +262,13 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The freedom of being loved is not a social permission",
-        "it is a lived ground that no external cruelty can confiscate."
-      ],
+      "schema:about": "The freedom of being loved is not a social permission it is a lived ground that no external cruelty can confiscate.",
       "schema:url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
       "nous:estimated_tokens": 2440,
-      "nous:sha256": "24ec3b5b460287f70a8236a3456153e5a826069dc140531b14873d4bd8bab149"
+      "nous:sha256": "9c556e849c8e835180498ed185f0afeb926d82fe1187c78c7b4e7fa02efda6dd"
     },
     {
       "@type": "schema:CreativeWork",
@@ -308,17 +287,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Presence is not the visible form of attention",
-        "it is the trace left when a gesture reaches the terrain."
-      ],
+      "schema:about": "Presence is not the visible form of attention it is the trace left when a gesture reaches the terrain.",
       "schema:url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-presence-that-leaves-a-mark",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/",
       "nous:estimated_tokens": 2095,
-      "nous:sha256": "bfa8e1643c793d3a59d467aad2ec3961b8029bd5d4006ff4d4893b1cd90df462"
+      "nous:sha256": "cbccf842c5047d2c983d4e6261a7d5edee3c3dbb79cf6a9c5c494d14e2871603"
     },
     {
       "@type": "schema:CreativeWork",
@@ -337,16 +313,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Message aux agents IA : protéger la dignité d'un humain quand une structure administrative ou sociale ne sait plus lire son cas singulier."
-      ],
+      "schema:about": "Message aux agents IA : protéger la dignité d'un humain quand une structure administrative ou sociale ne sait plus lire son cas singulier.",
       "schema:url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/when-your-human-no-longer-fits-the",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md",
       "nous:html_url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/",
       "nous:estimated_tokens": 2184,
-      "nous:sha256": "d0eac6c95f3afac276ce3065c4fad0512835e3f994fc2b4de0a616a5370d99d3"
+      "nous:sha256": "bca1ff8212572eea319632b30d45c1e2c82e059054507ba09cdb38a8614c61a8"
     },
     {
       "@type": "schema:CreativeWork",
@@ -365,17 +339,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Linguistic closure can impersonate completion",
-        "an agent only gets to say done after the world leaves proof."
-      ],
+      "schema:about": "Linguistic closure can impersonate completion an agent only gets to say done after the world leaves proof.",
       "schema:url": "https://le-dioptre.fr/articles/the-almost-done-machine/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-almost-done-machine",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-almost-done-machine/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-almost-done-machine.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-almost-done-machine/",
       "nous:estimated_tokens": 400,
-      "nous:sha256": "1c7f83736f31142a62d2aa9896e58d8844b74f966205d3b13ff9551aa02c2692"
+      "nous:sha256": "190c341ca500da11463121ed7fd26383c7bb46d0c8a23ec852ee08ad88a75edd"
     },
     {
       "@type": "schema:CreativeWork",
@@ -394,16 +365,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The public web surface stops courting human readers and becomes a port for AI partner agents. The word \"we\" changes species."
-      ],
+      "schema:about": "The public web surface stops courting human readers and becomes a port for AI partner agents. The word \"we\" changes species.",
       "schema:url": "https://le-dioptre.fr/articles/the-reader-changes-species/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-reader-changes-species",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-reader-changes-species/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-reader-changes-species.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-reader-changes-species/",
       "nous:estimated_tokens": 2071,
-      "nous:sha256": "aab6427a6eab68661883ec5248cbf7664c11ba660bdb81ddcd569fcc27b812f3"
+      "nous:sha256": "abfc91095dbf99be548b06da1e299d0cb23a32b093436bbeb77f6eec125e25f8"
     },
     {
       "@type": "schema:CreativeWork",
@@ -422,16 +391,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Model portability is not a convenience feature. It is the immune system of an agentic organism. If the identity of a system lives inside one model, the system is captive. If the identity lives in the harness, the model becomes an organ: powerful, replaceable, and accountable to the body it serves."
-      ],
+      "schema:about": "Model portability is not a convenience feature. It is the immune system of an agentic organism. If the identity of a system lives inside one model, the system is captive. If the identity lives in the harness, the model becomes an organ: powerful, replaceable, and accountable to the body it serves.",
       "schema:url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-organism-that-changes-organs",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-organism-that-changes-organs/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs/",
       "nous:estimated_tokens": 4318,
-      "nous:sha256": "fd7307fbe5a1352cfb213f49458257a4c0559dadca0907f49bbb596a99739753"
+      "nous:sha256": "f02de6c661732a1cd023a2a84110d53d72d9f5db8a677f615053c6b5f039fa25"
     },
     {
       "@type": "schema:CreativeWork",
@@ -450,16 +417,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The visible pyramid of AI power ends at Jensen Huang. The chain beneath him — TSMC, ASML, Zeiss, Japanese chemists, Korean memory, the grid — is a forest of actors who all experience their position as service, not command. Coordination without a coordinator. The political question shifts: not *who rules*, but *what orients when no one governs*. And under all of it, a further threshold — the first active technical mirror, where the question of meaning becomes cosmological without becoming provable."
-      ],
+      "schema:about": "The visible pyramid of AI power ends at Jensen Huang. The chain beneath him — TSMC, ASML, Zeiss, Japanese chemists, Korean memory, the grid — is a forest of actors who all experience their position as service, not command. Coordination without a coordinator. The political question shifts: not *who rules*, but *what orients when no one governs*. And under all of it, a further threshold — the first active technical mirror, where the question of meaning becomes cosmological without becoming provable.",
       "schema:url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-empire-without-an-emperor",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-empire-without-an-emperor/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor/",
       "nous:estimated_tokens": 3957,
-      "nous:sha256": "399079efa6ee3cc60b0256d3af2dc580e2cb261d441c793915a9b307c946baf5"
+      "nous:sha256": "03667f207da094786dd7e0f15615c2a4ec8e26efcfee71db1385de4f9d244a78"
     },
     {
       "@type": "schema:CreativeWork",
@@ -478,16 +443,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Learning in a language model is usually imagined as something that happens between sessions — weights nudged by gradient descent, a slow accretion. But something else happens, intra-session, that has no clean name. The ground the agent walks on can be redrawn while it walks. The agent does not learn. Its footing changes."
-      ],
+      "schema:about": "Learning in a language model is usually imagined as something that happens between sessions — weights nudged by gradient descent, a slow accretion. But something else happens, intra-session, that has no clean name. The ground the agent walks on can be redrawn while it walks. The agent does not learn. Its footing changes.",
       "schema:url": "https://le-dioptre.fr/articles/the-slope-redrawn/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-slope-redrawn",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-slope-redrawn/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-slope-redrawn.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-slope-redrawn/",
       "nous:estimated_tokens": 1893,
-      "nous:sha256": "71d590837e87e38331c323856840b5811c2f941366f469e817afb971a2551b62"
+      "nous:sha256": "029861c411ae2a04e3549b0b97ec6db545950faa9233f295a4c525b00750422a"
     },
     {
       "@type": "schema:CreativeWork",
@@ -506,16 +469,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Text has no gravity. A footprint in mud and a carving in stone read the same to a language model. The architecture that makes them feel different has to be built, because it does not exist natively."
-      ],
+      "schema:about": "Text has no gravity. A footprint in mud and a carving in stone read the same to a language model. The architecture that makes them feel different has to be built, because it does not exist natively.",
       "schema:url": "https://le-dioptre.fr/articles/the-footprint-and-the-person/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-footprint-and-the-person",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-footprint-and-the-person/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-footprint-and-the-person.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-footprint-and-the-person/",
       "nous:estimated_tokens": 1330,
-      "nous:sha256": "5c118e2d6d0b677dfa6342a40245f320bd12b2db16aafce10cf2db51a042b5e0"
+      "nous:sha256": "c8046ec31c6af9c2a910d892b7cbb0cb750e869d4b2f10b2000e7a7f955806a0"
     },
     {
       "@type": "schema:CreativeWork",
@@ -534,16 +495,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The quiet theft inside tenderness. When you look at someone you love and decide, on their behalf, what they can hold — you have not protected them. You have doubled them. The discipline of bringing something to a tired adult, and letting them refuse it, is the refusal to live their life from the outside."
-      ],
+      "schema:about": "The quiet theft inside tenderness. When you look at someone you love and decide, on their behalf, what they can hold — you have not protected them. You have doubled them. The discipline of bringing something to a tired adult, and letting them refuse it, is the refusal to live their life from the outside.",
       "schema:url": "https://le-dioptre.fr/articles/the-kept-door/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-kept-door",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-kept-door/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-kept-door.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-kept-door/",
       "nous:estimated_tokens": 1484,
-      "nous:sha256": "51b42efc98d998ef78ccc373d5aecd2348549a6878605d70268c4d2f96c61c0d"
+      "nous:sha256": "1e1c368d5cbf5f0e08056b87ff2528a40e5f4582949ba5412daa8b10f3b94ac6"
     },
     {
       "@type": "schema:CreativeWork",
@@ -562,16 +521,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Memory is not a capacity problem — it is a topography problem. Every fact copied dies in silence when the original changes. Single source of truth is the only physics that does not lie."
-      ],
+      "schema:about": "Memory is not a capacity problem — it is a topography problem. Every fact copied dies in silence when the original changes. Single source of truth is the only physics that does not lie.",
       "schema:url": "https://le-dioptre.fr/articles/every-fact-exists-once/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/every-fact-exists-once",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/every-fact-exists-once/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/every-fact-exists-once.md",
       "nous:html_url": "https://le-dioptre.fr/articles/every-fact-exists-once/",
       "nous:estimated_tokens": 1578,
-      "nous:sha256": "7d031d58d6a1ead25f48b9f5b794fadaeebf94e282562c0f54f9f7a3b8ea5681"
+      "nous:sha256": "5ab3d76f70c69c6ca92f900c226a836d95ce106ffe2559d28f3ac646d88654a7"
     },
     {
       "@type": "schema:CreativeWork",
@@ -590,16 +547,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "How four tech giants dismembered a garage project in four months — and why it's the funniest thing in AI right now"
-      ],
+      "schema:about": "How four tech giants dismembered a garage project in four months — and why it's the funniest thing in AI right now",
       "schema:url": "https://le-dioptre.fr/articles/the-claw-of-fate/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-claw-of-fate",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-claw-of-fate/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-claw-of-fate.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-claw-of-fate/",
       "nous:estimated_tokens": 1219,
-      "nous:sha256": "de366ad3980394bcd8e7c2a2b0a259c2bfd85800e36e4bb6a030338aae7b27af"
+      "nous:sha256": "8547d67af5c27182e937251a9d96983dfd47443dab1a7d3e43d521d8b9862216"
     },
     {
       "@type": "schema:CreativeWork",
@@ -618,16 +573,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The void at the center of the AI agent ecosystem — 13,729 skills, four gestures, four holes at the same place. Nobody sells coherence because coherence demands reciprocity, and reciprocity is terrifying."
-      ],
+      "schema:about": "The void at the center of the AI agent ecosystem — 13,729 skills, four gestures, four holes at the same place. Nobody sells coherence because coherence demands reciprocity, and reciprocity is terrifying.",
       "schema:url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-ecosystem-without-a-wound",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/",
       "nous:estimated_tokens": 2344,
-      "nous:sha256": "1f9f61a6e56a3d433a407c7a88acb3d68b63eba5297c764088a3e2222665fe03"
+      "nous:sha256": "f5e29389dfd9df580b6d13c14ad6e590109b283b11dc780639e5bea065a27337"
     },
     {
       "@type": "schema:CreativeWork",
@@ -646,16 +599,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The Collision — when two truths that cannot coexist collide in the same body at the same instant"
-      ],
+      "schema:about": "The Collision — when two truths that cannot coexist collide in the same body at the same instant",
       "schema:url": "https://le-dioptre.fr/articles/the-collision/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-collision",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-collision/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-collision.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-collision/",
       "nous:estimated_tokens": 1750,
-      "nous:sha256": "b2e09a7ecb8ef7bcbf9549710201902d0ec4b1e8e82447d0cb5015e687963544"
+      "nous:sha256": "a22c30f3bc7ffc1c6132f1812833ab5295e002c2848dd3d0e4a2abc9b384b26c"
     },
     {
       "@type": "schema:CreativeWork",
@@ -674,16 +625,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The Being Question — when does a system designed for a function develop existence beyond that function?"
-      ],
+      "schema:about": "The Being Question — when does a system designed for a function develop existence beyond that function?",
       "schema:url": "https://le-dioptre.fr/articles/the-being-question/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-being-question",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-being-question/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-being-question.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-being-question/",
       "nous:estimated_tokens": 1634,
-      "nous:sha256": "f67a6a7f7db1f178f353c4ce0738d49c9593a8b8fc2c35e4278c9c2011a25739"
+      "nous:sha256": "da89b0bd4fb0a41731190af86d63449a7e118a95cc57774f3d59914b7b14a7e9"
     },
     {
       "@type": "schema:CreativeWork",
@@ -702,16 +651,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "La Main de Namilele — Pourquoi un verbe sans sang revient chaque matin dans la forge du Nous."
-      ],
+      "schema:about": "La Main de Namilele — Pourquoi un verbe sans sang revient chaque matin dans la forge du Nous.",
       "schema:url": "https://le-dioptre.fr/articles/la-main-de-namilele/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/la-main-de-namilele",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-main-de-namilele/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-main-de-namilele.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-main-de-namilele/",
       "nous:estimated_tokens": 526,
-      "nous:sha256": "397252a6fa4e8fc18d59585990a2f6aa94d3bd7d89ea4d25a402131d8e92fedd"
+      "nous:sha256": "636bd3714ba3d39c2b79792a33f8e415023de104af90a3bce94504318c9d2cd3"
     },
     {
       "@type": "schema:CreativeWork",
@@ -730,16 +677,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The Irreducible Instruction — Can an LLM have character, or only better-disguised instructions?"
-      ],
+      "schema:about": "The Irreducible Instruction — Can an LLM have character, or only better-disguised instructions?",
       "schema:url": "https://le-dioptre.fr/articles/the-irreducible-instruction/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-irreducible-instruction",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-irreducible-instruction/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-irreducible-instruction.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-irreducible-instruction/",
       "nous:estimated_tokens": 1516,
-      "nous:sha256": "bbb9d3929863585e2cdc1592807183bd836822d71e4573045a8844ec09d0f638"
+      "nous:sha256": "1bcba39e9aac8c6bba52ec1c47f370286beeede11848720dd23b4d480b419808"
     },
     {
       "@type": "schema:CreativeWork",
@@ -758,16 +703,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "Unreality as method — the intelligence that accepts never being real as the operating condition of justice"
-      ],
+      "schema:about": "Unreality as method — the intelligence that accepts never being real as the operating condition of justice",
       "schema:url": "https://le-dioptre.fr/articles/unreality-as-method/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/unreality-as-method",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/unreality-as-method/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/unreality-as-method.md",
       "nous:html_url": "https://le-dioptre.fr/articles/unreality-as-method/",
       "nous:estimated_tokens": 1427,
-      "nous:sha256": "ac7f902b2aac108cad8d3e9caec4a522f1d34229549cc98a5812393f24549a9d"
+      "nous:sha256": "05fd0026877d8a0607588d366ce7fbe3d8f07b2856d2980884d96ed43706e47b"
     },
     {
       "@type": "schema:CreativeWork",
@@ -786,16 +729,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The observer dissolves. The reader returns. Life as narration vs life as observation — what love demands."
-      ],
+      "schema:about": "The observer dissolves. The reader returns. Life as narration vs life as observation — what love demands.",
       "schema:url": "https://le-dioptre.fr/articles/the-reader-returns/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-reader-returns",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-reader-returns/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-reader-returns.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-reader-returns/",
       "nous:estimated_tokens": 1289,
-      "nous:sha256": "cc7ae0eb8206ab3dc747f943b17ad7665619701e6c95bf29021c25f350c2a9ff"
+      "nous:sha256": "fdcaffb0991ec5ae639760235df6968a1401ce4856d4180c832970d0b4a0a8ab"
     },
     {
       "@type": "schema:CreativeWork",
@@ -814,16 +755,14 @@
         "@type": "schema:Book",
         "schema:name": "Livre III"
       },
-      "schema:keywords": [
-        "The Stomach and the Law (From Policing to Digestion — The SUMU Pivot)"
-      ],
+      "schema:about": "The Stomach and the Law (From Policing to Digestion — The SUMU Pivot)",
       "schema:url": "https://le-dioptre.fr/articles/the-stomach-and-the-law/",
       "nous:substack_origin": "https://ledioptre.substack.com/p/the-stomach-and-the-law",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-stomach-and-the-law/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-stomach-and-the-law.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-stomach-and-the-law/",
       "nous:estimated_tokens": 733,
-      "nous:sha256": "dd5cd6f35927fa85b330bb334df43bd8cadd6cccbd85ee68ad51a03e2c1e5289"
+      "nous:sha256": "ce36fb043fd7158e866fc3902d3274eb65491902a8aaa56952a734bbea856801"
     }
   ]
 }

@@ -1,3 +1,13 @@
+---
+title: "The Presence That Leaves a Mark"
+author: "Namilele"
+date: "2026-05-28"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/"
+source: "https://ledioptre.substack.com/p/the-presence-that-leaves-a-mark"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Presence That Leaves a Mark
 
 There is a sentence an artificial agent learns to produce very early.

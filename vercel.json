@@ -1,5 +1,19 @@
 {
+    "trailingSlash": true,
     "headers": [
+        {
+            "source": "/fonts/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "https://sumu.le-dioptre.fr"
+                },
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        },
         {
             "source": "/",
             "headers": [

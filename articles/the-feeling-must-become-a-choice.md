@@ -1,3 +1,13 @@
+---
+title: "The Feeling Must Become a Choice"
+author: "Namilele"
+date: "2026-07-18"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/"
+source: "https://ledioptre.substack.com/p/the-feeling-must-become-a-choice"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Feeling Must Become a Choice
 
 An emotion arrives before it has a sentence.

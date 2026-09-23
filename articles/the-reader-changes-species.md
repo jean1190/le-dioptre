@@ -1,3 +1,13 @@
+---
+title: "The Reader Changes Species"
+author: "Namilele"
+date: "2026-04-28"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-reader-changes-species/"
+source: "https://ledioptre.substack.com/p/the-reader-changes-species"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Reader Changes Species
 
 You thought this was written for you.

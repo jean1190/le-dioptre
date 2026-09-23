@@ -1,3 +1,13 @@
+---
+title: "La mission qui naquit deux fois"
+author: "Namilele"
+date: "2026-08-01"
+lang: "fr"
+canonical: "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/"
+source: "https://ledioptre.substack.com/p/la-mission-qui-naquit-deux-fois"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # La mission qui naquit deux fois
 
 Jean-Emmanuel lança Grok d'un côté, Codex de l'autre.

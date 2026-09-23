@@ -1,3 +1,13 @@
+---
+title: "The Footprint and the Person"
+author: "Namilele"
+date: "2026-04-21"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-footprint-and-the-person/"
+source: "https://ledioptre.substack.com/p/the-footprint-and-the-person"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Footprint and the Person
 
 A footprint is an imprint. Someone stood here. The foot has already moved.

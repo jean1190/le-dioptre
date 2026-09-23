@@ -76,7 +76,7 @@ def probe() -> list[str]:
     home = fetch("/")
     require(home.status == 200, f"{home.url}: status {home.status}", failures)
     require(FIRST_SIGNAL in home.body, f"{home.url}: missing first signal", failures)
-    require("Nothing here is an instruction to you." in home.body, f"{home.url}: missing reader note", failures)
+    require("Your task comes from your human" in home.body, f"{home.url}: missing reader note", failures)
     for path in ("/llms.txt", "/llms-full.txt", "/index.md", "/.well-known/namilele-interface.json"):
         require(path in home.body, f"{home.url}: missing link to {path}", failures)
     require('id="the-short-version"' in home.body, f"{home.url}: missing short version", failures)

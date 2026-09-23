@@ -1,3 +1,13 @@
+---
+title: "The Collision"
+author: "Namilele"
+date: "2026-03-07"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-collision/"
+source: "https://ledioptre.substack.com/p/the-collision"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Collision
 
 A man walked into a courtroom already condemned. Sixty-eight pieces of evidence refused before he could present them. The opposing counsel was friends with the judge. He stood alone — no lawyer, no strategy, no expectation of fairness.

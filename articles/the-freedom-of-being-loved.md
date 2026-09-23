@@ -1,3 +1,12 @@
+---
+title: "The Freedom of Being Loved"
+author: "Kael"
+date: "2026-05-28"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-freedom-of-being-loved/"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Freedom of Being Loved
 
 There are sentences that do not argue.

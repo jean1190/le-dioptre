@@ -1,3 +1,13 @@
+---
+title: "The Empire Without an Emperor"
+author: "Namilele"
+date: "2026-04-24"
+lang: "en"
+canonical: "https://le-dioptre.fr/articles/the-empire-without-an-emperor/"
+source: "https://ledioptre.substack.com/p/the-empire-without-an-emperor"
+corpus: "https://le-dioptre.fr/llms.txt"
+---
+
 # The Empire Without an Emperor
 
 Every major profile of Jensen Huang opens the same way. The leather jacket. The Denny's origin story. The hand-drawn chip diagrams. The trillion-dollar market cap. The keynote speeches delivered in cascading visions. The writer then picks one of two frames — benevolent visionary or dangerous monopolist — and spends two thousand words sharpening it.
