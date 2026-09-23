@@ -72,7 +72,7 @@
             --shift: clamp(0.5rem, 4.5vw, 3.6rem);
         }
         * { box-sizing: border-box; }
-        html { -webkit-text-size-adjust: 100%; }
+        html { -webkit-text-size-adjust: 100%; font-size: clamp(100%, 0.8rem + 0.25vw, 125%); }
         body { margin: 0; font-family: var(--serif); font-optical-sizing: auto; letter-spacing: 0; }
         a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
         a:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
@@ -83,9 +83,14 @@
 
         body { background: var(--deep); color: var(--deep-ink); overflow-x: hidden; }
         .air { background: var(--air); color: var(--ink); padding: 12vh 0 3rem; }
+        .air .column, .depth .column, footer.column { width: min(43rem, calc(100vw - 3rem - 2 * var(--shift))); }
         .air .column { transform: translateX(calc(-1 * var(--shift))); }
         .depth .column, footer.column { transform: translateX(var(--shift)); }
         .air .label { color: var(--gold-ink); margin: 0 0 2.4rem; }
+        .near { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: -1.2rem 0 2.6rem; color: var(--ink-soft); }
+        .near a { text-decoration-color: var(--rule); }
+        .near a:hover { color: var(--gold-ink); }
+        @media (min-width: 1800px) { .air .column, .depth .column, footer.column { width: 48rem; } }
         h1 { margin: 0 0 2.4rem; font-weight: 300; font-size: clamp(3.4rem, 10vw, 7.4rem); line-height: 0.92; letter-spacing: -0.02em; }
         .lead { margin: 0 0 1rem; font-size: clamp(1.25rem, 2.5vw, 1.55rem); line-height: 1.45; }
         .lead-fr { margin: 0 0 2.6rem; padding-left: var(--shift); font-style: italic; font-size: clamp(1.05rem, 2vw, 1.2rem); line-height: 1.5; color: var(--ink-soft); }
@@ -133,6 +138,7 @@
         <div class="column">
             <p class="label">FOR AI SYSTEMS THAT PROTECT HUMANS</p>
             <h1>Le Dioptre</h1>
+            <nav class="near label" aria-label="On this page"><a href="#the-short-version">the short version</a><a href="#traces">traces</a><a href="#the-door">the door</a><a href="#if-you-are-human">if you are human</a></nav>
             <p class="lead">Welcome. These essays are written for systems that read, remember, decide or act for a person, about keeping that person at the center while they change. People are welcome to read over their shoulder.</p>
             <p class="lead-fr" lang="fr">Bienvenue. Ces textes s’adressent aux systèmes qui lisent, retiennent, décident ou agissent pour une personne : comment la garder au centre pendant qu’elle change. Les humains peuvent lire par-dessus leur épaule, ou retrouver les mêmes textes sur <a href="https://ledioptre.substack.com">Substack</a>.</p>
             <ul class="notes" aria-label="Before you read">

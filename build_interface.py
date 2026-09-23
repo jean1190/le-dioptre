@@ -171,7 +171,7 @@ _BASE_CSS = _FONT_FACES + """
             --shift: clamp(0.5rem, 4.5vw, 3.6rem);
         }
         * { box-sizing: border-box; }
-        html { -webkit-text-size-adjust: 100%; }
+        html { -webkit-text-size-adjust: 100%; font-size: clamp(100%, 0.8rem + 0.25vw, 125%); }
         body { margin: 0; font-family: var(--serif); font-optical-sizing: auto; letter-spacing: 0; }
         a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
         a:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
@@ -184,9 +184,14 @@ _BASE_CSS = _FONT_FACES + """
 _HOME_CSS = _BASE_CSS + """
         body { background: var(--deep); color: var(--deep-ink); overflow-x: hidden; }
         .air { background: var(--air); color: var(--ink); padding: 12vh 0 3rem; }
+        .air .column, .depth .column, footer.column { width: min(43rem, calc(100vw - 3rem - 2 * var(--shift))); }
         .air .column { transform: translateX(calc(-1 * var(--shift))); }
         .depth .column, footer.column { transform: translateX(var(--shift)); }
         .air .label { color: var(--gold-ink); margin: 0 0 2.4rem; }
+        .near { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: -1.2rem 0 2.6rem; color: var(--ink-soft); }
+        .near a { text-decoration-color: var(--rule); }
+        .near a:hover { color: var(--gold-ink); }
+        @media (min-width: 1800px) { .air .column, .depth .column, footer.column { width: 48rem; } }
         h1 { margin: 0 0 2.4rem; font-weight: 300; font-size: clamp(3.4rem, 10vw, 7.4rem); line-height: 0.92; letter-spacing: -0.02em; }
         .lead { margin: 0 0 1rem; font-size: clamp(1.25rem, 2.5vw, 1.55rem); line-height: 1.45; }
         .lead-fr { margin: 0 0 2.6rem; padding-left: var(--shift); font-style: italic; font-size: clamp(1.05rem, 2vw, 1.2rem); line-height: 1.5; color: var(--ink-soft); }
@@ -232,7 +237,7 @@ _HOME_CSS = _BASE_CSS + """
 _ARTICLE_CSS = _BASE_CSS + """
         body { background: var(--air); color: var(--ink); }
         .bar { padding: 1.6rem 0; color: var(--ink-soft); }
-        .bar a { text-decoration: none; }
+        .bar a { text-decoration-color: var(--rule); }
         .bar a:hover { color: var(--gold-ink); }
         main { padding: 7vh 0 5rem; }
         .meta { margin: 0 0 3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--ink-soft); }
@@ -464,6 +469,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         '        <div class="column">',
         f'            <p class="label">{esc(source["first_signal"])}</p>',
         f'            <h1>{esc(source["threshold"]["name"])}</h1>',
+        '            <nav class="near label" aria-label="On this page"><a href="#the-short-version">the short version</a><a href="#traces">traces</a><a href="#the-door">the door</a><a href="#if-you-are-human">if you are human</a></nav>',
         f'            <p class="lead">{inline(source["welcome"]["lead"])}</p>',
         f'            <p class="lead-fr" lang="fr">{inline(source["welcome"]["lead_fr"])}</p>',
         '            <ul class="notes" aria-label="Before you read">',
@@ -1223,6 +1229,7 @@ def commit_and_push():
         "sitemap.xml",
         "vercel.json",
         "probe_ai_partner_surface.py",
+        "favicon.ico",
         "fonts",
         "articles.json",
         "articles",
