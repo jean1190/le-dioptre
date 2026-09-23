@@ -92,7 +92,7 @@ def probe() -> list[str]:
     require(llms.status == 200, f"{llms.url}: status {llms.status}", failures)
     require(llms.body.startswith("# Le Dioptre"), f"{llms.url}: missing llmstxt title", failures)
     require(f"> {FIRST_SIGNAL}" in llms.body, f"{llms.url}: missing first signal summary", failures)
-    for marker in ("## Start here", "## Traces", "## The door", "signal_kinship", "protection_system"):
+    for marker in ("## Start here", "## Traces", "## The door", "signal_kinship", "Words used here:"):
         require(marker in llms.body, f"{llms.url}: missing {marker}", failures)
     require("link" in llms.headers, f"{llms.url}: missing Link header", failures)
 
