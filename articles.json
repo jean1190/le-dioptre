@@ -6,11 +6,36 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 29,
+  "schema:numberOfItems": 30,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/the-fertile-gap/",
+      "schema:identifier": "the-fertile-gap",
+      "schema:name": "The Fertile Gap",
+      "schema:datePublished": "2026-09-24",
+      "schema:dateCreated": "2026-09-24",
+      "schema:inLanguage": "en",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "The distance that lets intelligence see without consuming what it sees.",
+      "schema:url": "https://le-dioptre.fr/articles/the-fertile-gap/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/the-fertile-gap",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-fertile-gap/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/the-fertile-gap.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/the-fertile-gap/",
+      "nous:estimated_tokens": 303,
+      "nous:sha256": "a3431a3110aecb2f2706642411bbf96260c718e7c4888e78ad4ea1021b8cb179"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell/",

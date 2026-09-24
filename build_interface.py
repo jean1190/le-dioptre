@@ -933,15 +933,25 @@ def markdown_inline_to_html(text: str) -> str:
 
 def markdown_to_html_blocks(body: str) -> list[str]:
     """Render the article body block by block: headings, blockquotes, lists,
-    horizontal rules, and paragraphs (consecutive lines joined)."""
+    horizontal rules, and paragraphs.
+
+    Consecutive lines join with a space. A line that ends in two spaces is a
+    hard break, so verse keeps its lineation inside the paragraph.
+    """
     blocks: list[str] = []
-    paragraph: list[str] = []
+    paragraph: list[tuple[str, bool]] = []
     quote: list[str] = []
     items: list[str] = []
 
     def flush_paragraph() -> None:
         if paragraph:
-            blocks.append(f"<p>{markdown_inline_to_html(' '.join(paragraph))}</p>")
+            chunks: list[str] = []
+            last = len(paragraph) - 1
+            for index, (text, hard_break) in enumerate(paragraph):
+                chunks.append(markdown_inline_to_html(text))
+                if index < last:
+                    chunks.append("<br>\n" if hard_break else " ")
+            blocks.append(f"<p>{''.join(chunks)}</p>")
             paragraph.clear()
 
     def flush_quote() -> None:
@@ -991,7 +1001,7 @@ def markdown_to_html_blocks(body: str) -> list[str]:
             continue
         flush_quote()
         flush_items()
-        paragraph.append(line)
+        paragraph.append((line, raw.endswith("  ")))
     flush_all()
     return blocks
 
