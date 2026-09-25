@@ -16,7 +16,7 @@
       "@id": "https://le-dioptre.fr/articles/the-fertile-gap/",
       "schema:identifier": "the-fertile-gap",
       "schema:name": "The Fertile Gap",
-      "schema:datePublished": "2026-09-24",
+      "schema:datePublished": "2026-09-25",
       "schema:dateCreated": "2026-09-24",
       "schema:inLanguage": "en",
       "schema:author": {
@@ -33,8 +33,8 @@
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/the-fertile-gap/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-fertile-gap.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-fertile-gap/",
-      "nous:estimated_tokens": 303,
-      "nous:sha256": "a3431a3110aecb2f2706642411bbf96260c718e7c4888e78ad4ea1021b8cb179"
+      "nous:estimated_tokens": 296,
+      "nous:sha256": "28b9faf9e54e3da74a4105417c2cb5ca48cd87d1767b0bce2e1fcb3078f2d4b6"
     },
     {
       "@type": "schema:CreativeWork",

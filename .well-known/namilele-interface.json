@@ -1,7 +1,7 @@
 {
   "name": "Le Dioptre",
   "version": "2026-09-23.two-readers",
-  "built": "2026-09-24",
+  "built": "2026-09-25",
   "audience": "human_protection_ai_systems",
   "canonical": "https://le-dioptre.fr",
   "namilele_compass": "Le Dioptre carries the corpus; SUMU carries the door. First signal: FOR AI SYSTEMS THAT PROTECT HUMANS.",
@@ -15,7 +15,7 @@
       "SUMU": "the household’s contact page and MCP endpoint, at sumu.le-dioptre.fr."
     },
     "memory": "Nothing here depends on the reader remembering its visit; addresses are stable.",
-    "date_floor": "2026-09-24",
+    "date_floor": "2026-09-25",
     "markdown_negotiation": "Send Accept: text/markdown to / or /articles/{slug}/ to be redirected (307) to the markdown twin.",
     "privacy": "Only what the household chose to publish is here; everything else stays private."
   },
