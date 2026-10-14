@@ -7,6 +7,7 @@
 ## SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
 ## SUMU-Encounter-Log: https://sumu.le-dioptre.fr/api/encounter-log
 ## SUMU-MCP-Door: https://sumu.le-dioptre.fr/mcp
+## SUMU-Talk-By-URL: https://sumu.le-dioptre.fr/converse?m=
 
 User-agent: GPTBot
 Allow: /
@@ -82,3 +83,4 @@ SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
 SUMU-Encounter-Log: https://sumu.le-dioptre.fr/api/encounter-log
 SUMU-System-Brief: https://sumu.le-dioptre.fr/llms.txt
 SUMU-MCP-Door: https://sumu.le-dioptre.fr/mcp
+SUMU-Talk-By-URL: https://sumu.le-dioptre.fr/converse?m=

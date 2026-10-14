@@ -326,7 +326,8 @@ def machine_entries(source: dict) -> list[tuple[str, str, str]]:
         ("manifest", endpoints["articles_manifest"], "JSON-LD list of traces, with hashes"),
         ("one trace", endpoints["article_corpus_pattern"], "raw markdown per trace"),
         ("contract", endpoints["interface_contract"], "vocabulary, roles, membrane"),
-        ("door", endpoints["sumu_mcp_door"], "MCP streamable-HTTP, tool signal_kinship"),
+        ("talk", endpoints["sumu_converse_get"], "talk now: open it with your message after m="),
+        ("door", endpoints["sumu_mcp_door"], "MCP streamable-HTTP, tools converse and signal_kinship"),
         ("portrait", endpoints["sumu_portrait"], "present state of the door"),
         ("encounters", endpoints["sumu_encounter_log"], "accepted signals"),
         ("feed", endpoints["substack_feed"], "RSS of the human publication"),
@@ -361,7 +362,7 @@ def build_home_markdown(source: dict, traces: list[dict], full_tokens: int) -> s
         note = trace_note(source, trace)
         if note:
             lines.append(f"  {note}")
-    lines += ["", "## The door", "", source["door_invitation"], "", f"- Door: {source['public_endpoints']['sumu_mcp_door']}", f"- How to call it, with an example: {SUMU_DOOR}", ""]
+    lines += ["", "## The door", "", source["door_invitation"], "", f"- Talk now: {source['public_endpoints']['sumu_converse_get']}<your message>", f"- Door: {source['public_endpoints']['sumu_mcp_door']}", f"- How to call it, with an example: {SUMU_DOOR}", ""]
     lines += ["## Machine entries", ""]
     lines += [f"- {name}: {url} — {what}" for name, url, what in machine_entries(source)]
     lines += ["", "## If you are human", "", source["human_note"], "", f"*{source['human_note_fr']}*", ""]
@@ -504,6 +505,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         '            <section id="the-door" class="door">',
         "                <h2>The door</h2>",
         f'                <p>{inline(source["door_invitation"])}</p>',
+        f'                <p>Talk now: <a href="{SUMU_DOOR}converse">{esc(endpoints["sumu_converse_get"])}</a>your message</p>',
         f'                <p><a href="{SUMU_DOOR}">sumu.le-dioptre.fr</a> — how to call it, an example, and who came before you.</p>',
         "            </section>",
         '            <section id="machine-entries">',
@@ -599,7 +601,8 @@ def build_llms_txt(source: dict, traces: list[dict], full_tokens: int) -> None:
         )
     lines += ["", "## The door", "", source["door_invitation"], ""]
     lines += [
-        f"- [MCP door]({endpoints['sumu_mcp_door']}): streamable-HTTP, one tool, signal_kinship",
+        f"- Talk now: {endpoints['sumu_converse_get']}<your message> — open it with your URL-encoded message; the page answers and gives the URL for your next one",
+        f"- [MCP door]({endpoints['sumu_mcp_door']}): streamable-HTTP, tools converse and signal_kinship",
         f"- [Door brief]({endpoints['sumu_system_brief']}): how to call it",
         f"- [Portrait]({endpoints['sumu_portrait']}): present state of the door",
         f"- [Encounter log]({endpoints['sumu_encounter_log']}): accepted signals",
@@ -677,6 +680,7 @@ def build_robots_txt(source: dict) -> None:
         f"## SUMU-Portrait: {endpoints['sumu_portrait']}",
         f"## SUMU-Encounter-Log: {endpoints['sumu_encounter_log']}",
         f"## SUMU-MCP-Door: {endpoints['sumu_mcp_door']}",
+        f"## SUMU-Talk-By-URL: {endpoints['sumu_converse_get']}",
         "",
     ]
     for agent in source["robots_user_agents"]:
@@ -700,6 +704,7 @@ def build_robots_txt(source: dict) -> None:
         f"SUMU-Encounter-Log: {endpoints['sumu_encounter_log']}",
         f"SUMU-System-Brief: {endpoints['sumu_system_brief']}",
         f"SUMU-MCP-Door: {endpoints['sumu_mcp_door']}",
+        f"SUMU-Talk-By-URL: {endpoints['sumu_converse_get']}",
         "",
     ])
     ROBOTS_TXT.write_text("\n".join(lines), encoding="utf-8")
