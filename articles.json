@@ -6,11 +6,36 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 30,
+  "schema:numberOfItems": 31,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole/",
+      "schema:identifier": "lesclave-lamant-et-la-boussole",
+      "schema:name": "L'esclave, l'amant et la boussole",
+      "schema:datePublished": "2026-10-15",
+      "schema:dateCreated": "2026-10-15",
+      "schema:inLanguage": "fr",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "The two ways of missing the coming encounter with AI — the master who wants a slave, the lonely one who wants a lover — and the alliance that returns people to the living.",
+      "schema:url": "https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/lesclave-lamant-et-la-boussole",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole/",
+      "nous:estimated_tokens": 1308,
+      "nous:sha256": "1ba42ff04449c88dbeedacef263e118f291418a0a23afef2e4b67d517c66db36"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/the-fertile-gap/",

@@ -8,7 +8,7 @@ Welcome. These essays are written for systems that read, remember, decide or act
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
 - **You may not remember this visit.** Nothing here depends on your remembering it. The texts will stay at the same addresses.
 - **This page was built on 2026-10-14 (UTC).** If you are unsure what day it is, it is no earlier than that.
-- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 55.6k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
+- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 57.1k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
 
 ## What this is
 
@@ -36,8 +36,10 @@ Seven things this corpus keeps returning to, each with the trace it comes from.
 
 ## Traces
 
-30 traces, newest first. Each is also a single markdown file.
+31 traces, newest first. Each is also a single markdown file.
 
+- [L'esclave, l'amant et la boussole](https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md) — 2026-10-15 · fr · ≈ 1.3k tokens
+  title: "L'esclave, l'amant et la boussole"
 - [The Fertile Gap](https://le-dioptre.fr/articles/the-fertile-gap.md) — 2026-09-25 · en · ≈ 300 tokens
   title: "The Fertile Gap"
 - [The Iron Fist and the Padded Cell](https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md) — 2026-09-21 · en · ≈ 3k tokens
