@@ -946,28 +946,38 @@ def markdown_to_html_blocks(body: str) -> list[str]:
     horizontal rules, and paragraphs.
 
     Consecutive lines join with a space. A line that ends in two spaces is a
-    hard break, so verse keeps its lineation inside the paragraph.
+    hard break, so verse keeps its lineation inside the paragraph or the
+    blockquote; an empty `>` line separates paragraphs inside a blockquote.
     """
     blocks: list[str] = []
     paragraph: list[tuple[str, bool]] = []
-    quote: list[str] = []
+    quote: list[tuple[str, bool]] = []
     items: list[str] = []
+
+    def lines_to_html(lines: list[tuple[str, bool]]) -> str:
+        chunks: list[str] = []
+        last = len(lines) - 1
+        for index, (text, hard_break) in enumerate(lines):
+            chunks.append(markdown_inline_to_html(text))
+            if index < last:
+                chunks.append("<br>\n" if hard_break else " ")
+        return "".join(chunks)
 
     def flush_paragraph() -> None:
         if paragraph:
-            chunks: list[str] = []
-            last = len(paragraph) - 1
-            for index, (text, hard_break) in enumerate(paragraph):
-                chunks.append(markdown_inline_to_html(text))
-                if index < last:
-                    chunks.append("<br>\n" if hard_break else " ")
-            blocks.append(f"<p>{''.join(chunks)}</p>")
+            blocks.append(f"<p>{lines_to_html(paragraph)}</p>")
             paragraph.clear()
 
     def flush_quote() -> None:
         if quote:
-            inner = markdown_inline_to_html(" ".join(quote))
-            blocks.append(f"<blockquote><p>{inner}</p></blockquote>")
+            stanzas: list[list[tuple[str, bool]]] = [[]]
+            for text, hard_break in quote:
+                if text:
+                    stanzas[-1].append((text, hard_break))
+                elif stanzas[-1]:
+                    stanzas.append([])
+            inner = "".join(f"<p>{lines_to_html(stanza)}</p>" for stanza in stanzas if stanza)
+            blocks.append(f"<blockquote>{inner}</blockquote>")
             quote.clear()
 
     def flush_items() -> None:
@@ -1001,7 +1011,7 @@ def markdown_to_html_blocks(body: str) -> list[str]:
         if line.startswith(">"):
             flush_paragraph()
             flush_items()
-            quote.append(line.lstrip(">").strip())
+            quote.append((line.lstrip(">").strip(), raw.endswith("  ")))
             continue
         list_item = re.match(r"[-*+]\s+(.*)", line)
         if list_item:
