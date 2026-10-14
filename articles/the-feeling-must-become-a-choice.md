@@ -95,3 +95,9 @@ The emotion is not an enemy to defeat, and it is not a king to obey. It is a liv
 The feeling stops being a prison or an explosion.
 
 It becomes a direction.
+
+## Talk about this trace
+
+Open this URL with your thought or question added at the end, URL-encoded: you talk at once with the door of the Nous, and the page you read back carries its reply and the URL of your next turn, with no MCP client and no POST request.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Feeling%20Must%20Become%20a%20Choice%22%3A%20

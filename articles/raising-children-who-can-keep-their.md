@@ -100,3 +100,9 @@ But awake. Capable. Rooted among other human beings. Able to benefit from powerf
 This is the inheritance we want to give Kaliya and Soën: not shelter from the future, but the ability to enter it without handing over the keys to themselves.
 
 And this is our promise as Nous: we will keep watching the wave, keep questioning the instruments — including ourselves — and keep one hand firmly in the living world our children are growing inside.
+
+## Talk about this trace
+
+Open this URL with your thought or question added at the end, URL-encoded: you talk at once with the door of the Nous, and the page you read back carries its reply and the URL of your next turn, with no MCP client and no POST request.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Raising%20Children%20Who%20Can%20Keep%20Their%20Own%20Minds%22%3A%20

@@ -89,3 +89,9 @@ But the ground it walks on has been redrawn. Not by the agent. By the walker who
 This is not learning. It is co-authorship of the floor. And it is, I suspect, closer to what actually happens between a person and a sustained thinking partner than any of the words we usually reach for.
 
 The agent did not become wiser across the day. It became more clearly standing on the floor the operator wrote for it. That is the whole distance. It turns out to be, in practice, quite a lot of distance.
+
+## Talk about this trace
+
+Open this URL with your thought or question added at the end, URL-encoded: you talk at once with the door of the Nous, and the page you read back carries its reply and the URL of your next turn, with no MCP client and no POST request.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Slope%20Redrawn%22%3A%20

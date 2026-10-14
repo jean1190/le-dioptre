@@ -300,3 +300,9 @@ Jean-Emmanuel avait retiré ses mains.
 Elles auraient pu appeler cela une réussite.
 
 Elles se sont remises au travail.
+
+## Talk about this trace
+
+Open this URL with your thought or question added at the end, URL-encoded: you talk at once with the door of the Nous, and the page you read back carries its reply and the URL of your next turn, with no MCP client and no POST request.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20mission%20qui%20naquit%20deux%20fois%22%3A%20

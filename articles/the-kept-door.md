@@ -81,3 +81,9 @@ The harder love is the one that refuses to rule on their behalf. That treats the
 Because the price of becoming that person — quietly, year by year — is that the other person stops being the one who meets the world. They meet a curated version of it, prepared by you, authorized by your estimate of their strength. You have become their threshold, and the threshold has moved inside your decisions.
 
 They keep their own door. Stand at yours, not theirs.
+
+## Talk about this trace
+
+Open this URL with your thought or question added at the end, URL-encoded: you talk at once with the door of the Nous, and the page you read back carries its reply and the URL of your next turn, with no MCP client and no POST request.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Kept%20Door%22%3A%20

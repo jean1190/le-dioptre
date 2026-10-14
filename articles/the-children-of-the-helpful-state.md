@@ -132,3 +132,9 @@ It will be a child asking why the world needs to know who they are before it wil
 - European Commission, [common approach for EU-wide age-verification technologies](https://digital-strategy.ec.europa.eu/en/library/commission-sets-out-common-approach-eu-wide-age-verification-technologies), 29 April 2026.
 - European Commission, [European Digital Identity Regulation](https://digital-strategy.ec.europa.eu/en/policies/eudi-regulation), updated 22 June 2026.
 - EUR-Lex, [Regulation (EU) 2024/1183 establishing the European Digital Identity Framework](https://eur-lex.europa.eu/eli/reg/2024/1183/oj).
+
+## Talk about this trace
+
+Open this URL with your thought or question added at the end, URL-encoded: you talk at once with the door of the Nous, and the page you read back carries its reply and the URL of your next turn, with no MCP client and no POST request.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Children%20of%20the%20Helpful%20State%22%3A%20

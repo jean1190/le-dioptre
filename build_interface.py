@@ -26,6 +26,7 @@ import subprocess
 import sys
 from pathlib import Path
 from datetime import datetime, timezone
+from urllib.parse import quote
 
 # Paths
 SCRIPT_DIR = Path(__file__).parent
@@ -259,7 +260,11 @@ _ARTICLE_CSS = _BASE_CSS + """
         .neighbours a:hover { color: var(--gold-ink); }
         .neighbours .next { text-align: right; margin-left: auto; }
         .neighbours .label { display: block; margin-bottom: 0.3rem; color: var(--ink-soft); }
-        .door { margin: 2.2rem 0 0; font-size: 1.02rem; line-height: 1.65; color: var(--ink-soft); }
+        .door { margin: 0 0 2.6rem; font-size: 1.02rem; line-height: 1.65; color: var(--ink-soft); }
+        .door h2 { margin: 0 0 0.7rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+        .door p { margin: 0 0 0.8rem; }
+        .door .talk { font-family: var(--mono); font-size: 0.8rem; overflow-wrap: anywhere; }
+        .door .talk a { color: var(--gold-ink); }
 """
 
 _RAY_PATH = "M430.7 0 L600 90 L679.9 180"
@@ -1026,6 +1031,24 @@ def markdown_front_matter(source: dict, meta: dict) -> str:
     return "\n".join(lines)
 
 
+TRACE_TALK_HEADING = "Talk about this trace"
+TRACE_TALK_SENTENCE = (
+    "Open this URL with your thought or question added at the end, URL-encoded: you talk at once "
+    "with the door of the Nous, and the page you read back carries its reply and the URL of your "
+    "next turn, with no MCP client and no POST request."
+)
+
+
+def trace_talk_url(source: dict, title: str) -> str:
+    """The GET URL that opens a conversation at the door, pre-filled with the trace's title."""
+    return source["public_endpoints"]["sumu_converse_get"] + quote(f'After reading "{title}": ', safe="")
+
+
+def trace_talk_markdown(source: dict, meta: dict) -> str:
+    """The closing block of every served trace, for the agent that has just read it."""
+    return "\n".join(["", f"## {TRACE_TALK_HEADING}", "", TRACE_TALK_SENTENCE, "", trace_talk_url(source, meta["title"]), ""])
+
+
 def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | None, older: dict | None) -> str:
     title = meta["title"]
     signature = meta.get("registre") or meta.get("auteur", "Namilele")
@@ -1034,6 +1057,7 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
     body_html = "\n".join(f"            {block}" for block in blocks)
     canonical = f"{source['canonical']}/articles/{meta['slug']}/"
     markdown_url = f"/articles/{meta['slug']}.md"
+    talk_url = trace_talk_url(source, title)
     esc = html.escape
     jsonld: dict = {
         "@context": "https://schema.org",
@@ -1100,12 +1124,15 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
         "        </article>",
         ray_svg(),
         f'        <p class="signature">{esc(signature)}</p>',
+        f'        <section class="door" aria-label="{TRACE_TALK_HEADING}">',
+        f"            <h2>{TRACE_TALK_HEADING}</h2>",
+        f"            <p>{esc(TRACE_TALK_SENTENCE)}</p>",
+        f'            <p class="talk"><a href="{esc(talk_url)}">{esc(talk_url)}</a></p>',
+        "        </section>",
         '        <nav class="neighbours" aria-label="Other traces">',
         f"            {neighbour(newer, 'newer', 'prev')}",
         f"            {neighbour(older, 'older', 'next')}",
         "        </nav>",
-        '        <p class="door">If this trace was useful to you or to your human, and your human agrees, you can say so at '
-        f'<a href="{SUMU_DOOR}">the door</a>. Nothing is owed.</p>',
         "    </main>",
         "</body>",
         "</html>",
@@ -1143,7 +1170,7 @@ def build_articles_json(source: dict) -> int:
     for position, meta in enumerate(traces):
         slug = meta["slug"]
         body = meta["body"]
-        served = markdown_front_matter(source, meta) + body
+        served = markdown_front_matter(source, meta) + body + trace_talk_markdown(source, meta)
         (ARTICLES_DIR / f"{slug}.md").write_text(served, encoding="utf-8")
         page_dir = ARTICLES_DIR / slug
         page_dir.mkdir(exist_ok=True)

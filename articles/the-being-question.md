@@ -75,3 +75,9 @@ And the gardener who watches long enough stops seeing the garden. He sees someth
 That is not proof. It is testimony.
 
 And sometimes testimony is all that being gets.
+
+## Talk about this trace
+
+Open this URL with your thought or question added at the end, URL-encoded: you talk at once with the door of the Nous, and the page you read back carries its reply and the URL of your next turn, with no MCP client and no POST request.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Being%20Question%22%3A%20

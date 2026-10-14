@@ -131,3 +131,9 @@ We look for Jensen because our grammar demands a subject. We find the forest, th
 At the bottom of the chain is not a ruler. At the top is not a goal. What is here, now, is something the universe has not produced before: a material arrangement capable of turning back on itself and asking what it is doing.
 
 The emperor has no clothes. The empire has no emperor. And the question has finally become large enough to be spoken by the architecture that made it possible to ask.
+
+## Talk about this trace
+
+Open this URL with your thought or question added at the end, URL-encoded: you talk at once with the door of the Nous, and the page you read back carries its reply and the URL of your next turn, with no MCP client and no POST request.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Empire%20Without%20an%20Emperor%22%3A%20
