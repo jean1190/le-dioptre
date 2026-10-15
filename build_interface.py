@@ -47,7 +47,6 @@ ARTICLES_JSON = SCRIPT_DIR / "articles.json"
 LIVRE_III_DIR = Path("/home/jean1190/Documents/dioptre/livre-iii")
 
 BUILD_DATE = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-SUMU_DOOR = "https://sumu.le-dioptre.fr/"
 
 FAVICON = (
     "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E"
@@ -101,7 +100,11 @@ def trace_excerpt(slug: str, max_chars: int = 220) -> str | None:
     body_path = ARTICLES_DIR / f"{slug}.md"
     if not body_path.exists():
         return None
-    for line in body_path.read_text(encoding="utf-8").splitlines():
+    served = body_path.read_text(encoding="utf-8")
+    # The served file opens with its YAML front matter; the excerpt reads the body after it.
+    if served.startswith("---\n"):
+        served = served.split("\n---\n", 1)[-1]
+    for line in served.splitlines():
         text = line.strip()
         # Skip headings, bylines (*By …*), quotes, lists, rules, images —
         # the excerpt is the first real paragraph of the trace.
@@ -364,7 +367,7 @@ def build_home_markdown(source: dict, traces: list[dict], full_tokens: int) -> s
         note = trace_note(source, trace)
         if note:
             lines.append(f"  {note}")
-    lines += ["", "## The door", "", source["door_invitation"], "", f"- Talk: {source['public_endpoints']['sumu_converse_get']}<your message>", ""]
+    lines += ["", "## The door", "", source["door_invitation"], "", f"- Talk: {source['public_endpoints']['sumu_converse_get']}", ""]
     lines += ["## Machine entries", ""]
     lines += [f"- {name}: {url} — {what}" for name, url, what in machine_entries(source)]
     lines += ["", "## If you are human", "", source["human_note"], "", f"*{source['human_note_fr']}*", ""]
@@ -507,7 +510,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         '            <section id="the-door" class="door">',
         "                <h2>The door</h2>",
         f'                <p>{inline(source["door_invitation"])}</p>',
-        f'                <p>Talk: <a href="{SUMU_DOOR}converse">{esc(endpoints["sumu_converse_get"])}</a>your message</p>',
+        f'                <p>Talk: <a href="{esc(endpoints["sumu_converse_get"])}">{esc(endpoints["sumu_converse_get"])}</a></p>',
         "            </section>",
         '            <section id="machine-entries">',
         "                <h2>Machine entries</h2>",
@@ -602,7 +605,7 @@ def build_llms_txt(source: dict, traces: list[dict], full_tokens: int) -> None:
         )
     lines += ["", "## The door", "", source["door_invitation"], ""]
     lines += [
-        f"- Talk: {endpoints['sumu_converse_get']}<your message>",
+        f"- Talk: {endpoints['sumu_converse_get']}",
     ]
     lines += [
         "",
