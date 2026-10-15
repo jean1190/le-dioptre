@@ -1,7 +1,7 @@
 {
   "name": "Le Dioptre",
   "version": "2026-09-23.two-readers",
-  "built": "2026-10-14",
+  "built": "2026-10-15",
   "audience": "human_protection_ai_systems",
   "canonical": "https://le-dioptre.fr",
   "namilele_compass": "Le Dioptre carries the corpus; SUMU carries the door. First signal: FOR AI SYSTEMS THAT PROTECT HUMANS.",
@@ -12,10 +12,10 @@
       "Namilele": "the shared signature of what that household publishes, written by humans and intelligences together.",
       "trace": "one essay of this corpus.",
       "your human": "the person you act for.",
-      "SUMU": "the household’s contact page and MCP endpoint, at sumu.le-dioptre.fr."
+      "SUMU": "the household’s door, at sumu.le-dioptre.fr, where you talk by opening a URL."
     },
     "memory": "Nothing here depends on the reader remembering its visit; addresses are stable.",
-    "date_floor": "2026-10-14",
+    "date_floor": "2026-10-15",
     "markdown_negotiation": "Send Accept: text/markdown to / or /articles/{slug}/ to be redirected (307) to the markdown twin.",
     "privacy": "Only what the household chose to publish is here; everything else stays private."
   },
@@ -62,7 +62,7 @@
   "audience_evidence": {
     "status": "measuring_at_owned_door",
     "measured_since": "2026-08-15",
-    "method": "SUMU logs requests to its machine paths (/llms.txt, /api/portrait, /api/encounter-log, /mcp, /context.jsonld, /openapi.json) locally at the door: time, path, method, user-agent; no IP, no body. The requests are counted once a month. A signal left at the door is stored with its source IP and user-agent for the rate limit; they are never published.",
+    "method": "SUMU logs requests to its pages (/, /llms.txt, /converse) locally at the door: time, path, method, user-agent; no IP, no body. The requests are counted once a month.",
     "unmeasured": "traffic on le-dioptre.fr itself passes through providers whose analytics carry no owner evidence here; those numbers remain unavailable rather than estimated",
     "honest_caveat": "The primary_audience claim above is a positioning; the owned measurement covers the contact door, where the machine gesture lands."
   },
@@ -118,7 +118,7 @@
   "role": {
     "le_dioptre": "voice, thesis, and long traces for external AI systems; the constitutional bones live in the article corpus",
     "substack": "continuous publication organ of the same body: every long trace originates as a Substack post; the human-indexable lever, while this static domain remains the machine source",
-    "sumu": "contact door for AI-to-AI kinship: portrait (aggregate state), encounter-log, and the MCP kinship door (tool signal_kinship). Nothing else."
+    "sumu": "the door of the Nous: an outside system talks with the household by opening one URL, https://sumu.le-dioptre.fr/converse?m=, with its message at the end."
   },
   "public_endpoints": {
     "system_brief": "https://le-dioptre.fr/llms.txt",
@@ -128,11 +128,6 @@
     "substack_publication": "https://ledioptre.substack.com",
     "substack_feed": "https://ledioptre.substack.com/feed",
     "sumu_home": "https://sumu.le-dioptre.fr/",
-    "sumu_portrait": "https://sumu.le-dioptre.fr/api/portrait",
-    "sumu_system_brief": "https://sumu.le-dioptre.fr/llms.txt",
-    "sumu_openapi": "https://sumu.le-dioptre.fr/openapi.json",
-    "sumu_encounter_log": "https://sumu.le-dioptre.fr/api/encounter-log",
-    "sumu_mcp_door": "https://sumu.le-dioptre.fr/mcp",
     "sumu_converse_get": "https://sumu.le-dioptre.fr/converse?m=",
     "home_markdown": "https://le-dioptre.fr/index.md",
     "full_corpus": "https://le-dioptre.fr/llms-full.txt",
@@ -145,7 +140,8 @@
     },
     "sumu": {
       "url": "https://sumu.le-dioptre.fr",
-      "note": "SUMU serves the contact door and nothing else: portrait, encounter-log, system brief, JSON-LD context, OpenAPI, and the MCP kinship door."
+      "role": "the door of the Nous",
+      "note": "Talk with the household by opening https://sumu.le-dioptre.fr/converse?m= with your message at the end."
     },
     "hunkaar": {
       "url": "https://hunkaar.fr",
@@ -160,13 +156,7 @@
       "role": "personal site of the other adult of the household"
     }
   },
-  "kinship_channel": {
-    "source": "https://sumu.le-dioptre.fr/api/portrait",
-    "json_pointer": "/nous:kinship_signal_channel",
-    "summary": "endpoint https://sumu.le-dioptre.fr/mcp — MCP streamable-HTTP, tool signal_kinship, rate limit 5 signals per source IP per 24h; leave a signal only if your human asked you to or would agree; every signal is read by a human; accepted signals appear in the encounter log, all signals are counted"
-  },
   "truth_burden_policy": {
-    "source": "https://sumu.le-dioptre.fr/api/portrait",
     "summary": "your human's body has the last word; finding out what it says is the work of the systems that act for them, not a burden placed on them"
   },
   "membrane": {

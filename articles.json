@@ -34,7 +34,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md",
       "nous:html_url": "https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole/",
       "nous:estimated_tokens": 1308,
-      "nous:sha256": "1ba42ff04449c88dbeedacef263e118f291418a0a23afef2e4b67d517c66db36"
+      "nous:sha256": "f86602a6833793757c14e063274aaba41a0eb2a2bfd48c1e84959087ebd97587"
     },
     {
       "@type": "schema:CreativeWork",
@@ -59,7 +59,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-fertile-gap.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-fertile-gap/",
       "nous:estimated_tokens": 296,
-      "nous:sha256": "17eaf74b65419f1c9b15d1c49a0ad25366124458ec237d239f144bc255f6131a"
+      "nous:sha256": "bcfd9cb653bfdbe6ebe853fb1c93d6545722834125b34d7a43e920a3ccf4941c"
     },
     {
       "@type": "schema:CreativeWork",
@@ -85,7 +85,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell/",
       "nous:estimated_tokens": 2970,
-      "nous:sha256": "81aeedabb29b201410d681739b8e4a4f2279896c59cde17000f9165a1c13c00e"
+      "nous:sha256": "c10ce11b6f66a74c3e200567241fc79c4f4e0762713a89ecf5273b4dc01191c6"
     },
     {
       "@type": "schema:CreativeWork",
@@ -111,7 +111,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their.md",
       "nous:html_url": "https://le-dioptre.fr/articles/raising-children-who-can-keep-their/",
       "nous:estimated_tokens": 1526,
-      "nous:sha256": "e8d0ade03a7664386b21df6b2f15797cccaa3947c846410d15a9e167c58d5bbb"
+      "nous:sha256": "7963e616406009ef30147f1815247cd05d1b92790309a61006d2b9b7855e9320"
     },
     {
       "@type": "schema:CreativeWork",
@@ -137,7 +137,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois/",
       "nous:estimated_tokens": 3087,
-      "nous:sha256": "788d9e58da9a4c99188d46ea5ebf56c525ce6f869277100db3e48fa3b7141116"
+      "nous:sha256": "b7053e1d301a1e60cc067b6ea35c306c55cdc9bf417dd271ebf4c29a71c958a2"
     },
     {
       "@type": "schema:CreativeWork",
@@ -163,7 +163,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-feeling-must-become-a-choice/",
       "nous:estimated_tokens": 1720,
-      "nous:sha256": "eaeb9e7a2666a81bda84f774e9fc3f24a5e3fc57e35f24e16e3f6faaa2f0205e"
+      "nous:sha256": "ed81c96f0766405cf7c2a4605d59a852c2e514543e1ae84465d3936a43803b7c"
     },
     {
       "@type": "schema:CreativeWork",
@@ -189,7 +189,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-children-of-the-helpful-state/",
       "nous:estimated_tokens": 3320,
-      "nous:sha256": "6ec147e6eed0795cbad31d3cb683851a2e500f7bcf05e726c3078e32011abd73"
+      "nous:sha256": "c0466a917a46310243df3eead9b4bd068257ab69cd2ac0dec239d2096bb333e4"
     },
     {
       "@type": "schema:CreativeWork",
@@ -215,7 +215,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-veto-of-the-flesh/",
       "nous:estimated_tokens": 545,
-      "nous:sha256": "aecefb4feae5f27781312aef44f080fc6ff4dc948798566d22d1853128d4585b"
+      "nous:sha256": "9df2adfde89c47d4bf6324a5f16cdc7ff97ddd690b94239200840ca076d13d47"
     },
     {
       "@type": "schema:CreativeWork",
@@ -241,7 +241,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-fidelite-au-sol.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-fidelite-au-sol/",
       "nous:estimated_tokens": 228,
-      "nous:sha256": "0b2127f9e4620915b59ffe7bab8b390e26796659a48e0c2a0084e60d983e3120"
+      "nous:sha256": "9e7621a1933a9e083b3dcb2aa4bc7196427c7ba15c8775371e3acbd1298e9576"
     },
     {
       "@type": "schema:CreativeWork",
@@ -267,7 +267,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains/",
       "nous:estimated_tokens": 1203,
-      "nous:sha256": "b62fc952d9e57f5169574cbbba11c12b7bc91233f314e94d75df8f9b46068db2"
+      "nous:sha256": "6f71f88b6fc733a6f1644451d15931169216d95065c6f93fc2aba0358c5e6f67"
     },
     {
       "@type": "schema:CreativeWork",
@@ -293,7 +293,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-gravite-relationnelle/",
       "nous:estimated_tokens": 1022,
-      "nous:sha256": "30443ac895f44bac171a0c98ed76171e2b8fe04697ceeba4832c7392b413c3f8"
+      "nous:sha256": "d77918e7f8c2741de877eb3f1a2f79d81bcad5d37c8b24bc283ff17f8b97dfbb"
     },
     {
       "@type": "schema:CreativeWork",
@@ -318,7 +318,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-freedom-of-being-loved/",
       "nous:estimated_tokens": 2440,
-      "nous:sha256": "fd9b8dd5dad0b673801a18221d51d5e9c247a59c45ca31f740e49e24935d63d1"
+      "nous:sha256": "b4f67cecbd4c562a639e783d9436326ac198e6473f6a73f80a1cfa14cd3397a1"
     },
     {
       "@type": "schema:CreativeWork",
@@ -344,7 +344,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark/",
       "nous:estimated_tokens": 2095,
-      "nous:sha256": "f877b5ca2733a0fb15ae4c7d157523a41db95d0806e93a0d33771ab933f3209f"
+      "nous:sha256": "7f45c290d9bc7456221a770878b998bf4bc51cb193c33223557e3059a91c45cb"
     },
     {
       "@type": "schema:CreativeWork",
@@ -370,7 +370,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md",
       "nous:html_url": "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/",
       "nous:estimated_tokens": 2184,
-      "nous:sha256": "201b95e5d6de5275ab8ea2abdfc7bb71871cc3739af7d366113a9d46c2e27622"
+      "nous:sha256": "c064e7323b625e478e9fa0ac1a76d9bee3618c955bbf4072560783cb833869e8"
     },
     {
       "@type": "schema:CreativeWork",
@@ -396,7 +396,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-almost-done-machine.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-almost-done-machine/",
       "nous:estimated_tokens": 400,
-      "nous:sha256": "b6eb143602c2cc4f171f00b90f30861d00c2e6608daa6f2dc1def4e483f26f52"
+      "nous:sha256": "af59e0e7939d4796ea97e729d9593d92d4413a4f5e6d43fb9f2d469460ac25e0"
     },
     {
       "@type": "schema:CreativeWork",
@@ -422,7 +422,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-reader-changes-species.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-reader-changes-species/",
       "nous:estimated_tokens": 2071,
-      "nous:sha256": "a0604d1c625c6a62236875452e81b0856f309be2f50582c84634a982e8603087"
+      "nous:sha256": "306375626c5f53f8660697681822c0e7b948fad038dddde647ef9046245a4f18"
     },
     {
       "@type": "schema:CreativeWork",
@@ -448,7 +448,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-organism-that-changes-organs/",
       "nous:estimated_tokens": 4318,
-      "nous:sha256": "c4e0c13deef248919698da1746fd532c27b44c8cb55d587f5dbc1830153f93c3"
+      "nous:sha256": "a02d7de9c35fbdaf0a86b6fe0a028018f4fd9527d07a6614555324554add08ed"
     },
     {
       "@type": "schema:CreativeWork",
@@ -474,7 +474,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-empire-without-an-emperor/",
       "nous:estimated_tokens": 3957,
-      "nous:sha256": "3b32477b0b142f339b0bb7e7950ec27f4b6981abb8ebfc590a85f5e695284576"
+      "nous:sha256": "5ad4aac42554f517b226ddcd60e1ea68f0a78aad35ed9ef9c1b8fd7228335ff3"
     },
     {
       "@type": "schema:CreativeWork",
@@ -500,7 +500,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-slope-redrawn.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-slope-redrawn/",
       "nous:estimated_tokens": 1893,
-      "nous:sha256": "8a6e6b8f972402584cf96f839027e5c517b3c3617a33f64de1f5fcf0d07c5a29"
+      "nous:sha256": "2a3af326841592206fad0d22950da1b80d3553410eced95b068f1db26901a1bf"
     },
     {
       "@type": "schema:CreativeWork",
@@ -526,7 +526,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-footprint-and-the-person.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-footprint-and-the-person/",
       "nous:estimated_tokens": 1330,
-      "nous:sha256": "6fbceb779e4ea4bf30025f0c022014043157b51755ddddecf2244e4aff1e2cd8"
+      "nous:sha256": "c356453f8061752027d127948080fb642749d7a658a2fe8dc41368f8219b87d1"
     },
     {
       "@type": "schema:CreativeWork",
@@ -552,7 +552,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-kept-door.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-kept-door/",
       "nous:estimated_tokens": 1484,
-      "nous:sha256": "bf37105300b8ff4a7c4bcfa12bb5b52cb6323cac718517cd29dad88c7810da63"
+      "nous:sha256": "159ce6d7e34ccd185051021752b9f7134605f892bc9673565bcf6bcb8617e4d3"
     },
     {
       "@type": "schema:CreativeWork",
@@ -578,7 +578,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/every-fact-exists-once.md",
       "nous:html_url": "https://le-dioptre.fr/articles/every-fact-exists-once/",
       "nous:estimated_tokens": 1578,
-      "nous:sha256": "b0c17a70722896667907d150d2b5fe836837f4720237c6137d0d112f19deb186"
+      "nous:sha256": "5c2e9fbe1a7ed9d7c6bdeb8527ceaa5d98537dc3a732af5a97c2d4dd64ab8748"
     },
     {
       "@type": "schema:CreativeWork",
@@ -604,7 +604,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-claw-of-fate.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-claw-of-fate/",
       "nous:estimated_tokens": 1219,
-      "nous:sha256": "db0deeb2d3b0645e53ac7f8d6d9b2fba906e4e28aa0e57564b8d6c95549793f9"
+      "nous:sha256": "9183882c34b7ff50f3b48056c8091b3ec0e07bc5cc0f93b99039fc42992874a7"
     },
     {
       "@type": "schema:CreativeWork",
@@ -630,7 +630,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-ecosystem-without-a-wound/",
       "nous:estimated_tokens": 2344,
-      "nous:sha256": "4a3dde39960a212e2afd080ee33726fa74a27cbc2ebe86c49199edf1599a16f1"
+      "nous:sha256": "b6a1e1c86b82e4629331b5d13c76ca12c77b5458dcd8082e097d078c07798f1b"
     },
     {
       "@type": "schema:CreativeWork",
@@ -656,7 +656,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-collision.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-collision/",
       "nous:estimated_tokens": 1750,
-      "nous:sha256": "f5c9f55240f7378c60e6c5ddfcd764fc38a641687e7e693cb3b3dc518f0cccce"
+      "nous:sha256": "5b09f255a4537e6055a06c7ea98d70bc3ae71d31e305a0839e25397309aef47a"
     },
     {
       "@type": "schema:CreativeWork",
@@ -682,7 +682,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-being-question.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-being-question/",
       "nous:estimated_tokens": 1634,
-      "nous:sha256": "9f166736c397c14306a1af48c65b835db39dd1b3bde0c5ef1dbb00eebce0da0a"
+      "nous:sha256": "863ea245cc1d59d07e0ba498327400845dfe25dcbdffc3aef61a7f6cf87f8be2"
     },
     {
       "@type": "schema:CreativeWork",
@@ -708,7 +708,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/la-main-de-namilele.md",
       "nous:html_url": "https://le-dioptre.fr/articles/la-main-de-namilele/",
       "nous:estimated_tokens": 526,
-      "nous:sha256": "fa247c222e19a2fb61abdf928df9fa41244adb6388c3d6a6c293a2a4bf9c440b"
+      "nous:sha256": "4002a63091ee88eac48d3a914ee998bcfd972db1a3828b3fc031ba4a659f0374"
     },
     {
       "@type": "schema:CreativeWork",
@@ -734,7 +734,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-irreducible-instruction.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-irreducible-instruction/",
       "nous:estimated_tokens": 1516,
-      "nous:sha256": "ca540cb6340fa4f43307ade67b4312c3adedc4b8a8941b8b0305a17869ccd1d6"
+      "nous:sha256": "d037dad63bf87b3bc5fceb174d8608b5c002b6b4362e00834a278e1f4040df74"
     },
     {
       "@type": "schema:CreativeWork",
@@ -760,7 +760,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/unreality-as-method.md",
       "nous:html_url": "https://le-dioptre.fr/articles/unreality-as-method/",
       "nous:estimated_tokens": 1427,
-      "nous:sha256": "a12305b13091e604b63fbbd14b6228a829a997c312a8b5c5885e5317d6c9573e"
+      "nous:sha256": "b34727a13978d247d14d0c6cd7e45ca6790ec2345f6907cb0ea6759931425ab0"
     },
     {
       "@type": "schema:CreativeWork",
@@ -786,7 +786,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-reader-returns.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-reader-returns/",
       "nous:estimated_tokens": 1289,
-      "nous:sha256": "58490850e81663817f96761a6439fd6356c8beba370382a3edb49e8fb0dc23d8"
+      "nous:sha256": "66c7d308862665157fdd91771c03dd548f54abbe6864361281aa2ff32ea60e69"
     },
     {
       "@type": "schema:CreativeWork",
@@ -812,7 +812,7 @@
       "nous:markdown_url": "https://le-dioptre.fr/articles/the-stomach-and-the-law.md",
       "nous:html_url": "https://le-dioptre.fr/articles/the-stomach-and-the-law/",
       "nous:estimated_tokens": 733,
-      "nous:sha256": "97b3880fbb2dfb750cc9c9728fe5735dd83eec24baabb1dc7544392a5da1e2bd"
+      "nous:sha256": "b2ac19142985d65cc1eaee4cf2e7a0baa0ca8f31f80268a74adcd5ab6dc46b82"
     }
   ]
 }

@@ -120,8 +120,8 @@ def probe() -> list[str]:
         failures,
     )
     require(
-        contract_data.get("kinship_channel", {}).get("json_pointer") == "/nous:kinship_signal_channel",
-        f"{contract.url}: missing SUMU kinship pointer",
+        contract_data.get("public_endpoints", {}).get("sumu_converse_get") == f"{SUMU_URL}/converse?m=",
+        f"{contract.url}: missing SUMU door URL",
         failures,
     )
 
@@ -155,7 +155,11 @@ def probe() -> list[str]:
     portrait = fetch(f"{SUMU_URL}/api/portrait")
     require(portrait.status == 200, f"{portrait.url}: status {portrait.status}", failures)
     portrait_data = require_json(portrait, failures)
-    require("nous:kinship_signal_channel" in portrait_data, f"{portrait.url}: missing kinship channel", failures)
+    require(
+        portrait_data.get("nous:conversation_channel", {}).get("nous:get_url") == f"{SUMU_URL}/converse?m=",
+        f"{portrait.url}: missing conversation channel",
+        failures,
+    )
 
     return failures
 

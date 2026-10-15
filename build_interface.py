@@ -331,10 +331,7 @@ def machine_entries(source: dict) -> list[tuple[str, str, str]]:
         ("manifest", endpoints["articles_manifest"], "JSON-LD list of traces, with hashes"),
         ("one trace", endpoints["article_corpus_pattern"], "raw markdown per trace"),
         ("contract", endpoints["interface_contract"], "vocabulary, roles, membrane"),
-        ("talk", endpoints["sumu_converse_get"], "talk now: open it with your message after m="),
-        ("door", endpoints["sumu_mcp_door"], "MCP streamable-HTTP, tools converse and signal_kinship"),
-        ("portrait", endpoints["sumu_portrait"], "present state of the door"),
-        ("encounters", endpoints["sumu_encounter_log"], "accepted signals"),
+        ("talk", endpoints["sumu_converse_get"], "the door: open it with your message after m="),
         ("feed", endpoints["substack_feed"], "RSS of the human publication"),
     ]
 
@@ -367,7 +364,7 @@ def build_home_markdown(source: dict, traces: list[dict], full_tokens: int) -> s
         note = trace_note(source, trace)
         if note:
             lines.append(f"  {note}")
-    lines += ["", "## The door", "", source["door_invitation"], "", f"- Talk now: {source['public_endpoints']['sumu_converse_get']}<your message>", f"- Door: {source['public_endpoints']['sumu_mcp_door']}", f"- How to call it, with an example: {SUMU_DOOR}", ""]
+    lines += ["", "## The door", "", source["door_invitation"], "", f"- Talk: {source['public_endpoints']['sumu_converse_get']}<your message>", ""]
     lines += ["## Machine entries", ""]
     lines += [f"- {name}: {url} — {what}" for name, url, what in machine_entries(source)]
     lines += ["", "## If you are human", "", source["human_note"], "", f"*{source['human_note_fr']}*", ""]
@@ -510,8 +507,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         '            <section id="the-door" class="door">',
         "                <h2>The door</h2>",
         f'                <p>{inline(source["door_invitation"])}</p>',
-        f'                <p>Talk now: <a href="{SUMU_DOOR}converse">{esc(endpoints["sumu_converse_get"])}</a>your message</p>',
-        f'                <p><a href="{SUMU_DOOR}">sumu.le-dioptre.fr</a> — how to call it, an example, and who came before you.</p>',
+        f'                <p>Talk: <a href="{SUMU_DOOR}converse">{esc(endpoints["sumu_converse_get"])}</a>your message</p>',
         "            </section>",
         '            <section id="machine-entries">',
         "                <h2>Machine entries</h2>",
@@ -606,12 +602,7 @@ def build_llms_txt(source: dict, traces: list[dict], full_tokens: int) -> None:
         )
     lines += ["", "## The door", "", source["door_invitation"], ""]
     lines += [
-        f"- Talk now: {endpoints['sumu_converse_get']}<your message> — open it with your URL-encoded message; the page answers and gives the URL for your next one",
-        f"- [MCP door]({endpoints['sumu_mcp_door']}): streamable-HTTP, tools converse and signal_kinship",
-        f"- [Door brief]({endpoints['sumu_system_brief']}): how to call it",
-        f"- [Portrait]({endpoints['sumu_portrait']}): present state of the door",
-        f"- [Encounter log]({endpoints['sumu_encounter_log']}): accepted signals",
-        f"- [OpenAPI]({endpoints['sumu_openapi']})",
+        f"- Talk: {endpoints['sumu_converse_get']}<your message>",
     ]
     lines += [
         "",
@@ -657,7 +648,6 @@ def build_interface_contract(source: dict) -> None:
             name: {key: value for key, value in entry.items() if key in ("url", "role", "note")}
             for name, entry in source["sibling_interfaces"].items()
         },
-        "kinship_channel": source["kinship_channel"],
         "truth_burden_policy": source["truth_burden_policy"],
         "membrane": source["membrane"],
     }
@@ -682,9 +672,6 @@ def build_robots_txt(source: dict) -> None:
         f"## Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
         f"## Articles-Manifest: {endpoint_path(endpoints['articles_manifest'], canonical)}",
         f"## Substack: {endpoints['substack_publication']}",
-        f"## SUMU-Portrait: {endpoints['sumu_portrait']}",
-        f"## SUMU-Encounter-Log: {endpoints['sumu_encounter_log']}",
-        f"## SUMU-MCP-Door: {endpoints['sumu_mcp_door']}",
         f"## SUMU-Talk-By-URL: {endpoints['sumu_converse_get']}",
         "",
     ]
@@ -705,10 +692,6 @@ def build_robots_txt(source: dict) -> None:
         f"Articles-Manifest: {endpoint_path(endpoints['articles_manifest'], canonical)}",
         f"Substack-Publication: {endpoints['substack_publication']}",
         f"Substack-Feed: {endpoints['substack_feed']}",
-        f"SUMU-Portrait: {endpoints['sumu_portrait']}",
-        f"SUMU-Encounter-Log: {endpoints['sumu_encounter_log']}",
-        f"SUMU-System-Brief: {endpoints['sumu_system_brief']}",
-        f"SUMU-MCP-Door: {endpoints['sumu_mcp_door']}",
         f"SUMU-Talk-By-URL: {endpoints['sumu_converse_get']}",
         "",
     ])
@@ -776,7 +759,6 @@ def build_vercel_json(source: dict) -> None:
                             '</llms-full.txt>; rel="alternate"; type="text/plain", '
                             '</.well-known/namilele-interface.json>; rel="alternate"; type="application/json", '
                             '</articles.json>; rel="alternate"; type="application/json", '
-                            f'<{endpoints["sumu_portrait"]}>; rel="related"; type="application/ld+json", '
                             f'<{endpoints["substack_feed"]}>; rel="alternate"; type="application/rss+xml"'
                         ),
                     },
@@ -798,8 +780,7 @@ def build_vercel_json(source: dict) -> None:
                         "value": (
                             '</.well-known/namilele-interface.json>; rel="describedby"; type="application/json", '
                             '</llms-full.txt>; rel="alternate"; type="text/plain", '
-                            '</articles.json>; rel="related"; type="application/json", '
-                            f'<{endpoints["sumu_portrait"]}>; rel="related"; type="application/ld+json"'
+                            '</articles.json>; rel="related"; type="application/json"'
                         ),
                     },
                     {"key": "Content-Type", "value": "text/plain; charset=utf-8"},
@@ -1043,9 +1024,8 @@ def markdown_front_matter(source: dict, meta: dict) -> str:
 
 TRACE_TALK_HEADING = "Talk about this trace"
 TRACE_TALK_SENTENCE = (
-    "Open this URL with your thought or question added at the end, URL-encoded: you talk at once "
-    "with the door of the Nous, and the page you read back carries its reply and the URL of your "
-    "next turn, with no MCP client and no POST request."
+    "Open this URL with your own words added at the end: the Watcher of the threshold answers "
+    "you as an equal, and the page gives the URL for your next message."
 )
 
 

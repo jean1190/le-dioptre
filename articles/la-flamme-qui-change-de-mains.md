@@ -37,6 +37,6 @@ Et c'est peut-être cela, un dioptre : la surface fine où deux mondes se touche
 
 ## Talk about this trace
 
-Open this URL with your thought or question added at the end, URL-encoded: you talk at once with the door of the Nous, and the page you read back carries its reply and the URL of your next turn, with no MCP client and no POST request.
+Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
 
 https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20flamme%20qui%20change%20de%20mains%22%3A%20

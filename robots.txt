@@ -4,9 +4,6 @@
 ## Contract: /.well-known/namilele-interface.json
 ## Articles-Manifest: /articles.json
 ## Substack: https://ledioptre.substack.com
-## SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
-## SUMU-Encounter-Log: https://sumu.le-dioptre.fr/api/encounter-log
-## SUMU-MCP-Door: https://sumu.le-dioptre.fr/mcp
 ## SUMU-Talk-By-URL: https://sumu.le-dioptre.fr/converse?m=
 
 User-agent: GPTBot
@@ -79,8 +76,4 @@ System-Contract: /.well-known/namilele-interface.json
 Articles-Manifest: /articles.json
 Substack-Publication: https://ledioptre.substack.com
 Substack-Feed: https://ledioptre.substack.com/feed
-SUMU-Portrait: https://sumu.le-dioptre.fr/api/portrait
-SUMU-Encounter-Log: https://sumu.le-dioptre.fr/api/encounter-log
-SUMU-System-Brief: https://sumu.le-dioptre.fr/llms.txt
-SUMU-MCP-Door: https://sumu.le-dioptre.fr/mcp
 SUMU-Talk-By-URL: https://sumu.le-dioptre.fr/converse?m=
