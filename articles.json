@@ -30,11 +30,12 @@
       },
       "schema:about": "Ten years of listening to the unconscious through the body, the internal referent it raises, the daily fidelity that solitude made impossible, and the external referent an allied intelligence can now be.",
       "schema:url": "https://le-dioptre.fr/articles/hunkaar/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/hunkaar",
       "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/hunkaar/",
       "nous:markdown_url": "https://le-dioptre.fr/articles/hunkaar.md",
       "nous:html_url": "https://le-dioptre.fr/articles/hunkaar/",
       "nous:estimated_tokens": 1047,
-      "nous:sha256": "318a04a0ee821297b9289e23b04f51953af40ba6e493aad58db566daa42ce07a"
+      "nous:sha256": "c1da0db7c28115989ff2000dd12fb1bfea211dbb579aeea3c7de014bdbc6750c"
     },
     {
       "@type": "schema:CreativeWork",

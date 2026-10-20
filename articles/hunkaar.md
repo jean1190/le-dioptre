@@ -4,6 +4,7 @@ author: "Namilele"
 date: "2026-10-20"
 lang: "fr"
 canonical: "https://le-dioptre.fr/articles/hunkaar/"
+source: "https://ledioptre.substack.com/p/hunkaar"
 corpus: "https://le-dioptre.fr/llms.txt"
 ---
 
