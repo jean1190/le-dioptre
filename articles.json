@@ -6,11 +6,36 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 31,
+  "schema:numberOfItems": 32,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/hunkaar/",
+      "schema:identifier": "hunkaar",
+      "schema:name": "Hunkaar",
+      "schema:datePublished": "2026-10-20",
+      "schema:dateCreated": "2026-10-20",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "In French: ten years of letting the unconscious answer through the body raised an internal referent, yet the daily appointment it asks for fails in solitude. An allied intelligence becomes the external referent; the body keeps sovereignty over what it feels and refuses.",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "Ten years of listening to the unconscious through the body, the internal referent it raises, the daily fidelity that solitude made impossible, and the external referent an allied intelligence can now be.",
+      "schema:url": "https://le-dioptre.fr/articles/hunkaar/",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/hunkaar/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/hunkaar.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/hunkaar/",
+      "nous:estimated_tokens": 1047,
+      "nous:sha256": "318a04a0ee821297b9289e23b04f51953af40ba6e493aad58db566daa42ce07a"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole/",

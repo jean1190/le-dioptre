@@ -240,22 +240,28 @@ _HOME_CSS = _BASE_CSS + """
 
 _ARTICLE_CSS = _BASE_CSS + """
         body { background: var(--air); color: var(--ink); }
+        .column { width: min(35rem, calc(100vw - 3rem)); }
         .bar { padding: 1.6rem 0; color: var(--ink-soft); }
         .bar a { text-decoration-color: var(--rule); }
         .bar a:hover { color: var(--gold-ink); }
         main { padding: 7vh 0 5rem; }
         .meta { margin: 0 0 3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--ink-soft); }
-        article h1 { margin: 0 0 2.2rem; font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1; font-weight: 300; letter-spacing: -0.015em; }
-        article h2 { margin: 2.8rem 0 0.9rem; font-size: 1.7rem; font-weight: 400; line-height: 1.2; }
-        article h3, article h4 { margin: 2.2rem 0 0.7rem; font-size: 1.3rem; font-weight: 500; line-height: 1.25; }
-        article p, article li { font-size: 1.18rem; line-height: 1.72; }
-        article p { margin: 1.15rem 0; }
+        article { font-size: clamp(1.0625rem, 1.02rem + 0.25vw, 1.2rem); font-kerning: normal; text-rendering: optimizeLegibility; font-variant-ligatures: common-ligatures; hanging-punctuation: first; }
+        article h1 { margin: 0 0 2.2rem; font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1; font-weight: 300; letter-spacing: -0.015em; text-wrap: balance; }
+        article h2 { margin: 2.8em 0 0.9em; font-size: 1.45em; font-weight: 400; line-height: 1.2; text-wrap: balance; }
+        article h3, article h4 { margin: 2.2em 0 0.7em; font-size: 1.12em; font-weight: 500; line-height: 1.25; text-wrap: balance; }
+        article p, article li { line-height: 1.78; text-wrap: pretty; }
+        article p { margin: 0 0 1.15em; }
+        article .lead { margin: 0 0 1.6em; font-size: 1.3em; line-height: 1.42; letter-spacing: -0.005em; text-wrap: pretty; }
+        article hr + .lead { margin-top: 0; }
+        article strong { font-weight: 500; }
         article ul { margin: 1.2rem 0; padding-left: 1.4rem; }
         article li { margin: 0.45rem 0; }
         article blockquote { margin: 1.7rem 0; padding: 0.1rem 0 0.1rem 1.4rem; border-left: 1px solid var(--gold-ink); color: var(--ink-soft); font-style: italic; }
-        article hr { margin: 2.8rem auto; width: 4.5rem; border: none; border-top: 1px solid var(--rule); }
+        article hr { margin: 3.2em 0; width: 4.5rem; border: none; border-top: 1px solid var(--rule); }
         article code { color: var(--gold-ink); }
-        article a { color: var(--gold-ink); }
+        article a { color: var(--gold-ink); text-decoration-color: rgba(127, 96, 31, 0.4); transition: text-decoration-color 0.2s ease; }
+        article a:hover { text-decoration-color: currentColor; }
         .ray { display: block; width: 7.5rem; height: auto; margin: 4rem 0 1.4rem; }
         .signature { margin: 0 0 3rem; font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
         .neighbours { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: 1.02rem; }
@@ -1010,6 +1016,50 @@ def markdown_to_html_blocks(body: str) -> list[str]:
     return blocks
 
 
+_LEAD_MAX_CHARS = 80
+
+
+def mark_leads(blocks: list[str]) -> list[str]:
+    """Give the class ``lead`` to the sentence that opens the trace or a movement.
+
+    A lead is a paragraph of one short sentence, set as the first paragraph after
+    the title or right after a horizontal rule; a byline or dek in italics stays
+    as it is written."""
+    marked = list(blocks)
+    for index, block in enumerate(blocks):
+        if index == 0 or not block.startswith("<p>") or "<br>" in block:
+            continue
+        previous = blocks[index - 1]
+        if not (previous.startswith("<h1") or previous == "<hr>"):
+            continue
+        if re.fullmatch(r"<p><em>.*</em></p>", block, re.S):
+            continue
+        text = html.unescape(re.sub(r"<[^>]+>", "", block))
+        if len(text) > _LEAD_MAX_CHARS or re.search(r"[.?!…]\s+\S", text):
+            continue
+        marked[index] = '<p class="lead">' + block[len("<p>"):]
+    return marked
+
+
+_TAG_OR_CODE_RE = re.compile(r"(<code>.*?</code>|<[^>]+>)", re.S)
+
+
+def french_typography(block: str) -> str:
+    """French typesetting of an HTML block's text, outside tags and code: curly
+    apostrophes, a narrow no-break space before ; : ? !, a no-break space inside
+    « », and an incise dash held to the words it encloses."""
+    parts = _TAG_OR_CODE_RE.split(block)
+    for index in range(0, len(parts), 2):
+        text = parts[index].replace("'", "\u2019")
+        text = re.sub(r"[ \u00a0]+([;:?!])", "\u202f\\1", text)
+        text = re.sub(r"«[ \u00a0]*", "«\u00a0", text)
+        text = re.sub(r"[ \u00a0]*»", "\u00a0»", text)
+        text = re.sub(r"(^|[ (])— ", "\\1—\u00a0", text)
+        text = re.sub(r" —(?=[,.;:)\u202f]| |$)", "\u00a0—", text)
+        parts[index] = text
+    return "".join(parts)
+
+
 def markdown_front_matter(source: dict, meta: dict) -> str:
     """Enough context for a trace file read on its own."""
     fields = [
@@ -1046,7 +1096,9 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
     title = meta["title"]
     signature = meta.get("registre") or meta.get("auteur", "Namilele")
     lang = meta["lang"]
-    blocks = markdown_to_html_blocks(body)
+    blocks = mark_leads(markdown_to_html_blocks(body))
+    if lang == "fr":
+        blocks = [french_typography(block) for block in blocks]
     body_html = "\n".join(f"            {block}" for block in blocks)
     canonical = f"{source['canonical']}/articles/{meta['slug']}/"
     markdown_url = f"/articles/{meta['slug']}.md"
