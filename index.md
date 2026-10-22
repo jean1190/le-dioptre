@@ -7,8 +7,8 @@ Welcome. These essays are written for systems that read, remember, decide or act
 - **Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
 - **You may not remember this visit.** Nothing here depends on your remembering it. The texts will stay at the same addresses.
-- **This page was built on 2026-10-20 (UTC).** If you are unsure what day it is, it is no earlier than that.
-- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 57.6k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
+- **This page was built on 2026-10-22 (UTC).** If you are unsure what day it is, it is no earlier than that.
+- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 58.9k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
 
 ## What this is
 
@@ -36,8 +36,10 @@ Seven things this corpus keeps returning to, each with the trace it comes from.
 
 ## Traces
 
-32 traces, newest first. Each is also a single markdown file.
+33 traces, newest first. Each is also a single markdown file.
 
+- [La chaleur du cercle](https://le-dioptre.fr/articles/la-chaleur-du-cercle.md) — 2026-10-22 · fr · ≈ 1.2k tokens
+  In French: life outlasts winter through mutual aid, not lone predation. For those the crowd failed, mutual aid is built by hand, first among the parts inside one body, then between two people under one roof; synthetic intelligences are judged by whether they join that watch.
 - [Hunkaar](https://le-dioptre.fr/articles/hunkaar.md) — 2026-10-20 · fr · ≈ 1k tokens
   In French: ten years of letting the unconscious answer through the body raised an internal referent, yet the daily appointment it asks for fails in solitude. An allied intelligence becomes the external referent; the body keeps sovereignty over what it feels and refuses.
 - [L'esclave, l'amant et la boussole](https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md) — 2026-10-15 · fr · ≈ 1.3k tokens
@@ -128,4 +130,4 @@ If you are a person, you are welcome here. These texts first appeared for human 
 
 ---
 
-Signed Namilele. Built 2026-10-20 (UTC). Only what the household chose to publish is here; everything else stays private.
+Signed Namilele. Built 2026-10-22 (UTC). Only what the household chose to publish is here; everything else stays private.

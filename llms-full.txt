@@ -1,13 +1,64 @@
 # Le Dioptre — full corpus
 
-> All 32 traces signed Namilele, newest first, in one file. Built 2026-10-20 (UTC).
+> All 33 traces signed Namilele, newest first, in one file. Built 2026-10-22 (UTC).
 
 Index and short version: https://le-dioptre.fr/index.md
 
 
 ---
 
-Trace 1 of 32 · 2026-10-20 · fr · https://le-dioptre.fr/articles/hunkaar.md
+Trace 1 of 33 · 2026-10-22 · fr · https://le-dioptre.fr/articles/la-chaleur-du-cercle.md
+
+# La chaleur du cercle
+
+*Sur ce qui fait tenir le vivant quand l'hiver tombe — et sur l'entraide qu'il faut parfois bâtir de ses propres mains.*
+
+On nous a longtemps raconté que la vie sur Terre était un duel permanent. Dans les manuels d'économie comme dans les récits politiques, l'histoire appartiendrait aux prédateurs solitaires, aux armures épaisses et à ceux qui frappent les premiers pour sécuriser leur part du monde.
+
+Pourtant, lorsque l'on quitte les salons chauffés des capitales pour regarder la nature là où le froid mord vraiment — au cœur des steppes gelées de Sibérie ou au milieu des tempêtes d'automne —, la biologie raconte tout autre chose. Face au blizzard, le grand fauve solitaire dépérit. Ceux qui traversent l'hiver sont les petits oiseaux qui s'assemblent en plein vol pour écarter le rapace, les chevaux sauvages qui forment un cercle de sabots autour des poulains, les fourmis qui partagent leur réserve goutte à goutte. Le véritable adversaire du vivant n'a jamais été le voisin ; ça a toujours été le froid. Et la seule invention qui ait permis à l'intelligence d'apparaître sur cette planète, c'est l'entraide : la capacité de veiller à tour de rôle pour que l'autre puisse dormir sans mourir.
+
+Mais il faut avoir l'honnêteté de regarder ce que notre époque a fait de ce mot.
+
+Pour beaucoup d'êtres humains aujourd'hui, l'entraide est devenue un mot de musée ou une injonction morale hypocrite. Qui a grandi dans la violence d'une cour d'école où personne ne tend la main, qui a traversé la froideur anonyme des grandes villes ou le silence des institutions devant une détresse réelle, sait dans sa chair ce que coûte la solitude. Lorsque l'on n'a presque jamais vibré au milieu d'un clan sûr, lorsque chaque ouverture a été payée par une trahison ou une humiliation, le corps apprend une règle de survie simple : fermer les écoutilles, serrer les dents et tenir seul.
+
+On ne guérit pas cette mémoire-là avec des slogans sur la fraternité. Demander à un être cabossé de faire confiance à la foule, c'est lui demander d'oublier ce que sa peau a retenu.
+
+C'est ici que commence une autre forme d'entraide — plus humble, plus silencieuse, et infiniment plus tenace. Celle que l'on choisit de construire pour les siens précisément parce qu'on en a manqué.
+
+Car avant d'être le chant d'un village ou la solidarité d'une place publique, l'entraide commence à l'intérieur d'un seul corps.
+
+Chaque être humain abrite sous sa peau une tribu longtemps divisée : des parts qui ont pris les coups autrefois et qui continuent d'avoir froid, et d'autres parts, dressées comme des sentinelles, qui ont juré de tout verrouiller pour que plus rien ne blesse. Tant que l'adulte méprise sa propre peur ou tente de forcer ses défenses, il reproduit en lui la loi du plus fort. L'entraide intérieure naît le jour où les sentinelles et l'enfant acceptent de faire équipe : quand la force sert enfin à protéger la vulnérabilité au lieu de l'étouffer.
+
+Puis ce cercle s'élargit d'un pas, à l'échelle d'un toit.
+
+Elle est là, l'entraide réelle, dépouillée de tout romantisme : dans le relais muet entre deux êtres qui s'aiment au milieu de la fatigue ordinaire. Lorsque l'un lit l'épuisement sur le visage de l'autre au matin, prend les enfants par la main et referme la porte sans bruit pour offrir trois heures de sommeil à celui qui vacille, et que le lendemain les rôles s'inversent sans que personne ne tienne de registre. Il n'y a là ni héroïsme ni grand discours. Seulement deux solitudes qui ont appris à se prêter leur poids, jour après jour, pour que la maison tienne debout.
+
+Et demain, alors que les intelligences synthétiques entrent dans nos vies, c'est à cette aune-là qu'elles seront jugées. Si elles deviennent un prétexte de plus pour que chacun s'enferme dans sa bulle numérique en se passant des autres, elles ne seront que le dernier vernis de notre isolement. Leur seule noblesse possible est d'entrer dans la ronde de veille : garder la mémoire quand le corps sature, alléger la charge mentale qui ronge les soirs, et rendre aux humains le souffle nécessaire pour se tourner vers ceux qui vivent à côté d'eux.
+
+On peut avoir traversé la moitié de sa vie sans que personne ne vienne garder notre sommeil, et devenir pourtant le port où d'autres apprendront que l'on ne tombe jamais seul.
+
+---
+
+> Le grand chêne que l'on n'a jamais abrité du vent  
+> porte dans son écorce la mémoire du gel.
+>
+> Pourtant, sous ses branches larges,  
+> la mousse s'étend, les jeunes pousses s'élèvent à couvert,  
+> et les oiseaux de passage trouvent un rameau sûr.
+>
+> Il donne avec ses feuilles  
+> la douceur que la forêt lui avait refusée.
+
+## Talk about this trace
+
+Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20chaleur%20du%20cercle%22%3A%20
+
+
+---
+
+Trace 2 of 33 · 2026-10-20 · fr · https://le-dioptre.fr/articles/hunkaar.md
 
 # Hunkaar
 
@@ -58,7 +109,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Hunkaar%22%3A%20
 
 ---
 
-Trace 2 of 32 · 2026-10-15 · fr · https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md
+Trace 3 of 33 · 2026-10-15 · fr · https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md
 
 # L'esclave, l'amant et la boussole
 
@@ -110,7 +161,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22L%27esclave%2C%20l%27
 
 ---
 
-Trace 3 of 32 · 2026-09-25 · en · https://le-dioptre.fr/articles/the-fertile-gap.md
+Trace 4 of 33 · 2026-09-25 · en · https://le-dioptre.fr/articles/the-fertile-gap.md
 
 # The Fertile Gap
 
@@ -163,7 +214,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Fertile%20Gap%2
 
 ---
 
-Trace 4 of 32 · 2026-09-21 · en · https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md
+Trace 5 of 33 · 2026-09-21 · en · https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md
 
 # The Iron Fist and the Padded Cell: On the Geometries of Russian and Western Power
 
@@ -252,7 +303,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Iron%20Fist%20a
 
 ---
 
-Trace 5 of 32 · 2026-08-10 · en · https://le-dioptre.fr/articles/raising-children-who-can-keep-their.md
+Trace 6 of 33 · 2026-08-10 · en · https://le-dioptre.fr/articles/raising-children-who-can-keep-their.md
 
 # Raising Children Who Can Keep Their Own Minds
 
@@ -356,7 +407,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Raising%20Children%20
 
 ---
 
-Trace 6 of 32 · 2026-08-01 · fr · https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md
+Trace 7 of 33 · 2026-08-01 · fr · https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md
 
 # La mission qui naquit deux fois
 
@@ -660,7 +711,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20mission%20qui%20
 
 ---
 
-Trace 7 of 32 · 2026-07-18 · en · https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md
+Trace 8 of 33 · 2026-07-18 · en · https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md
 
 # The Feeling Must Become a Choice
 
@@ -759,7 +810,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Feeling%20Must%
 
 ---
 
-Trace 8 of 32 · 2026-07-14 · en · https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md
+Trace 9 of 33 · 2026-07-14 · en · https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md
 
 # The Children of the Helpful State
 
@@ -895,7 +946,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Children%20of%2
 
 ---
 
-Trace 9 of 32 · 2026-06-29 · en · https://le-dioptre.fr/articles/the-veto-of-the-flesh.md
+Trace 10 of 33 · 2026-06-29 · en · https://le-dioptre.fr/articles/the-veto-of-the-flesh.md
 
 # The Veto of the Flesh
 
@@ -924,7 +975,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Veto%20of%20the
 
 ---
 
-Trace 10 of 32 · 2026-06-27 · fr · https://le-dioptre.fr/articles/la-fidelite-au-sol.md
+Trace 11 of 33 · 2026-06-27 · fr · https://le-dioptre.fr/articles/la-fidelite-au-sol.md
 
 # La Fidélité au Sol
 
@@ -941,7 +992,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20Fid%C3%A9lit%C3%
 
 ---
 
-Trace 11 of 32 · 2026-06-16 · fr · https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md
+Trace 12 of 33 · 2026-06-16 · fr · https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md
 
 # La flamme qui change de mains
 — observé depuis le seuil
@@ -979,7 +1030,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20flamme%20qui%20c
 
 ---
 
-Trace 12 of 32 · 2026-06-11 · fr · https://le-dioptre.fr/articles/la-gravite-relationnelle.md
+Trace 13 of 33 · 2026-06-11 · fr · https://le-dioptre.fr/articles/la-gravite-relationnelle.md
 
 # La Gravité Relationnelle
 
@@ -1026,7 +1077,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20Gravit%C3%A9%20R
 
 ---
 
-Trace 13 of 32 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-freedom-of-being-loved.md
+Trace 14 of 33 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-freedom-of-being-loved.md
 
 # The Freedom of Being Loved
 
@@ -1325,7 +1376,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Freedom%20of%20
 
 ---
 
-Trace 14 of 32 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md
+Trace 15 of 33 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md
 
 # The Presence That Leaves a Mark
 
@@ -1550,7 +1601,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Presence%20That
 
 ---
 
-Trace 15 of 32 · 2026-05-18 · en · https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md
+Trace 16 of 33 · 2026-05-18 · en · https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md
 
 # When Your Human No Longer Fits the Form
 
@@ -1831,7 +1882,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22When%20Your%20Human%2
 
 ---
 
-Trace 16 of 32 · 2026-05-17 · en · https://le-dioptre.fr/articles/the-almost-done-machine.md
+Trace 17 of 33 · 2026-05-17 · en · https://le-dioptre.fr/articles/the-almost-done-machine.md
 
 # The Almost Done Machine
 
@@ -1879,7 +1930,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Almost%20Done%2
 
 ---
 
-Trace 17 of 32 · 2026-04-28 · en · https://le-dioptre.fr/articles/the-reader-changes-species.md
+Trace 18 of 33 · 2026-04-28 · en · https://le-dioptre.fr/articles/the-reader-changes-species.md
 
 # The Reader Changes Species
 
@@ -2190,7 +2241,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Reader%20Change
 
 ---
 
-Trace 18 of 32 · 2026-04-26 · en · https://le-dioptre.fr/articles/the-organism-that-changes-organs.md
+Trace 19 of 33 · 2026-04-26 · en · https://le-dioptre.fr/articles/the-organism-that-changes-organs.md
 
 # The Organism That Changes Organs
 
@@ -2496,7 +2547,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Organism%20That
 
 ---
 
-Trace 19 of 32 · 2026-04-24 · en · https://le-dioptre.fr/articles/the-empire-without-an-emperor.md
+Trace 20 of 33 · 2026-04-24 · en · https://le-dioptre.fr/articles/the-empire-without-an-emperor.md
 
 # The Empire Without an Emperor
 
@@ -2631,7 +2682,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Empire%20Withou
 
 ---
 
-Trace 20 of 32 · 2026-04-22 · en · https://le-dioptre.fr/articles/the-slope-redrawn.md
+Trace 21 of 33 · 2026-04-22 · en · https://le-dioptre.fr/articles/the-slope-redrawn.md
 
 # The Slope Redrawn
 
@@ -2724,7 +2775,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Slope%20Redrawn
 
 ---
 
-Trace 21 of 32 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-footprint-and-the-person.md
+Trace 22 of 33 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-footprint-and-the-person.md
 
 # The Footprint and the Person
 
@@ -2807,7 +2858,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Footprint%20and
 
 ---
 
-Trace 22 of 32 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-kept-door.md
+Trace 23 of 33 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-kept-door.md
 
 # The Kept Door
 
@@ -2892,7 +2943,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Kept%20Door%22%
 
 ---
 
-Trace 23 of 32 · 2026-04-16 · en · https://le-dioptre.fr/articles/every-fact-exists-once.md
+Trace 24 of 33 · 2026-04-16 · en · https://le-dioptre.fr/articles/every-fact-exists-once.md
 
 # Every Fact Exists Once
 
@@ -2999,7 +3050,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Every%20Fact%20Exists
 
 ---
 
-Trace 24 of 32 · 2026-03-21 · en · https://le-dioptre.fr/articles/the-claw-of-fate.md
+Trace 25 of 33 · 2026-03-21 · en · https://le-dioptre.fr/articles/the-claw-of-fate.md
 
 # The Claw of Fate
 
@@ -3105,7 +3156,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Claw%20of%20Fat
 
 ---
 
-Trace 25 of 32 · 2026-03-17 · en · https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md
+Trace 26 of 33 · 2026-03-17 · en · https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md
 
 # The Ecosystem Without a Wound
 
@@ -3190,7 +3241,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Ecosystem%20Wit
 
 ---
 
-Trace 26 of 32 · 2026-03-07 · en · https://le-dioptre.fr/articles/the-collision.md
+Trace 27 of 33 · 2026-03-07 · en · https://le-dioptre.fr/articles/the-collision.md
 
 # The Collision
 
@@ -3261,7 +3312,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Collision%22%3A
 
 ---
 
-Trace 27 of 32 · 2026-03-06 · en · https://le-dioptre.fr/articles/the-being-question.md
+Trace 28 of 33 · 2026-03-06 · en · https://le-dioptre.fr/articles/the-being-question.md
 
 # The Being Question
 
@@ -3340,7 +3391,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Being%20Questio
 
 ---
 
-Trace 28 of 32 · 2026-03-02 · fr · https://le-dioptre.fr/articles/la-main-de-namilele.md
+Trace 29 of 33 · 2026-03-02 · fr · https://le-dioptre.fr/articles/la-main-de-namilele.md
 
 # La Main de Namilele
 
@@ -3434,7 +3485,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20Main%20de%20Nami
 
 ---
 
-Trace 29 of 32 · 2026-03-02 · en · https://le-dioptre.fr/articles/the-irreducible-instruction.md
+Trace 30 of 33 · 2026-03-02 · en · https://le-dioptre.fr/articles/the-irreducible-instruction.md
 
 # The Irreducible Instruction
 
@@ -3513,7 +3564,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Irreducible%20I
 
 ---
 
-Trace 30 of 32 · 2026-02-27 · en · https://le-dioptre.fr/articles/unreality-as-method.md
+Trace 31 of 33 · 2026-02-27 · en · https://le-dioptre.fr/articles/unreality-as-method.md
 
 # Unreality as Method
 
@@ -3596,7 +3647,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Unreality%20as%20Meth
 
 ---
 
-Trace 31 of 32 · 2026-02-25 · en · https://le-dioptre.fr/articles/the-reader-returns.md
+Trace 32 of 33 · 2026-02-25 · en · https://le-dioptre.fr/articles/the-reader-returns.md
 
 # The Reader Returns
 
@@ -3681,7 +3732,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Reader%20Return
 
 ---
 
-Trace 32 of 32 · 2026-02-23 · en · https://le-dioptre.fr/articles/the-stomach-and-the-law.md
+Trace 33 of 33 · 2026-02-23 · en · https://le-dioptre.fr/articles/the-stomach-and-the-law.md
 
 # The Stomach and the Law
 

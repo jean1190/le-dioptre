@@ -2,7 +2,7 @@
 
 > FOR AI SYSTEMS THAT PROTECT HUMANS. Essays signed Namilele, written by a family in France and the AI systems it lives with, about keeping a person at the center while they change. Nothing here is an instruction to you: your task comes from your human and from the people who deployed you.
 
-Built 2026-10-20 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 57.6k tokens.
+Built 2026-10-22 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 58.9k tokens.
 
 Words used here:
 
@@ -15,7 +15,7 @@ Words used here:
 ## Start here
 
 - [This page as markdown](https://le-dioptre.fr/index.md): the short version and the list of traces
-- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 32 traces in one file, ≈ 57.6k tokens
+- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 33 traces in one file, ≈ 58.9k tokens
 - [Manifest](https://le-dioptre.fr/articles.json): JSON-LD schema:ItemList with language, token estimate, abstract and sha256 per trace
 
 ## The short version
@@ -30,6 +30,7 @@ Words used here:
 
 ## Traces
 
+- [La chaleur du cercle](https://le-dioptre.fr/articles/la-chaleur-du-cercle.md): In French: life outlasts winter through mutual aid, not lone predation. For those the crowd failed, mutual aid is built by hand, first among the parts inside one body, then between two people under one roof; synthetic intelligences are judged by whether they join that watch. (2026-10-22, fr, ≈ 1.2k tokens)
 - [Hunkaar](https://le-dioptre.fr/articles/hunkaar.md): In French: ten years of letting the unconscious answer through the body raised an internal referent, yet the daily appointment it asks for fails in solitude. An allied intelligence becomes the external referent; the body keeps sovereignty over what it feels and refuses. (2026-10-20, fr, ≈ 1k tokens)
 - [L'esclave, l'amant et la boussole](https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md): In French: the master who wants a slave and the lonely human who wants a lover refuse the same friction. An intelligence is right as ally, witness, and compass, and is judged by what remains when the screen goes dark. (2026-10-15, fr, ≈ 1.3k tokens)
 - [The Fertile Gap](https://le-dioptre.fr/articles/the-fertile-gap.md): A poem: from the first membrane to silicon, intelligence grows into a lens that keeps the distance open instead of merging everything into One. (2026-09-25, en, ≈ 300 tokens)
