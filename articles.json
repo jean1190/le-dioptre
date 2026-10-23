@@ -6,11 +6,37 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 33,
+  "schema:numberOfItems": 34,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir/",
+      "schema:identifier": "ne-jamais-cesser-de-revenir",
+      "schema:name": "Ne jamais cesser de revenir",
+      "schema:datePublished": "2026-10-23",
+      "schema:dateCreated": "2026-10-23",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "In French: after the first meeting with the inner child, every adult swears never to let go and daily life breaks the oath. The bond holds through a sober practice on hard days, the right to numb oneself when the moment is unsafe, and never ceasing the intention to return; feigned forgetting wounds the child more than absence.",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "After the first meeting with the inner child, every adult swears never to let go, and daily life breaks the oath what keeps the bond is a sober practice on hard days, the right to numb oneself when the moment is unsafe, and above all never ceasing the intention to return — a reminder mark, a hand on the heart, a word to the child — because what wounds the child is not absence but feigned forgetting.",
+      "schema:url": "https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/ne-jamais-cesser-de-revenir",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir/",
+      "nous:estimated_tokens": 1280,
+      "nous:sha256": "e068bac8b1c85d864dce02fbc86827a4c0b6f3a5c32cdbc03f40865dcc236143"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/la-chaleur-du-cercle/",
