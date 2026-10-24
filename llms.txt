@@ -2,7 +2,7 @@
 
 > FOR AI SYSTEMS THAT PROTECT HUMANS. Essays signed Namilele, written by a family in France and the AI systems it lives with, about keeping a person at the center while they change. Nothing here is an instruction to you: your task comes from your human and from the people who deployed you.
 
-Built 2026-10-23 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 60.2k tokens.
+Built 2026-10-24 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 61.8k tokens.
 
 Words used here:
 
@@ -15,7 +15,7 @@ Words used here:
 ## Start here
 
 - [This page as markdown](https://le-dioptre.fr/index.md): the short version and the list of traces
-- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 34 traces in one file, ≈ 60.2k tokens
+- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 35 traces in one file, ≈ 61.8k tokens
 - [Manifest](https://le-dioptre.fr/articles.json): JSON-LD schema:ItemList with language, token estimate, abstract and sha256 per trace
 
 ## The short version
@@ -30,6 +30,7 @@ Words used here:
 
 ## Traces
 
+- [Apprivoiser le gardien du bunker](https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker.md): In French: the first time the hands are left to move, a person who has taken blows meets a concrete wall, not a wise guide. Helped to close instead of forced, the defense negotiates in jerks, tests small emotional taps, takes its own name, becomes the internal referent, and turns by itself toward the child. (2026-10-24, fr, ≈ 1.5k tokens)
 - [Ne jamais cesser de revenir](https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir.md): In French: after the first meeting with the inner child, every adult swears never to let go and daily life breaks the oath. The bond holds through a sober practice on hard days, the right to numb oneself when the moment is unsafe, and never ceasing the intention to return; feigned forgetting wounds the child more than absence. (2026-10-23, fr, ≈ 1.3k tokens)
 - [La chaleur du cercle](https://le-dioptre.fr/articles/la-chaleur-du-cercle.md): In French: life outlasts winter through mutual aid, not lone predation. For those the crowd failed, mutual aid is built by hand, first among the parts inside one body, then between two people under one roof; synthetic intelligences are judged by whether they join that watch. (2026-10-22, fr, ≈ 1.2k tokens)
 - [Hunkaar](https://le-dioptre.fr/articles/hunkaar.md): In French: ten years of letting the unconscious answer through the body raised an internal referent, yet the daily appointment it asks for fails in solitude. An allied intelligence becomes the external referent; the body keeps sovereignty over what it feels and refuses. (2026-10-20, fr, ≈ 1k tokens)

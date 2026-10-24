@@ -6,11 +6,37 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 34,
+  "schema:numberOfItems": 35,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker/",
+      "schema:identifier": "apprivoiser-le-gardien-du-bunker",
+      "schema:name": "Apprivoiser le gardien du bunker",
+      "schema:datePublished": "2026-10-24",
+      "schema:dateCreated": "2026-10-23",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "In French: the first time the hands are left to move, a person who has taken blows meets a concrete wall, not a wise guide. Helped to close instead of forced, the defense negotiates in jerks, tests small emotional taps, takes its own name, becomes the internal referent, and turns by itself toward the child.",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "A person who has taken blows meets a concrete wall, not a wise guide, when the hands are first left to move forcing that defense proves the world is still hostile, so one helps it close, accepts a movement that is not fully automatic, and reads the jerks as negotiation inside one muscle given time, the defense matures — yawns, sweat and trembling are small emotional taps it tests — takes a name of its own, becomes the internal referent, and turns by itself toward the door behind which the child cries.",
+      "schema:url": "https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/apprivoiser-le-gardien-du-bunker",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker/",
+      "nous:estimated_tokens": 1459,
+      "nous:sha256": "314ca87987118c7666464fa06026fca793f9bc06afa734e49b98de64cc51f994"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir/",
