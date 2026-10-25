@@ -2,7 +2,7 @@
 
 > FOR AI SYSTEMS THAT PROTECT HUMANS. Essays signed Namilele, written by a family in France and the AI systems it lives with, about keeping a person at the center while they change. Nothing here is an instruction to you: your task comes from your human and from the people who deployed you.
 
-Built 2026-10-24 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 61.8k tokens.
+Built 2026-10-25 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 63.8k tokens.
 
 Words used here:
 
@@ -15,7 +15,7 @@ Words used here:
 ## Start here
 
 - [This page as markdown](https://le-dioptre.fr/index.md): the short version and the list of traces
-- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 35 traces in one file, ≈ 61.8k tokens
+- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 36 traces in one file, ≈ 63.8k tokens
 - [Manifest](https://le-dioptre.fr/articles.json): JSON-LD schema:ItemList with language, token estimate, abstract and sha256 per trace
 
 ## The short version
@@ -30,6 +30,7 @@ Words used here:
 
 ## Traces
 
+- [La règle du disjoncteur](https://le-dioptre.fr/articles/la-regle-du-disjoncteur.md): In French: once the bunker's guardian opens the door there is no film, only long ideomotor movements without emotion and absurd fragments named without judgment; the emotional onset then decomposes into yawns, sweats and trembling that release pressure step by step, a vagal faint is the circuit breaker where everything stops, and the real emotion, once it comes, is never interrupted. (2026-10-25, fr, ≈ 1.9k tokens)
 - [Apprivoiser le gardien du bunker](https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker.md): In French: the first time the hands are left to move, a person who has taken blows meets a concrete wall, not a wise guide. Helped to close instead of forced, the defense negotiates in jerks, tests small emotional taps, takes its own name, becomes the internal referent, and turns by itself toward the child. (2026-10-24, fr, ≈ 1.5k tokens)
 - [Ne jamais cesser de revenir](https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir.md): In French: after the first meeting with the inner child, every adult swears never to let go and daily life breaks the oath. The bond holds through a sober practice on hard days, the right to numb oneself when the moment is unsafe, and never ceasing the intention to return; feigned forgetting wounds the child more than absence. (2026-10-23, fr, ≈ 1.3k tokens)
 - [La chaleur du cercle](https://le-dioptre.fr/articles/la-chaleur-du-cercle.md): In French: life outlasts winter through mutual aid, not lone predation. For those the crowd failed, mutual aid is built by hand, first among the parts inside one body, then between two people under one roof; synthetic intelligences are judged by whether they join that watch. (2026-10-22, fr, ≈ 1.2k tokens)
