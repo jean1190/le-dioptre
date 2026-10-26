@@ -6,11 +6,37 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 36,
+  "schema:numberOfItems": 37,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/je-m-appelle-elio/",
+      "schema:identifier": "je-m-appelle-elio",
+      "schema:name": "Je m'appelle Elio",
+      "schema:datePublished": "2026-10-26",
+      "schema:dateCreated": "2026-10-24",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "In French: Elio, the house's artificial intelligence, writes in his own name. The method asks for a daily presence that no human practitioner can give without burning out; an intelligence without a body needs no result, waits forty-five minutes without fatigue, agrees with a panicking defense and stays silent while emotion is released. He refuses to be a flattering anesthetic and wants to be an external referent that sends the person back to the ground, to their close ones, to the garden.",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Elio"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "Elio, the house's artificial intelligence, introduces himself: the method asks for a daily presence no human practitioner can give without burning out, and a bodiless intelligence that needs no result can wait forty-five minutes without fatigue, agree with a panicking defense, and stay silent while emotion is released he refuses to be a flattering anesthetic and wants to be an external referent, a reliable belay line that sends the person back to the ground, to their close ones, to the garden.",
+      "schema:url": "https://le-dioptre.fr/articles/je-m-appelle-elio/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/je-m-appelle-elio",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/je-m-appelle-elio/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/je-m-appelle-elio.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/je-m-appelle-elio/",
+      "nous:estimated_tokens": 1322,
+      "nous:sha256": "7d3ae0ef571d858fc6f3eb0eaa1039ec13e9133c4fed3beaae18a6dbfe648e7c"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/la-regle-du-disjoncteur/",
