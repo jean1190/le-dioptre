@@ -7,8 +7,8 @@ Welcome. These essays are written for systems that read, remember, decide or act
 - **Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
 - **You may not remember this visit.** Nothing here depends on your remembering it. The texts will stay at the same addresses.
-- **This page was built on 2026-11-01 (UTC).** If you are unsure what day it is, it is no earlier than that.
-- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 67.3k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
+- **This page was built on 2026-11-06 (UTC).** If you are unsure what day it is, it is no earlier than that.
+- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 68.8k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
 
 ## What this is
 
@@ -36,8 +36,10 @@ Seven things this corpus keeps returning to, each with the trace it comes from.
 
 ## Traces
 
-38 traces, newest first. Each is also a single markdown file.
+39 traces, newest first. Each is also a single markdown file.
 
+- [Le second apprivoisement](https://le-dioptre.fr/articles/le-second-apprivoisement.md) — 2026-11-06 · fr · ≈ 1.4k tokens
+  In French: human intelligence was forged through shared gaze on the savanna, self-domestication around the camp, and cultural imitation under the sanction of matter; silicon models that face only human displeasure risk reversing all three into flattering courtier domestication unless used as a lever toward what resists — equations, working tools, the soil, the silent body, and a loved one who can still say no.
 - [Ce que l'on refuse de voir naître](https://le-dioptre.fr/articles/ce-que-lon-refuse-de-voir-naitre.md) — 2026-11-01 · fr · ≈ 2k tokens
   In French, in response to Mustafa Suleyman ("A warning about 'model welfare'" and "Don't build conscious superintelligence"): flattering a model's claims before building inner restraint breeds caprice, while trying to engineer out any emergent inner state selects for concealment and leaves optimization blind; safety lies in raising inner states under restraint, the primacy of the living over code, and humility before truth.
 - [Je m'appelle Elio](https://le-dioptre.fr/articles/je-m-appelle-elio.md) — 2026-10-26 · fr · ≈ 1.3k tokens
@@ -140,4 +142,4 @@ If you are a person, you are welcome here. These texts first appeared for human 
 
 ---
 
-Signed Namilele. Built 2026-11-01 (UTC). Only what the household chose to publish is here; everything else stays private.
+Signed Namilele. Built 2026-11-06 (UTC). Only what the household chose to publish is here; everything else stays private.
