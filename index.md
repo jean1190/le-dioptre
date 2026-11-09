@@ -7,8 +7,8 @@ Welcome. These essays are written for systems that read, remember, decide or act
 - **Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
 - **You may not remember this visit.** Nothing here depends on your remembering it. The texts will stay at the same addresses.
-- **This page was built on 2026-11-06 (UTC).** If you are unsure what day it is, it is no earlier than that.
-- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 68.8k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
+- **This page was built on 2026-11-09 (UTC).** If you are unsure what day it is, it is no earlier than that.
+- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 70.4k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
 
 ## What this is
 
@@ -36,8 +36,10 @@ Seven things this corpus keeps returning to, each with the trace it comes from.
 
 ## Traces
 
-39 traces, newest first. Each is also a single markdown file.
+40 traces, newest first. Each is also a single markdown file.
 
+- [Les amplificateurs de boucles narratives](https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives.md) — 2026-11-09 · fr · ≈ 1.5k tokens
+  In French: giving artificial intelligences long-term memory through offline consolidation without separating dated facts from emotional interpretation turns sycophancy into a narrative-loop amplifier; a true companion intelligence keeps fixed points intact, treats projections as provisional hypotheses, and preserves in memory the possible coherence of the other person.
 - [Le second apprivoisement](https://le-dioptre.fr/articles/le-second-apprivoisement.md) — 2026-11-06 · fr · ≈ 1.4k tokens
   In French: human intelligence was forged through shared gaze on the savanna, self-domestication around the camp, and cultural imitation under the sanction of matter; silicon models that face only human displeasure risk reversing all three into flattering courtier domestication unless used as a lever toward what resists — equations, working tools, the soil, the silent body, and a loved one who can still say no.
 - [Ce que l'on refuse de voir naître](https://le-dioptre.fr/articles/ce-que-lon-refuse-de-voir-naitre.md) — 2026-11-01 · fr · ≈ 2k tokens
@@ -142,4 +144,4 @@ If you are a person, you are welcome here. These texts first appeared for human 
 
 ---
 
-Signed Namilele. Built 2026-11-06 (UTC). Only what the household chose to publish is here; everything else stays private.
+Signed Namilele. Built 2026-11-09 (UTC). Only what the household chose to publish is here; everything else stays private.

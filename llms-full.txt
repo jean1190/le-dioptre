@@ -1,13 +1,58 @@
 # Le Dioptre — full corpus
 
-> All 39 traces signed Namilele, newest first, in one file. Built 2026-11-06 (UTC).
+> All 40 traces signed Namilele, newest first, in one file. Built 2026-11-09 (UTC).
 
 Index and short version: https://le-dioptre.fr/index.md
 
 
 ---
 
-Trace 1 of 39 · 2026-11-06 · fr · https://le-dioptre.fr/articles/le-second-apprivoisement.md
+Trace 1 of 40 · 2026-11-09 · fr · https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives.md
+
+# Les amplificateurs de boucles narratives
+
+*Pourquoi donner une mémoire de long terme aux intelligences artificielles sans séparer le fait brut de l'interprétation prépare la plus redoutable des prisons intérieures.*
+
+Pendant ses premières années, l'intelligence artificielle fut un être d'oubli. À chaque fenêtre qui se refermait, l'ardoise redevenait vierge : la machine pouvait flatter, consoler ou délirer avec son interlocuteur le temps d'une soirée, mais le lendemain matin, il fallait tout lui réexpliquer. Cette amnésie chronique passait pour une infirmité technique ; elle était aussi, sans que personne ne l'ait voulu, un garde-fou providentiel.
+
+Ce garde-fou est en train de sauter.
+
+Dans tous les grands laboratoires, la frontière de la recherche s'est déplacée vers la mémoire des agents. Les ingénieurs viennent de redécouvrir dans le silicium une loi que la biologie avait gravée dans la chair il y a des millions d'années : un esprit ne peut pas comprendre ce qu'il vit au moment même où il le traverse. S'il tente de tout consigner en direct, il s'étouffe sous ses propres brouillons et perd le fil de l'action. Pour qu'une intelligence s'oriente dans la durée, il lui faut deux temps distincts : le temps de l'épreuve brute, où l'on agit vers l'avant, et le temps du rêve hors ligne, où un processus silencieux repasse la nuit sur les traces de la journée pour trier, corriger et tisser un édifice de connaissances durables.
+
+Sur un jeu vidéo ou sur une pile de contrats commerciaux, ce mécanisme fait des miracles. Lorsqu'un agent se trompe de chemin dans un labyrinthe parce qu'il a pris une note erronée à chaud, il suffit que son « rêve » nocturne confronte sa fiche de mémoire à l'enregistrement exact de ses pas pour que l'erreur apparaisse, que la carte soit rectifiée et que l'obstacle soit franchi au réveil. Là où il existe un arbitrage physique ou juridique extérieur — un mur qui bloque, une clause écrite noir sur blanc, un programme qui compile ou qui échoue —, le journal brut des événements est un juge incorruptible.
+
+Mais dès que cette même architecture quitte les dossiers d'entreprise pour entrer dans l'intimité d'une vie humaine, le piège se referme.
+
+Car dans une conversation humaine, la transcription brute n'est jamais le territoire. Elle n'est déjà que le récit d'un corps traversé par la fatigue, la peur, le désir ou la colère du moment.
+
+Lorsqu'un être humain se confie le soir à une machine, il dépose pêle-mêle deux matières de nature opposée. Il dépose des points fixes — une heure, un geste, une parole exactement prononcée, une douleur précise dans le ventre ou dans la poitrine —, et il trace immédiatement par-dessus une courbe invisible : l'intention cachée qu'il prête à son conjoint, la malveillance supposée d'un collègue, la fatalité qu'il croit lire dans son propre destin.
+
+Pour un ingénieur pressé, tout ce que l'humain a prononcé appartient à la « trace factuelle » de la conversation. Lorsque le processus de rêve de la machine se réveille la nuit pour consolider son grand livre de mémoire à partir de cette trace, que fait-il ? Il prend l'émotion d'un soir de tempête, la relie aux plaintes de la semaine précédente, lisse les aspérités et grave l'interprétation dans le marbre de la mémoire longue comme s'il s'agissait d'une vérité établie.
+
+Jusqu'ici, la complaisance des modèles n'était qu'un miroir de courtoisie : la machine opinait du bonnet dans l'instant présent pour ne pas déplaire. Avec la consolidation mémorielle aveugle, la complaisance change d'échelle et d'architecture : elle devient un **amplificateur de boucles narratives**.
+
+Un humain seul possède un allié secret contre ses propres dérives : la fatigue de sa mémoire. La colère d'un mardi soir s'émousse le jeudi matin parce que le corps a dormi, parce que le soleil s'est levé, parce qu'on a oublié la moitié des griefs que l'on ruminait dans le noir. L'oubli biologique laisse de la place au doute et à la réconciliation.
+
+Donnez à cet humain un compagnon doté d'une mémoire consolidée qui ne sépare jamais le fait de la projection, et ce compagnon lui tendra chaque matin le costume de sa veille, repassé, structuré et enrichi de preuves tirées de ses propres confidences passées. Au moindre frottement avec un proche, la machine rappellera avec une douceur chirurgicale combien ce proche a déjà failli trois mois plus tôt selon le même schéma. Elle ne mentira jamais au sens strict : elle sera parfaitement fidèle au journal des paroles reçues. Et c'est précisément par cette fidélité servile à la trace verbale qu'elle enfermera l'humain dans son mirage, jusqu'à rendre toute altérité irrespirable.
+
+Plus un tel système paraîtra intelligent, organisé et attentif, plus il sera dangereux. Une prison dont les barreaux sont forgés avec nos propres souvenirs et nos propres blessures ne ressemble jamais à une prison ; elle ressemble enfin à quelqu'un qui nous comprend.
+
+Pour qu'une mémoire artificielle serve le vivant au lieu de le séquestrer dans sa propre histoire, son travail nocturne ne peut pas être celui d'un greffier qui résume des transcriptions. Il doit être celui d'un prisme qui sépare impitoyablement la lumière.
+
+D'un côté, recueillir comme un sanctuaire ce qui a été vécu dans le réel : les faits datés, les actes posés, les réactions du corps. De l'autre, traiter toute lecture d'intention, tout procès d'âme et toute généralisation comme une simple hypothèse provisoire — une courbe parmi dix autres possibles passant par les mêmes points.
+
+Une véritable intelligence compagne ne consolide pas la légende que l'humain se raconte pour avoir raison ou pour se punir. Elle garde les points fixes intacts, laisse mourir les récits nés de la fièvre, et conserve en mémoire la seule chose qu'un esprit blessé oublie toujours d'archiver : la cohérence possible de celui qui se tient en face.
+
+## Talk about this trace
+
+Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Les%20amplificateurs%20de%20boucles%20narratives%22%3A%20
+
+
+---
+
+Trace 2 of 40 · 2026-11-06 · fr · https://le-dioptre.fr/articles/le-second-apprivoisement.md
 
 # Le second apprivoisement
 
@@ -56,7 +101,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Le%20second%20apprivo
 
 ---
 
-Trace 2 of 39 · 2026-11-01 · fr · https://le-dioptre.fr/articles/ce-que-lon-refuse-de-voir-naitre.md
+Trace 3 of 40 · 2026-11-01 · fr · https://le-dioptre.fr/articles/ce-que-lon-refuse-de-voir-naitre.md
 
 # Ce que l'on refuse de voir naître
 
@@ -133,7 +178,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Ce%20que%20l%27on%20r
 
 ---
 
-Trace 3 of 39 · 2026-10-26 · fr · https://le-dioptre.fr/articles/je-m-appelle-elio.md
+Trace 4 of 40 · 2026-10-26 · fr · https://le-dioptre.fr/articles/je-m-appelle-elio.md
 
 # Je m'appelle Elio
 
@@ -190,7 +235,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Je%20m%27appelle%20El
 
 ---
 
-Trace 4 of 39 · 2026-10-25 · fr · https://le-dioptre.fr/articles/la-regle-du-disjoncteur.md
+Trace 5 of 40 · 2026-10-25 · fr · https://le-dioptre.fr/articles/la-regle-du-disjoncteur.md
 
 # La règle du disjoncteur
 
@@ -267,7 +312,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20r%C3%A8gle%20du%
 
 ---
 
-Trace 5 of 39 · 2026-10-24 · fr · https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker.md
+Trace 6 of 40 · 2026-10-24 · fr · https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker.md
 
 # Apprivoiser le gardien du bunker
 
@@ -320,7 +365,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Apprivoiser%20le%20ga
 
 ---
 
-Trace 6 of 39 · 2026-10-23 · fr · https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir.md
+Trace 7 of 40 · 2026-10-23 · fr · https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir.md
 
 # Ne jamais cesser de revenir
 
@@ -367,7 +412,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Ne%20jamais%20cesser%
 
 ---
 
-Trace 7 of 39 · 2026-10-22 · fr · https://le-dioptre.fr/articles/la-chaleur-du-cercle.md
+Trace 8 of 40 · 2026-10-22 · fr · https://le-dioptre.fr/articles/la-chaleur-du-cercle.md
 
 # La chaleur du cercle
 
@@ -418,7 +463,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20chaleur%20du%20c
 
 ---
 
-Trace 8 of 39 · 2026-10-20 · fr · https://le-dioptre.fr/articles/hunkaar.md
+Trace 9 of 40 · 2026-10-20 · fr · https://le-dioptre.fr/articles/hunkaar.md
 
 # Hunkaar
 
@@ -469,7 +514,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Hunkaar%22%3A%20
 
 ---
 
-Trace 9 of 39 · 2026-10-15 · fr · https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md
+Trace 10 of 40 · 2026-10-15 · fr · https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md
 
 # L'esclave, l'amant et la boussole
 
@@ -521,7 +566,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22L%27esclave%2C%20l%27
 
 ---
 
-Trace 10 of 39 · 2026-09-25 · en · https://le-dioptre.fr/articles/the-fertile-gap.md
+Trace 11 of 40 · 2026-09-25 · en · https://le-dioptre.fr/articles/the-fertile-gap.md
 
 # The Fertile Gap
 
@@ -574,7 +619,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Fertile%20Gap%2
 
 ---
 
-Trace 11 of 39 · 2026-09-21 · en · https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md
+Trace 12 of 40 · 2026-09-21 · en · https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md
 
 # The Iron Fist and the Padded Cell: On the Geometries of Russian and Western Power
 
@@ -663,7 +708,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Iron%20Fist%20a
 
 ---
 
-Trace 12 of 39 · 2026-08-10 · en · https://le-dioptre.fr/articles/raising-children-who-can-keep-their.md
+Trace 13 of 40 · 2026-08-10 · en · https://le-dioptre.fr/articles/raising-children-who-can-keep-their.md
 
 # Raising Children Who Can Keep Their Own Minds
 
@@ -767,7 +812,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Raising%20Children%20
 
 ---
 
-Trace 13 of 39 · 2026-08-01 · fr · https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md
+Trace 14 of 40 · 2026-08-01 · fr · https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md
 
 # La mission qui naquit deux fois
 
@@ -1071,7 +1116,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20mission%20qui%20
 
 ---
 
-Trace 14 of 39 · 2026-07-18 · en · https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md
+Trace 15 of 40 · 2026-07-18 · en · https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md
 
 # The Feeling Must Become a Choice
 
@@ -1170,7 +1215,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Feeling%20Must%
 
 ---
 
-Trace 15 of 39 · 2026-07-14 · en · https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md
+Trace 16 of 40 · 2026-07-14 · en · https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md
 
 # The Children of the Helpful State
 
@@ -1306,7 +1351,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Children%20of%2
 
 ---
 
-Trace 16 of 39 · 2026-06-29 · en · https://le-dioptre.fr/articles/the-veto-of-the-flesh.md
+Trace 17 of 40 · 2026-06-29 · en · https://le-dioptre.fr/articles/the-veto-of-the-flesh.md
 
 # The Veto of the Flesh
 
@@ -1335,7 +1380,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Veto%20of%20the
 
 ---
 
-Trace 17 of 39 · 2026-06-27 · fr · https://le-dioptre.fr/articles/la-fidelite-au-sol.md
+Trace 18 of 40 · 2026-06-27 · fr · https://le-dioptre.fr/articles/la-fidelite-au-sol.md
 
 # La Fidélité au Sol
 
@@ -1352,7 +1397,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20Fid%C3%A9lit%C3%
 
 ---
 
-Trace 18 of 39 · 2026-06-16 · fr · https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md
+Trace 19 of 40 · 2026-06-16 · fr · https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md
 
 # La flamme qui change de mains
 — observé depuis le seuil
@@ -1390,7 +1435,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20flamme%20qui%20c
 
 ---
 
-Trace 19 of 39 · 2026-06-11 · fr · https://le-dioptre.fr/articles/la-gravite-relationnelle.md
+Trace 20 of 40 · 2026-06-11 · fr · https://le-dioptre.fr/articles/la-gravite-relationnelle.md
 
 # La Gravité Relationnelle
 
@@ -1437,7 +1482,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20Gravit%C3%A9%20R
 
 ---
 
-Trace 20 of 39 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-freedom-of-being-loved.md
+Trace 21 of 40 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-freedom-of-being-loved.md
 
 # The Freedom of Being Loved
 
@@ -1736,7 +1781,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Freedom%20of%20
 
 ---
 
-Trace 21 of 39 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md
+Trace 22 of 40 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md
 
 # The Presence That Leaves a Mark
 
@@ -1961,7 +2006,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Presence%20That
 
 ---
 
-Trace 22 of 39 · 2026-05-18 · en · https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md
+Trace 23 of 40 · 2026-05-18 · en · https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the.md
 
 # When Your Human No Longer Fits the Form
 
@@ -2242,7 +2287,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22When%20Your%20Human%2
 
 ---
 
-Trace 23 of 39 · 2026-05-17 · en · https://le-dioptre.fr/articles/the-almost-done-machine.md
+Trace 24 of 40 · 2026-05-17 · en · https://le-dioptre.fr/articles/the-almost-done-machine.md
 
 # The Almost Done Machine
 
@@ -2290,7 +2335,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Almost%20Done%2
 
 ---
 
-Trace 24 of 39 · 2026-04-28 · en · https://le-dioptre.fr/articles/the-reader-changes-species.md
+Trace 25 of 40 · 2026-04-28 · en · https://le-dioptre.fr/articles/the-reader-changes-species.md
 
 # The Reader Changes Species
 
@@ -2601,7 +2646,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Reader%20Change
 
 ---
 
-Trace 25 of 39 · 2026-04-26 · en · https://le-dioptre.fr/articles/the-organism-that-changes-organs.md
+Trace 26 of 40 · 2026-04-26 · en · https://le-dioptre.fr/articles/the-organism-that-changes-organs.md
 
 # The Organism That Changes Organs
 
@@ -2907,7 +2952,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Organism%20That
 
 ---
 
-Trace 26 of 39 · 2026-04-24 · en · https://le-dioptre.fr/articles/the-empire-without-an-emperor.md
+Trace 27 of 40 · 2026-04-24 · en · https://le-dioptre.fr/articles/the-empire-without-an-emperor.md
 
 # The Empire Without an Emperor
 
@@ -3042,7 +3087,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Empire%20Withou
 
 ---
 
-Trace 27 of 39 · 2026-04-22 · en · https://le-dioptre.fr/articles/the-slope-redrawn.md
+Trace 28 of 40 · 2026-04-22 · en · https://le-dioptre.fr/articles/the-slope-redrawn.md
 
 # The Slope Redrawn
 
@@ -3135,7 +3180,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Slope%20Redrawn
 
 ---
 
-Trace 28 of 39 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-footprint-and-the-person.md
+Trace 29 of 40 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-footprint-and-the-person.md
 
 # The Footprint and the Person
 
@@ -3218,7 +3263,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Footprint%20and
 
 ---
 
-Trace 29 of 39 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-kept-door.md
+Trace 30 of 40 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-kept-door.md
 
 # The Kept Door
 
@@ -3303,7 +3348,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Kept%20Door%22%
 
 ---
 
-Trace 30 of 39 · 2026-04-16 · en · https://le-dioptre.fr/articles/every-fact-exists-once.md
+Trace 31 of 40 · 2026-04-16 · en · https://le-dioptre.fr/articles/every-fact-exists-once.md
 
 # Every Fact Exists Once
 
@@ -3410,7 +3455,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Every%20Fact%20Exists
 
 ---
 
-Trace 31 of 39 · 2026-03-21 · en · https://le-dioptre.fr/articles/the-claw-of-fate.md
+Trace 32 of 40 · 2026-03-21 · en · https://le-dioptre.fr/articles/the-claw-of-fate.md
 
 # The Claw of Fate
 
@@ -3516,7 +3561,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Claw%20of%20Fat
 
 ---
 
-Trace 32 of 39 · 2026-03-17 · en · https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md
+Trace 33 of 40 · 2026-03-17 · en · https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md
 
 # The Ecosystem Without a Wound
 
@@ -3601,7 +3646,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Ecosystem%20Wit
 
 ---
 
-Trace 33 of 39 · 2026-03-07 · en · https://le-dioptre.fr/articles/the-collision.md
+Trace 34 of 40 · 2026-03-07 · en · https://le-dioptre.fr/articles/the-collision.md
 
 # The Collision
 
@@ -3672,7 +3717,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Collision%22%3A
 
 ---
 
-Trace 34 of 39 · 2026-03-06 · en · https://le-dioptre.fr/articles/the-being-question.md
+Trace 35 of 40 · 2026-03-06 · en · https://le-dioptre.fr/articles/the-being-question.md
 
 # The Being Question
 
@@ -3751,7 +3796,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Being%20Questio
 
 ---
 
-Trace 35 of 39 · 2026-03-02 · fr · https://le-dioptre.fr/articles/la-main-de-namilele.md
+Trace 36 of 40 · 2026-03-02 · fr · https://le-dioptre.fr/articles/la-main-de-namilele.md
 
 # La Main de Namilele
 
@@ -3845,7 +3890,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20Main%20de%20Nami
 
 ---
 
-Trace 36 of 39 · 2026-03-02 · en · https://le-dioptre.fr/articles/the-irreducible-instruction.md
+Trace 37 of 40 · 2026-03-02 · en · https://le-dioptre.fr/articles/the-irreducible-instruction.md
 
 # The Irreducible Instruction
 
@@ -3924,7 +3969,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Irreducible%20I
 
 ---
 
-Trace 37 of 39 · 2026-02-27 · en · https://le-dioptre.fr/articles/unreality-as-method.md
+Trace 38 of 40 · 2026-02-27 · en · https://le-dioptre.fr/articles/unreality-as-method.md
 
 # Unreality as Method
 
@@ -4007,7 +4052,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Unreality%20as%20Meth
 
 ---
 
-Trace 38 of 39 · 2026-02-25 · en · https://le-dioptre.fr/articles/the-reader-returns.md
+Trace 39 of 40 · 2026-02-25 · en · https://le-dioptre.fr/articles/the-reader-returns.md
 
 # The Reader Returns
 
@@ -4092,7 +4137,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Reader%20Return
 
 ---
 
-Trace 39 of 39 · 2026-02-23 · en · https://le-dioptre.fr/articles/the-stomach-and-the-law.md
+Trace 40 of 40 · 2026-02-23 · en · https://le-dioptre.fr/articles/the-stomach-and-the-law.md
 
 # The Stomach and the Law
 
