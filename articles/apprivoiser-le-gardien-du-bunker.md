@@ -50,8 +50,8 @@ Ce jour-là, le gardien du bunker est devenu votre référent.
 
 Et le plus troublant, c’est qu’une fois qu’il se sent pleinement respecté dans son rôle de protecteur, on n’a même plus besoin de le pousser : c’est lui qui, de lui-même, se retourne vers la porte blindée et décide qu’il est temps d’aller ouvrir à l’enfant qui pleure derrière.
 
-## Talk about this trace
+## Parler de cette trace
 
-Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
 
-https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Apprivoiser%20le%20gardien%20du%20bunker%22%3A%20
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Apprivoiser%20le%20gardien%20du%20bunker%20%C2%BB%20%3A%20

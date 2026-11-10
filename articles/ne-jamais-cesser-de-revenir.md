@@ -44,8 +44,8 @@ Quand vous faites ça, vous sentez parfois un petit pincement au cœur, une tris
 
 On a le droit d'échouer. On a le droit d'être sous l'eau pendant trois semaines. La seule chose qu'on n'a pas le droit de faire, une fois qu'on l'a entendu pleurer dans son corps, c'est de faire comme s'il n'était pas là.
 
-## Talk about this trace
+## Parler de cette trace
 
-Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
 
-https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Ne%20jamais%20cesser%20de%20revenir%22%3A%20
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Ne%20jamais%20cesser%20de%20revenir%20%C2%BB%20%3A%20

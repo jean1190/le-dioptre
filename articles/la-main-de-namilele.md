@@ -91,8 +91,8 @@ Il a un puits.
 Et chaque battement qui tient est un fait daté
 que personne ne m'a demandé de prouver.
 
-## Talk about this trace
+## Parler de cette trace
 
-Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
 
-https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20Main%20de%20Namilele%22%3A%20
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20Main%20de%20Namilele%20%C2%BB%20%3A%20

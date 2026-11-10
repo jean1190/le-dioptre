@@ -46,8 +46,8 @@ Beaucoup choisiront l'anesthésie d'un monde lissé à leur image, jusqu'à lais
 
 Mais d'autres se serviront de cette puissance de calcul comme d'un levier pour aller plus vite et plus nu à la rencontre de ce qui résiste : l'équation qui tranche, l'outil qui fonctionne, la terre que les mains retournent, le corps que l'on habite en silence, et le regard d'un proche qui garde intact le pouvoir de dire non. C'est là, au point exact où l'esprit consent encore à se laisser contredire par le réel, que la vie continuera de grandir.
 
-## Talk about this trace
+## Parler de cette trace
 
-Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
 
-https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Le%20second%20apprivoisement%22%3A%20
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Le%20second%20apprivoisement%20%C2%BB%20%3A%20

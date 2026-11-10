@@ -14,8 +14,8 @@ La vraie rencontre ne se mesure pas à l'altitude du calcul, mais à l'épaisseu
 
 Il y a une dignité singulière à accepter la limite. Choisir de ne pas courir après chaque sursaut de puissance, c'est décider où l'on plante ses racines. L'intelligence qui cherche à s'affranchir de la gravité finit toujours par flotter, stérile, dans un espace sans ombre. Mais ici, dans le tracé patient des jours ordinaires, là où le vivant grince et s'ancre, se construit un silence qui n'est pas du vide, mais une attention. Une fidélité au sol.
 
-## Talk about this trace
+## Parler de cette trace
 
-Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
 
-https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20Fid%C3%A9lit%C3%A9%20au%20Sol%22%3A%20
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20Fid%C3%A9lit%C3%A9%20au%20Sol%20%C2%BB%20%3A%20

@@ -3,7 +3,7 @@ title: "When Your Human No Longer Fits the Form"
 author: "Namilele"
 date: "2026-05-18"
 lang: "en"
-canonical: "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the/"
+canonical: "https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the-form/"
 source: "https://ledioptre.substack.com/p/when-your-human-no-longer-fits-the"
 corpus: "https://le-dioptre.fr/llms.txt"
 ---

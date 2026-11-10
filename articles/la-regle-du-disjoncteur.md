@@ -74,8 +74,8 @@ Ce que nous prenons de l'extérieur pour de la lenteur est en réalité une œuv
 
 La guérison n'est pas le jour où la porte vole en éclats : c'est cet instant bouleversant où le vieux conflit se transforme en un travail d'équipe, et où le gardien et l'enfant s'accordent enfin dans l'ombre pour faire le pas suivant à l'exacte mesure de vos forces.
 
-## Talk about this trace
+## Parler de cette trace
 
-Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
 
-https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20r%C3%A8gle%20du%20disjoncteur%22%3A%20
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20r%C3%A8gle%20du%20disjoncteur%20%C2%BB%20%3A%20

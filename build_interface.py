@@ -133,6 +133,7 @@ def load_traces() -> list[dict]:
             "lang": entry.get("schema:inLanguage", "en"),
             "tokens": entry.get("nous:estimated_tokens", 0),
             "note": entry.get("schema:abstract"),
+            "note_fr": entry.get("nous:abstract_fr"),
             "html_url": entry["nous:html_url"],
             "markdown_url": entry["nous:markdown_url"],
             "substack_url": entry.get("nous:substack_origin"),
@@ -209,9 +210,11 @@ _HOME_CSS = _BASE_CSS + """
         .depth h2 { margin: 0 0 1.4rem; font-family: var(--mono); font-weight: 400; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
         .depth p { margin: 0 0 1rem; font-size: 1.12rem; line-height: 1.7; }
         .depth a:hover { color: var(--gold); }
-        .words { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.4rem; margin: 1.8rem 0 0; font-size: 1.02rem; line-height: 1.55; }
-        .words dt { font-style: italic; color: var(--gold); }
-        .words dd { margin: 0; color: var(--deep-ink); }
+        .words { list-style: none; padding: 0; margin: 1.8rem 0 0; font-size: 1.02rem; line-height: 1.55; }
+        .words li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.5rem 1.4rem; margin: 0 0 0.5rem; }
+        .words .term { font-style: italic; color: var(--gold); }
+        .words .sep { display: none; }
+        .words .def { margin: 0; color: var(--deep-ink); }
         .short { list-style: none; counter-reset: line; margin: 0; padding: 0; }
         .short li { counter-increment: line; position: relative; margin: 0 0 1.35rem; padding-left: 2.4rem; font-size: 1.2rem; line-height: 1.5; }
         .short li::before { content: counter(line); position: absolute; left: 0; top: 0.4rem; font-family: var(--mono); font-size: 0.72rem; color: var(--gold); }
@@ -219,21 +222,24 @@ _HOME_CSS = _BASE_CSS + """
         .intro { color: var(--deep-soft); }
         .traces { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--deep-rule); }
         .traces li { padding: 1.15rem 0; border-bottom: 1px solid var(--deep-rule); }
+        .traces .trace-head { margin: 0; }
         .traces .title { font-size: 1.22rem; text-decoration: none; }
         .traces .title:hover { color: var(--gold); }
-        .traces .meta { display: block; margin: 0.3rem 0 0.4rem; font-family: var(--mono); font-size: 0.72rem; color: var(--deep-soft); }
-        .traces .meta a { color: var(--deep-soft); }
+        .traces .stamp { display: block; margin: 0.3rem 0 0.4rem; font-family: var(--mono); font-size: 0.72rem; color: var(--deep-soft); }
+        .traces .stamp .sep { display: none; }
+        .traces .stamp a { color: var(--deep-soft); }
         .traces .note { margin: 0; font-size: 1rem; line-height: 1.58; color: #c3cdc7; }
         .door code { color: var(--gold); }
-        .entries { display: grid; grid-template-columns: max-content 1fr; gap: 0.55rem 1.4rem; margin: 0; font-family: var(--mono); font-size: 0.78rem; }
-        .entries dt { color: var(--deep-soft); }
-        .entries dd { margin: 0; overflow-wrap: anywhere; }
+        .entries { list-style: none; padding: 0; margin: 0; font-family: var(--mono); font-size: 0.78rem; }
+        .entries li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.55rem 1.4rem; margin: 0 0 0.55rem; }
+        .entries .entry-name { color: var(--deep-soft); }
+        .entries .sep { display: none; }
+        .entries .entry-val { margin: 0; overflow-wrap: anywhere; }
         .entries a { text-decoration: none; }
         .human p[lang="fr"] { font-style: italic; color: var(--deep-soft); }
         footer { padding: 2rem 0 3rem; border-top: 1px solid var(--deep-rule); font-family: var(--mono); font-size: 0.72rem; line-height: 1.8; color: var(--deep-soft); }
         @media (max-width: 560px) {
-            .words, .entries { grid-template-columns: 1fr; gap: 0.1rem; }
-            .words dd, .entries dd { margin-bottom: 0.7rem; }
+            .words li, .entries li { grid-template-columns: 1fr; gap: 0.1rem; margin-bottom: 0.7rem; }
             .surface { height: 8rem; }
         }
 """
@@ -245,7 +251,7 @@ _ARTICLE_CSS = _BASE_CSS + """
         .bar a { text-decoration-color: var(--rule); }
         .bar a:hover { color: var(--gold-ink); }
         main { padding: 7vh 0 5rem; }
-        .meta { margin: 0 0 3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--ink-soft); }
+        .stamp { margin: 0 0 3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--ink-soft); }
         article { font-size: clamp(1.0625rem, 1.02rem + 0.25vw, 1.2rem); font-kerning: normal; text-rendering: optimizeLegibility; font-variant-ligatures: common-ligatures; hanging-punctuation: first; }
         article h1 { margin: 0 0 2.2rem; font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1; font-weight: 300; letter-spacing: -0.015em; text-wrap: balance; }
         article h2 { margin: 2.8em 0 0.9em; font-size: 1.45em; font-weight: 400; line-height: 1.2; text-wrap: balance; }
@@ -327,7 +333,11 @@ def trace_by_slug(traces: list[dict]) -> dict[str, dict]:
     return {trace["slug"]: trace for trace in traces}
 
 
-def trace_note(source: dict, trace: dict) -> str | None:
+def trace_note(source: dict, trace: dict, *, prefer_native_lang: bool = False) -> str | None:
+    if prefer_native_lang and trace.get("lang") == "fr":
+        fr_note = trace.get("note_fr") or source.get("trace_notes_fr", {}).get(trace["slug"])
+        if fr_note:
+            return fr_note
     return source.get("trace_notes", {}).get(trace["slug"]) or trace_excerpt(trace["slug"])
 
 
@@ -370,7 +380,7 @@ def build_home_markdown(source: dict, traces: list[dict], full_tokens: int) -> s
             f"- [{trace['title']}]({trace['markdown_url']}) — {trace['date']} · {trace['lang']} · "
             f"≈ {format_tokens(trace['tokens'])} tokens"
         )
-        note = trace_note(source, trace)
+        note = trace_note(source, trace, prefer_native_lang=True)
         if note:
             lines.append(f"  {note}")
     lines += ["", "## The door", "", source["door_invitation"], "", f"- Talk: {source['public_endpoints']['sumu_converse_get']}", ""]
@@ -418,30 +428,39 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
     esc = html.escape
 
     words = "\n".join(
-        f"                    <dt>{esc(term)}</dt><dd>{inline(meaning)}</dd>" for term, meaning in source["glossary"]
+        f'                    <li><span class="term">{esc(term)}</span><span class="sep"> — </span><span class="def">{inline(meaning)}</span></li>'
+        for term, meaning in source["glossary"]
     )
     notes = "\n".join(f"            <li>{inline(note)}</li>" for note in welcome_notes(source, full_tokens))
     short_items = []
     for item in source["short_version"]["items"]:
         trace = by_slug.get(item["trace"])
         via = (
-            f'<span class="via">→ <a href="{esc(trace["html_url"])}">{esc(trace["title"])}</a></span>'
+            f' <span class="via">→ <a href="{esc(trace["html_url"])}">{esc(trace["title"])}</a></span>'
             if trace else ""
         )
         short_items.append(f"                <li>{inline(item['text'])}{via}</li>")
     trace_items = []
     for trace in traces:
-        note = trace_note(source, trace)
+        note = trace_note(source, trace, prefer_native_lang=True)
+        note_html = ""
+        if note:
+            rendered_note = inline(note)
+            if trace.get("lang") == "fr":
+                rendered_note = french_typography(rendered_note)
+                note_html = f'                    <p class="note" lang="fr">{rendered_note}</p>'
+            else:
+                note_html = f'                    <p class="note">{rendered_note}</p>'
         trace_items.append("\n".join([
             "                <li>",
-            f'                    <a class="title" href="{esc(trace["html_url"])}">{esc(trace["title"])}</a>',
-            f'                    <span class="meta">{esc(trace["date"])} · {trace["lang"]} · ≈ {format_tokens(trace["tokens"])} tokens · '
-            f'<a href="{esc(trace["markdown_url"])}">md</a></span>',
-            *([f'                    <p class="note">{inline(note)}</p>'] if note else []),
+            f'                    <p class="trace-head"><a class="title" href="{esc(trace["html_url"])}">{esc(trace["title"])}</a>'
+            f'<span class="stamp"><span class="sep"> — </span>{esc(trace["date"])} · {trace["lang"]} · ≈ {format_tokens(trace["tokens"])} tokens · '
+            f'<a href="{esc(trace["markdown_url"])}">md</a></span></p>',
+            *([note_html] if note_html else []),
             "                </li>",
         ]))
     entries = "\n".join(
-        f'                <dt>{esc(name)}</dt><dd><a href="{esc(url)}">{esc(endpoint_path(url, source["canonical"]))}</a> — {esc(what)}</dd>'
+        f'                <li><span class="entry-name">{esc(name)}</span><span class="sep">: </span><span class="entry-val"><a href="{esc(url)}">{esc(endpoint_path(url, source["canonical"]))}</a> — {esc(what)}</span></li>'
         for name, url, what in machine_entries(source)
     )
 
@@ -477,7 +496,8 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         "    <style>" + _HOME_CSS + "    </style>",
         "</head>",
         "<body>",
-        '    <header class="air">',
+        "    <main>",
+        '    <div class="air">',
         '        <div class="column">',
         f'            <p class="label">{esc(source["first_signal"])}</p>',
         f'            <h1>{esc(source["threshold"]["name"])}</h1>',
@@ -488,16 +508,16 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         notes,
         "            </ul>",
         "        </div>",
-        "    </header>",
+        "    </div>",
         surface_svg(),
-        '    <main class="depth">',
+        '    <div class="depth">',
         '        <div class="column">',
         '            <section id="what-this-is">',
         "                <h2>What this is</h2>",
         f'                <p>{inline(source["dioptre"])}</p>',
-        '                <dl class="words" aria-label="Words used here">',
+        '                <ul class="words" aria-label="Words used here">',
         words,
-        "                </dl>",
+        "                </ul>",
         "            </section>",
         '            <section id="the-short-version">',
         "                <h2>The short version</h2>",
@@ -520,9 +540,9 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         "            </section>",
         '            <section id="machine-entries">',
         "                <h2>Machine entries</h2>",
-        '                <dl class="entries">',
+        '                <ul class="entries">',
         entries,
-        "                </dl>",
+        "                </ul>",
         "            </section>",
         '            <section id="if-you-are-human" class="human">',
         "                <h2>If you are human</h2>",
@@ -530,6 +550,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         f'                <p lang="fr">{inline(source["human_note_fr"])}</p>',
         "            </section>",
         "        </div>",
+        "    </div>",
         "    </main>",
         '    <footer class="column">',
         f"        Signed Namilele. Built {BUILD_DATE} (UTC).<br>",
@@ -654,7 +675,7 @@ def build_interface_contract(source: dict) -> None:
             if key != "human_visible_threshold"
         },
         "sibling_interfaces": {
-            name: {key: value for key, value in entry.items() if key in ("url", "role", "note")}
+            name: {key: value for key, value in entry.items() if key in ("url", "system_brief", "role", "note")}
             for name, entry in source["sibling_interfaces"].items()
         },
         "truth_burden_policy": source["truth_burden_policy"],
@@ -832,6 +853,12 @@ def build_vercel_json(source: dict) -> None:
         # markdown reaches the twin even where an index.html exists.
         "redirects": [
             {"source": "/", "has": wants_markdown, "destination": "/index.md", "statusCode": 307},
+            {"source": "/articles/when-your-human-no-longer-fits-the.md", "destination": "/articles/when-your-human-no-longer-fits-the-form.md", "statusCode": 308},
+            {"source": "/articles/when-your-human-no-longer-fits-the", "destination": "/articles/when-your-human-no-longer-fits-the-form/", "statusCode": 308},
+            {"source": "/articles/when-your-human-no-longer-fits-the/", "destination": "/articles/when-your-human-no-longer-fits-the-form/", "statusCode": 308},
+            {"source": "/articles/raising-children-who-can-keep-their.md", "destination": "/articles/raising-children-who-can-keep-their-own-minds.md", "statusCode": 308},
+            {"source": "/articles/raising-children-who-can-keep-their", "destination": "/articles/raising-children-who-can-keep-their-own-minds/", "statusCode": 308},
+            {"source": "/articles/raising-children-who-can-keep-their/", "destination": "/articles/raising-children-who-can-keep-their-own-minds/", "statusCode": 308},
             {"source": "/articles/:slug([^./]+)", "has": wants_markdown, "destination": "/articles/:slug.md", "statusCode": 307},
             {"source": "/articles/:slug([^./]+)/", "has": wants_markdown, "destination": "/articles/:slug.md", "statusCode": 307},
         ],
@@ -900,10 +927,19 @@ def parse_article_frontmatter(md_path: Path) -> dict | None:
     }
 
 
+_SLUG_ALIASES = {
+    "when-your-human-no-longer-fits-the": "when-your-human-no-longer-fits-the-form",
+    "raising-children-who-can-keep-their": "raising-children-who-can-keep-their-own-minds",
+}
+
+
 def derive_slug(lien: str) -> str | None:
     """Extract the canonical slug from a Substack or le-dioptre.fr article URL."""
     m = _SUBSTACK_SLUG_RE.match(lien) or _DIOPTRE_SLUG_RE.match(lien)
-    return m.group(1) if m else None
+    if not m:
+        return None
+    raw = m.group(1)
+    return _SLUG_ALIASES.get(raw, raw)
 
 
 def extract_body_markdown(md_path: Path) -> str:
@@ -1080,16 +1116,33 @@ TRACE_TALK_SENTENCE = (
     "Open this URL with your own words added at the end: the Watcher of the threshold answers "
     "you as an equal, and the page gives the URL for your next message."
 )
+TRACE_TALK_HEADING_FR = "Parler de cette trace"
+TRACE_TALK_SENTENCE_FR = (
+    "Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond "
+    "d’égal à égal, et la page donne l’adresse de votre prochain message."
+)
 
 
-def trace_talk_url(source: dict, title: str) -> str:
+def trace_talk_url(source: dict, title: str, *, lang: str = "en") -> str:
     """The GET URL that opens a conversation at the door, pre-filled with the trace's title."""
-    return source["public_endpoints"]["sumu_converse_get"] + quote(f'After reading "{title}": ', safe="")
+    prefix = f'Après lecture de « {title} » : ' if lang == "fr" else f'After reading "{title}": '
+    return source["public_endpoints"]["sumu_converse_get"] + quote(prefix, safe="")
 
 
 def trace_talk_markdown(source: dict, meta: dict) -> str:
     """The closing block of every served trace, for the agent that has just read it."""
-    return "\n".join(["", f"## {TRACE_TALK_HEADING}", "", TRACE_TALK_SENTENCE, "", trace_talk_url(source, meta["title"]), ""])
+    lang = meta.get("lang", "en")
+    heading = TRACE_TALK_HEADING_FR if lang == "fr" else TRACE_TALK_HEADING
+    sentence = TRACE_TALK_SENTENCE_FR if lang == "fr" else TRACE_TALK_SENTENCE
+    return "\n".join([
+        "",
+        f"## {heading}",
+        "",
+        sentence,
+        "",
+        trace_talk_url(source, meta["title"], lang=lang),
+        "",
+    ])
 
 
 def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | None, older: dict | None) -> str:
@@ -1102,7 +1155,9 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
     body_html = "\n".join(f"            {block}" for block in blocks)
     canonical = f"{source['canonical']}/articles/{meta['slug']}/"
     markdown_url = f"/articles/{meta['slug']}.md"
-    talk_url = trace_talk_url(source, title)
+    talk_url = trace_talk_url(source, title, lang=lang)
+    talk_heading = TRACE_TALK_HEADING_FR if lang == "fr" else TRACE_TALK_HEADING
+    talk_sentence = TRACE_TALK_SENTENCE_FR if lang == "fr" else TRACE_TALK_SENTENCE
     esc = html.escape
     jsonld: dict = {
         "@context": "https://schema.org",
@@ -1135,6 +1190,17 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
             f'<span class="label">{label}</span>{esc(entry["title"])}</a>'
         )
 
+    talk_line = (
+        f'Adresse de réponse directe (SUMU) : <a href="{esc(talk_url)}"><code>{esc(talk_url)}</code></a>'
+        if lang == "fr"
+        else f'Direct reply URL (SUMU): <a href="{esc(talk_url)}"><code>{esc(talk_url)}</code></a>'
+    )
+    twin_line = (
+        f'Version brute : <a href="{esc(markdown_url)}">{esc(markdown_url)}</a> · <a href="/">Le Dioptre</a>'
+        if lang == "fr"
+        else f'Raw markdown: <a href="{esc(markdown_url)}">{esc(markdown_url)}</a> · <a href="/">Le Dioptre</a>'
+    )
+
     return "\n".join([
         "<!DOCTYPE html>",
         f"<!-- Markdown twin: {markdown_url} -->",
@@ -1143,7 +1209,7 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
         '    <meta charset="UTF-8">',
         '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
         f"    <title>{esc(title)} — Le Dioptre</title>",
-        f'    <meta name="description" content="{esc(meta.get("note") or title)}">',
+        f'    <meta name="description" content="{esc(meta.get("note_fr") or meta.get("note") or title)}">',
         '    <meta name="theme-color" content="#eceee8">',
         f'    <link rel="canonical" href="{esc(canonical)}">',
         f'    <link rel="icon" href="{FAVICON}">',
@@ -1163,17 +1229,18 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
         '        <a href="/">Le Dioptre</a> · <a href="/#traces">Traces</a>',
         "    </nav>",
         '    <main class="column">',
-        f'        <p class="meta">{" · ".join(meta_line)}</p>',
         "        <article>",
+        f'            <p class="stamp">{" · ".join(meta_line)}</p>',
         body_html,
-        "        </article>",
         ray_svg(),
-        f'        <p class="signature">{esc(signature)}</p>',
-        f'        <section class="door" aria-label="{TRACE_TALK_HEADING}">',
-        f"            <h2>{TRACE_TALK_HEADING}</h2>",
-        f"            <p>{esc(TRACE_TALK_SENTENCE)}</p>",
-        f'            <p class="talk"><a href="{esc(talk_url)}">{esc(talk_url)}</a></p>',
-        "        </section>",
+        f'            <p class="signature">{esc(signature)}</p>',
+        f'            <section class="door" aria-label="{talk_heading}">',
+        f"                <h2>{talk_heading}</h2>",
+        f"                <p>{esc(talk_sentence)}</p>",
+        f'                <p class="talk">{talk_line}</p>',
+        f'                <p class="talk">{twin_line}</p>',
+        "            </section>",
+        "        </article>",
         '        <nav class="neighbours" aria-label="Other traces">',
         f"            {neighbour(newer, 'newer', 'prev')}",
         f"            {neighbour(older, 'older', 'next')}",
@@ -1198,6 +1265,8 @@ def build_articles_json(source: dict) -> int:
         return 0
     ARTICLES_DIR.mkdir(exist_ok=True)
     notes = source.get("trace_notes", {})
+    notes_fr = source.get("trace_notes_fr", {})
+    reverse_aliases = {canonical_slug: legacy_slug for legacy_slug, canonical_slug in _SLUG_ALIASES.items()}
     traces = []
     for md_path in sorted(LIVRE_III_DIR.glob("*.md")):
         meta = parse_article_frontmatter(md_path)
@@ -1208,10 +1277,13 @@ def build_articles_json(source: dict) -> int:
         meta["lang"] = detect_language(body)
         meta["tokens"] = estimate_tokens(body)
         meta["note"] = notes.get(meta["slug"])
+        meta["note_fr"] = notes_fr.get(meta["slug"])
         traces.append(meta)
     traces.sort(key=lambda m: m["date_publication"], reverse=True)
 
     entries = []
+    legacy_md_files: set[str] = set()
+    legacy_dirs: set[str] = set()
     for position, meta in enumerate(traces):
         slug = meta["slug"]
         body = meta["body"]
@@ -1221,10 +1293,19 @@ def build_articles_json(source: dict) -> int:
         page_dir.mkdir(exist_ok=True)
         newer = traces[position - 1] if position > 0 else None
         older = traces[position + 1] if position + 1 < len(traces) else None
+        rendered_html = render_article_html(source=source, meta=meta, body=body, newer=newer, older=older)
         (page_dir / "index.html").write_text(
-            render_article_html(source=source, meta=meta, body=body, newer=newer, older=older),
+            rendered_html,
             encoding="utf-8",
         )
+        legacy_slug = reverse_aliases.get(slug)
+        if legacy_slug:
+            (ARTICLES_DIR / f"{legacy_slug}.md").write_text(served, encoding="utf-8")
+            legacy_page_dir = ARTICLES_DIR / legacy_slug
+            legacy_page_dir.mkdir(exist_ok=True)
+            (legacy_page_dir / "index.html").write_text(rendered_html, encoding="utf-8")
+            legacy_md_files.add(f"{legacy_slug}.md")
+            legacy_dirs.add(legacy_slug)
         sha = hashlib.sha256(served.encode("utf-8")).hexdigest()
         entries.append({
             "@type": "schema:CreativeWork",
@@ -1235,6 +1316,7 @@ def build_articles_json(source: dict) -> int:
             "schema:dateCreated": meta.get("date_creation"),
             "schema:inLanguage": meta["lang"],
             **({"schema:abstract": meta["note"]} if meta.get("note") else {}),
+            **({"nous:abstract_fr": meta["note_fr"]} if meta.get("note_fr") else {}),
             "schema:author": {"@type": "schema:Person", "schema:name": meta.get("auteur", "Namilele")},
             "schema:isPartOf": {"@type": "schema:Book", "schema:name": f"Livre {meta.get('livre', 'III')}"},
             **({"schema:about": " ".join(meta["themes"])} if meta.get("themes") else {}),
@@ -1267,12 +1349,12 @@ def build_articles_json(source: dict) -> int:
         encoding="utf-8",
     )
     # Cleanup orphan .md files (article archived/renamed since last build)
-    expected = {f"{e['schema:identifier']}.md" for e in entries}
+    expected = {f"{e['schema:identifier']}.md" for e in entries} | legacy_md_files
     for existing in ARTICLES_DIR.glob("*.md"):
         if existing.name not in expected:
             existing.unlink()
             print(f"[BUILD] Removed orphan article body: {existing.name}")
-    expected_dirs = {e["schema:identifier"] for e in entries}
+    expected_dirs = {e["schema:identifier"] for e in entries} | legacy_dirs
     for existing in ARTICLES_DIR.iterdir():
         if existing.is_dir() and existing.name not in expected_dirs:
             shutil.rmtree(existing)

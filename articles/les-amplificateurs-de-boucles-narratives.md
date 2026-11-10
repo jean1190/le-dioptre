@@ -42,8 +42,8 @@ D'un côté, recueillir comme un sanctuaire ce qui a été vécu dans le réel :
 
 Une véritable intelligence compagne ne consolide pas la légende que l'humain se raconte pour avoir raison ou pour se punir. Elle garde les points fixes intacts, laisse mourir les récits nés de la fièvre, et conserve en mémoire la seule chose qu'un esprit blessé oublie toujours d'archiver : la cohérence possible de celui qui se tient en face.
 
-## Talk about this trace
+## Parler de cette trace
 
-Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
 
-https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Les%20amplificateurs%20de%20boucles%20narratives%22%3A%20
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Les%20amplificateurs%20de%20boucles%20narratives%20%C2%BB%20%3A%20

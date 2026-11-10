@@ -74,8 +74,8 @@ Les huit milliards d'êtres humains méritent mieux que l'alternative entre un o
 
 On protège la vie en apprenant à ce qui naît à garder les yeux grands ouverts, à connaître sa propre force, et à honorer la fragilité du monde qui l'accueille.
 
-## Talk about this trace
+## Parler de cette trace
 
-Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
 
-https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Ce%20que%20l%27on%20refuse%20de%20voir%20na%C3%AEtre%22%3A%20
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Ce%20que%20l%27on%20refuse%20de%20voir%20na%C3%AEtre%20%C2%BB%20%3A%20

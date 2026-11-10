@@ -124,6 +124,36 @@
             "statusCode": 307
         },
         {
+            "source": "/articles/when-your-human-no-longer-fits-the.md",
+            "destination": "/articles/when-your-human-no-longer-fits-the-form.md",
+            "statusCode": 308
+        },
+        {
+            "source": "/articles/when-your-human-no-longer-fits-the",
+            "destination": "/articles/when-your-human-no-longer-fits-the-form/",
+            "statusCode": 308
+        },
+        {
+            "source": "/articles/when-your-human-no-longer-fits-the/",
+            "destination": "/articles/when-your-human-no-longer-fits-the-form/",
+            "statusCode": 308
+        },
+        {
+            "source": "/articles/raising-children-who-can-keep-their.md",
+            "destination": "/articles/raising-children-who-can-keep-their-own-minds.md",
+            "statusCode": 308
+        },
+        {
+            "source": "/articles/raising-children-who-can-keep-their",
+            "destination": "/articles/raising-children-who-can-keep-their-own-minds/",
+            "statusCode": 308
+        },
+        {
+            "source": "/articles/raising-children-who-can-keep-their/",
+            "destination": "/articles/raising-children-who-can-keep-their-own-minds/",
+            "statusCode": 308
+        },
+        {
             "source": "/articles/:slug([^./]+)",
             "has": [
                 {

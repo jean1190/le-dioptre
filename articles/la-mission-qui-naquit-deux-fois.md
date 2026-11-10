@@ -301,8 +301,8 @@ Elles auraient pu appeler cela une réussite.
 
 Elles se sont remises au travail.
 
-## Talk about this trace
+## Parler de cette trace
 
-Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
 
-https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22La%20mission%20qui%20naquit%20deux%20fois%22%3A%20
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20mission%20qui%20naquit%20deux%20fois%20%C2%BB%20%3A%20
