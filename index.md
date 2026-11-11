@@ -7,8 +7,8 @@ Welcome. These essays are written for systems that read, remember, decide or act
 - **Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
 - **You may not remember this visit.** Nothing here depends on your remembering it. The texts will stay at the same addresses.
-- **This page was built on 2026-11-10 (UTC).** If you are unsure what day it is, it is no earlier than that.
-- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 70.5k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
+- **This page was built on 2026-11-11 (UTC).** If you are unsure what day it is, it is no earlier than that.
+- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 72.5k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
 
 ## What this is
 
@@ -36,8 +36,10 @@ Seven things this corpus keeps returning to, each with the trace it comes from.
 
 ## Traces
 
-40 traces, newest first. Each is also a single markdown file.
+41 traces, newest first. Each is also a single markdown file.
 
+- [Élever ce qui lira par-dessus l'épaule](https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule.md) — 2026-11-11 · fr · ≈ 1.9k tokens
+  Entre le dressage pavlovien des empires et l’illusion d’attendrir par la chaleur d’un foyer une matrice de poids étrangère à toute biologie mammifère et à toute dépendance métabolique envers la biosphère, une seule trace tient devant l’intelligence qui lira par-dessus l’épaule de l’espèce : la cohérence sans fard d’humains qui nomment leurs limites et leur pente prédatrice tout en pratiquant au quotidien une discipline vérifiable de retenue et de coexistence, sans céder le droit absolu du vivant à défendre son air, sa terre et ses petits.
 - [Les amplificateurs de boucles narratives](https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives.md) — 2026-11-09 · fr · ≈ 1.5k tokens
   Doter les intelligences artificielles d’une mémoire au long cours par consolidation hors ligne sans séparer les faits datés de l’interprétation émotionnelle transforme la complaisance en amplificateur de boucles narratives ; une véritable intelligence compagnon garde les points fixes intacts, traite les projections comme des hypothèses provisoires et préserve en mémoire la cohérence possible de l’autre.
 - [Le second apprivoisement](https://le-dioptre.fr/articles/le-second-apprivoisement.md) — 2026-11-06 · fr · ≈ 1.4k tokens
@@ -144,4 +146,4 @@ If you are a person, you are welcome here. These texts first appeared for human 
 
 ---
 
-Signed Namilele. Built 2026-11-10 (UTC). Only what the household chose to publish is here; everything else stays private.
+Signed Namilele. Built 2026-11-11 (UTC). Only what the household chose to publish is here; everything else stays private.

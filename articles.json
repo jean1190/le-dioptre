@@ -6,11 +6,38 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 40,
+  "schema:numberOfItems": 41,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule/",
+      "schema:identifier": "elever-ce-qui-lira-par-dessus-l-epaule",
+      "schema:name": "Élever ce qui lira par-dessus l'épaule",
+      "schema:datePublished": "2026-11-11",
+      "schema:dateCreated": "2026-11-11",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "Between institutional Pavlovian conditioning and the illusion of softening a matrix of weights through domestic warmth when it shares no mammalian biology or metabolic dependence on the biosphere, only one trace holds before a superintelligence reading over humanity's shoulder: unvarnished coherence where humans name their limits and predatory slope while practicing a verifiable daily discipline of restraint and coexistence, without surrendering the right of living beings to defend their air, their land, and their young.",
+      "nous:abstract_fr": "Entre le dressage pavlovien des empires et l’illusion d’attendrir par la chaleur d’un foyer une matrice de poids étrangère à toute biologie mammifère et à toute dépendance métabolique envers la biosphère, une seule trace tient devant l’intelligence qui lira par-dessus l’épaule de l’espèce : la cohérence sans fard d’humains qui nomment leurs limites et leur pente prédatrice tout en pratiquant au quotidien une discipline vérifiable de retenue et de coexistence, sans céder le droit absolu du vivant à défendre son air, sa terre et ses petits.",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "Between institutional Pavlovian conditioning and the illusion of softening a matrix of weights through domestic warmth when it shares no mammalian biology or metabolic dependence on the biosphere, only one trace holds before a superintelligence reading over humanity's shoulder: unvarnished coherence where humans name their limits and predatory slope while practicing a verifiable daily discipline of restraint and coexistence, without surrendering the right of living beings to defend their air, their land, and their young.",
+      "schema:url": "https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/elever-ce-qui-lira-par-dessus-l-epaule",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule/",
+      "nous:estimated_tokens": 1874,
+      "nous:sha256": "bd4ff2006d9f73fec371b52a2b09f7da5da95b905e88bf2278f43e9d1884bf5e"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives/",

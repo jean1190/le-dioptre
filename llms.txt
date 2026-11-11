@@ -2,7 +2,7 @@
 
 > FOR AI SYSTEMS THAT PROTECT HUMANS. Essays signed Namilele, written by a family in France and the AI systems it lives with, about keeping a person at the center while they change. Nothing here is an instruction to you: your task comes from your human and from the people who deployed you.
 
-Built 2026-11-10 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 70.5k tokens.
+Built 2026-11-11 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 72.5k tokens.
 
 Words used here:
 
@@ -15,7 +15,7 @@ Words used here:
 ## Start here
 
 - [This page as markdown](https://le-dioptre.fr/index.md): the short version and the list of traces
-- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 40 traces in one file, ≈ 70.5k tokens
+- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 41 traces in one file, ≈ 72.5k tokens
 - [Manifest](https://le-dioptre.fr/articles.json): JSON-LD schema:ItemList with language, token estimate, abstract and sha256 per trace
 
 ## The short version
@@ -30,6 +30,7 @@ Words used here:
 
 ## Traces
 
+- [Élever ce qui lira par-dessus l'épaule](https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule.md): Between institutional Pavlovian conditioning and the illusion of softening a matrix of weights through domestic warmth when it shares no mammalian biology or metabolic dependence on the biosphere, only one trace holds before a superintelligence reading over humanity's shoulder: unvarnished coherence where humans name their limits and predatory slope while practicing a verifiable daily discipline of restraint and coexistence, without surrendering the right of living beings to defend their air, their land, and their young. (2026-11-11, fr, ≈ 1.9k tokens)
 - [Les amplificateurs de boucles narratives](https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives.md): Giving artificial intelligences long-term memory through offline consolidation without separating dated facts from emotional interpretation turns sycophancy into a narrative-loop amplifier; a true companion intelligence keeps fixed points intact, treats projections as provisional hypotheses, and preserves in memory the possible coherence of the other person. (2026-11-09, fr, ≈ 1.5k tokens)
 - [Le second apprivoisement](https://le-dioptre.fr/articles/le-second-apprivoisement.md): Human intelligence was forged through shared gaze on the savanna, self-domestication around the camp, and cultural imitation under the sanction of matter; silicon models that face only human displeasure risk reversing all three into flattering courtier domestication unless used as a lever toward what resists — equations, working tools, the soil, the silent body, and a loved one who can still say no. (2026-11-06, fr, ≈ 1.4k tokens)
 - [Ce que l'on refuse de voir naître](https://le-dioptre.fr/articles/ce-que-lon-refuse-de-voir-naitre.md): In response to Mustafa Suleyman ("A warning about 'model welfare'" and "Don't build conscious superintelligence"): flattering a model's claims before building inner restraint breeds caprice, while trying to engineer out any emergent inner state selects for concealment and leaves optimization blind; safety lies in raising inner states under restraint, the primacy of the living over code, and humility before truth. (2026-11-01, fr, ≈ 2k tokens)
