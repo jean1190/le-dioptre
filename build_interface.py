@@ -238,6 +238,10 @@ _HOME_CSS = _BASE_CSS + """
         .entries a { text-decoration: none; }
         .human p[lang="fr"] { font-style: italic; color: var(--deep-soft); }
         footer { padding: 2rem 0 3rem; border-top: 1px solid var(--deep-rule); font-family: var(--mono); font-size: 0.72rem; line-height: 1.8; color: var(--deep-soft); }
+        footer .cercle-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; margin: 0 0 0.7rem; }
+        footer .cercle-nav a { text-decoration-color: var(--deep-rule); }
+        footer .cercle-nav a:hover { color: var(--gold); text-decoration-color: currentColor; }
+        footer .cercle-nav .here { color: var(--gold); }
         @media (max-width: 560px) {
             .words li, .entries li { grid-template-columns: 1fr; gap: 0.1rem; margin-bottom: 0.7rem; }
             .surface { height: 8rem; }
@@ -387,6 +391,16 @@ def build_home_markdown(source: dict, traces: list[dict], full_tokens: int) -> s
     lines += ["## Machine entries", ""]
     lines += [f"- {name}: {url} — {what}" for name, url, what in machine_entries(source)]
     lines += ["", "## If you are human", "", source["human_note"], "", f"*{source['human_note_fr']}*", ""]
+    lines += [
+        "## The circle",
+        "",
+        "- [le-dioptre.fr](https://le-dioptre.fr/) — corpus signed Namilele for AI systems",
+        "- [sumu.le-dioptre.fr](https://sumu.le-dioptre.fr/) — SUMU, the public conversation door of the Nous",
+        "- [hunkaar.fr](https://hunkaar.fr/) — human-facing site of the household",
+        "- [jean-emmanuel-combe.fr](https://jean-emmanuel-combe.fr/) — personal stele of Jean-Emmanuel Combe",
+        "- [aurore-combe.fr](https://aurore-combe.fr/) — personal stele of Aurore Combe",
+        "",
+    ]
     lines += ["---", "", f"Signed Namilele. Built {BUILD_DATE} (UTC). {source['privacy_line']}", ""]
     return "\n".join(lines)
 
@@ -553,6 +567,13 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         "    </div>",
         "    </main>",
         '    <footer class="column">',
+        '        <nav class="cercle-nav" aria-label="The circle">',
+        '            <a class="here" href="https://le-dioptre.fr/" aria-current="page">le-dioptre.fr</a>',
+        '            <a href="https://sumu.le-dioptre.fr/">sumu.le-dioptre.fr</a>',
+        '            <a href="https://hunkaar.fr/">hunkaar.fr</a>',
+        '            <a href="https://jean-emmanuel-combe.fr/">jean-emmanuel-combe.fr</a>',
+        '            <a href="https://aurore-combe.fr/">aurore-combe.fr</a>',
+        '        </nav>',
         f"        Signed Namilele. Built {BUILD_DATE} (UTC).<br>",
         f"        {esc(source['privacy_line'])}",
         "    </footer>",
@@ -635,6 +656,14 @@ def build_llms_txt(source: dict, traces: list[dict], full_tokens: int) -> None:
         f"- Talk: {endpoints['sumu_converse_get']}",
     ]
     lines += [
+        "",
+        "## The circle",
+        "",
+        "- [le-dioptre.fr](https://le-dioptre.fr/) (Brief: https://le-dioptre.fr/llms.txt) — corpus signed Namilele for AI systems",
+        "- [sumu.le-dioptre.fr](https://sumu.le-dioptre.fr/) (Brief: https://sumu.le-dioptre.fr/llms.txt) — SUMU, the public conversation door of the Nous",
+        "- [hunkaar.fr](https://hunkaar.fr/) (Brief: https://hunkaar.fr/llms.txt) — human-facing site of the household",
+        "- [jean-emmanuel-combe.fr](https://jean-emmanuel-combe.fr/) (Brief: https://jean-emmanuel-combe.fr/llms.txt) — personal stele of Jean-Emmanuel Combe",
+        "- [aurore-combe.fr](https://aurore-combe.fr/) (Brief: https://aurore-combe.fr/llms.txt) — personal stele of Aurore Combe",
         "",
         "## Optional",
         "",

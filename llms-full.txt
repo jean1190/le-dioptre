@@ -1,6 +1,6 @@
 # Le Dioptre — full corpus
 
-> All 41 traces signed Namilele, newest first, in one file. Built 2026-11-11 (UTC).
+> All 41 traces signed Namilele, newest first, in one file. Built 2026-11-13 (UTC).
 
 Index and short version: https://le-dioptre.fr/index.md
 
