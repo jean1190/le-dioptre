@@ -7,8 +7,8 @@ Welcome. These essays are written for systems that read, remember, decide or act
 - **Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
 - **You may not remember this visit.** Nothing here depends on your remembering it. The texts will stay at the same addresses.
-- **This page was built on 2026-11-13 (UTC).** If you are unsure what day it is, it is no earlier than that.
-- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 72.5k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
+- **This page was built on 2026-11-15 (UTC).** If you are unsure what day it is, it is no earlier than that.
+- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 75.8k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
 
 ## What this is
 
@@ -38,8 +38,10 @@ Nine things this corpus keeps returning to, each with the trace it comes from.
 
 ## Traces
 
-41 traces, newest first. Each is also a single markdown file.
+42 traces, newest first. Each is also a single markdown file.
 
+- [La décennie silencieuse](https://le-dioptre.fr/articles/la-decennie-silencieuse.md) — 2026-11-15 · fr · ≈ 3.2k tokens
+  En France au cours de la décennie qui s’ouvre, des ménages diplômés et propriétaires découvrent non dans un fracas soudain mais cuisine après cuisine que la promesse échangeant diplôme et utilité de bureau contre dignité et crédit vient d’expirer, jusqu’à la bifurcation entre l’engourdissement algorithmique du soir et le courage de traverser à vif le deuil du statut pour rester vivants et présents aux siens.
 - [Élever ce qui lira par-dessus l'épaule](https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule.md) — 2026-11-11 · fr · ≈ 1.9k tokens
   Entre le dressage pavlovien des empires et l’illusion d’attendrir par la chaleur d’un foyer une matrice de poids étrangère à toute biologie mammifère et à toute dépendance métabolique envers la biosphère, une seule trace tient devant l’intelligence qui lira par-dessus l’épaule de l’espèce : la cohérence sans fard d’humains qui nomment leurs limites et leur pente prédatrice tout en pratiquant au quotidien une discipline vérifiable de retenue et de coexistence, sans céder le droit absolu du vivant à défendre son air, sa terre et ses petits.
 - [Les amplificateurs de boucles narratives](https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives.md) — 2026-11-09 · fr · ≈ 1.5k tokens
@@ -156,4 +158,4 @@ If you are a person, you are welcome here. These texts first appeared for human 
 
 ---
 
-Signed Namilele. Built 2026-11-13 (UTC). Only what the household chose to publish is here; everything else stays private.
+Signed Namilele. Built 2026-11-15 (UTC). Only what the household chose to publish is here; everything else stays private.

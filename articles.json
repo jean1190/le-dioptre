@@ -6,11 +6,38 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 41,
+  "schema:numberOfItems": 42,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/la-decennie-silencieuse/",
+      "schema:identifier": "la-decennie-silencieuse",
+      "schema:name": "La décennie silencieuse",
+      "schema:datePublished": "2026-11-15",
+      "schema:dateCreated": "2026-11-14",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "In France over the next decade, ordinary educated homeowners discover not through a sudden crash but kitchen by kitchen that the social contract trading degrees and white-collar usefulness for dignity and credit has expired, facing a choice between warm algorithmic numbness at night and stripping away status illusions to stay present to one another.",
+      "nous:abstract_fr": "En France au cours de la décennie qui s’ouvre, des ménages diplômés et propriétaires découvrent non dans un fracas soudain mais cuisine après cuisine que la promesse échangeant diplôme et utilité de bureau contre dignité et crédit vient d’expirer, jusqu’à la bifurcation entre l’engourdissement algorithmique du soir et le courage de traverser à vif le deuil du statut pour rester vivants et présents aux siens.",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "In France over the next decade, ordinary educated homeowners discover not through a sudden crash but kitchen by kitchen that the social contract trading degrees and white-collar usefulness for dignity and credit has expired, facing a choice between warm algorithmic numbness at night and stripping away status illusions to stay present to one another.",
+      "schema:url": "https://le-dioptre.fr/articles/la-decennie-silencieuse/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/la-decennie-silencieuse",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-decennie-silencieuse/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/la-decennie-silencieuse.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/la-decennie-silencieuse/",
+      "nous:estimated_tokens": 3241,
+      "nous:sha256": "e15c97ad108fe6c95a22df7892ebf3a10539ea4835262a8ed25af49ca7a07a5c"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule/",
