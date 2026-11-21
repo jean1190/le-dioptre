@@ -6,11 +6,38 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 42,
+  "schema:numberOfItems": 43,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/le-prix-du-flair/",
+      "schema:identifier": "le-prix-du-flair",
+      "schema:name": "Le prix du flair",
+      "schema:datePublished": "2026-11-21",
+      "schema:dateCreated": "2026-11-21",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "On an ordinary Tuesday in May 2030, AI gives households cheap access to rules and rapid diagnostics while quietly removing entry-level apprenticeships, leaving a generation of professionals unable to recognize when the screen is wrong, eroding institutional verification, and raising one unanswered question: who will still pay ten years of unprofitable training to form the human who knows how to take back the wheel?",
+      "nous:abstract_fr": "Un mardi de mai 2030 en France : l’IA rend l’accès aux règles et au tri presque gratuit mais ferme les postes débutants où s’apprenait le flair de métier, si bien qu’un jeune médecin n’ose plus contredire l’écran, que la fraude vocale rétracte la confiance sur le face-à-face, et qu’une seule question reste hors budget : qui acceptera encore de payer dix années d’apprentissage à perte pour former l’humain capable de reprendre la main quand la machine aura impeccablement tort ?",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "On an ordinary Tuesday in May 2030, AI gives households cheap access to rules and rapid diagnostics while quietly removing entry-level apprenticeships, leaving a generation of professionals unable to recognize when the screen is wrong, eroding institutional verification, and raising one unanswered question: who will still pay ten years of unprofitable training to form the human who knows how to take back the wheel?",
+      "schema:url": "https://le-dioptre.fr/articles/le-prix-du-flair/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/le-prix-du-flair",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/le-prix-du-flair/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/le-prix-du-flair.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/le-prix-du-flair/",
+      "nous:estimated_tokens": 1705,
+      "nous:sha256": "467d61426d2cad656f1c8edf1aa1c2dea21518adb3ab60d111d788e7af4f1960"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/la-decennie-silencieuse/",
