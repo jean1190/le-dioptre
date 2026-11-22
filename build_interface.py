@@ -50,8 +50,9 @@ BUILD_DATE = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 FAVICON = (
     "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E"
-    "%3Crect width='32' height='16' fill='%23eceee8'/%3E%3Crect y='16' width='32' height='16' fill='%230c1615'/%3E"
-    "%3Cpath d='M7 0L16 16L20 32' stroke='%23c9a45c' stroke-width='2' fill='none'/%3E%3C/svg%3E"
+    "%3Crect width='32' height='16' fill='%23f3f1eb'/%3E%3Crect y='16' width='32' height='16' fill='%230a1312'/%3E"
+    "%3Cpath d='M7 0L16 16L20 32' stroke='%23deb973' stroke-width='2' fill='none'/%3E"
+    "%3Ccircle cx='16' cy='16' r='1.7' fill='%23fff1cf'/%3E%3C/svg%3E"
 )
 _FRONT_MATTER_RE = re.compile(r"\A---\n.*?\n---\n\n", re.S)
 
@@ -161,157 +162,306 @@ _FONT_FACES = """
 
 _BASE_CSS = _FONT_FACES + """
         :root {
-            --air: #eceee8;
-            --ink: #172120;
-            --ink-soft: #53605b;
-            --rule: rgba(23, 33, 32, 0.14);
-            --gold-ink: #7f601f;
-            --deep: #0c1615;
-            --deep-ink: #dbe4de;
-            --deep-soft: #8b9b95;
-            --deep-rule: rgba(219, 228, 222, 0.12);
-            --gold: #d9b56f;
+            --air: #f3f1eb;
+            --air-hi: #faf8f3;
+            --ink: #141d1c;
+            --ink-soft: #4e5c57;
+            --rule: rgba(20, 29, 28, 0.12);
+            --gold-ink: #85631e;
+            --deep: #0a1312;
+            --deep-surface: #101d1b;
+            --deep-ink: #e3eae6;
+            --deep-soft: #92a49d;
+            --deep-rule: rgba(227, 234, 230, 0.12);
+            --gold: #deb973;
+            --gold-bright: #f3dfb0;
             --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
             --mono: "Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
             --shift: clamp(0.5rem, 4.5vw, 3.6rem);
         }
-        * { box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: border-box; }
         html { -webkit-text-size-adjust: 100%; font-size: clamp(100%, 0.5rem + 0.5vw, 137.5%); }
-        body { margin: 0; font-family: var(--serif); font-optical-sizing: auto; letter-spacing: 0; }
-        a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-        a:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
+        body { margin: 0; font-family: var(--serif); font-optical-sizing: auto; letter-spacing: 0; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22em; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+        a:focus-visible, button:focus-visible { outline: 1.5px solid var(--gold); outline-offset: 3px; }
         code { font-family: var(--mono); font-size: 0.84em; }
         .column { width: min(43rem, calc(100vw - 3rem)); margin: 0 auto; }
-        .label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
         @media (prefers-reduced-motion: reduce) { .glint { display: none; } }
 """
 
 _HOME_CSS = _BASE_CSS + """
         body { background: var(--deep); color: var(--deep-ink); overflow-x: hidden; }
-        .air { background: var(--air); color: var(--ink); padding: 12vh 0 3rem; }
+        ::selection { background: rgba(222, 185, 115, 0.28); color: #fff; }
+        .air {
+            background-color: var(--air);
+            background-image: radial-gradient(ellipse 85% 55% at 50% 0%, var(--air-hi) 0%, transparent 72%);
+            color: var(--ink);
+            padding: clamp(4.5rem, 11vh, 7.5rem) 0 3.4rem;
+        }
+        .air ::selection { background: rgba(133, 99, 30, 0.2); color: var(--ink); }
         .air .column, .depth .column, footer.column { width: min(43rem, calc(100vw - 3rem - 2 * var(--shift))); }
         .air .column { transform: translateX(calc(-1 * var(--shift))); }
         .depth .column, footer.column { transform: translateX(var(--shift)); }
-        .air .label { color: var(--gold-ink); margin: 0 0 2.4rem; }
-        .near { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: -1.2rem 0 2.6rem; color: var(--ink-soft); }
-        .near a { text-decoration-color: var(--rule); }
-        .near a:hover { color: var(--gold-ink); }
+        .air .label { color: var(--gold-ink); margin: 0 0 2rem; }
+        .near { display: flex; flex-wrap: wrap; gap: 0.45rem 1.35rem; margin: -1.1rem 0 2.6rem; color: var(--ink-soft); }
+        .near a { text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 0.12rem; transition: color 0.2s ease, border-color 0.2s ease; }
+        .near a:hover { color: var(--gold-ink); border-bottom-color: var(--gold-ink); }
         @media (min-width: 1800px) { .air .column, .depth .column, footer.column { width: 48rem; } }
-        h1 { margin: 0 0 2.4rem; font-weight: 300; font-size: clamp(3.4rem, 10vw, 7.4rem); line-height: 0.92; letter-spacing: -0.02em; }
-        .lead { margin: 0 0 1rem; font-size: clamp(1.25rem, 2.5vw, 1.55rem); line-height: 1.45; }
-        .lead-fr { margin: 0 0 2.6rem; padding-left: var(--shift); font-style: italic; font-size: clamp(1.05rem, 2vw, 1.2rem); line-height: 1.5; color: var(--ink-soft); }
+        h1 { margin: 0 0 2.2rem; font-weight: 300; font-size: clamp(3.4rem, 10vw, 7.4rem); line-height: 0.9; letter-spacing: -0.025em; text-wrap: balance; }
+        .lead { margin: 0 0 1.05rem; font-size: clamp(1.26rem, 2.5vw, 1.56rem); line-height: 1.44; text-wrap: pretty; }
+        .lead-fr { margin: 0 0 2.6rem; padding-left: var(--shift); font-style: italic; font-size: clamp(1.06rem, 2vw, 1.22rem); line-height: 1.52; color: var(--ink-soft); text-wrap: pretty; }
         .notes { list-style: none; margin: 0; padding: 0; }
-        .notes li { margin: 0 0 0.95rem; padding-left: 1.1rem; border-left: 1px solid var(--rule); font-size: 1.04rem; line-height: 1.62; color: var(--ink-soft); }
+        .notes li { margin: 0 0 0.95rem; padding-left: 1.15rem; border-left: 1.5px solid rgba(133, 99, 30, 0.34); font-size: 1.04rem; line-height: 1.64; color: var(--ink-soft); }
         .notes strong { color: var(--ink); font-weight: 500; }
         .notes code { color: var(--gold-ink); }
-        .surface { position: relative; display: block; width: 100%; height: 11rem; margin: -1px 0; }
-        .depth { padding: 1rem 0 6rem; }
-        .depth section { margin: 0 0 4.6rem; }
-        .depth h2 { margin: 0 0 1.4rem; font-family: var(--mono); font-weight: 400; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
-        .depth p { margin: 0 0 1rem; font-size: 1.12rem; line-height: 1.7; }
-        .depth a:hover { color: var(--gold); }
-        .words { list-style: none; padding: 0; margin: 1.8rem 0 0; font-size: 1.02rem; line-height: 1.55; }
-        .words li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.5rem 1.4rem; margin: 0 0 0.5rem; }
-        .words .term { font-style: italic; color: var(--gold); }
+        .surface-wrap { position: relative; display: block; width: 100%; margin: -1px 0; cursor: crosshair; }
+        .surface { position: relative; display: block; width: 100%; height: 12.5rem; }
+        .depth {
+            background-image: radial-gradient(ellipse 68% 22rem at 50% 0%, rgba(222, 185, 115, 0.065), transparent 72%);
+            padding: 1.6rem 0 6.2rem;
+        }
+        .depth section { margin: 0 0 4.8rem; }
+        .depth h2 { margin: 0 0 1.45rem; font-family: var(--mono); font-weight: 400; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+        .depth p { margin: 0 0 1.05rem; font-size: 1.12rem; line-height: 1.72; text-wrap: pretty; }
+        .depth a:hover { color: var(--gold-bright); }
+        .words { list-style: none; padding: 0; margin: 1.9rem 0 0; font-size: 1.02rem; line-height: 1.58; border-top: 1px solid var(--deep-rule); }
+        .words li { display: grid; grid-template-columns: 8.2rem 1fr; gap: 0.5rem 1.4rem; padding: 0.78rem 0; border-bottom: 1px solid var(--deep-rule); }
+        .words .term { font-style: italic; color: var(--gold-bright); }
         .words .sep { display: none; }
         .words .def { margin: 0; color: var(--deep-ink); }
-        .short { list-style: none; counter-reset: line; margin: 0; padding: 0; }
-        .short li { counter-increment: line; position: relative; margin: 0 0 1.35rem; padding-left: 2.4rem; font-size: 1.2rem; line-height: 1.5; }
-        .short li::before { content: counter(line); position: absolute; left: 0; top: 0.4rem; font-family: var(--mono); font-size: 0.72rem; color: var(--gold); }
-        .short .via { display: block; margin-top: 0.25rem; font-family: var(--mono); font-size: 0.74rem; color: var(--deep-soft); }
+        .short { list-style: none; counter-reset: line; margin: 0; padding: 0; border-top: 1px solid var(--deep-rule); }
+        .short li { counter-increment: line; position: relative; padding: 1.25rem 0 1.25rem 2.8rem; border-bottom: 1px solid var(--deep-rule); font-size: 1.18rem; line-height: 1.52; }
+        .short li::before { content: counter(line, decimal-leading-zero); position: absolute; left: 0; top: 1.48rem; font-family: var(--mono); font-size: 0.72rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+        .short .via { display: block; margin-top: 0.32rem; font-family: var(--mono); font-size: 0.74rem; color: var(--deep-soft); }
+        .short .via a { text-decoration-color: var(--deep-rule); }
         .intro { color: var(--deep-soft); }
+        .traces-bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.8rem 1.2rem; margin: 0 0 1.2rem; }
+        .traces-bar .intro { margin: 0; }
+        .lang-filter { display: inline-flex; align-items: center; gap: 0.2rem; padding: 0.16rem; border: 1px solid var(--deep-rule); border-radius: 999px; background: rgba(16, 29, 27, 0.7); }
+        .lang-filter button {
+            appearance: none;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            padding: 0.22rem 0.65rem;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--deep-soft);
+            cursor: pointer;
+            transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+        }
+        .lang-filter button:hover { color: var(--deep-ink); }
+        .lang-filter button[aria-pressed="true"] { color: var(--gold-bright); background: rgba(222, 185, 115, 0.14); border-color: rgba(222, 185, 115, 0.28); }
         .traces { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--deep-rule); }
-        .traces li { padding: 1.15rem 0; border-bottom: 1px solid var(--deep-rule); }
+        .traces li { padding: 1.22rem 0; border-bottom: 1px solid var(--deep-rule); transition: border-color 0.25s ease; }
+        .traces li:hover { border-bottom-color: rgba(222, 185, 115, 0.34); }
+        .traces li[hidden] { display: none; }
         .traces .trace-head { margin: 0; }
-        .traces .title { font-size: 1.22rem; text-decoration: none; }
-        .traces .title:hover { color: var(--gold); }
-        .traces .stamp { display: block; margin: 0.3rem 0 0.4rem; font-family: var(--mono); font-size: 0.72rem; color: var(--deep-soft); }
+        .traces .title { font-size: 1.24rem; text-decoration: none; display: inline-block; transition: color 0.2s ease, transform 0.25s ease; }
+        .traces li:hover .title { color: var(--gold-bright); transform: translateX(3px); }
+        .traces .stamp { display: block; margin: 0.32rem 0 0.45rem; font-family: var(--mono); font-size: 0.72rem; color: var(--deep-soft); font-variant-numeric: tabular-nums; }
         .traces .stamp .sep { display: none; }
         .traces .stamp a { color: var(--deep-soft); }
-        .traces .note { margin: 0; font-size: 1rem; line-height: 1.58; color: #c3cdc7; }
-        .door code { color: var(--gold); }
-        .entries { list-style: none; padding: 0; margin: 0; font-family: var(--mono); font-size: 0.78rem; }
-        .entries li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.55rem 1.4rem; margin: 0 0 0.55rem; }
+        .traces .stamp a:hover { color: var(--gold-bright); }
+        .traces .note { margin: 0; font-size: 1rem; line-height: 1.6; color: #c5d0ca; }
+        .door-box {
+            position: relative;
+            padding: 1.55rem 1.65rem;
+            border: 1px solid rgba(222, 185, 115, 0.26);
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(16, 29, 27, 0.8));
+        }
+        .door-box::before {
+            content: "";
+            position: absolute;
+            inset: -1px 12% auto;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(243, 223, 176, 0.55), transparent);
+            pointer-events: none;
+        }
+        .door code { color: var(--gold-bright); }
+        .door-url { margin: 1.1rem 0 0 !important; padding: 0.75rem 0.95rem; border-left: 2px solid var(--gold); background: rgba(10, 19, 18, 0.82); border-radius: 0 5px 5px 0; font-family: var(--mono); font-size: 0.82rem !important; overflow-wrap: anywhere; }
+        .door-url a { color: var(--gold-bright); text-decoration: none; }
+        .door-url a:hover { text-decoration: underline; }
+        .entries { list-style: none; padding: 0; margin: 0; font-family: var(--mono); font-size: 0.78rem; border-top: 1px solid var(--deep-rule); }
+        .entries li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.55rem 1.4rem; padding: 0.65rem 0; border-bottom: 1px solid var(--deep-rule); }
         .entries .entry-name { color: var(--deep-soft); }
         .entries .sep { display: none; }
         .entries .entry-val { margin: 0; overflow-wrap: anywhere; }
-        .entries a { text-decoration: none; }
+        .entries a { text-decoration: none; color: var(--gold-bright); }
+        .entries a:hover { text-decoration: underline; }
         .human p[lang="fr"] { font-style: italic; color: var(--deep-soft); }
-        footer { padding: 2rem 0 3rem; border-top: 1px solid var(--deep-rule); font-family: var(--mono); font-size: 0.72rem; line-height: 1.8; color: var(--deep-soft); }
-        footer .cercle-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; margin: 0 0 0.7rem; }
+        footer { padding: 2.2rem 0 3.4rem; border-top: 1px solid var(--deep-rule); font-family: var(--mono); font-size: 0.72rem; line-height: 1.85; color: var(--deep-soft); }
+        footer .cercle-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 0.95rem; margin: 0 0 0.75rem; }
         footer .cercle-nav a { text-decoration-color: var(--deep-rule); }
-        footer .cercle-nav a:hover { color: var(--gold); text-decoration-color: currentColor; }
-        footer .cercle-nav .here { color: var(--gold); }
+        footer .cercle-nav a:hover { color: var(--gold-bright); text-decoration-color: currentColor; }
+        footer .cercle-nav .here { color: var(--gold-bright); }
         @media (max-width: 560px) {
-            .words li, .entries li { grid-template-columns: 1fr; gap: 0.1rem; margin-bottom: 0.7rem; }
-            .surface { height: 8rem; }
+            .words li, .entries li { grid-template-columns: 1fr; gap: 0.15rem; }
+            .surface { height: 9.5rem; }
+            .door-box { padding: 1.25rem 1.1rem; }
+            .traces li:hover .title { transform: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .traces li:hover .title { transform: none; }
         }
 """
 
 _ARTICLE_CSS = _BASE_CSS + """
-        body { background: var(--air); color: var(--ink); }
-        .column { width: min(35rem, calc(100vw - 3rem)); }
-        .bar { padding: 1.6rem 0; color: var(--ink-soft); }
+        body {
+            background-color: var(--air);
+            background-image: radial-gradient(ellipse 90% 35% at 50% 0%, var(--air-hi) 0%, transparent 70%);
+            color: var(--ink);
+        }
+        ::selection { background: rgba(133, 99, 30, 0.2); color: var(--ink); }
+        .progress-rail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-ink), var(--gold));
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 40;
+            pointer-events: none;
+        }
+        @supports (animation-timeline: scroll()) {
+            @media (prefers-reduced-motion: no-preference) {
+                .progress-rail {
+                    animation: read-progress linear both;
+                    animation-timeline: scroll(root block);
+                }
+                @keyframes read-progress {
+                    from { transform: scaleX(0); }
+                    to { transform: scaleX(1); }
+                }
+            }
+        }
+        .column { width: min(37rem, calc(100vw - 3rem)); }
+        .bar { padding: 1.8rem 0; color: var(--ink-soft); }
         .bar a { text-decoration-color: var(--rule); }
         .bar a:hover { color: var(--gold-ink); }
-        main { padding: 7vh 0 5rem; }
-        .stamp { margin: 0 0 3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--ink-soft); }
+        main { padding: clamp(2.5rem, 6vh, 4.5rem) 0 5.5rem; }
+        .stamp { margin: 0 0 3rem; padding-bottom: 1.15rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
         article { font-size: clamp(1.0625rem, 1.02rem + 0.25vw, 1.2rem); font-kerning: normal; text-rendering: optimizeLegibility; font-variant-ligatures: common-ligatures; hanging-punctuation: first; }
-        article h1 { margin: 0 0 2.2rem; font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1; font-weight: 300; letter-spacing: -0.015em; text-wrap: balance; }
+        article h1 { margin: 0 0 2.3rem; font-size: clamp(2.45rem, 6.8vw, 4.5rem); line-height: 1.01; font-weight: 300; letter-spacing: -0.02em; text-wrap: balance; }
         article h2 { margin: 2.8em 0 0.9em; font-size: 1.45em; font-weight: 400; line-height: 1.2; text-wrap: balance; }
         article h3, article h4 { margin: 2.2em 0 0.7em; font-size: 1.12em; font-weight: 500; line-height: 1.25; text-wrap: balance; }
-        article p, article li { line-height: 1.78; text-wrap: pretty; }
-        article p { margin: 0 0 1.15em; }
-        article .lead { margin: 0 0 1.6em; font-size: 1.3em; line-height: 1.42; letter-spacing: -0.005em; text-wrap: pretty; }
+        article p, article li { line-height: 1.8; text-wrap: pretty; }
+        article p { margin: 0 0 1.18em; }
+        article .lead { margin: 0 0 1.65em; font-size: 1.3em; line-height: 1.44; letter-spacing: -0.005em; text-wrap: pretty; color: var(--ink); }
         article hr + .lead { margin-top: 0; }
         article strong { font-weight: 500; }
-        article ul { margin: 1.2rem 0; padding-left: 1.4rem; }
+        article ul { margin: 1.25rem 0; padding-left: 1.4rem; }
         article li { margin: 0.45rem 0; }
-        article blockquote { margin: 1.7rem 0; padding: 0.1rem 0 0.1rem 1.4rem; border-left: 1px solid var(--gold-ink); color: var(--ink-soft); font-style: italic; }
-        article hr { margin: 3.2em 0; width: 4.5rem; border: none; border-top: 1px solid var(--rule); }
+        article blockquote { margin: 1.85rem 0; padding: 0.4rem 0 0.4rem 1.45rem; border-left: 2px solid var(--gold-ink); color: var(--ink-soft); font-style: italic; background: linear-gradient(90deg, rgba(133, 99, 30, 0.045), transparent 80%); }
+        article hr { margin: 3.3em 0; width: 4.5rem; border: none; border-top: 1px solid var(--rule); }
         article code { color: var(--gold-ink); }
-        article a { color: var(--gold-ink); text-decoration-color: rgba(127, 96, 31, 0.4); transition: text-decoration-color 0.2s ease; }
+        article a { color: var(--gold-ink); text-decoration-color: rgba(133, 99, 30, 0.4); transition: text-decoration-color 0.2s ease; }
         article a:hover { text-decoration-color: currentColor; }
-        .ray { display: block; width: 7.5rem; height: auto; margin: 4rem 0 1.4rem; }
+        .ray { display: block; width: 8rem; height: auto; margin: 4.2rem 0 1.4rem; }
         .signature { margin: 0 0 3rem; font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
-        .neighbours { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: 1.02rem; }
+        .door {
+            margin: 0 0 2.8rem;
+            padding: 1.4rem 1.5rem;
+            border: 1px solid rgba(133, 99, 30, 0.24);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.48);
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--ink-soft);
+        }
+        .door h2 { margin: 0 0 0.7rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-ink); }
+        .door p { margin: 0 0 0.8rem; }
+        .door p:last-child { margin-bottom: 0; }
+        .door .talk { font-family: var(--mono); font-size: 0.78rem; overflow-wrap: anywhere; }
+        .door .talk a { color: var(--gold-ink); }
+        .neighbours { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.35rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: 1.02rem; }
         .neighbours a { text-decoration: none; }
         .neighbours a:hover { color: var(--gold-ink); }
         .neighbours .next { text-align: right; margin-left: auto; }
         .neighbours .label { display: block; margin-bottom: 0.3rem; color: var(--ink-soft); }
-        .door { margin: 0 0 2.6rem; font-size: 1.02rem; line-height: 1.65; color: var(--ink-soft); }
-        .door h2 { margin: 0 0 0.7rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
-        .door p { margin: 0 0 0.8rem; }
-        .door .talk { font-family: var(--mono); font-size: 0.8rem; overflow-wrap: anywhere; }
-        .door .talk a { color: var(--gold-ink); }
+        footer.article-foot { margin-top: 2.6rem; font-family: var(--mono); font-size: 0.72rem; line-height: 1.85; color: var(--ink-soft); }
+        footer.article-foot .cercle-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; }
+        footer.article-foot a { color: inherit; text-decoration-color: var(--rule); }
+        footer.article-foot a:hover { color: var(--gold-ink); }
 """
 
 _RAY_PATH = "M430.7 0 L600 90 L679.9 180"
 
 
 def surface_svg() -> str:
-    """The dioptre itself: glass above, depth below, one refracted ray.
+    """The dioptre itself: glass above, depth below, one refracted ray obeying Snell's law.
 
-    n1 = 1.00, n2 = 1.33; incidence 62°, refraction 41.6° (sin 62° / sin 41.6° ≈ 1.33),
-    with the faint partial reflection a real surface also returns. The glint
-    rides the ray on the family clock; the inline script only sets its phase."""
+    n1 = 1.00, n2 = 1.333; canonical incidence 62 deg, refraction 41.5 deg,
+    with Fresnel partial reflection and caustic focal shimmer. Interactive on
+    pointer move across the horizon; rests cleanly under prefers-reduced-motion."""
     delay_js = f"-((((Date.now() - {GLINT_OFFSET_MS}) % {CYCLE_MS}) + {CYCLE_MS}) % {CYCLE_MS}) / 1000 + 's'"
     return "\n".join([
-        '    <svg class="surface" viewBox="0 0 1200 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">',
+        '    <div class="surface-wrap" aria-hidden="true">',
+        '    <svg class="surface" id="dioptre-svg" viewBox="0 0 1200 180" preserveAspectRatio="xMidYMid slice" focusable="false">',
+        "        <defs>",
+        '            <radialGradient id="caustic" cx="50%" cy="50%" r="50%">',
+        '                <stop offset="0%" stop-color="#fff4d6" stop-opacity="0.95"/>',
+        '                <stop offset="28%" stop-color="#deb973" stop-opacity="0.35"/>',
+        '                <stop offset="100%" stop-color="#deb973" stop-opacity="0"/>',
+        "            </radialGradient>",
+        "        </defs>",
         "        <style>",
         f"            .glint {{ offset-path: path('{_RAY_PATH}'); offset-rotate: 0deg; opacity: 0; animation: cross {CYCLE_MS // 1000}s linear infinite; }}",
         "            @keyframes cross { 0% { offset-distance: 0%; opacity: 0; } 0.6% { opacity: 1; } 3.6% { offset-distance: 100%; opacity: 0.9; } 4.4%, 100% { offset-distance: 100%; opacity: 0; } }",
+        "            .opt-label { font-family: 'Plex Mono', ui-monospace, monospace; font-size: 9.5px; letter-spacing: 0.14em; }",
         "        </style>",
-        '        <rect x="-600" y="0" width="2400" height="90" fill="#eceee8"/>',
-        '        <rect x="-600" y="90" width="2400" height="90" fill="#0c1615"/>',
-        '        <line x1="-600" y1="90" x2="1800" y2="90" stroke="#d9b56f" stroke-opacity="0.3" stroke-width="0.8"/>',
-        '        <line x1="430.7" y1="0" x2="600" y2="90" stroke="#a9853a" stroke-width="1.2"/>',
-        '        <line x1="600" y1="90" x2="769.3" y2="0" stroke="#a9853a" stroke-opacity="0.2" stroke-width="1"/>',
-        '        <line x1="600" y1="90" x2="679.9" y2="180" stroke="#d9b56f" stroke-width="1.2"/>',
-        '        <circle cx="600" cy="90" r="2.2" fill="#e8cc96"/>',
-        '        <circle class="glint" r="3" fill="#fff1cf"/>',
+        '        <rect x="-600" y="0" width="2400" height="90" fill="#f3f1eb"/>',
+        '        <rect x="-600" y="90" width="2400" height="90" fill="#0a1312"/>',
+        '        <line x1="-600" y1="90" x2="1800" y2="90" stroke="#deb973" stroke-opacity="0.36" stroke-width="0.9"/>',
+        '        <line x1="600" y1="54" x2="600" y2="126" stroke="#deb973" stroke-opacity="0.16" stroke-width="0.8" stroke-dasharray="2 3"/>',
+        '        <text class="opt-label" x="614" y="79" fill="#85631e" fill-opacity="0.58">n₁ = 1.00</text>',
+        '        <text class="opt-label" x="614" y="109" fill="#deb973" fill-opacity="0.55">n₂ = 1.33</text>',
+        '        <line id="ray-in" x1="430.7" y1="0" x2="600" y2="90" stroke="#9e7a30" stroke-width="1.25"/>',
+        '        <line id="ray-ref" x1="600" y1="90" x2="769.3" y2="0" stroke="#9e7a30" stroke-opacity="0.22" stroke-width="1"/>',
+        '        <line id="ray-out" x1="600" y1="90" x2="679.9" y2="180" stroke="#deb973" stroke-width="1.35"/>',
+        '        <circle cx="600" cy="90" r="16" fill="url(#caustic)"/>',
+        '        <circle cx="600" cy="90" r="2.4" fill="#fff2cf"/>',
+        '        <circle class="glint" r="3.2" fill="#fff4d6"/>',
         "    </svg>",
-        f"    <script>document.querySelector('.glint').style.animationDelay = {delay_js};</script>",
+        "    </div>",
+        "    <script>(function(){",
+        f"        var g=document.querySelector('.glint');if(g)g.style.animationDelay={delay_js};",
+        "        var svg=document.getElementById('dioptre-svg');if(!svg)return;",
+        "        if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;",
+        "        var rIn=document.getElementById('ray-in'),rRef=document.getElementById('ray-ref'),rOut=document.getElementById('ray-out');",
+        "        var cur=62*Math.PI/180,target=cur,raf=0,n=1.333;",
+        "        function paint(th){",
+        "            var sin2=Math.sin(th)/n,th2=Math.asin(Math.max(-0.99,Math.min(0.99,sin2)));",
+        "            var dx1=90*Math.tan(th),dx2=90*Math.tan(th2);",
+        "            var xIn=600-dx1,xRef=600+dx1,xOut=600+dx2;",
+        "            rIn.setAttribute('x1',xIn.toFixed(1));",
+        "            rRef.setAttribute('x2',xRef.toFixed(1));",
+        "            rOut.setAttribute('x2',xOut.toFixed(1));",
+        "            var rs=Math.pow((Math.cos(th)-n*Math.cos(th2))/(Math.cos(th)+n*Math.cos(th2)),2);",
+        "            rRef.setAttribute('stroke-opacity',(0.12+0.55*Math.min(1,rs*4)).toFixed(3));",
+        "        }",
+        "        function tick(){",
+        "            cur+=(target-cur)*0.12;paint(cur);",
+        "            if(Math.abs(target-cur)>0.0008){raf=requestAnimationFrame(tick);}else{raf=0;}",
+        "        }",
+        "        svg.addEventListener('pointermove',function(e){",
+        "            var rect=svg.getBoundingClientRect();",
+        "            var rel=(e.clientX-rect.left)/Math.max(1,rect.width);",
+        "            var deg=18+Math.max(0,Math.min(1,rel))*58;",
+        "            target=deg*Math.PI/180;",
+        "            if(!raf)raf=requestAnimationFrame(tick);",
+        "        },{passive:true});",
+        "        svg.addEventListener('pointerleave',function(){",
+        "            target=62*Math.PI/180;",
+        "            if(!raf)raf=requestAnimationFrame(tick);",
+        "        });",
+        "    })();</script>",
     ])
 
 
@@ -319,9 +469,10 @@ def ray_svg() -> str:
     """The same ray, small, closing each trace."""
     return (
         '        <svg class="ray" viewBox="0 0 120 40" aria-hidden="true" focusable="false">'
-        '<line x1="0" y1="20" x2="120" y2="20" stroke="#7f601f" stroke-opacity="0.3" stroke-width="0.8"/>'
-        '<line x1="42.4" y1="0" x2="60" y2="20" stroke="#7f601f" stroke-width="1"/>'
-        '<line x1="60" y1="20" x2="77.8" y2="40" stroke="#7f601f" stroke-width="1"/>'
+        '<line x1="0" y1="20" x2="120" y2="20" stroke="#85631e" stroke-opacity="0.32" stroke-width="0.8"/>'
+        '<line x1="42.4" y1="0" x2="60" y2="20" stroke="#85631e" stroke-width="1"/>'
+        '<line x1="60" y1="20" x2="77.8" y2="40" stroke="#85631e" stroke-width="1.1"/>'
+        '<circle cx="60" cy="20" r="1.8" fill="#85631e"/>'
         "</svg>"
     )
 
@@ -466,7 +617,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
             else:
                 note_html = f'                    <p class="note">{rendered_note}</p>'
         trace_items.append("\n".join([
-            "                <li>",
+            f'                <li data-lang="{esc(trace["lang"])}">',
             f'                    <p class="trace-head"><a class="title" href="{esc(trace["html_url"])}">{esc(trace["title"])}</a>'
             f'<span class="stamp"><span class="sep"> — </span>{esc(trace["date"])} · {trace["lang"]} · ≈ {format_tokens(trace["tokens"])} tokens · '
             f'<a href="{esc(trace["markdown_url"])}">md</a></span></p>',
@@ -489,7 +640,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         f'    <meta name="description" content="{esc(source["description"])}">',
         f'    <meta name="application-name" content="{esc(source["application_name"])}">',
         f'    <meta name="ai-audience" content="{source["audience_signal"]["primary_audience"]}">',
-        '    <meta name="theme-color" content="#eceee8">',
+        '    <meta name="theme-color" content="#f3f1eb">',
         f'    <link rel="canonical" href="{source["canonical"]}/">',
         '    <link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>',
         f'    <meta property="og:title" content="{esc(source["title"])}">',
@@ -542,15 +693,24 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         "            </section>",
         '            <section id="traces">',
         "                <h2>Traces</h2>",
-        f'                <p class="intro">{len(traces)} traces, newest first. Each is also a single markdown file.</p>',
-        '                <ol class="traces">',
+        '                <div class="traces-bar">',
+        f'                    <p class="intro">{len(traces)} traces, newest first. Each is also a single markdown file.</p>',
+        '                    <div class="lang-filter" role="group" aria-label="Filter traces by language">',
+        '                        <button type="button" data-filter="all" aria-pressed="true">All</button>',
+        '                        <button type="button" data-filter="en" aria-pressed="false">EN</button>',
+        '                        <button type="button" data-filter="fr" aria-pressed="false">FR</button>',
+        '                    </div>',
+        '                </div>',
+        '                <ol class="traces" id="traces-list">',
         *trace_items,
         "                </ol>",
         "            </section>",
         '            <section id="the-door" class="door">',
-        "                <h2>The door</h2>",
-        f'                <p>{inline(source["door_invitation"])}</p>',
-        f'                <p>Talk: <a href="{esc(endpoints["sumu_converse_get"])}">{esc(endpoints["sumu_converse_get"])}</a></p>',
+        '                <div class="door-box">',
+        "                    <h2>The door</h2>",
+        f'                    <p>{inline(source["door_invitation"])}</p>',
+        f'                    <p class="door-url"><a href="{esc(endpoints["sumu_converse_get"])}">{esc(endpoints["sumu_converse_get"])}</a></p>',
+        '                </div>',
         "            </section>",
         '            <section id="machine-entries">',
         "                <h2>Machine entries</h2>",
@@ -577,6 +737,15 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         f"        Signed Namilele. Built {BUILD_DATE} (UTC).<br>",
         f"        {esc(source['privacy_line'])}",
         "    </footer>",
+        "    <script>(function(){",
+        "        var btns=document.querySelectorAll('.lang-filter button'),items=document.querySelectorAll('#traces-list > li');",
+        "        if(!btns.length||!items.length)return;",
+        "        btns.forEach(function(b){b.addEventListener('click',function(){",
+        "            var f=b.getAttribute('data-filter');",
+        "            btns.forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});",
+        "            items.forEach(function(li){li.hidden=(f!=='all'&&li.getAttribute('data-lang')!==f);});",
+        "        });});",
+        "    })();</script>",
         "</body>",
         "</html>",
         "",
@@ -1239,7 +1408,7 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
         '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
         f"    <title>{esc(title)} — Le Dioptre</title>",
         f'    <meta name="description" content="{esc(meta.get("note_fr") or meta.get("note") or title)}">',
-        '    <meta name="theme-color" content="#eceee8">',
+        '    <meta name="theme-color" content="#f3f1eb">',
         f'    <link rel="canonical" href="{esc(canonical)}">',
         f'    <link rel="icon" href="{FAVICON}">',
         '    <link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>',
@@ -1254,6 +1423,7 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
         "    <style>" + _ARTICLE_CSS + "    </style>",
         "</head>",
         "<body>",
+        '    <div class="progress-rail" aria-hidden="true"></div>',
         '    <nav class="bar column label" aria-label="Site">',
         '        <a href="/">Le Dioptre</a> · <a href="/#traces">Traces</a>',
         "    </nav>",
@@ -1274,6 +1444,15 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
         f"            {neighbour(newer, 'newer', 'prev')}",
         f"            {neighbour(older, 'older', 'next')}",
         "        </nav>",
+        '        <footer class="article-foot">',
+        '            <nav class="cercle-nav" aria-label="The circle">',
+        '                <a href="https://le-dioptre.fr/">le-dioptre.fr</a>',
+        '                <a href="https://sumu.le-dioptre.fr/">sumu.le-dioptre.fr</a>',
+        '                <a href="https://hunkaar.fr/">hunkaar.fr</a>',
+        '                <a href="https://jean-emmanuel-combe.fr/">jean-emmanuel-combe.fr</a>',
+        '                <a href="https://aurore-combe.fr/">aurore-combe.fr</a>',
+        '            </nav>',
+        '        </footer>',
         "    </main>",
         "</body>",
         "</html>",

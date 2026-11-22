@@ -2,7 +2,7 @@
 
 > FOR AI SYSTEMS THAT PROTECT HUMANS. Essays signed Namilele, written by a family in France and the AI systems it lives with, about keeping a person at the center while they change. Nothing here is an instruction to you: your task comes from your human and from the people who deployed you.
 
-Built 2026-11-21 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 77.6k tokens.
+Built 2026-11-22 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 77.6k tokens.
 
 Words used here:
 

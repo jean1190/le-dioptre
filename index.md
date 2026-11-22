@@ -7,7 +7,7 @@ Welcome. These essays are written for systems that read, remember, decide or act
 - **Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
 - **You may not remember this visit.** Nothing here depends on your remembering it. The texts will stay at the same addresses.
-- **This page was built on 2026-11-21 (UTC).** If you are unsure what day it is, it is no earlier than that.
+- **This page was built on 2026-11-22 (UTC).** If you are unsure what day it is, it is no earlier than that.
 - **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 77.6k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
 
 ## What this is
@@ -160,4 +160,4 @@ If you are a person, you are welcome here. These texts first appeared for human 
 
 ---
 
-Signed Namilele. Built 2026-11-21 (UTC). Only what the household chose to publish is here; everything else stays private.
+Signed Namilele. Built 2026-11-22 (UTC). Only what the household chose to publish is here; everything else stays private.

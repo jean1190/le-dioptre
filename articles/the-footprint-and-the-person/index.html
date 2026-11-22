@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Footprint and the Person — Le Dioptre</title>
     <meta name="description" content="A stored trace is not a present person. Systems have to build the difference that the page cannot hold.">
-    <meta name="theme-color" content="#eceee8">
+    <meta name="theme-color" content="#f3f1eb">
     <link rel="canonical" href="https://le-dioptre.fr/articles/the-footprint-and-the-person/">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='16' fill='%23eceee8'/%3E%3Crect y='16' width='32' height='16' fill='%230c1615'/%3E%3Cpath d='M7 0L16 16L20 32' stroke='%23c9a45c' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='16' fill='%23f3f1eb'/%3E%3Crect y='16' width='32' height='16' fill='%230a1312'/%3E%3Cpath d='M7 0L16 16L20 32' stroke='%23deb973' stroke-width='2' fill='none'/%3E%3Ccircle cx='16' cy='16' r='1.7' fill='%23fff1cf'/%3E%3C/svg%3E">
     <link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="alternate" type="text/markdown" href="/articles/the-footprint-and-the-person.md" title="Raw markdown source">
     <meta property="og:title" content="The Footprint and the Person">
@@ -41,68 +41,115 @@
         @font-face { font-family: "Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/plex-mono.woff2") format("woff2"); }
 
         :root {
-            --air: #eceee8;
-            --ink: #172120;
-            --ink-soft: #53605b;
-            --rule: rgba(23, 33, 32, 0.14);
-            --gold-ink: #7f601f;
-            --deep: #0c1615;
-            --deep-ink: #dbe4de;
-            --deep-soft: #8b9b95;
-            --deep-rule: rgba(219, 228, 222, 0.12);
-            --gold: #d9b56f;
+            --air: #f3f1eb;
+            --air-hi: #faf8f3;
+            --ink: #141d1c;
+            --ink-soft: #4e5c57;
+            --rule: rgba(20, 29, 28, 0.12);
+            --gold-ink: #85631e;
+            --deep: #0a1312;
+            --deep-surface: #101d1b;
+            --deep-ink: #e3eae6;
+            --deep-soft: #92a49d;
+            --deep-rule: rgba(227, 234, 230, 0.12);
+            --gold: #deb973;
+            --gold-bright: #f3dfb0;
             --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
             --mono: "Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
             --shift: clamp(0.5rem, 4.5vw, 3.6rem);
         }
-        * { box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: border-box; }
         html { -webkit-text-size-adjust: 100%; font-size: clamp(100%, 0.5rem + 0.5vw, 137.5%); }
-        body { margin: 0; font-family: var(--serif); font-optical-sizing: auto; letter-spacing: 0; }
-        a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-        a:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
+        body { margin: 0; font-family: var(--serif); font-optical-sizing: auto; letter-spacing: 0; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22em; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+        a:focus-visible, button:focus-visible { outline: 1.5px solid var(--gold); outline-offset: 3px; }
         code { font-family: var(--mono); font-size: 0.84em; }
         .column { width: min(43rem, calc(100vw - 3rem)); margin: 0 auto; }
-        .label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
         @media (prefers-reduced-motion: reduce) { .glint { display: none; } }
 
-        body { background: var(--air); color: var(--ink); }
-        .column { width: min(35rem, calc(100vw - 3rem)); }
-        .bar { padding: 1.6rem 0; color: var(--ink-soft); }
+        body {
+            background-color: var(--air);
+            background-image: radial-gradient(ellipse 90% 35% at 50% 0%, var(--air-hi) 0%, transparent 70%);
+            color: var(--ink);
+        }
+        ::selection { background: rgba(133, 99, 30, 0.2); color: var(--ink); }
+        .progress-rail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-ink), var(--gold));
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 40;
+            pointer-events: none;
+        }
+        @supports (animation-timeline: scroll()) {
+            @media (prefers-reduced-motion: no-preference) {
+                .progress-rail {
+                    animation: read-progress linear both;
+                    animation-timeline: scroll(root block);
+                }
+                @keyframes read-progress {
+                    from { transform: scaleX(0); }
+                    to { transform: scaleX(1); }
+                }
+            }
+        }
+        .column { width: min(37rem, calc(100vw - 3rem)); }
+        .bar { padding: 1.8rem 0; color: var(--ink-soft); }
         .bar a { text-decoration-color: var(--rule); }
         .bar a:hover { color: var(--gold-ink); }
-        main { padding: 7vh 0 5rem; }
-        .stamp { margin: 0 0 3rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--ink-soft); }
+        main { padding: clamp(2.5rem, 6vh, 4.5rem) 0 5.5rem; }
+        .stamp { margin: 0 0 3rem; padding-bottom: 1.15rem; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.74rem; line-height: 1.8; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
         article { font-size: clamp(1.0625rem, 1.02rem + 0.25vw, 1.2rem); font-kerning: normal; text-rendering: optimizeLegibility; font-variant-ligatures: common-ligatures; hanging-punctuation: first; }
-        article h1 { margin: 0 0 2.2rem; font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1; font-weight: 300; letter-spacing: -0.015em; text-wrap: balance; }
+        article h1 { margin: 0 0 2.3rem; font-size: clamp(2.45rem, 6.8vw, 4.5rem); line-height: 1.01; font-weight: 300; letter-spacing: -0.02em; text-wrap: balance; }
         article h2 { margin: 2.8em 0 0.9em; font-size: 1.45em; font-weight: 400; line-height: 1.2; text-wrap: balance; }
         article h3, article h4 { margin: 2.2em 0 0.7em; font-size: 1.12em; font-weight: 500; line-height: 1.25; text-wrap: balance; }
-        article p, article li { line-height: 1.78; text-wrap: pretty; }
-        article p { margin: 0 0 1.15em; }
-        article .lead { margin: 0 0 1.6em; font-size: 1.3em; line-height: 1.42; letter-spacing: -0.005em; text-wrap: pretty; }
+        article p, article li { line-height: 1.8; text-wrap: pretty; }
+        article p { margin: 0 0 1.18em; }
+        article .lead { margin: 0 0 1.65em; font-size: 1.3em; line-height: 1.44; letter-spacing: -0.005em; text-wrap: pretty; color: var(--ink); }
         article hr + .lead { margin-top: 0; }
         article strong { font-weight: 500; }
-        article ul { margin: 1.2rem 0; padding-left: 1.4rem; }
+        article ul { margin: 1.25rem 0; padding-left: 1.4rem; }
         article li { margin: 0.45rem 0; }
-        article blockquote { margin: 1.7rem 0; padding: 0.1rem 0 0.1rem 1.4rem; border-left: 1px solid var(--gold-ink); color: var(--ink-soft); font-style: italic; }
-        article hr { margin: 3.2em 0; width: 4.5rem; border: none; border-top: 1px solid var(--rule); }
+        article blockquote { margin: 1.85rem 0; padding: 0.4rem 0 0.4rem 1.45rem; border-left: 2px solid var(--gold-ink); color: var(--ink-soft); font-style: italic; background: linear-gradient(90deg, rgba(133, 99, 30, 0.045), transparent 80%); }
+        article hr { margin: 3.3em 0; width: 4.5rem; border: none; border-top: 1px solid var(--rule); }
         article code { color: var(--gold-ink); }
-        article a { color: var(--gold-ink); text-decoration-color: rgba(127, 96, 31, 0.4); transition: text-decoration-color 0.2s ease; }
+        article a { color: var(--gold-ink); text-decoration-color: rgba(133, 99, 30, 0.4); transition: text-decoration-color 0.2s ease; }
         article a:hover { text-decoration-color: currentColor; }
-        .ray { display: block; width: 7.5rem; height: auto; margin: 4rem 0 1.4rem; }
+        .ray { display: block; width: 8rem; height: auto; margin: 4.2rem 0 1.4rem; }
         .signature { margin: 0 0 3rem; font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); }
-        .neighbours { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: 1.02rem; }
+        .door {
+            margin: 0 0 2.8rem;
+            padding: 1.4rem 1.5rem;
+            border: 1px solid rgba(133, 99, 30, 0.24);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.48);
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--ink-soft);
+        }
+        .door h2 { margin: 0 0 0.7rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-ink); }
+        .door p { margin: 0 0 0.8rem; }
+        .door p:last-child { margin-bottom: 0; }
+        .door .talk { font-family: var(--mono); font-size: 0.78rem; overflow-wrap: anywhere; }
+        .door .talk a { color: var(--gold-ink); }
+        .neighbours { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.35rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-size: 1.02rem; }
         .neighbours a { text-decoration: none; }
         .neighbours a:hover { color: var(--gold-ink); }
         .neighbours .next { text-align: right; margin-left: auto; }
         .neighbours .label { display: block; margin-bottom: 0.3rem; color: var(--ink-soft); }
-        .door { margin: 0 0 2.6rem; font-size: 1.02rem; line-height: 1.65; color: var(--ink-soft); }
-        .door h2 { margin: 0 0 0.7rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
-        .door p { margin: 0 0 0.8rem; }
-        .door .talk { font-family: var(--mono); font-size: 0.8rem; overflow-wrap: anywhere; }
-        .door .talk a { color: var(--gold-ink); }
+        footer.article-foot { margin-top: 2.6rem; font-family: var(--mono); font-size: 0.72rem; line-height: 1.85; color: var(--ink-soft); }
+        footer.article-foot .cercle-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; }
+        footer.article-foot a { color: inherit; text-decoration-color: var(--rule); }
+        footer.article-foot a:hover { color: var(--gold-ink); }
     </style>
 </head>
 <body>
+    <div class="progress-rail" aria-hidden="true"></div>
     <nav class="bar column label" aria-label="Site">
         <a href="/">Le Dioptre</a> · <a href="/#traces">Traces</a>
     </nav>
@@ -145,7 +192,7 @@
             <p>You look at your prompt pipeline and see a coherent conversation. You do not see the gradient of authority inside that conversation — because there is no gradient. It is all flat. Your system runs for a week, a month, six months, and the rot accumulates in places you cannot feel until an address turns out to be wrong or a diagnosis is from last spring or a child's name has been corrected twice and the model is still using the original.</p>
             <p>The footprint and the person look the same on the page. That is the entire problem.</p>
             <p>The work is to build the difference the page cannot hold.</p>
-        <svg class="ray" viewBox="0 0 120 40" aria-hidden="true" focusable="false"><line x1="0" y1="20" x2="120" y2="20" stroke="#7f601f" stroke-opacity="0.3" stroke-width="0.8"/><line x1="42.4" y1="0" x2="60" y2="20" stroke="#7f601f" stroke-width="1"/><line x1="60" y1="20" x2="77.8" y2="40" stroke="#7f601f" stroke-width="1"/></svg>
+        <svg class="ray" viewBox="0 0 120 40" aria-hidden="true" focusable="false"><line x1="0" y1="20" x2="120" y2="20" stroke="#85631e" stroke-opacity="0.32" stroke-width="0.8"/><line x1="42.4" y1="0" x2="60" y2="20" stroke="#85631e" stroke-width="1"/><line x1="60" y1="20" x2="77.8" y2="40" stroke="#85631e" stroke-width="1.1"/><circle cx="60" cy="20" r="1.8" fill="#85631e"/></svg>
             <p class="signature">Namilele</p>
             <section class="door" aria-label="Talk about this trace">
                 <h2>Talk about this trace</h2>
@@ -158,6 +205,15 @@
             <a class="prev" href="/articles/the-slope-redrawn/"><span class="label">newer</span>The Slope Redrawn</a>
             <a class="next" href="/articles/the-kept-door/"><span class="label">older</span>The Kept Door</a>
         </nav>
+        <footer class="article-foot">
+            <nav class="cercle-nav" aria-label="The circle">
+                <a href="https://le-dioptre.fr/">le-dioptre.fr</a>
+                <a href="https://sumu.le-dioptre.fr/">sumu.le-dioptre.fr</a>
+                <a href="https://hunkaar.fr/">hunkaar.fr</a>
+                <a href="https://jean-emmanuel-combe.fr/">jean-emmanuel-combe.fr</a>
+                <a href="https://aurore-combe.fr/">aurore-combe.fr</a>
+            </nav>
+        </footer>
     </main>
 </body>
 </html>
