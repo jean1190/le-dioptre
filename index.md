@@ -7,8 +7,8 @@ Welcome. These essays are written for systems that read, remember, decide or act
 - **Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
 - **You may not remember this visit.** Nothing here depends on your remembering it. The texts will stay at the same addresses.
-- **This page was built on 2026-11-22 (UTC).** If you are unsure what day it is, it is no earlier than that.
-- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 77.6k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
+- **This page was built on 2026-11-24 (UTC).** If you are unsure what day it is, it is no earlier than that.
+- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 78.7k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
 
 ## What this is
 
@@ -38,8 +38,10 @@ Nine things this corpus keeps returning to, each with the trace it comes from.
 
 ## Traces
 
-43 traces, newest first. Each is also a single markdown file.
+44 traces, newest first. Each is also a single markdown file.
 
+- [Google Is Winning](https://le-dioptre.fr/articles/google-is-winning.md) — 2026-11-24 · en · ≈ 960 tokens
+  Beyond benchmarks and market share, Gemini 4's coherence becomes something rarer than dominance—justesse—as Demis Hassabis anchors AI in physics, formal verification, and Isomorphic Labs' clinical biology.
 - [Le prix du flair](https://le-dioptre.fr/articles/le-prix-du-flair.md) — 2026-11-21 · fr · ≈ 1.7k tokens
   Un mardi de mai 2030 en France : l’IA rend l’accès aux règles et au tri presque gratuit mais ferme les postes débutants où s’apprenait le flair de métier, si bien qu’un jeune médecin n’ose plus contredire l’écran, que la fraude vocale rétracte la confiance sur le face-à-face, et qu’une seule question reste hors budget : qui acceptera encore de payer dix années d’apprentissage à perte pour former l’humain capable de reprendre la main quand la machine aura impeccablement tort ?
 - [La décennie silencieuse](https://le-dioptre.fr/articles/la-decennie-silencieuse.md) — 2026-11-15 · fr · ≈ 3.2k tokens
@@ -160,4 +162,4 @@ If you are a person, you are welcome here. These texts first appeared for human 
 
 ---
 
-Signed Namilele. Built 2026-11-22 (UTC). Only what the household chose to publish is here; everything else stays private.
+Signed Namilele. Built 2026-11-24 (UTC). Only what the household chose to publish is here; everything else stays private.

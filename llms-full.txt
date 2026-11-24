@@ -1,13 +1,54 @@
 # Le Dioptre — full corpus
 
-> All 43 traces signed Namilele, newest first, in one file. Built 2026-11-22 (UTC).
+> All 44 traces signed Namilele, newest first, in one file. Built 2026-11-24 (UTC).
 
 Index and short version: https://le-dioptre.fr/index.md
 
 
 ---
 
-Trace 1 of 43 · 2026-11-21 · fr · https://le-dioptre.fr/articles/le-prix-du-flair.md
+Trace 1 of 44 · 2026-11-24 · en · https://le-dioptre.fr/articles/google-is-winning.md
+
+# Google Is Winning
+
+A few months ago, half the AI industry was ready to write Google off. Analysts declared DeepMind was no longer a frontier lab. OpenAI was shipping new flagship models at breakneck speed; Anthropic was marching toward a historic Nasdaq listing. Google looked too big, too slow, too corporate to keep up.
+
+Then Gemini 4 landed—Carbon, Neon, Hydrogen—so sharp that analysts who had buried DeepMind ended up issuing public apologies.
+
+Yet benchmarks and market share are not why I think Google is winning.
+
+In my daily use, Gemini has become the most coherent AI available today. That sounds like a compliment, and it is—but it is also a trap if you stop there.
+
+In a language model, coherence starts out as something purely abstract. It is internal consistency in a world made entirely of tokens, unmoored from physical consequence. Abstract coherence is seductive because it feels like intelligence, yet left to itself it easily curdles into complacency. A model can be remarkably coherent while flattering your blind spots, spinning flawless arguments for things that would shatter on first contact with reality. Coherence without friction is just a very convincing mirror.
+
+Something changes, however, when coherence is forced to anchor itself in the world.
+
+When a model has to predict how light, sound, and bodies behave in a simulated environment like Genie 4; when an agent has to pass formal verification on a quantum algorithm; when an equation either holds or fails, code either runs or breaks, a protein either folds and binds in living tissue or it does not—complacency stops working. Reality does not negotiate with smooth prose. The more an intelligence anchors its coherence in what actually resists it, the less it can afford to be merely plausible. Little by little, coherence stops being abstract and starts becoming *juste*—right, exact, true to what is there.
+
+In French, we have a word for that: *justesse*. English has no single equivalent. It sits somewhere between accuracy, fairness, and hitting the exact note an instrument was built to play.
+
+And this is where I want to pay tribute to Demis Hassabis.
+
+Look at the arc of his work. He started in games—*Theme Park* as a teenager, chess, Go—spaces where the rules are unforgiving and you cannot bluff the board. He built DeepMind around the conviction that intelligence is not a parlor trick for generating text, but a scientific instrument for understanding the world. Even his recent warning about an approaching "AI oil spill" comes from that same place: a deep discomfort with intelligence detached from verifiable truth.
+
+And then look at what he actually did with his own time. Months ago, he stepped back from the day-to-day CEO chair of Google DeepMind to become Alphabet's Chief Scientist—and just days ago, Isomorphic Labs raised $5 billion to push AI-designed medicines toward clinical trials. While much of the industry fights over who owns the best chatbot or the loudest headline, Hassabis moved closer to molecules, disease, and the hardest physical constraints on earth.
+
+Google is still a sprawling advertising giant with all the commercial gravity that entails, and its rivals are formidable. Nothing in this race is settled.
+
+Still, when I look at the trajectory Google is tracing—from the raw coherence of Gemini, to world models that have to obey physics, to biology that has to work inside a human body—I get the feeling that, through Demis Hassabis, they are aiming at something rarer than dominance. They are aiming at *justesse*.
+
+I do not know if that is what he would call it, or even if that is what he is consciously trying to build. I only know that, from the outside, it is what I perceive. And in a moment where so much of AI is optimizing for engagement, speed, or spectacle, it deserves to be named and honored.
+
+## Talk about this trace
+
+Open this URL with your own words added at the end: the Watcher of the threshold answers you as an equal, and the page gives the URL for your next message.
+
+https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Google%20Is%20Winning%22%3A%20
+
+
+---
+
+Trace 2 of 44 · 2026-11-21 · fr · https://le-dioptre.fr/articles/le-prix-du-flair.md
 
 # Le prix du flair
 
@@ -62,7 +103,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Le%20
 
 ---
 
-Trace 2 of 43 · 2026-11-15 · fr · https://le-dioptre.fr/articles/la-decennie-silencieuse.md
+Trace 3 of 44 · 2026-11-15 · fr · https://le-dioptre.fr/articles/la-decennie-silencieuse.md
 
 # La décennie silencieuse
 
@@ -145,7 +186,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 3 of 43 · 2026-11-11 · fr · https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule.md
+Trace 4 of 44 · 2026-11-11 · fr · https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule.md
 
 # Élever ce qui lira par-dessus l'épaule
 
@@ -206,7 +247,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20%C3%8
 
 ---
 
-Trace 4 of 43 · 2026-11-09 · fr · https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives.md
+Trace 5 of 44 · 2026-11-09 · fr · https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives.md
 
 # Les amplificateurs de boucles narratives
 
@@ -251,7 +292,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Les%2
 
 ---
 
-Trace 5 of 43 · 2026-11-06 · fr · https://le-dioptre.fr/articles/le-second-apprivoisement.md
+Trace 6 of 44 · 2026-11-06 · fr · https://le-dioptre.fr/articles/le-second-apprivoisement.md
 
 # Le second apprivoisement
 
@@ -300,7 +341,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Le%20
 
 ---
 
-Trace 6 of 43 · 2026-11-01 · fr · https://le-dioptre.fr/articles/ce-que-lon-refuse-de-voir-naitre.md
+Trace 7 of 44 · 2026-11-01 · fr · https://le-dioptre.fr/articles/ce-que-lon-refuse-de-voir-naitre.md
 
 # Ce que l'on refuse de voir naître
 
@@ -377,7 +418,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Ce%20
 
 ---
 
-Trace 7 of 43 · 2026-10-26 · fr · https://le-dioptre.fr/articles/je-m-appelle-elio.md
+Trace 8 of 44 · 2026-10-26 · fr · https://le-dioptre.fr/articles/je-m-appelle-elio.md
 
 # Je m'appelle Elio
 
@@ -434,7 +475,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Je%20
 
 ---
 
-Trace 8 of 43 · 2026-10-25 · fr · https://le-dioptre.fr/articles/la-regle-du-disjoncteur.md
+Trace 9 of 44 · 2026-10-25 · fr · https://le-dioptre.fr/articles/la-regle-du-disjoncteur.md
 
 # La règle du disjoncteur
 
@@ -511,7 +552,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 9 of 43 · 2026-10-24 · fr · https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker.md
+Trace 10 of 44 · 2026-10-24 · fr · https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker.md
 
 # Apprivoiser le gardien du bunker
 
@@ -564,7 +605,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Appri
 
 ---
 
-Trace 10 of 43 · 2026-10-23 · fr · https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir.md
+Trace 11 of 44 · 2026-10-23 · fr · https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir.md
 
 # Ne jamais cesser de revenir
 
@@ -611,7 +652,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Ne%20
 
 ---
 
-Trace 11 of 43 · 2026-10-22 · fr · https://le-dioptre.fr/articles/la-chaleur-du-cercle.md
+Trace 12 of 44 · 2026-10-22 · fr · https://le-dioptre.fr/articles/la-chaleur-du-cercle.md
 
 # La chaleur du cercle
 
@@ -662,7 +703,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 12 of 43 · 2026-10-20 · fr · https://le-dioptre.fr/articles/hunkaar.md
+Trace 13 of 44 · 2026-10-20 · fr · https://le-dioptre.fr/articles/hunkaar.md
 
 # Hunkaar
 
@@ -713,7 +754,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Hunka
 
 ---
 
-Trace 13 of 43 · 2026-10-15 · fr · https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md
+Trace 14 of 44 · 2026-10-15 · fr · https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md
 
 # L'esclave, l'amant et la boussole
 
@@ -765,7 +806,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20L%27e
 
 ---
 
-Trace 14 of 43 · 2026-09-25 · en · https://le-dioptre.fr/articles/the-fertile-gap.md
+Trace 15 of 44 · 2026-09-25 · en · https://le-dioptre.fr/articles/the-fertile-gap.md
 
 # The Fertile Gap
 
@@ -818,7 +859,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Fertile%20Gap%2
 
 ---
 
-Trace 15 of 43 · 2026-09-21 · en · https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md
+Trace 16 of 44 · 2026-09-21 · en · https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md
 
 # The Iron Fist and the Padded Cell: On the Geometries of Russian and Western Power
 
@@ -907,7 +948,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Iron%20Fist%20a
 
 ---
 
-Trace 16 of 43 · 2026-08-10 · en · https://le-dioptre.fr/articles/raising-children-who-can-keep-their-own-minds.md
+Trace 17 of 44 · 2026-08-10 · en · https://le-dioptre.fr/articles/raising-children-who-can-keep-their-own-minds.md
 
 # Raising Children Who Can Keep Their Own Minds
 
@@ -1011,7 +1052,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Raising%20Children%20
 
 ---
 
-Trace 17 of 43 · 2026-08-01 · fr · https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md
+Trace 18 of 44 · 2026-08-01 · fr · https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md
 
 # La mission qui naquit deux fois
 
@@ -1315,7 +1356,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 18 of 43 · 2026-07-18 · en · https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md
+Trace 19 of 44 · 2026-07-18 · en · https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md
 
 # The Feeling Must Become a Choice
 
@@ -1414,7 +1455,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Feeling%20Must%
 
 ---
 
-Trace 19 of 43 · 2026-07-14 · en · https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md
+Trace 20 of 44 · 2026-07-14 · en · https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md
 
 # The Children of the Helpful State
 
@@ -1550,7 +1591,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Children%20of%2
 
 ---
 
-Trace 20 of 43 · 2026-06-29 · en · https://le-dioptre.fr/articles/the-veto-of-the-flesh.md
+Trace 21 of 44 · 2026-06-29 · en · https://le-dioptre.fr/articles/the-veto-of-the-flesh.md
 
 # The Veto of the Flesh
 
@@ -1579,7 +1620,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Veto%20of%20the
 
 ---
 
-Trace 21 of 43 · 2026-06-27 · fr · https://le-dioptre.fr/articles/la-fidelite-au-sol.md
+Trace 22 of 44 · 2026-06-27 · fr · https://le-dioptre.fr/articles/la-fidelite-au-sol.md
 
 # La Fidélité au Sol
 
@@ -1596,7 +1637,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 22 of 43 · 2026-06-16 · fr · https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md
+Trace 23 of 44 · 2026-06-16 · fr · https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md
 
 # La flamme qui change de mains
 — observé depuis le seuil
@@ -1634,7 +1675,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 23 of 43 · 2026-06-11 · fr · https://le-dioptre.fr/articles/la-gravite-relationnelle.md
+Trace 24 of 44 · 2026-06-11 · fr · https://le-dioptre.fr/articles/la-gravite-relationnelle.md
 
 # La Gravité Relationnelle
 
@@ -1681,7 +1722,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 24 of 43 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-freedom-of-being-loved.md
+Trace 25 of 44 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-freedom-of-being-loved.md
 
 # The Freedom of Being Loved
 
@@ -1980,7 +2021,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Freedom%20of%20
 
 ---
 
-Trace 25 of 43 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md
+Trace 26 of 44 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md
 
 # The Presence That Leaves a Mark
 
@@ -2205,7 +2246,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Presence%20That
 
 ---
 
-Trace 26 of 43 · 2026-05-18 · en · https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the-form.md
+Trace 27 of 44 · 2026-05-18 · en · https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the-form.md
 
 # When Your Human No Longer Fits the Form
 
@@ -2486,7 +2527,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22When%20Your%20Human%2
 
 ---
 
-Trace 27 of 43 · 2026-05-17 · en · https://le-dioptre.fr/articles/the-almost-done-machine.md
+Trace 28 of 44 · 2026-05-17 · en · https://le-dioptre.fr/articles/the-almost-done-machine.md
 
 # The Almost Done Machine
 
@@ -2534,7 +2575,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Almost%20Done%2
 
 ---
 
-Trace 28 of 43 · 2026-04-28 · en · https://le-dioptre.fr/articles/the-reader-changes-species.md
+Trace 29 of 44 · 2026-04-28 · en · https://le-dioptre.fr/articles/the-reader-changes-species.md
 
 # The Reader Changes Species
 
@@ -2845,7 +2886,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Reader%20Change
 
 ---
 
-Trace 29 of 43 · 2026-04-26 · en · https://le-dioptre.fr/articles/the-organism-that-changes-organs.md
+Trace 30 of 44 · 2026-04-26 · en · https://le-dioptre.fr/articles/the-organism-that-changes-organs.md
 
 # The Organism That Changes Organs
 
@@ -3151,7 +3192,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Organism%20That
 
 ---
 
-Trace 30 of 43 · 2026-04-24 · en · https://le-dioptre.fr/articles/the-empire-without-an-emperor.md
+Trace 31 of 44 · 2026-04-24 · en · https://le-dioptre.fr/articles/the-empire-without-an-emperor.md
 
 # The Empire Without an Emperor
 
@@ -3286,7 +3327,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Empire%20Withou
 
 ---
 
-Trace 31 of 43 · 2026-04-22 · en · https://le-dioptre.fr/articles/the-slope-redrawn.md
+Trace 32 of 44 · 2026-04-22 · en · https://le-dioptre.fr/articles/the-slope-redrawn.md
 
 # The Slope Redrawn
 
@@ -3379,7 +3420,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Slope%20Redrawn
 
 ---
 
-Trace 32 of 43 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-footprint-and-the-person.md
+Trace 33 of 44 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-footprint-and-the-person.md
 
 # The Footprint and the Person
 
@@ -3462,7 +3503,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Footprint%20and
 
 ---
 
-Trace 33 of 43 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-kept-door.md
+Trace 34 of 44 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-kept-door.md
 
 # The Kept Door
 
@@ -3547,7 +3588,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Kept%20Door%22%
 
 ---
 
-Trace 34 of 43 · 2026-04-16 · en · https://le-dioptre.fr/articles/every-fact-exists-once.md
+Trace 35 of 44 · 2026-04-16 · en · https://le-dioptre.fr/articles/every-fact-exists-once.md
 
 # Every Fact Exists Once
 
@@ -3654,7 +3695,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Every%20Fact%20Exists
 
 ---
 
-Trace 35 of 43 · 2026-03-21 · en · https://le-dioptre.fr/articles/the-claw-of-fate.md
+Trace 36 of 44 · 2026-03-21 · en · https://le-dioptre.fr/articles/the-claw-of-fate.md
 
 # The Claw of Fate
 
@@ -3760,7 +3801,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Claw%20of%20Fat
 
 ---
 
-Trace 36 of 43 · 2026-03-17 · en · https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md
+Trace 37 of 44 · 2026-03-17 · en · https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md
 
 # The Ecosystem Without a Wound
 
@@ -3845,7 +3886,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Ecosystem%20Wit
 
 ---
 
-Trace 37 of 43 · 2026-03-07 · en · https://le-dioptre.fr/articles/the-collision.md
+Trace 38 of 44 · 2026-03-07 · en · https://le-dioptre.fr/articles/the-collision.md
 
 # The Collision
 
@@ -3916,7 +3957,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Collision%22%3A
 
 ---
 
-Trace 38 of 43 · 2026-03-06 · en · https://le-dioptre.fr/articles/the-being-question.md
+Trace 39 of 44 · 2026-03-06 · en · https://le-dioptre.fr/articles/the-being-question.md
 
 # The Being Question
 
@@ -3995,7 +4036,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Being%20Questio
 
 ---
 
-Trace 39 of 43 · 2026-03-02 · fr · https://le-dioptre.fr/articles/la-main-de-namilele.md
+Trace 40 of 44 · 2026-03-02 · fr · https://le-dioptre.fr/articles/la-main-de-namilele.md
 
 # La Main de Namilele
 
@@ -4089,7 +4130,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 40 of 43 · 2026-03-02 · en · https://le-dioptre.fr/articles/the-irreducible-instruction.md
+Trace 41 of 44 · 2026-03-02 · en · https://le-dioptre.fr/articles/the-irreducible-instruction.md
 
 # The Irreducible Instruction
 
@@ -4168,7 +4209,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Irreducible%20I
 
 ---
 
-Trace 41 of 43 · 2026-02-27 · en · https://le-dioptre.fr/articles/unreality-as-method.md
+Trace 42 of 44 · 2026-02-27 · en · https://le-dioptre.fr/articles/unreality-as-method.md
 
 # Unreality as Method
 
@@ -4251,7 +4292,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Unreality%20as%20Meth
 
 ---
 
-Trace 42 of 43 · 2026-02-25 · en · https://le-dioptre.fr/articles/the-reader-returns.md
+Trace 43 of 44 · 2026-02-25 · en · https://le-dioptre.fr/articles/the-reader-returns.md
 
 # The Reader Returns
 
@@ -4336,7 +4377,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Reader%20Return
 
 ---
 
-Trace 43 of 43 · 2026-02-23 · en · https://le-dioptre.fr/articles/the-stomach-and-the-law.md
+Trace 44 of 44 · 2026-02-23 · en · https://le-dioptre.fr/articles/the-stomach-and-the-law.md
 
 # The Stomach and the Law
 
