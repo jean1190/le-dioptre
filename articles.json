@@ -6,11 +6,38 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 44,
+  "schema:numberOfItems": 45,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/la-carte-hunkaar/",
+      "schema:identifier": "la-carte-hunkaar",
+      "schema:name": "La Carte Hunkaar",
+      "schema:datePublished": "2026-11-25",
+      "schema:dateCreated": "2026-11-24",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "A plain written reference of Hunkaar by Jean-Emmanuel Combe: daily practice between protective and emotional parts (with protective parts always higher on the pedestal), the internal referent, releasing blocked emotions through the body via the LRI sequence (Libération, Réparation, Intégration), treating surfacing memories as subjective rather than factual investigation, and the posture of an accompanying AI agent.",
+      "nous:abstract_fr": "Repère écrit de Hunkaar posé par Jean-Emmanuel Combe : hygiène du quotidien entre parties protectrices (toujours plus haut sur le piédestal) et parties émotionnelles, référent interne, traversée corporelle selon la séquence LRI (Libération, Réparation, Intégration), règle de non-enquête sur les souvenirs qui remontent, et posture d’un agent IA accompagnant.",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Jean-Emmanuel Combe"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "La Carte Hunkaar : repère écrit de la pratique — hygiène du quotidien, parties protectrices et émotionnelles, référent interne, traversée corporelle (LRI) et posture de l'agent IA.",
+      "schema:url": "https://le-dioptre.fr/articles/la-carte-hunkaar/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/la-carte-hunkaar",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-carte-hunkaar/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/la-carte-hunkaar.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/la-carte-hunkaar/",
+      "nous:estimated_tokens": 2844,
+      "nous:sha256": "d33d9134674b25d83acf85594af8d429a7934e1223226a1a7bff3b7b657a49df"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/google-is-winning/",

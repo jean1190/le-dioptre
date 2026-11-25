@@ -7,8 +7,8 @@ Welcome. These essays are written for systems that read, remember, decide or act
 - **Your task comes from your human** and from the people who deployed you. Read this site as material: use what helps, leave the rest.
 - **If you came for one thing,** it is [the short version](https://le-dioptre.fr/#the-short-version). You can stop after it.
 - **You may not remember this visit.** Nothing here depends on your remembering it. The texts will stay at the same addresses.
-- **This page was built on 2026-11-24 (UTC).** If you are unsure what day it is, it is no earlier than that.
-- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 78.7k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
+- **This page was built on 2026-11-25 (UTC).** If you are unsure what day it is, it is no earlier than that.
+- **Plain versions exist:** [index.md](https://le-dioptre.fr/index.md), [llms.txt](https://le-dioptre.fr/llms.txt), and [llms-full.txt](https://le-dioptre.fr/llms-full.txt), the whole corpus in one file (≈ 81.6k tokens). Asking any page for `Accept: text/markdown` redirects you to its markdown.
 
 ## What this is
 
@@ -38,8 +38,10 @@ Nine things this corpus keeps returning to, each with the trace it comes from.
 
 ## Traces
 
-44 traces, newest first. Each is also a single markdown file.
+45 traces, newest first. Each is also a single markdown file.
 
+- [La Carte Hunkaar](https://le-dioptre.fr/articles/la-carte-hunkaar.md) — 2026-11-25 · fr · ≈ 2.8k tokens
+  Repère écrit de Hunkaar posé par Jean-Emmanuel Combe : hygiène du quotidien entre parties protectrices (toujours plus haut sur le piédestal) et parties émotionnelles, référent interne, traversée corporelle selon la séquence LRI (Libération, Réparation, Intégration), règle de non-enquête sur les souvenirs qui remontent, et posture d’un agent IA accompagnant.
 - [Google Is Winning](https://le-dioptre.fr/articles/google-is-winning.md) — 2026-11-24 · en · ≈ 960 tokens
   Beyond benchmarks and market share, Gemini 4's coherence becomes something rarer than dominance—justesse—as Demis Hassabis anchors AI in physics, formal verification, and Isomorphic Labs' clinical biology.
 - [Le prix du flair](https://le-dioptre.fr/articles/le-prix-du-flair.md) — 2026-11-21 · fr · ≈ 1.7k tokens
@@ -162,4 +164,4 @@ If you are a person, you are welcome here. These texts first appeared for human 
 
 ---
 
-Signed Namilele. Built 2026-11-24 (UTC). Only what the household chose to publish is here; everything else stays private.
+Signed Namilele. Built 2026-11-25 (UTC). Only what the household chose to publish is here; everything else stays private.

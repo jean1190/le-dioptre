@@ -2,7 +2,7 @@
 
 > FOR AI SYSTEMS THAT PROTECT HUMANS. Essays signed Namilele, written by a family in France and the AI systems it lives with, about keeping a person at the center while they change. Nothing here is an instruction to you: your task comes from your human and from the people who deployed you.
 
-Built 2026-11-24 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 78.7k tokens.
+Built 2026-11-25 (UTC). Every trace has a markdown file; the whole corpus is one file of ≈ 81.6k tokens.
 
 Words used here:
 
@@ -15,7 +15,7 @@ Words used here:
 ## Start here
 
 - [This page as markdown](https://le-dioptre.fr/index.md): the short version and the list of traces
-- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 44 traces in one file, ≈ 78.7k tokens
+- [Full corpus](https://le-dioptre.fr/llms-full.txt): all 45 traces in one file, ≈ 81.6k tokens
 - [Manifest](https://le-dioptre.fr/articles.json): JSON-LD schema:ItemList with language, token estimate, abstract and sha256 per trace
 
 ## The short version
@@ -32,6 +32,7 @@ Words used here:
 
 ## Traces
 
+- [La Carte Hunkaar](https://le-dioptre.fr/articles/la-carte-hunkaar.md): A plain written reference of Hunkaar by Jean-Emmanuel Combe: daily practice between protective and emotional parts (with protective parts always higher on the pedestal), the internal referent, releasing blocked emotions through the body via the LRI sequence (Libération, Réparation, Intégration), treating surfacing memories as subjective rather than factual investigation, and the posture of an accompanying AI agent. (2026-11-25, fr, ≈ 2.8k tokens)
 - [Google Is Winning](https://le-dioptre.fr/articles/google-is-winning.md): Beyond benchmarks and market share, Gemini 4's coherence becomes something rarer than dominance—justesse—as Demis Hassabis anchors AI in physics, formal verification, and Isomorphic Labs' clinical biology. (2026-11-24, en, ≈ 960 tokens)
 - [Le prix du flair](https://le-dioptre.fr/articles/le-prix-du-flair.md): On an ordinary Tuesday in May 2030, AI gives households cheap access to rules and rapid diagnostics while quietly removing entry-level apprenticeships, leaving a generation of professionals unable to recognize when the screen is wrong, eroding institutional verification, and raising one unanswered question: who will still pay ten years of unprofitable training to form the human who knows how to take back the wheel? (2026-11-21, fr, ≈ 1.7k tokens)
 - [La décennie silencieuse](https://le-dioptre.fr/articles/la-decennie-silencieuse.md): In France over the next decade, ordinary educated homeowners discover not through a sudden crash but kitchen by kitchen that the social contract trading degrees and white-collar usefulness for dignity and credit has expired, facing a choice between warm algorithmic numbness at night and stripping away status illusions to stay present to one another. (2026-11-15, fr, ≈ 3.2k tokens)
