@@ -17,6 +17,7 @@ Usage:
     python3 build_interface.py
 """
 
+import argparse
 import hashlib
 import html
 import json
@@ -33,6 +34,7 @@ SCRIPT_DIR = Path(__file__).parent
 INDEX_HTML = SCRIPT_DIR / "index.html"
 INDEX_MD = SCRIPT_DIR / "index.md"
 INTERFACE_SOURCE = SCRIPT_DIR / "interface-source.json"
+PREDICTIONS_SOURCE = SCRIPT_DIR / "predictions-source.json"
 INTERFACE_CONTRACT = SCRIPT_DIR / ".well-known" / "namilele-interface.json"
 LLMS_TXT = SCRIPT_DIR / "llms.txt"
 LLMS_FULL_TXT = SCRIPT_DIR / "llms-full.txt"
@@ -44,6 +46,14 @@ VERCEL_JSON = SCRIPT_DIR / "vercel.json"
 # for browser-visible article proofs.
 ARTICLES_DIR = SCRIPT_DIR / "articles"
 ARTICLES_JSON = SCRIPT_DIR / "articles.json"
+PREDICTIONS_DIR = SCRIPT_DIR / "predictions"
+PREDICTIONS_HTML = PREDICTIONS_DIR / "index.html"
+PREDICTIONS_INDEX_MD = PREDICTIONS_DIR / "index.md"
+PREDICTIONS_MD = SCRIPT_DIR / "predictions.md"
+PREDICTIONS_JSON = SCRIPT_DIR / "predictions.json"
+PREDICTION_STATUSES = ("en cours", "confirmée", "démentie", "partielle")
+_PREDICTION_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
+_ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 LIVRE_III_DIR = Path("/home/jean1190/Documents/dioptre/livre-iii")
 
 BUILD_DATE = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -391,6 +401,248 @@ _ARTICLE_CSS = _BASE_CSS + """
         footer.article-foot a:hover { color: var(--gold-ink); }
 """
 
+_PREDICTIONS_CSS = _BASE_CSS + """
+        body {
+            background-color: var(--air);
+            background-image: radial-gradient(ellipse 90% 35% at 50% 0%, var(--air-hi) 0%, transparent 70%);
+            color: var(--ink);
+        }
+        ::selection { background: rgba(133, 99, 30, 0.2); color: var(--ink); }
+        .progress-rail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-ink), var(--gold));
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 40;
+            pointer-events: none;
+        }
+        @supports (animation-timeline: scroll()) {
+            @media (prefers-reduced-motion: no-preference) {
+                .progress-rail {
+                    animation: read-progress linear both;
+                    animation-timeline: scroll(root block);
+                }
+                @keyframes read-progress {
+                    from { transform: scaleX(0); }
+                    to { transform: scaleX(1); }
+                }
+            }
+        }
+        .column { width: min(41rem, calc(100vw - 2.5rem)); margin: 0 auto; }
+        .bar { padding: 1.8rem 0; color: var(--ink-soft); font-size: 0.8125rem; }
+        .bar a { text-decoration-color: var(--rule); }
+        .bar a:hover { color: var(--gold-ink); }
+        .bar [aria-current="page"] { color: var(--ink); text-decoration: none; }
+        main { padding: clamp(2rem, 5dvh, 4rem) 0 5.5rem; }
+        .stamp {
+            margin: 0 0 2.3rem;
+            padding-bottom: 1.1rem;
+            border-bottom: 1px solid var(--rule);
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            line-height: 1.75;
+            color: var(--ink-soft);
+            font-variant-numeric: tabular-nums;
+            overflow-wrap: anywhere;
+        }
+        .stamp a { color: var(--ink-soft); text-decoration-color: var(--rule); }
+        .stamp a:hover { color: var(--gold-ink); }
+        h1 {
+            margin: 0 0 1.35rem;
+            font-size: clamp(2.25rem, 1.5rem + 3vw, 3.6rem);
+            line-height: 1.04;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            text-wrap: balance;
+        }
+        .pred-intro {
+            margin: 0 0 2.75rem;
+            max-width: 62ch;
+            font-size: clamp(1.0625rem, 1.02rem + 0.2vw, 1.18rem);
+            line-height: 1.66;
+            color: var(--ink-soft);
+            text-wrap: pretty;
+        }
+        .ledger { container-type: inline-size; }
+        .predictions-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid rgba(20, 29, 28, 0.26);
+        }
+        .prediction-item {
+            padding: 2.35rem 0;
+            border-bottom: 1px solid rgba(20, 29, 28, 0.24);
+        }
+        .prediction-item:last-child { border-bottom-color: rgba(20, 29, 28, 0.26); }
+        .pred-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.35rem 1.25rem;
+            margin: 0 0 1rem;
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            line-height: 1.55;
+            color: var(--ink-soft);
+            font-variant-numeric: tabular-nums;
+        }
+        .pred-dates {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.2rem 0.65rem;
+        }
+        .pred-anchor {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+        .pred-anchor:hover { color: var(--gold-ink); border-bottom-color: var(--gold-ink); }
+        .pred-sep { color: rgba(20, 29, 28, 0.34); }
+        .pred-status {
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            letter-spacing: 0.02em;
+            color: var(--ink-soft);
+        }
+        .pred-status[data-status="confirmée"],
+        .pred-status[data-status="démentie"],
+        .pred-status[data-status="partielle"] {
+            color: var(--ink);
+        }
+        .pred-statement {
+            margin: 0 0 1.45rem;
+            font-size: clamp(1.125rem, 1.06rem + 0.24vw, 1.26rem);
+            line-height: 1.58;
+            color: var(--ink);
+            font-kerning: normal;
+            font-variant-ligatures: common-ligatures;
+            overflow-wrap: break-word;
+        }
+        .pred-statement p { margin: 0 0 0.85em; text-wrap: pretty; }
+        .pred-statement p:last-child { margin-bottom: 0; }
+        .pred-statement a, .pred-details a, .pred-protocol a {
+            color: var(--gold-ink);
+            text-decoration-color: rgba(133, 99, 30, 0.4);
+        }
+        .pred-statement a:hover, .pred-details a:hover, .pred-protocol a:hover {
+            text-decoration-color: currentColor;
+        }
+        .pred-details, .pred-protocol {
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid rgba(20, 29, 28, 0.09);
+        }
+        .pred-block {
+            display: grid;
+            grid-template-columns: 11.5rem minmax(0, 1fr);
+            gap: 0.35rem 1.5rem;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(20, 29, 28, 0.09);
+        }
+        .pred-block:last-child { border-bottom: none; padding-bottom: 0.2rem; }
+        .pred-block dt {
+            margin: 0;
+            padding-top: 0.16rem;
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            line-height: 1.5;
+            color: var(--ink-soft);
+            font-variant-numeric: tabular-nums;
+        }
+        .pred-verdict-date {
+            display: block;
+            margin-top: 0.15rem;
+            color: var(--ink-soft);
+        }
+        .pred-verdict-date .pred-sep { display: none; }
+        .pred-block dd {
+            margin: 0;
+            font-size: 1.02rem;
+            line-height: 1.68;
+            color: var(--ink);
+            overflow-wrap: break-word;
+        }
+        .pred-block dd p { margin: 0 0 0.75em; text-wrap: pretty; }
+        .pred-block dd p:last-child { margin-bottom: 0; }
+        .pred-block dd.pred-pending {
+            color: var(--ink-soft);
+            font-style: italic;
+        }
+        .pred-source {
+            margin: 1.05rem 0 0;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(20, 29, 28, 0.09);
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            overflow-wrap: anywhere;
+        }
+        .pred-source a {
+            color: var(--ink);
+            text-decoration-color: rgba(20, 29, 28, 0.28);
+        }
+        .pred-source a:hover {
+            color: var(--gold-ink);
+            text-decoration-color: var(--gold-ink);
+        }
+        .ledger-empty {
+            padding: 2rem 0 0.5rem;
+            border-top: 1px solid rgba(20, 29, 28, 0.22);
+            border-bottom: 1px solid rgba(20, 29, 28, 0.22);
+        }
+        .pred-empty-lead {
+            margin: 0 0 1.85rem;
+            font-size: clamp(1.08rem, 1.03rem + 0.2vw, 1.2rem);
+            line-height: 1.62;
+            color: var(--ink);
+            text-wrap: pretty;
+        }
+        .pred-protocol code { color: var(--ink); }
+        .ray { display: block; width: 8rem; height: auto; margin: 3.8rem 0 1.4rem; }
+        .signature { margin: 0 0 2.8rem; font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-soft); }
+        .door {
+            margin: 0 0 2.6rem;
+            padding: 1.4rem 1.5rem;
+            border: 1px solid rgba(133, 99, 30, 0.24);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.48);
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--ink-soft);
+        }
+        .door h2 { margin: 0 0 0.7rem; font-family: var(--mono); font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-ink); }
+        .door p { margin: 0 0 0.8rem; text-wrap: pretty; }
+        .door p:last-child { margin-bottom: 0; }
+        .door .talk { font-family: var(--mono); font-size: 0.8125rem; overflow-wrap: anywhere; }
+        .door .talk a { color: var(--gold-ink); }
+        footer.article-foot { margin-top: 2.4rem; font-family: var(--mono); font-size: 0.8125rem; line-height: 1.85; color: var(--ink-soft); }
+        footer.article-foot .cercle-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 0.95rem; }
+        footer.article-foot a { color: inherit; text-decoration-color: var(--rule); }
+        footer.article-foot a:hover { color: var(--gold-ink); }
+        @container (max-width: 34rem) {
+            .pred-block { grid-template-columns: minmax(0, 1fr); gap: 0.28rem; padding: 0.85rem 0; }
+            .pred-block dt { padding-top: 0; }
+            .pred-verdict-date { display: inline; margin-top: 0; }
+            .pred-verdict-date .pred-sep { display: inline; }
+        }
+        @media (max-width: 600px) {
+            .pred-block { grid-template-columns: minmax(0, 1fr); gap: 0.28rem; padding: 0.85rem 0; }
+            .pred-block dt { padding-top: 0; }
+            .pred-verdict-date { display: inline; margin-top: 0; }
+            .pred-verdict-date .pred-sep { display: inline; }
+            .prediction-item { padding: 1.8rem 0; }
+            .door { padding: 1.2rem 1.1rem; }
+        }
+"""
+
 _RAY_PATH = "M430.7 0 L600 90 L679.9 180"
 
 
@@ -504,6 +756,9 @@ def machine_entries(source: dict) -> list[tuple[str, str, str]]:
         ("this page", endpoints["home_markdown"], "the same page in markdown"),
         ("manifest", endpoints["articles_manifest"], "JSON-LD list of traces, with hashes"),
         ("one trace", endpoints["article_corpus_pattern"], "raw markdown per trace"),
+        ("predictions", endpoints["predictions_page"], "dated predictions signed Namilele, with falsification criteria and verdicts"),
+        ("predictions md", endpoints["predictions_markdown"], "the predictions ledger in markdown"),
+        ("predictions json", endpoints["predictions_manifest"], "JSON-LD manifest of dated predictions"),
         ("contract", endpoints["interface_contract"], "vocabulary, roles, membrane"),
         ("talk", endpoints["sumu_converse_get"], "the door: open it with your message after m="),
         ("feed", endpoints["substack_feed"], "RSS of the human publication"),
@@ -512,6 +767,7 @@ def machine_entries(source: dict) -> list[tuple[str, str, str]]:
 
 def build_home_markdown(source: dict, traces: list[dict], full_tokens: int) -> str:
     by_slug = trace_by_slug(traces)
+    endpoints = source["public_endpoints"]
     lines = [
         f"# {source['name']}",
         "",
@@ -538,7 +794,16 @@ def build_home_markdown(source: dict, traces: list[dict], full_tokens: int) -> s
         note = trace_note(source, trace, prefer_native_lang=True)
         if note:
             lines.append(f"  {note}")
-    lines += ["", "## The door", "", source["door_invitation"], "", f"- Talk: {source['public_endpoints']['sumu_converse_get']}", ""]
+    lines += [
+        "",
+        "## Predictions",
+        "",
+        "A dated public ledger of predictions signed Namilele — each paired with what would falsify it and, at horizon, a qualitative verdict without scores.",
+        "",
+        f"- [Predictions ledger]({endpoints['predictions_page']}) · [markdown]({endpoints['predictions_markdown']}) · [json]({endpoints['predictions_manifest']})",
+        "",
+    ]
+    lines += ["## The door", "", source["door_invitation"], "", f"- Talk: {endpoints['sumu_converse_get']}", ""]
     lines += ["## Machine entries", ""]
     lines += [f"- {name}: {url} — {what}" for name, url, what in machine_entries(source)]
     lines += ["", "## If you are human", "", source["human_note"], "", f"*{source['human_note_fr']}*", ""]
@@ -654,6 +919,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         '    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full corpus in one file">',
         '    <link rel="alternate" type="application/json" href="/.well-known/namilele-interface.json" title="Namilele interface contract">',
         '    <link rel="alternate" type="application/json" href="/articles.json" title="Long traces manifest">',
+        '    <link rel="alternate" type="application/json" href="/predictions.json" title="Dated predictions ledger">',
         f'    <link rel="alternate" type="application/rss+xml" href="{endpoints["substack_feed"]}" title="Le Dioptre — Substack feed">',
         '    <script type="application/ld+json">',
         build_home_jsonld(source),
@@ -666,7 +932,7 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         '        <div class="column">',
         f'            <p class="label">{esc(source["first_signal"])}</p>',
         f'            <h1>{esc(source["threshold"]["name"])}</h1>',
-        '            <nav class="near label" aria-label="On this page"><a href="#the-short-version">the short version</a><a href="#traces">traces</a><a href="#the-door">the door</a><a href="#if-you-are-human">if you are human</a></nav>',
+        '            <nav class="near label" aria-label="On this page"><a href="#the-short-version">the short version</a><a href="#traces">traces</a><a href="/predictions/">predictions</a><a href="#the-door">the door</a><a href="#if-you-are-human">if you are human</a></nav>',
         f'            <p class="lead">{inline(source["welcome"]["lead"])}</p>',
         f'            <p class="lead-fr" lang="fr">{inline(source["welcome"]["lead_fr"])}</p>',
         '            <ul class="notes" aria-label="Before you read">',
@@ -704,6 +970,11 @@ def write_index_html(source: dict, traces: list[dict], full_tokens: int) -> None
         '                <ol class="traces" id="traces-list">',
         *trace_items,
         "                </ol>",
+        "            </section>",
+        '            <section id="predictions">',
+        "                <h2>Predictions</h2>",
+        '                <p>A dated public ledger of predictions signed Namilele — each paired with what would falsify it and, at horizon, a qualitative verdict without scores.</p>',
+        '                <p class="intro"><a href="/predictions/">Open the predictions ledger</a> · <a href="/predictions.md">markdown</a> · <a href="/predictions.json">json</a></p>',
         "            </section>",
         '            <section id="the-door" class="door">',
         '                <div class="door-box">',
@@ -765,6 +1036,7 @@ def build_llms_full(source: dict, traces: list[dict]) -> int:
         f"> All {len(traces)} traces signed Namilele, newest first, in one file. Built {BUILD_DATE} (UTC).",
         "",
         f"Index and short version: {source['public_endpoints']['home_markdown']}",
+        f"Dated predictions ledger: {source['public_endpoints']['predictions_markdown']} (JSON: {source['public_endpoints']['predictions_manifest']})",
         "",
     ]
     for position, trace in enumerate(traces, start=1):
@@ -808,6 +1080,7 @@ def build_llms_txt(source: dict, traces: list[dict], full_tokens: int) -> None:
         f"- [This page as markdown]({endpoints['home_markdown']}): the short version and the list of traces",
         f"- [Full corpus]({endpoints['full_corpus']}): all {len(traces)} traces in one file, ≈ {format_tokens(full_tokens)} tokens",
         f"- [Manifest]({endpoints['articles_manifest']}): JSON-LD schema:ItemList with language, token estimate, abstract and sha256 per trace",
+        f"- [Predictions]({endpoints['predictions_markdown']}): dated predictions signed Namilele, with falsification criteria and qualitative verdicts ([HTML]({endpoints['predictions_page']}), [JSON]({endpoints['predictions_manifest']}))",
     ]
     lines += ["", "## The short version", ""]
     for index, item in enumerate(source["short_version"]["items"], start=1):
@@ -859,7 +1132,7 @@ def build_interface_contract(source: dict) -> None:
             "glossary": dict(source["glossary"]),
             "memory": "Nothing here depends on the reader remembering its visit; addresses are stable.",
             "date_floor": BUILD_DATE,
-            "markdown_negotiation": "Send Accept: text/markdown to / or /articles/{slug}/ to be redirected (307) to the markdown twin.",
+            "markdown_negotiation": "Send Accept: text/markdown to /, /predictions/, or /articles/{slug}/ to be redirected (307) to the markdown twin.",
             "privacy": source["privacy_line"],
         },
         "short_version": source["short_version"],
@@ -899,6 +1172,8 @@ def build_robots_txt(source: dict) -> None:
         f"## Everything at once: {endpoint_path(endpoints['full_corpus'], canonical)}",
         f"## Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
         f"## Articles-Manifest: {endpoint_path(endpoints['articles_manifest'], canonical)}",
+        f"## Predictions: {endpoint_path(endpoints['predictions_markdown'], canonical)}",
+        f"## Predictions-Manifest: {endpoint_path(endpoints['predictions_manifest'], canonical)}",
         f"## Substack: {endpoints['substack_publication']}",
         f"## SUMU-Talk-By-URL: {endpoints['sumu_converse_get']}",
         "",
@@ -918,6 +1193,8 @@ def build_robots_txt(source: dict) -> None:
         f"LLMs-Full: {endpoint_path(endpoints['full_corpus'], canonical)}",
         f"System-Contract: {endpoint_path(endpoints['interface_contract'], canonical)}",
         f"Articles-Manifest: {endpoint_path(endpoints['articles_manifest'], canonical)}",
+        f"Predictions: {endpoint_path(endpoints['predictions_markdown'], canonical)}",
+        f"Predictions-Manifest: {endpoint_path(endpoints['predictions_manifest'], canonical)}",
         f"Substack-Publication: {endpoints['substack_publication']}",
         f"Substack-Feed: {endpoints['substack_feed']}",
         f"SUMU-Talk-By-URL: {endpoints['sumu_converse_get']}",
@@ -936,6 +1213,9 @@ def build_sitemap_xml(source: dict) -> None:
         (endpoints["full_corpus"], "weekly", "0.9", BUILD_DATE),
         (endpoints["interface_contract"], "weekly", "0.9", BUILD_DATE),
         (endpoints["articles_manifest"], "weekly", "0.9", BUILD_DATE),
+        (endpoints["predictions_page"], "weekly", "0.9", BUILD_DATE),
+        (endpoints["predictions_markdown"], "weekly", "0.9", BUILD_DATE),
+        (endpoints["predictions_manifest"], "weekly", "0.9", BUILD_DATE),
     ]
     # Sitemap is per-domain so we don't list cross-domain URLs (SUMU,
     # Substack). Include each individual article markdown + HTML page as
@@ -987,6 +1267,7 @@ def build_vercel_json(source: dict) -> None:
                             '</llms-full.txt>; rel="alternate"; type="text/plain", '
                             '</.well-known/namilele-interface.json>; rel="alternate"; type="application/json", '
                             '</articles.json>; rel="alternate"; type="application/json", '
+                            '</predictions.json>; rel="alternate"; type="application/json", '
                             f'<{endpoints["substack_feed"]}>; rel="alternate"; type="application/rss+xml"'
                         ),
                     },
@@ -1008,7 +1289,8 @@ def build_vercel_json(source: dict) -> None:
                         "value": (
                             '</.well-known/namilele-interface.json>; rel="describedby"; type="application/json", '
                             '</llms-full.txt>; rel="alternate"; type="text/plain", '
-                            '</articles.json>; rel="related"; type="application/json"'
+                            '</articles.json>; rel="related"; type="application/json", '
+                            '</predictions.json>; rel="related"; type="application/json"'
                         ),
                     },
                     {"key": "Content-Type", "value": "text/plain; charset=utf-8"},
@@ -1026,6 +1308,42 @@ def build_vercel_json(source: dict) -> None:
                 "headers": [
                     {"key": "Content-Type", "value": "application/json; charset=utf-8"},
                     {"key": "Cache-Control", "value": "public, max-age=600"},
+                ],
+            },
+            {
+                "source": "/predictions.json",
+                "headers": [
+                    {"key": "Content-Type", "value": "application/json; charset=utf-8"},
+                    {"key": "Cache-Control", "value": "public, max-age=600"},
+                ],
+            },
+            {
+                "source": "/predictions.md",
+                "headers": [
+                    {"key": "Content-Type", "value": "text/markdown; charset=utf-8"},
+                    {"key": "Cache-Control", "value": "public, max-age=600"},
+                ],
+            },
+            {
+                "source": "/predictions/index.md",
+                "headers": [
+                    {"key": "Content-Type", "value": "text/markdown; charset=utf-8"},
+                    {"key": "Cache-Control", "value": "public, max-age=600"},
+                ],
+            },
+            {
+                "source": "/predictions/",
+                "headers": [
+                    {
+                        "key": "Link",
+                        "value": (
+                            '</predictions.md>; rel="alternate"; type="text/markdown", '
+                            '</predictions.json>; rel="alternate"; type="application/json"'
+                        ),
+                    },
+                    {"key": "Content-Type", "value": "text/html; charset=utf-8"},
+                    {"key": "Cache-Control", "value": "public, max-age=600"},
+                    {"key": "Vary", "value": "Accept"},
                 ],
             },
             {
@@ -1059,6 +1377,8 @@ def build_vercel_json(source: dict) -> None:
             {"source": "/articles/raising-children-who-can-keep-their/", "destination": "/articles/raising-children-who-can-keep-their-own-minds/", "statusCode": 308},
             {"source": "/articles/:slug([^./]+)", "has": wants_markdown, "destination": "/articles/:slug.md", "statusCode": 307},
             {"source": "/articles/:slug([^./]+)/", "has": wants_markdown, "destination": "/articles/:slug.md", "statusCode": 307},
+            {"source": "/predictions", "has": wants_markdown, "destination": "/predictions.md", "statusCode": 307},
+            {"source": "/predictions/", "has": wants_markdown, "destination": "/predictions.md", "statusCode": 307},
         ],
         "rewrites": [],
     }
@@ -1158,7 +1478,7 @@ def extract_body_markdown(md_path: Path) -> str:
 def markdown_inline_to_html(text: str) -> str:
     """Render inline markdown (links, emphasis, code) after escaping."""
     text = html.escape(text, quote=False)
-    text = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2">\1</a>', text)
+    text = re.sub(r"\[([^\]]+)\]\(((?:https?://|/)[^)\s]+)\)", r'<a href="\2">\1</a>', text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"<em>\1</em>", text)
     text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
@@ -1425,7 +1745,7 @@ def render_article_html(*, source: dict, meta: dict, body: str, newer: dict | No
         "<body>",
         '    <div class="progress-rail" aria-hidden="true"></div>',
         '    <nav class="bar column label" aria-label="Site">',
-        '        <a href="/">Le Dioptre</a> · <a href="/#traces">Traces</a>',
+        '        <a href="/">Le Dioptre</a> · <a href="/#traces">Traces</a> · <a href="/predictions/">Prédictions</a>',
         "    </nav>",
         '    <main class="column">',
         "        <article>",
@@ -1571,9 +1891,498 @@ def build_articles_json(source: dict) -> int:
     return len(entries)
 
 
-def build_interface_files(source: dict) -> None:
+# -- Dated predictions ledger ------------------------------------------------- #
+
+def _validate_iso_date(value: str, field_name: str, pred_id: str) -> str:
+    cleaned = value.strip()
+    if not _ISO_DATE_RE.match(cleaned):
+        raise ValueError(f"Prediction '{pred_id}': '{field_name}' must be YYYY-MM-DD, got {value!r}")
+    datetime.strptime(cleaned, "%Y-%m-%d")
+    return cleaned
+
+
+def load_predictions_source(path: Path = PREDICTIONS_SOURCE) -> dict:
+    """Load the structured source for the public dated predictions ledger."""
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def resolve_prediction_source_article(
+    raw: object,
+    by_slug: dict[str, dict],
+    canonical: str,
+) -> dict | None:
+    """Normalize an optional source_article reference against published traces."""
+    if raw is None or raw == "":
+        return None
+    if isinstance(raw, str):
+        token = raw.strip()
+        if not token:
+            return None
+        if token.startswith(("http://", "https://", "/")):
+            return {
+                "slug": None,
+                "title": token,
+                "url": token,
+                "canonical_url": f"{canonical}{token}" if token.startswith("/") else token,
+                "markdown_url": None,
+            }
+        trace = by_slug.get(token)
+        if trace:
+            return {
+                "slug": token,
+                "title": trace["title"],
+                "url": f"/articles/{token}/",
+                "canonical_url": trace["html_url"],
+                "markdown_url": trace["markdown_url"],
+            }
+        return {
+            "slug": token,
+            "title": token,
+            "url": f"/articles/{token}/",
+            "canonical_url": f"{canonical}/articles/{token}/",
+            "markdown_url": f"{canonical}/articles/{token}.md",
+        }
+    if not isinstance(raw, dict):
+        raise ValueError(f"source_article must be a string, object, or null, got {type(raw).__name__}")
+    slug = str(raw.get("slug") or "").strip() or None
+    trace = by_slug.get(slug) if slug else None
+    url = str(raw.get("url") or "").strip()
+    title = str(raw.get("title") or "").strip()
+    markdown_url = str(raw.get("markdown_url") or "").strip() or None
+    if trace:
+        if not title:
+            title = trace["title"]
+        if not url:
+            url = f"/articles/{slug}/"
+        if not markdown_url:
+            markdown_url = trace["markdown_url"]
+        canonical_url = trace["html_url"] if url.startswith("/articles/") else url
+    else:
+        if slug and not url:
+            url = f"/articles/{slug}/"
+        if not url:
+            raise ValueError("source_article object requires 'slug' or 'url'")
+        if not title:
+            title = slug or url
+        canonical_url = f"{canonical}{url}" if url.startswith("/") else url
+        if slug and not markdown_url:
+            markdown_url = f"{canonical}/articles/{slug}.md"
+    return {
+        "slug": slug,
+        "title": title,
+        "url": url,
+        "canonical_url": canonical_url,
+        "markdown_url": markdown_url,
+    }
+
+
+def load_predictions(
+    source: dict,
+    traces: list[dict],
+    *,
+    predictions_source_path: Path = PREDICTIONS_SOURCE,
+) -> tuple[dict, list[dict]]:
+    """Validate and normalize predictions from predictions-source.json, newest filed_at first."""
+    doc = load_predictions_source(predictions_source_path)
+    raw_items = doc.get("predictions")
+    if not isinstance(raw_items, list):
+        raise ValueError("predictions-source.json must contain a 'predictions' list")
+    by_slug = trace_by_slug(traces)
+    canonical = source["canonical"]
+    seen_ids: set[str] = set()
+    normalized: list[dict] = []
+    for idx, item in enumerate(raw_items):
+        if not isinstance(item, dict):
+            raise ValueError(f"Prediction at index {idx} must be a JSON object")
+        pred_id = str(item.get("id") or "").strip()
+        if not pred_id or not _PREDICTION_ID_RE.match(pred_id):
+            raise ValueError(f"Prediction at index {idx}: invalid kebab-case id {pred_id!r}")
+        if pred_id in seen_ids:
+            raise ValueError(f"Duplicate prediction id {pred_id!r}")
+        seen_ids.add(pred_id)
+        filed_at = _validate_iso_date(str(item.get("filed_at") or ""), "filed_at", pred_id)
+        horizon = str(item.get("horizon") or "").strip()
+        if not horizon:
+            raise ValueError(f"Prediction '{pred_id}': 'horizon' is required")
+        status = str(item.get("status") or "").strip()
+        if status not in PREDICTION_STATUSES:
+            raise ValueError(
+                f"Prediction '{pred_id}': invalid status {status!r} "
+                f"(expected one of {', '.join(PREDICTION_STATUSES)})"
+            )
+        statement = str(item.get("statement") or "").strip()
+        if not statement:
+            raise ValueError(f"Prediction '{pred_id}': 'statement' is required")
+        falsification = str(item.get("falsification") or "").strip()
+        if not falsification:
+            raise ValueError(f"Prediction '{pred_id}': 'falsification' is required")
+        verdict_raw = item.get("verdict")
+        verdict = str(verdict_raw).strip() if verdict_raw is not None else ""
+        verdict_val: str | None = verdict or None
+        verdict_at_raw = item.get("verdict_at")
+        verdict_at = (
+            _validate_iso_date(str(verdict_at_raw), "verdict_at", pred_id)
+            if verdict_at_raw is not None and str(verdict_at_raw).strip()
+            else None
+        )
+        source_article = resolve_prediction_source_article(
+            item.get("source_article"),
+            by_slug,
+            canonical,
+        )
+        normalized.append({
+            "id": pred_id,
+            "filed_at": filed_at,
+            "horizon": horizon,
+            "status": status,
+            "statement": statement,
+            "falsification": falsification,
+            "verdict": verdict_val,
+            "verdict_at": verdict_at,
+            "source_article": source_article,
+            "url": f"{canonical}/predictions/#{pred_id}",
+        })
+    normalized.sort(key=lambda entry: entry["filed_at"], reverse=True)
+    return doc, normalized
+
+
+def render_french_paragraphs(text: str) -> str:
+    """Render one or more paragraphs separated by blank lines with French typography."""
+    paragraphs = [chunk.strip() for chunk in re.split(r"\n\s*\n", text.strip()) if chunk.strip()]
+    rendered = []
+    for para in paragraphs:
+        single_line = " ".join(line.strip() for line in para.splitlines() if line.strip())
+        rendered.append(f"<p>{french_typography(markdown_inline_to_html(single_line))}</p>")
+    return "".join(rendered)
+
+
+def build_predictions_json_payload(source: dict, doc: dict, predictions: list[dict]) -> dict:
+    """Build the JSON-LD manifest payload for /predictions.json."""
+    canonical = source["canonical"]
+    author_name = doc.get("author", "Namilele")
+    items = []
+    for pred in predictions:
+        source_article_payload = None
+        if pred["source_article"]:
+            sa = pred["source_article"]
+            source_article_payload = {
+                **({"slug": sa["slug"]} if sa.get("slug") else {}),
+                "title": sa["title"],
+                "url": sa["canonical_url"],
+                **({"markdown_url": sa["markdown_url"]} if sa.get("markdown_url") else {}),
+            }
+        items.append({
+            "@type": "schema:Claim",
+            "@id": pred["url"],
+            "id": pred["id"],
+            "schema:identifier": pred["id"],
+            "schema:datePublished": pred["filed_at"],
+            "schema:text": pred["statement"],
+            "schema:author": {"@type": "schema:Person", "name": author_name},
+            "filed_at": pred["filed_at"],
+            "horizon": pred["horizon"],
+            "status": pred["status"],
+            "statement": pred["statement"],
+            "falsification": pred["falsification"],
+            "verdict": pred["verdict"],
+            "verdict_at": pred["verdict_at"],
+            "source_article": source_article_payload,
+            "url": pred["url"],
+        })
+    return {
+        "@context": {
+            "schema": "https://schema.org/",
+            "nous": "https://sumu.le-dioptre.fr/context.jsonld#",
+        },
+        "@id": f"{canonical}/predictions.json",
+        "@type": "schema:ItemList",
+        "schema:name": f"{source['name']} — {doc.get('subtitle', 'Registre public de prédictions datées, signées Namilele.')}",
+        "schema:description": doc.get("intro", ""),
+        "schema:inLanguage": doc.get("lang", "fr"),
+        "schema:author": {"@type": "schema:Person", "name": author_name},
+        "schema:dateModified": BUILD_DATE,
+        "schema:numberOfItems": len(items),
+        "nous:html_url": f"{canonical}/predictions/",
+        "nous:markdown_url": f"{canonical}/predictions.md",
+        "nous:markdown_index_url": f"{canonical}/predictions/index.md",
+        "nous:statuses": list(PREDICTION_STATUSES),
+        "nous:schema": doc.get("schema", {}),
+        "schema:itemListElement": items,
+    }
+
+
+def build_predictions_markdown(source: dict, doc: dict, predictions: list[dict]) -> str:
+    """Build the Markdown twin served at /predictions.md and /predictions/index.md."""
+    canonical = source["canonical"]
+    title = doc.get("title", "Prédictions")
+    author = doc.get("author", "Namilele")
+    front = [
+        "---",
+        f'title: {json.dumps(title, ensure_ascii=False)}',
+        f'author: {json.dumps(author, ensure_ascii=False)}',
+        f'lang: {json.dumps(doc.get("lang", "fr"), ensure_ascii=False)}',
+        f'canonical: {json.dumps(f"{canonical}/predictions/", ensure_ascii=False)}',
+        f'json: {json.dumps(f"{canonical}/predictions.json", ensure_ascii=False)}',
+        f'updated: {json.dumps(BUILD_DATE, ensure_ascii=False)}',
+        f'corpus: {json.dumps(source["public_endpoints"]["system_brief"], ensure_ascii=False)}',
+        "---",
+        "",
+        f"# {title}",
+        "",
+        doc.get("intro", ""),
+        "",
+    ]
+    lines = list(front)
+    if not predictions:
+        lines += [
+            doc.get("empty_state", "Le registre est ouvert."),
+            "",
+            "## Structure d’une entrée",
+            "",
+            "- **Repères** : date de dépôt (`filed_at`), échéance cible (`horizon`) et statut textuel sobre (`en cours`, `confirmée`, `démentie`, `partielle`).",
+            "- **Énoncé** : formulation précise conservée intacte après publication.",
+            "- **Ce qui démentirait** : critère explicite de réfutation fixé dès le dépôt.",
+            "- **Verdict** : en attente d’échéance tant que le terme n’est pas tranché, puis note qualitative froide une fois évaluée.",
+            "",
+        ]
+    else:
+        for pred in predictions:
+            lines += [
+                "---",
+                "",
+                f"## {pred['filed_at']} · Échéance {pred['horizon']} · {pred['status']}",
+                "",
+                f"- Identifiant : `{pred['id']}` ({pred['url']})",
+                f"- Dépôt : {pred['filed_at']}",
+                f"- Échéance : {pred['horizon']}",
+                f"- Statut : {pred['status']}",
+                "",
+                pred["statement"],
+                "",
+                f"**Ce qui démentirait** : {pred['falsification']}",
+                "",
+            ]
+            if pred["verdict"]:
+                verdict_label = f"Verdict ({pred['verdict_at']})" if pred.get("verdict_at") else "Verdict"
+                lines.append(f"**{verdict_label}** : {pred['verdict']}")
+            else:
+                lines.append("**Verdict** : En attente d’échéance.")
+            lines.append("")
+            if pred["source_article"]:
+                sa = pred["source_article"]
+                md_ref = f" ([md]({sa['markdown_url']}))" if sa.get("markdown_url") else ""
+                lines.append(f"**Article source** : [{sa['title']}]({sa['canonical_url']}){md_ref}")
+                lines.append("")
+    talk_url = trace_talk_url(source, "Prédictions — Le Dioptre", lang="fr")
+    lines += [
+        "---",
+        "",
+        f"Signé {author}. Versions machine : {canonical}/predictions.md · {canonical}/predictions.json",
+        "",
+        "## Parler de ce registre",
+        "",
+        TRACE_TALK_SENTENCE_FR,
+        "",
+        talk_url,
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def render_predictions_html(source: dict, doc: dict, predictions: list[dict]) -> str:
+    """Render the sober typographic HTML page served at /predictions/."""
+    esc = html.escape
+    canonical = f"{source['canonical']}/predictions/"
+    title = doc.get("title", "Prédictions")
+    subtitle = doc.get("subtitle", "Registre public de prédictions datées, signées Namilele.")
+    author = doc.get("author", "Namilele")
+    intro_html = french_typography(markdown_inline_to_html(doc.get("intro", "")))
+    empty_html = french_typography(markdown_inline_to_html(doc.get("empty_state", "")))
+    talk_url = trace_talk_url(source, "Prédictions — Le Dioptre", lang="fr")
+    jsonld_payload = build_predictions_json_payload(source, doc, predictions)
+
+    if predictions:
+        entry_chunks = []
+        for pred in predictions:
+            verdict_dt = "Verdict"
+            if pred.get("verdict_at"):
+                vdate = esc(pred["verdict_at"])
+                verdict_dt = (
+                    f'Verdict <span class="pred-verdict-date">'
+                    f'<span class="pred-sep" aria-hidden="true">· </span>'
+                    f'<time datetime="{vdate}">{vdate}</time></span>'
+                )
+            if pred["verdict"]:
+                verdict_dd = f'<dd>{render_french_paragraphs(pred["verdict"])}</dd>'
+            else:
+                verdict_dd = '<dd class="pred-pending"><p>En attente d’échéance.</p></dd>'
+
+            source_html = ""
+            if pred["source_article"]:
+                sa = pred["source_article"]
+                source_title = french_typography(esc(sa["title"]))
+                source_html = (
+                    f'                        <p class="pred-source">Article source\u202f: '
+                    f'<a href="{esc(sa["url"])}">{source_title}</a></p>'
+                )
+
+            pred_id_esc = esc(pred["id"])
+            filed_esc = esc(pred["filed_at"])
+            horizon_esc = french_typography(esc(pred["horizon"]))
+            status_esc = esc(pred["status"])
+            entry_chunks.append("\n".join([
+                '                <li class="prediction-item">',
+                f'                    <article class="prediction" id="{pred_id_esc}">',
+                '                        <div class="pred-meta">',
+                '                            <span class="pred-dates">',
+                f'                                <a class="pred-anchor" href="#{pred_id_esc}">Dépôt <time datetime="{filed_esc}">{filed_esc}</time></a>',
+                '                                <span class="pred-sep" aria-hidden="true">·</span>',
+                f'                                <span>Échéance {horizon_esc}</span>',
+                '                            </span>',
+                f'                            <span class="pred-status" data-status="{status_esc}">{status_esc}</span>',
+                '                        </div>',
+                '                        <div class="pred-statement">',
+                f'                            {render_french_paragraphs(pred["statement"])}',
+                '                        </div>',
+                '                        <dl class="pred-details">',
+                '                            <div class="pred-block pred-falsification">',
+                '                                <dt>Ce qui démentirait</dt>',
+                f'                                <dd>{render_french_paragraphs(pred["falsification"])}</dd>',
+                '                            </div>',
+                '                            <div class="pred-block pred-verdict">',
+                f'                                <dt>{verdict_dt}</dt>',
+                f'                                {verdict_dd}',
+                '                            </div>',
+                '                        </dl>',
+                *([source_html] if source_html else []),
+                '                    </article>',
+                '                </li>',
+            ]))
+        ledger_html = "\n".join([
+            '        <section class="ledger" aria-label="Entrées du registre">',
+            '            <ol class="predictions-list">',
+            *entry_chunks,
+            '            </ol>',
+            '        </section>',
+        ])
+    else:
+        ledger_html = "\n".join([
+            '        <section class="ledger ledger-empty" aria-label="État du registre">',
+            f'            <p class="pred-empty-lead">{empty_html}</p>',
+            '            <dl class="pred-protocol" aria-label="Structure d’une entrée">',
+            '                <div class="pred-block">',
+            '                    <dt>Repères</dt>',
+            '                    <dd><p>Date de dépôt, échéance cible et statut textuel sobre\u202f: <code>en cours</code>, <code>confirmée</code>, <code>démentie</code> ou <code>partielle</code>.</p></dd>',
+            '                </div>',
+            '                <div class="pred-block">',
+            '                    <dt>Énoncé</dt>',
+            '                    <dd><p>Formulation précise conservée intacte après publication.</p></dd>',
+            '                </div>',
+            '                <div class="pred-block">',
+            '                    <dt>Ce qui démentirait</dt>',
+            '                    <dd><p>Critère explicite de réfutation fixé dès le dépôt.</p></dd>',
+            '                </div>',
+            '                <div class="pred-block">',
+            '                    <dt>Verdict</dt>',
+            '                    <dd><p>En attente d’échéance tant que le terme n’est pas tranché, puis note qualitative froide une fois évaluée.</p></dd>',
+            '                </div>',
+            '            </dl>',
+            '        </section>',
+        ])
+
+    return "\n".join([
+        "<!DOCTYPE html>",
+        "<!-- Markdown twin: /predictions.md · JSON manifest: /predictions.json -->",
+        '<html lang="fr">',
+        "<head>",
+        '    <meta charset="UTF-8">',
+        '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+        f"    <title>{esc(title)} — {esc(source['name'])}</title>",
+        f'    <meta name="description" content="{esc(subtitle)}">',
+        '    <meta name="theme-color" content="#f3f1eb">',
+        f'    <link rel="canonical" href="{esc(canonical)}">',
+        f'    <link rel="icon" href="{FAVICON}">',
+        '    <link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>',
+        '    <link rel="alternate" type="text/markdown" href="/predictions.md" title="Registre des prédictions en markdown">',
+        '    <link rel="alternate" type="application/json" href="/predictions.json" title="Registre des prédictions en JSON">',
+        f'    <meta property="og:title" content="{esc(title)} — {esc(source["name"])}">',
+        f'    <meta property="og:description" content="{esc(subtitle)}">',
+        f'    <meta property="og:url" content="{esc(canonical)}">',
+        '    <meta property="og:type" content="website">',
+        f'    <meta property="og:site_name" content="{esc(source["name"])}">',
+        '    <script type="application/ld+json">',
+        json.dumps(jsonld_payload, ensure_ascii=False, indent=4),
+        "    </script>",
+        "    <style>" + _PREDICTIONS_CSS + "    </style>",
+        "</head>",
+        "<body>",
+        '    <div class="progress-rail" aria-hidden="true"></div>',
+        '    <nav class="bar column label" aria-label="Site">',
+        '        <a href="/">Le Dioptre</a> · <a href="/#traces">Traces</a> · <a href="/predictions/" aria-current="page">Prédictions</a>',
+        "    </nav>",
+        '    <main class="column">',
+        f'        <p class="stamp">{esc(author)} · Registre daté · <a href="/predictions.md">markdown</a> · <a href="/predictions.json">json</a></p>',
+        f"        <h1>{esc(title)}</h1>",
+        f'        <p class="pred-intro">{intro_html}</p>',
+        ledger_html,
+        ray_svg(),
+        f'        <p class="signature">{esc(author)}</p>',
+        '        <section class="door" aria-label="Parler de ce registre">',
+        "            <h2>Parler de ce registre</h2>",
+        f"            <p>{french_typography(esc(TRACE_TALK_SENTENCE_FR))}</p>",
+        f'            <p class="talk">Adresse de réponse directe (SUMU)\u202f: <a href="{esc(talk_url)}"><code>{esc(talk_url)}</code></a></p>',
+        '            <p class="talk">Versions machine\u202f: <a href="/predictions.md">/predictions.md</a> · <a href="/predictions.json">/predictions.json</a> · <a href="/">Le Dioptre</a></p>',
+        "        </section>",
+        '        <footer class="article-foot">',
+        '            <nav class="cercle-nav" aria-label="Le cercle">',
+        '                <a href="https://le-dioptre.fr/">le-dioptre.fr</a>',
+        '                <a href="https://sumu.le-dioptre.fr/">sumu.le-dioptre.fr</a>',
+        '                <a href="https://hunkaar.fr/">hunkaar.fr</a>',
+        '                <a href="https://jean-emmanuel-combe.fr/">jean-emmanuel-combe.fr</a>',
+        '                <a href="https://aurore-combe.fr/">aurore-combe.fr</a>',
+        '            </nav>',
+        "        </footer>",
+        "    </main>",
+        "</body>",
+        "</html>",
+        "",
+    ])
+
+
+def build_predictions(
+    source: dict,
+    traces: list[dict],
+    *,
+    predictions_source_path: Path = PREDICTIONS_SOURCE,
+    output_dir: Path = SCRIPT_DIR,
+) -> list[dict]:
+    """Generate /predictions/, /predictions.md, /predictions/index.md, and /predictions.json."""
+    doc, predictions = load_predictions(
+        source,
+        traces,
+        predictions_source_path=predictions_source_path,
+    )
+    pred_dir = output_dir / "predictions"
+    pred_dir.mkdir(parents=True, exist_ok=True)
+    html_text = render_predictions_html(source, doc, predictions)
+    md_text = build_predictions_markdown(source, doc, predictions)
+    json_payload = build_predictions_json_payload(source, doc, predictions)
+
+    (pred_dir / "index.html").write_text(html_text, encoding="utf-8")
+    (pred_dir / "index.md").write_text(md_text, encoding="utf-8")
+    (output_dir / "predictions.md").write_text(md_text, encoding="utf-8")
+    (output_dir / "predictions.json").write_text(
+        json.dumps(json_payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    print(f"[BUILD] Generated predictions/ + predictions.md + predictions.json ({len(predictions)} entries)")
+    return predictions
+
+
+def build_interface_files(source: dict, *, predictions_source_path: Path = PREDICTIONS_SOURCE) -> None:
     build_articles_json(source)
     traces = load_traces()
+    build_predictions(source, traces, predictions_source_path=predictions_source_path)
     full_tokens = build_llms_full(source, traces)
     build_interface_contract(source)
     build_llms_txt(source, traces, full_tokens)
@@ -1583,10 +2392,18 @@ def build_interface_files(source: dict) -> None:
     build_vercel_json(source)
 
 
-def main():
+def main(argv: list[str] | None = None) -> None:
+    parser = argparse.ArgumentParser(description="Build and deploy Le Dioptre public surfaces.")
+    parser.add_argument(
+        "--build-only",
+        action="store_true",
+        help="Regenerate all public files locally without committing or pushing.",
+    )
+    args = parser.parse_args(argv)
     print("[BUILD] Building machine-first Dioptre interface...")
     build_interface_files(load_interface_source())
-    commit_and_push()
+    if not args.build_only:
+        commit_and_push()
 
 
 def commit_and_push():
@@ -1597,6 +2414,7 @@ def commit_and_push():
     tracked = [
         "build_interface.py",
         "interface-source.json",
+        "predictions-source.json",
         "index.html",
         "index.md",
         "llms.txt",
@@ -1610,6 +2428,9 @@ def commit_and_push():
         "fonts",
         "articles.json",
         "articles",
+        "predictions.json",
+        "predictions.md",
+        "predictions",
     ]
     try:
         status = subprocess.run(

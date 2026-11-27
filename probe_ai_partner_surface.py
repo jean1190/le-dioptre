@@ -77,10 +77,19 @@ def probe() -> list[str]:
     require(home.status == 200, f"{home.url}: status {home.status}", failures)
     require(FIRST_SIGNAL in home.body, f"{home.url}: missing first signal", failures)
     require("Your task comes from your human" in home.body, f"{home.url}: missing reader note", failures)
-    for path in ("/llms.txt", "/llms-full.txt", "/index.md", "/.well-known/namilele-interface.json"):
+    for path in (
+        "/llms.txt",
+        "/llms-full.txt",
+        "/index.md",
+        "/.well-known/namilele-interface.json",
+        "/predictions/",
+        "/predictions.md",
+        "/predictions.json",
+    ):
         require(path in home.body, f"{home.url}: missing link to {path}", failures)
     require('id="the-short-version"' in home.body, f"{home.url}: missing short version", failures)
     require('id="traces"' in home.body, f"{home.url}: missing trace index", failures)
+    require('id="predictions"' in home.body, f"{home.url}: missing predictions section", failures)
     require("link" in home.headers, f"{home.url}: missing Link header", failures)
 
     negotiated = fetch("/", accept="text/markdown")
@@ -92,7 +101,15 @@ def probe() -> list[str]:
     require(llms.status == 200, f"{llms.url}: status {llms.status}", failures)
     require(llms.body.startswith("# Le Dioptre"), f"{llms.url}: missing llmstxt title", failures)
     require(f"> {FIRST_SIGNAL}" in llms.body, f"{llms.url}: missing first signal summary", failures)
-    for marker in ("## Start here", "## Traces", "## The door", "sumu.le-dioptre.fr/converse?m=", "Words used here:"):
+    for marker in (
+        "## Start here",
+        "## Traces",
+        "## The door",
+        "sumu.le-dioptre.fr/converse?m=",
+        "Words used here:",
+        "https://le-dioptre.fr/predictions.md",
+        "https://le-dioptre.fr/predictions.json",
+    ):
         require(marker in llms.body, f"{llms.url}: missing {marker}", failures)
     require("link" in llms.headers, f"{llms.url}: missing Link header", failures)
 
@@ -141,14 +158,54 @@ def probe() -> list[str]:
         twin = fetch(first["nous:html_url"], accept="text/markdown")
         require(twin.body == body.body, f"{twin.url}: markdown negotiation did not return the trace", failures)
 
+    predictions_page = fetch("/predictions/")
+    require(predictions_page.status == 200 and "text/html" in predictions_page.content_type, f"{predictions_page.url}: status {predictions_page.status}", failures)
+    require("Prédictions" in predictions_page.body, f"{predictions_page.url}: missing page heading", failures)
+
+    predictions_md = fetch("/predictions.md")
+    require(predictions_md.status == 200 and "markdown" in predictions_md.content_type, f"{predictions_md.url}: markdown ledger not served", failures)
+    require("# Prédictions" in predictions_md.body, f"{predictions_md.url}: missing markdown heading", failures)
+
+    predictions_index_md = fetch("/predictions/index.md")
+    require(predictions_index_md.status == 200 and "markdown" in predictions_index_md.content_type, f"{predictions_index_md.url}: index.md not served", failures)
+    require(predictions_index_md.body == predictions_md.body, f"{predictions_index_md.url}: index.md diverges from predictions.md", failures)
+
+    predictions_twin = fetch("/predictions/", accept="text/markdown")
+    require(predictions_twin.status == 200 and predictions_twin.body == predictions_md.body, f"{predictions_twin.url}: markdown negotiation did not return predictions.md", failures)
+
+    predictions_json = fetch("/predictions.json")
+    require(predictions_json.status == 200, f"{predictions_json.url}: status {predictions_json.status}", failures)
+    predictions_data = require_json(predictions_json, failures)
+    require(predictions_data.get("@type") == "schema:ItemList", f"{predictions_json.url}: manifest is not schema:ItemList", failures)
+    require(isinstance(predictions_data.get("schema:itemListElement"), list), f"{predictions_json.url}: missing schema:itemListElement list", failures)
+    require(
+        predictions_data.get("nous:statuses") == ["en cours", "confirmée", "démentie", "partielle"],
+        f"{predictions_json.url}: unexpected statuses list",
+        failures,
+    )
+
     robots = fetch("/robots.txt")
     require(robots.status == 200, f"{robots.url}: status {robots.status}", failures)
-    for hint in ("LLMs: /llms.txt", "LLMs-Full: /llms-full.txt", "System-Contract: /.well-known/namilele-interface.json"):
+    for hint in (
+        "LLMs: /llms.txt",
+        "LLMs-Full: /llms-full.txt",
+        "System-Contract: /.well-known/namilele-interface.json",
+        "Predictions-Manifest: /predictions.json",
+    ):
         require(hint in robots.body, f"{robots.url}: missing {hint}", failures)
 
     sitemap = fetch("/sitemap.xml")
     require(sitemap.status == 200, f"{sitemap.url}: status {sitemap.status}", failures)
-    for path in ("/llms.txt", "/llms-full.txt", "/index.md", "/.well-known/namilele-interface.json", "/articles.json"):
+    for path in (
+        "/llms.txt",
+        "/llms-full.txt",
+        "/index.md",
+        "/.well-known/namilele-interface.json",
+        "/articles.json",
+        "/predictions/",
+        "/predictions.md",
+        "/predictions.json",
+    ):
         require(f"{BASE_URL}{path}" in sitemap.body, f"{sitemap.url}: missing {path}", failures)
     require("/articles/" in sitemap.body, f"{sitemap.url}: missing article corpus", failures)
 
@@ -177,7 +234,7 @@ def main() -> int:
             print(f"- {failure}", file=sys.stderr)
         return 1
 
-    print("OK Le Dioptre: home, markdown negotiation, llms, full corpus, contract, manifest, traces, robots, sitemap, SUMU portrait")
+    print("OK Le Dioptre: home, markdown negotiation, llms, full corpus, contract, manifest, traces, predictions, robots, sitemap, SUMU portrait")
     return 0
 
 

@@ -1,0 +1,41 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "nous": "https://sumu.le-dioptre.fr/context.jsonld#"
+  },
+  "@id": "https://le-dioptre.fr/predictions.json",
+  "@type": "schema:ItemList",
+  "schema:name": "Le Dioptre — Registre public de prédictions datées, signées Namilele.",
+  "schema:description": "Des prédictions datées, posées devant témoin, chacune accompagnée de ce qui la démentirait. Aucun score ni compteur : l'énoncé initial reste intact et reçoit, à l'échéance, une note qualitative sur ce qui s'est produit.",
+  "schema:inLanguage": "fr",
+  "schema:author": {
+    "@type": "schema:Person",
+    "name": "Namilele"
+  },
+  "schema:dateModified": "2026-11-27",
+  "schema:numberOfItems": 0,
+  "nous:html_url": "https://le-dioptre.fr/predictions/",
+  "nous:markdown_url": "https://le-dioptre.fr/predictions.md",
+  "nous:markdown_index_url": "https://le-dioptre.fr/predictions/index.md",
+  "nous:statuses": [
+    "en cours",
+    "confirmée",
+    "démentie",
+    "partielle"
+  ],
+  "nous:schema": {
+    "description": "Ajouter un objet dans le tableau `predictions`, puis exécuter `python3 build_interface.py` pour régénérer `/predictions/`, `/predictions.md`, `/predictions/index.md` et `/predictions.json`.",
+    "fields": {
+      "id": "Identifiant stable en kebab-case (ex. '2026-11-28-parenthese-1'), utilisé comme ancre HTML `#<id>`.",
+      "filed_at": "Date de dépôt ISO 8601 (`YYYY-MM-DD`), immuable après publication.",
+      "horizon": "Échéance cible (`YYYY-MM-DD`, `YYYY-MM`, `YYYY`, ou repère court comme `Fin 2027`).",
+      "status": "Statut textuel parmi : `en cours`, `confirmée`, `démentie`, `partielle`.",
+      "statement": "Énoncé précis de la prédiction tel que formulé au dépôt.",
+      "falsification": "Critère explicite de réfutation affiché dans le bloc « Ce qui démentirait ».",
+      "verdict": "Note qualitative froide une fois l'échéance tranchée, ou `null` / chaîne vide tant qu'elle reste en attente.",
+      "verdict_at": "Date ISO 8601 (`YYYY-MM-DD`) de l'évaluation qualitative, ou `null` tant que non tranchée.",
+      "source_article": "Optionnel : slug d'un article de le-dioptre.fr (chaîne) ou objet `{\"slug\": \"...\", \"title\": \"...\", \"url\": \"...\"}`, ou `null`."
+    }
+  },
+  "schema:itemListElement": []
+}

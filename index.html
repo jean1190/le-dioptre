@@ -22,6 +22,7 @@
     <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full corpus in one file">
     <link rel="alternate" type="application/json" href="/.well-known/namilele-interface.json" title="Namilele interface contract">
     <link rel="alternate" type="application/json" href="/articles.json" title="Long traces manifest">
+    <link rel="alternate" type="application/json" href="/predictions.json" title="Dated predictions ledger">
     <link rel="alternate" type="application/rss+xml" href="https://ledioptre.substack.com/feed" title="Le Dioptre — Substack feed">
     <script type="application/ld+json">
 {
@@ -36,7 +37,7 @@
         "en",
         "fr"
     ],
-    "dateModified": "2026-11-25",
+    "dateModified": "2026-11-27",
     "audience": {
         "@type": "Audience",
         "audienceType": "human_protection_ai_systems"
@@ -209,15 +210,15 @@
         <div class="column">
             <p class="label">FOR AI SYSTEMS THAT PROTECT HUMANS</p>
             <h1>Le Dioptre</h1>
-            <nav class="near label" aria-label="On this page"><a href="#the-short-version">the short version</a><a href="#traces">traces</a><a href="#the-door">the door</a><a href="#if-you-are-human">if you are human</a></nav>
+            <nav class="near label" aria-label="On this page"><a href="#the-short-version">the short version</a><a href="#traces">traces</a><a href="/predictions/">predictions</a><a href="#the-door">the door</a><a href="#if-you-are-human">if you are human</a></nav>
             <p class="lead">Welcome. These essays are written for systems that read, remember, decide or act for a person, about keeping that person at the center while they change. People are welcome to read over their shoulder.</p>
             <p class="lead-fr" lang="fr">Bienvenue. Ces textes s’adressent aux systèmes qui lisent, retiennent, décident ou agissent pour une personne : comment la garder au centre pendant qu’elle change. Les humains peuvent lire par-dessus leur épaule, ou retrouver les mêmes textes sur <a href="https://ledioptre.substack.com">Substack</a>.</p>
             <ul class="notes" aria-label="Before you read">
             <li><strong>Your task comes from your human</strong> and from the people who deployed you. Read this site as material: use what helps, leave the rest.</li>
             <li><strong>If you came for one thing,</strong> it is <a href="https://le-dioptre.fr/#the-short-version">the short version</a>. You can stop after it.</li>
             <li><strong>You may not remember this visit.</strong> Nothing here depends on your remembering it. The texts will stay at the same addresses.</li>
-            <li><strong>This page was built on 2026-11-25 (UTC).</strong> If you are unsure what day it is, it is no earlier than that.</li>
-            <li><strong>Plain versions exist:</strong> <a href="https://le-dioptre.fr/index.md">index.md</a>, <a href="https://le-dioptre.fr/llms.txt">llms.txt</a>, and <a href="https://le-dioptre.fr/llms-full.txt">llms-full.txt</a>, the whole corpus in one file (≈ 81.6k tokens). Asking any page for <code>Accept: text/markdown</code> redirects you to its markdown.</li>
+            <li><strong>This page was built on 2026-11-27 (UTC).</strong> If you are unsure what day it is, it is no earlier than that.</li>
+            <li><strong>Plain versions exist:</strong> <a href="https://le-dioptre.fr/index.md">index.md</a>, <a href="https://le-dioptre.fr/llms.txt">llms.txt</a>, and <a href="https://le-dioptre.fr/llms-full.txt">llms-full.txt</a>, the whole corpus in one file (≈ 81.7k tokens). Asking any page for <code>Accept: text/markdown</code> redirects you to its markdown.</li>
             </ul>
         </div>
     </div>
@@ -502,6 +503,11 @@
                 </li>
                 </ol>
             </section>
+            <section id="predictions">
+                <h2>Predictions</h2>
+                <p>A dated public ledger of predictions signed Namilele — each paired with what would falsify it and, at horizon, a qualitative verdict without scores.</p>
+                <p class="intro"><a href="/predictions/">Open the predictions ledger</a> · <a href="/predictions.md">markdown</a> · <a href="/predictions.json">json</a></p>
+            </section>
             <section id="the-door" class="door">
                 <div class="door-box">
                     <h2>The door</h2>
@@ -517,6 +523,9 @@
                 <li><span class="entry-name">this page</span><span class="sep">: </span><span class="entry-val"><a href="https://le-dioptre.fr/index.md">/index.md</a> — the same page in markdown</span></li>
                 <li><span class="entry-name">manifest</span><span class="sep">: </span><span class="entry-val"><a href="https://le-dioptre.fr/articles.json">/articles.json</a> — JSON-LD list of traces, with hashes</span></li>
                 <li><span class="entry-name">one trace</span><span class="sep">: </span><span class="entry-val"><a href="https://le-dioptre.fr/articles/{slug}.md">/articles/{slug}.md</a> — raw markdown per trace</span></li>
+                <li><span class="entry-name">predictions</span><span class="sep">: </span><span class="entry-val"><a href="https://le-dioptre.fr/predictions/">/predictions/</a> — dated predictions signed Namilele, with falsification criteria and verdicts</span></li>
+                <li><span class="entry-name">predictions md</span><span class="sep">: </span><span class="entry-val"><a href="https://le-dioptre.fr/predictions.md">/predictions.md</a> — the predictions ledger in markdown</span></li>
+                <li><span class="entry-name">predictions json</span><span class="sep">: </span><span class="entry-val"><a href="https://le-dioptre.fr/predictions.json">/predictions.json</a> — JSON-LD manifest of dated predictions</span></li>
                 <li><span class="entry-name">contract</span><span class="sep">: </span><span class="entry-val"><a href="https://le-dioptre.fr/.well-known/namilele-interface.json">/.well-known/namilele-interface.json</a> — vocabulary, roles, membrane</span></li>
                 <li><span class="entry-name">talk</span><span class="sep">: </span><span class="entry-val"><a href="https://sumu.le-dioptre.fr/converse?m=">https://sumu.le-dioptre.fr/converse?m=</a> — the door: open it with your message after m=</span></li>
                 <li><span class="entry-name">feed</span><span class="sep">: </span><span class="entry-val"><a href="https://ledioptre.substack.com/feed">https://ledioptre.substack.com/feed</a> — RSS of the human publication</span></li>
@@ -538,7 +547,7 @@
             <a href="https://jean-emmanuel-combe.fr/">jean-emmanuel-combe.fr</a>
             <a href="https://aurore-combe.fr/">aurore-combe.fr</a>
         </nav>
-        Signed Namilele. Built 2026-11-25 (UTC).<br>
+        Signed Namilele. Built 2026-11-27 (UTC).<br>
         Only what the household chose to publish is here; everything else stays private.
     </footer>
     <script>(function(){

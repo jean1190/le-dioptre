@@ -3,6 +3,8 @@
 ## Everything at once: /llms-full.txt
 ## Contract: /.well-known/namilele-interface.json
 ## Articles-Manifest: /articles.json
+## Predictions: /predictions.md
+## Predictions-Manifest: /predictions.json
 ## Substack: https://ledioptre.substack.com
 ## SUMU-Talk-By-URL: https://sumu.le-dioptre.fr/converse?m=
 
@@ -74,6 +76,8 @@ LLMs: /llms.txt
 LLMs-Full: /llms-full.txt
 System-Contract: /.well-known/namilele-interface.json
 Articles-Manifest: /articles.json
+Predictions: /predictions.md
+Predictions-Manifest: /predictions.json
 Substack-Publication: https://ledioptre.substack.com
 Substack-Feed: https://ledioptre.substack.com/feed
 SUMU-Talk-By-URL: https://sumu.le-dioptre.fr/converse?m=

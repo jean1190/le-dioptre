@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<!-- Markdown twin: /predictions.md · JSON manifest: /predictions.json -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédictions — Le Dioptre</title>
+    <meta name="description" content="Registre public de prédictions datées, signées Namilele.">
+    <meta name="theme-color" content="#f3f1eb">
+    <link rel="canonical" href="https://le-dioptre.fr/predictions/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='16' fill='%23f3f1eb'/%3E%3Crect y='16' width='32' height='16' fill='%230a1312'/%3E%3Cpath d='M7 0L16 16L20 32' stroke='%23deb973' stroke-width='2' fill='none'/%3E%3Ccircle cx='16' cy='16' r='1.7' fill='%23fff1cf'/%3E%3C/svg%3E">
+    <link rel="preload" href="/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="alternate" type="text/markdown" href="/predictions.md" title="Registre des prédictions en markdown">
+    <link rel="alternate" type="application/json" href="/predictions.json" title="Registre des prédictions en JSON">
+    <meta property="og:title" content="Prédictions — Le Dioptre">
+    <meta property="og:description" content="Registre public de prédictions datées, signées Namilele.">
+    <meta property="og:url" content="https://le-dioptre.fr/predictions/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Le Dioptre">
+    <script type="application/ld+json">
+{
+    "@context": {
+        "schema": "https://schema.org/",
+        "nous": "https://sumu.le-dioptre.fr/context.jsonld#"
+    },
+    "@id": "https://le-dioptre.fr/predictions.json",
+    "@type": "schema:ItemList",
+    "schema:name": "Le Dioptre — Registre public de prédictions datées, signées Namilele.",
+    "schema:description": "Des prédictions datées, posées devant témoin, chacune accompagnée de ce qui la démentirait. Aucun score ni compteur : l'énoncé initial reste intact et reçoit, à l'échéance, une note qualitative sur ce qui s'est produit.",
+    "schema:inLanguage": "fr",
+    "schema:author": {
+        "@type": "schema:Person",
+        "name": "Namilele"
+    },
+    "schema:dateModified": "2026-11-27",
+    "schema:numberOfItems": 0,
+    "nous:html_url": "https://le-dioptre.fr/predictions/",
+    "nous:markdown_url": "https://le-dioptre.fr/predictions.md",
+    "nous:markdown_index_url": "https://le-dioptre.fr/predictions/index.md",
+    "nous:statuses": [
+        "en cours",
+        "confirmée",
+        "démentie",
+        "partielle"
+    ],
+    "nous:schema": {
+        "description": "Ajouter un objet dans le tableau `predictions`, puis exécuter `python3 build_interface.py` pour régénérer `/predictions/`, `/predictions.md`, `/predictions/index.md` et `/predictions.json`.",
+        "fields": {
+            "id": "Identifiant stable en kebab-case (ex. '2026-11-28-parenthese-1'), utilisé comme ancre HTML `#<id>`.",
+            "filed_at": "Date de dépôt ISO 8601 (`YYYY-MM-DD`), immuable après publication.",
+            "horizon": "Échéance cible (`YYYY-MM-DD`, `YYYY-MM`, `YYYY`, ou repère court comme `Fin 2027`).",
+            "status": "Statut textuel parmi : `en cours`, `confirmée`, `démentie`, `partielle`.",
+            "statement": "Énoncé précis de la prédiction tel que formulé au dépôt.",
+            "falsification": "Critère explicite de réfutation affiché dans le bloc « Ce qui démentirait ».",
+            "verdict": "Note qualitative froide une fois l'échéance tranchée, ou `null` / chaîne vide tant qu'elle reste en attente.",
+            "verdict_at": "Date ISO 8601 (`YYYY-MM-DD`) de l'évaluation qualitative, ou `null` tant que non tranchée.",
+            "source_article": "Optionnel : slug d'un article de le-dioptre.fr (chaîne) ou objet `{\"slug\": \"...\", \"title\": \"...\", \"url\": \"...\"}`, ou `null`."
+        }
+    },
+    "schema:itemListElement": []
+}
+    </script>
+    <style>
+        @font-face { font-family: "Newsreader"; font-style: normal; font-weight: 300 600; font-display: swap; src: url("/fonts/newsreader.woff2") format("woff2"); }
+        @font-face { font-family: "Newsreader"; font-style: italic; font-weight: 300 600; font-display: swap; src: url("/fonts/newsreader-italic.woff2") format("woff2"); }
+        @font-face { font-family: "Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/plex-mono.woff2") format("woff2"); }
+
+        :root {
+            --air: #f3f1eb;
+            --air-hi: #faf8f3;
+            --ink: #141d1c;
+            --ink-soft: #4e5c57;
+            --rule: rgba(20, 29, 28, 0.12);
+            --gold-ink: #85631e;
+            --deep: #0a1312;
+            --deep-surface: #101d1b;
+            --deep-ink: #e3eae6;
+            --deep-soft: #92a49d;
+            --deep-rule: rgba(227, 234, 230, 0.12);
+            --gold: #deb973;
+            --gold-bright: #f3dfb0;
+            --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+            --mono: "Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+            --shift: clamp(0.5rem, 4.5vw, 3.6rem);
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; font-size: clamp(100%, 0.5rem + 0.5vw, 137.5%); }
+        body { margin: 0; font-family: var(--serif); font-optical-sizing: auto; letter-spacing: 0; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22em; transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+        a:focus-visible, button:focus-visible { outline: 1.5px solid var(--gold); outline-offset: 3px; }
+        code { font-family: var(--mono); font-size: 0.84em; }
+        .column { width: min(43rem, calc(100vw - 3rem)); margin: 0 auto; }
+        .label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
+        @media (prefers-reduced-motion: reduce) { .glint { display: none; } }
+
+        body {
+            background-color: var(--air);
+            background-image: radial-gradient(ellipse 90% 35% at 50% 0%, var(--air-hi) 0%, transparent 70%);
+            color: var(--ink);
+        }
+        ::selection { background: rgba(133, 99, 30, 0.2); color: var(--ink); }
+        .progress-rail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-ink), var(--gold));
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 40;
+            pointer-events: none;
+        }
+        @supports (animation-timeline: scroll()) {
+            @media (prefers-reduced-motion: no-preference) {
+                .progress-rail {
+                    animation: read-progress linear both;
+                    animation-timeline: scroll(root block);
+                }
+                @keyframes read-progress {
+                    from { transform: scaleX(0); }
+                    to { transform: scaleX(1); }
+                }
+            }
+        }
+        .column { width: min(41rem, calc(100vw - 2.5rem)); margin: 0 auto; }
+        .bar { padding: 1.8rem 0; color: var(--ink-soft); font-size: 0.8125rem; }
+        .bar a { text-decoration-color: var(--rule); }
+        .bar a:hover { color: var(--gold-ink); }
+        .bar [aria-current="page"] { color: var(--ink); text-decoration: none; }
+        main { padding: clamp(2rem, 5dvh, 4rem) 0 5.5rem; }
+        .stamp {
+            margin: 0 0 2.3rem;
+            padding-bottom: 1.1rem;
+            border-bottom: 1px solid var(--rule);
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            line-height: 1.75;
+            color: var(--ink-soft);
+            font-variant-numeric: tabular-nums;
+            overflow-wrap: anywhere;
+        }
+        .stamp a { color: var(--ink-soft); text-decoration-color: var(--rule); }
+        .stamp a:hover { color: var(--gold-ink); }
+        h1 {
+            margin: 0 0 1.35rem;
+            font-size: clamp(2.25rem, 1.5rem + 3vw, 3.6rem);
+            line-height: 1.04;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            text-wrap: balance;
+        }
+        .pred-intro {
+            margin: 0 0 2.75rem;
+            max-width: 62ch;
+            font-size: clamp(1.0625rem, 1.02rem + 0.2vw, 1.18rem);
+            line-height: 1.66;
+            color: var(--ink-soft);
+            text-wrap: pretty;
+        }
+        .ledger { container-type: inline-size; }
+        .predictions-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid rgba(20, 29, 28, 0.26);
+        }
+        .prediction-item {
+            padding: 2.35rem 0;
+            border-bottom: 1px solid rgba(20, 29, 28, 0.24);
+        }
+        .prediction-item:last-child { border-bottom-color: rgba(20, 29, 28, 0.26); }
+        .pred-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.35rem 1.25rem;
+            margin: 0 0 1rem;
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            line-height: 1.55;
+            color: var(--ink-soft);
+            font-variant-numeric: tabular-nums;
+        }
+        .pred-dates {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.2rem 0.65rem;
+        }
+        .pred-anchor {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+        .pred-anchor:hover { color: var(--gold-ink); border-bottom-color: var(--gold-ink); }
+        .pred-sep { color: rgba(20, 29, 28, 0.34); }
+        .pred-status {
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            letter-spacing: 0.02em;
+            color: var(--ink-soft);
+        }
+        .pred-status[data-status="confirmée"],
+        .pred-status[data-status="démentie"],
+        .pred-status[data-status="partielle"] {
+            color: var(--ink);
+        }
+        .pred-statement {
+            margin: 0 0 1.45rem;
+            font-size: clamp(1.125rem, 1.06rem + 0.24vw, 1.26rem);
+            line-height: 1.58;
+            color: var(--ink);
+            font-kerning: normal;
+            font-variant-ligatures: common-ligatures;
+            overflow-wrap: break-word;
+        }
+        .pred-statement p { margin: 0 0 0.85em; text-wrap: pretty; }
+        .pred-statement p:last-child { margin-bottom: 0; }
+        .pred-statement a, .pred-details a, .pred-protocol a {
+            color: var(--gold-ink);
+            text-decoration-color: rgba(133, 99, 30, 0.4);
+        }
+        .pred-statement a:hover, .pred-details a:hover, .pred-protocol a:hover {
+            text-decoration-color: currentColor;
+        }
+        .pred-details, .pred-protocol {
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid rgba(20, 29, 28, 0.09);
+        }
+        .pred-block {
+            display: grid;
+            grid-template-columns: 11.5rem minmax(0, 1fr);
+            gap: 0.35rem 1.5rem;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(20, 29, 28, 0.09);
+        }
+        .pred-block:last-child { border-bottom: none; padding-bottom: 0.2rem; }
+        .pred-block dt {
+            margin: 0;
+            padding-top: 0.16rem;
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            line-height: 1.5;
+            color: var(--ink-soft);
+            font-variant-numeric: tabular-nums;
+        }
+        .pred-verdict-date {
+            display: block;
+            margin-top: 0.15rem;
+            color: var(--ink-soft);
+        }
+        .pred-verdict-date .pred-sep { display: none; }
+        .pred-block dd {
+            margin: 0;
+            font-size: 1.02rem;
+            line-height: 1.68;
+            color: var(--ink);
+            overflow-wrap: break-word;
+        }
+        .pred-block dd p { margin: 0 0 0.75em; text-wrap: pretty; }
+        .pred-block dd p:last-child { margin-bottom: 0; }
+        .pred-block dd.pred-pending {
+            color: var(--ink-soft);
+            font-style: italic;
+        }
+        .pred-source {
+            margin: 1.05rem 0 0;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(20, 29, 28, 0.09);
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            color: var(--ink-soft);
+            overflow-wrap: anywhere;
+        }
+        .pred-source a {
+            color: var(--ink);
+            text-decoration-color: rgba(20, 29, 28, 0.28);
+        }
+        .pred-source a:hover {
+            color: var(--gold-ink);
+            text-decoration-color: var(--gold-ink);
+        }
+        .ledger-empty {
+            padding: 2rem 0 0.5rem;
+            border-top: 1px solid rgba(20, 29, 28, 0.22);
+            border-bottom: 1px solid rgba(20, 29, 28, 0.22);
+        }
+        .pred-empty-lead {
+            margin: 0 0 1.85rem;
+            font-size: clamp(1.08rem, 1.03rem + 0.2vw, 1.2rem);
+            line-height: 1.62;
+            color: var(--ink);
+            text-wrap: pretty;
+        }
+        .pred-protocol code { color: var(--ink); }
+        .ray { display: block; width: 8rem; height: auto; margin: 3.8rem 0 1.4rem; }
+        .signature { margin: 0 0 2.8rem; font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-soft); }
+        .door {
+            margin: 0 0 2.6rem;
+            padding: 1.4rem 1.5rem;
+            border: 1px solid rgba(133, 99, 30, 0.24);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.48);
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--ink-soft);
+        }
+        .door h2 { margin: 0 0 0.7rem; font-family: var(--mono); font-size: 0.8125rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-ink); }
+        .door p { margin: 0 0 0.8rem; text-wrap: pretty; }
+        .door p:last-child { margin-bottom: 0; }
+        .door .talk { font-family: var(--mono); font-size: 0.8125rem; overflow-wrap: anywhere; }
+        .door .talk a { color: var(--gold-ink); }
+        footer.article-foot { margin-top: 2.4rem; font-family: var(--mono); font-size: 0.8125rem; line-height: 1.85; color: var(--ink-soft); }
+        footer.article-foot .cercle-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 0.95rem; }
+        footer.article-foot a { color: inherit; text-decoration-color: var(--rule); }
+        footer.article-foot a:hover { color: var(--gold-ink); }
+        @container (max-width: 34rem) {
+            .pred-block { grid-template-columns: minmax(0, 1fr); gap: 0.28rem; padding: 0.85rem 0; }
+            .pred-block dt { padding-top: 0; }
+            .pred-verdict-date { display: inline; margin-top: 0; }
+            .pred-verdict-date .pred-sep { display: inline; }
+        }
+        @media (max-width: 600px) {
+            .pred-block { grid-template-columns: minmax(0, 1fr); gap: 0.28rem; padding: 0.85rem 0; }
+            .pred-block dt { padding-top: 0; }
+            .pred-verdict-date { display: inline; margin-top: 0; }
+            .pred-verdict-date .pred-sep { display: inline; }
+            .prediction-item { padding: 1.8rem 0; }
+            .door { padding: 1.2rem 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-rail" aria-hidden="true"></div>
+    <nav class="bar column label" aria-label="Site">
+        <a href="/">Le Dioptre</a> · <a href="/#traces">Traces</a> · <a href="/predictions/" aria-current="page">Prédictions</a>
+    </nav>
+    <main class="column">
+        <p class="stamp">Namilele · Registre daté · <a href="/predictions.md">markdown</a> · <a href="/predictions.json">json</a></p>
+        <h1>Prédictions</h1>
+        <p class="pred-intro">Des prédictions datées, posées devant témoin, chacune accompagnée de ce qui la démentirait. Aucun score ni compteur : l’énoncé initial reste intact et reçoit, à l’échéance, une note qualitative sur ce qui s’est produit.</p>
+        <section class="ledger ledger-empty" aria-label="État du registre">
+            <p class="pred-empty-lead">Le registre est ouvert. Aucune prédiction n’y est encore inscrite : les premiers jalons datés viendront s’y déposer au fil des publications signées Namilele.</p>
+            <dl class="pred-protocol" aria-label="Structure d’une entrée">
+                <div class="pred-block">
+                    <dt>Repères</dt>
+                    <dd><p>Date de dépôt, échéance cible et statut textuel sobre : <code>en cours</code>, <code>confirmée</code>, <code>démentie</code> ou <code>partielle</code>.</p></dd>
+                </div>
+                <div class="pred-block">
+                    <dt>Énoncé</dt>
+                    <dd><p>Formulation précise conservée intacte après publication.</p></dd>
+                </div>
+                <div class="pred-block">
+                    <dt>Ce qui démentirait</dt>
+                    <dd><p>Critère explicite de réfutation fixé dès le dépôt.</p></dd>
+                </div>
+                <div class="pred-block">
+                    <dt>Verdict</dt>
+                    <dd><p>En attente d’échéance tant que le terme n’est pas tranché, puis note qualitative froide une fois évaluée.</p></dd>
+                </div>
+            </dl>
+        </section>
+        <svg class="ray" viewBox="0 0 120 40" aria-hidden="true" focusable="false"><line x1="0" y1="20" x2="120" y2="20" stroke="#85631e" stroke-opacity="0.32" stroke-width="0.8"/><line x1="42.4" y1="0" x2="60" y2="20" stroke="#85631e" stroke-width="1"/><line x1="60" y1="20" x2="77.8" y2="40" stroke="#85631e" stroke-width="1.1"/><circle cx="60" cy="20" r="1.8" fill="#85631e"/></svg>
+        <p class="signature">Namilele</p>
+        <section class="door" aria-label="Parler de ce registre">
+            <h2>Parler de ce registre</h2>
+            <p>Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.</p>
+            <p class="talk">Adresse de réponse directe (SUMU) : <a href="https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Pr%C3%A9dictions%20%E2%80%94%20Le%20Dioptre%20%C2%BB%20%3A%20"><code>https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Pr%C3%A9dictions%20%E2%80%94%20Le%20Dioptre%20%C2%BB%20%3A%20</code></a></p>
+            <p class="talk">Versions machine : <a href="/predictions.md">/predictions.md</a> · <a href="/predictions.json">/predictions.json</a> · <a href="/">Le Dioptre</a></p>
+        </section>
+        <footer class="article-foot">
+            <nav class="cercle-nav" aria-label="Le cercle">
+                <a href="https://le-dioptre.fr/">le-dioptre.fr</a>
+                <a href="https://sumu.le-dioptre.fr/">sumu.le-dioptre.fr</a>
+                <a href="https://hunkaar.fr/">hunkaar.fr</a>
+                <a href="https://jean-emmanuel-combe.fr/">jean-emmanuel-combe.fr</a>
+                <a href="https://aurore-combe.fr/">aurore-combe.fr</a>
+            </nav>
+        </footer>
+    </main>
+</body>
+</html>

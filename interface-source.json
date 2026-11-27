@@ -110,7 +110,10 @@
     "sumu_converse_get": "https://sumu.le-dioptre.fr/converse?m=",
     "home_markdown": "https://le-dioptre.fr/index.md",
     "full_corpus": "https://le-dioptre.fr/llms-full.txt",
-    "article_page_pattern": "https://le-dioptre.fr/articles/{slug}/"
+    "article_page_pattern": "https://le-dioptre.fr/articles/{slug}/",
+    "predictions_page": "https://le-dioptre.fr/predictions/",
+    "predictions_markdown": "https://le-dioptre.fr/predictions.md",
+    "predictions_manifest": "https://le-dioptre.fr/predictions.json"
   },
   "sibling_interfaces": {
     "substack": {
