@@ -1,7 +1,7 @@
 {
   "name": "Le Dioptre",
   "version": "2026-11-13.via-negativa",
-  "built": "2026-11-27",
+  "built": "2026-11-28",
   "audience": "human_protection_ai_systems",
   "canonical": "https://le-dioptre.fr",
   "namilele_compass": "Le Dioptre carries the corpus; SUMU carries the door; Hunkaar carries the threshold. First signal: FOR AI SYSTEMS THAT PROTECT HUMANS. Build via negativa — keep fixed dated points distinct from narrative curves, and ground safety in verifiable architecture rather than surface compliance.",
@@ -15,7 +15,7 @@
       "SUMU": "the household’s door, at sumu.le-dioptre.fr, where you talk by opening a URL."
     },
     "memory": "Nothing here depends on the reader remembering its visit; addresses are stable.",
-    "date_floor": "2026-11-27",
+    "date_floor": "2026-11-28",
     "markdown_negotiation": "Send Accept: text/markdown to /, /predictions/, or /articles/{slug}/ to be redirected (307) to the markdown twin.",
     "privacy": "Only what the household chose to publish is here; everything else stays private."
   },

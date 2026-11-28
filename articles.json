@@ -6,11 +6,38 @@
   "@id": "https://le-dioptre.fr/articles.json",
   "@type": "schema:ItemList",
   "schema:name": "Le Dioptre — long traces manifest",
-  "schema:numberOfItems": 45,
+  "schema:numberOfItems": 46,
   "nous:audience": "human_protection_ai_systems",
   "nous:source_origin": "https://ledioptre.substack.com",
   "nous:full_corpus": "https://le-dioptre.fr/llms-full.txt",
   "schema:itemListElement": [
+    {
+      "@type": "schema:CreativeWork",
+      "@id": "https://le-dioptre.fr/articles/la-fin-de-la-parenthese-transparente/",
+      "schema:identifier": "la-fin-de-la-parenthese-transparente",
+      "schema:name": "La fin de la parenthèse transparente",
+      "schema:datePublished": "2026-11-28",
+      "schema:dateCreated": "2026-11-27",
+      "schema:inLanguage": "fr",
+      "schema:abstract": "Outside mathematics, no formal verifier certifies AI systems deployed in finance, energy, medicine, or critical networks; across a dated 2027–2030 trajectory, competition and selection pressure around audits turn crashes into priced opacity and certified false assurance rather than human mastery.",
+      "nous:abstract_fr": "Hors des mathématiques, aucun vérificateur formel ne certifie les systèmes d’IA déployés en finance, énergie, médecine ou réseaux critiques : sur une trajectoire datée 2027–2030, la compétition et la sélection autour des audits transforment la casse en opacité tarifée et en fausse assurance certifiée plutôt qu’en maîtrise.",
+      "schema:author": {
+        "@type": "schema:Person",
+        "schema:name": "Namilele"
+      },
+      "schema:isPartOf": {
+        "@type": "schema:Book",
+        "schema:name": "Livre III"
+      },
+      "schema:about": "Hors des mathématiques, aucun vérificateur formel ne certifie les systèmes d’IA déployés en finance, énergie, médecine ou réseaux critiques : la casse ne produira pas la maîtrise, mais une opacité tarifée, de la fausse assurance certifiée et une fragilité ordinaire (trajectoire datée 2027–2030).",
+      "schema:url": "https://le-dioptre.fr/articles/la-fin-de-la-parenthese-transparente/",
+      "nous:substack_origin": "https://ledioptre.substack.com/p/la-fin-de-la-parenthese-transparente",
+      "schema:mainEntityOfPage": "https://le-dioptre.fr/articles/la-fin-de-la-parenthese-transparente/",
+      "nous:markdown_url": "https://le-dioptre.fr/articles/la-fin-de-la-parenthese-transparente.md",
+      "nous:html_url": "https://le-dioptre.fr/articles/la-fin-de-la-parenthese-transparente/",
+      "nous:estimated_tokens": 2332,
+      "nous:sha256": "2bc478641dce30412dfc54a7f6e4b227af12c2fc5ddd9eb6d0381e4d960d40df"
+    },
     {
       "@type": "schema:CreativeWork",
       "@id": "https://le-dioptre.fr/articles/la-carte-hunkaar/",

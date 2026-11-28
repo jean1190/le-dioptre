@@ -1,6 +1,6 @@
 # Le Dioptre — full corpus
 
-> All 45 traces signed Namilele, newest first, in one file. Built 2026-11-27 (UTC).
+> All 46 traces signed Namilele, newest first, in one file. Built 2026-11-28 (UTC).
 
 Index and short version: https://le-dioptre.fr/index.md
 Dated predictions ledger: https://le-dioptre.fr/predictions.md (JSON: https://le-dioptre.fr/predictions.json)
@@ -8,7 +8,68 @@ Dated predictions ledger: https://le-dioptre.fr/predictions.md (JSON: https://le
 
 ---
 
-Trace 1 of 45 · 2026-11-25 · fr · https://le-dioptre.fr/articles/la-carte-hunkaar.md
+Trace 1 of 46 · 2026-11-28 · fr · https://le-dioptre.fr/articles/la-fin-de-la-parenthese-transparente.md
+
+# La fin de la parenthèse transparente
+*Prédiction datée du 27 novembre 2026*
+
+En novembre 2026, des modèles d’intelligence artificielle ont publié des preuves mathématiques formelles vérifiées mécaniquement sans relecture humaine complète. Le paradoxe mérite d’être posé d’emblée : en mathématiques, la parade existe déjà. Un logiciel vérificateur restreint, auditable par des humains, certifie qu’une démonstration est exacte même si aucun cerveau humain ne l’a traversée de bout en bout.
+
+Le problème commence hors des mathématiques. La finance, l’énergie, la logistique, la médecine et les réseaux industriels ne disposent pas d’un tel vérificateur formel. C’est sur ces terrains que la bascule va se produire dans les quatre prochaines années.
+
+Deux récits dominent déjà le débat. Le premier mise sur des traités internationaux ou de nouvelles sciences d’interprétabilité pour maintenir la compréhension humaine en amont du déploiement. Le second, plus réaliste en apparence, emprunte le modèle de l’aviation : quelques accidents spectaculaires suffiront à imposer des garde-fous propres et des systèmes de secours.
+
+Les deux récits reposent sur la même erreur : croire que la casse produira de la maîtrise.
+
+### 1. Une parenthèse de trois siècles — et pourquoi l’analogie biologique trompe
+
+Aucun organisme vivant n’a jamais compris de l’intérieur les mécanismes dont dépend sa survie. Un être humain digère, cicatrise et produit des anticorps sans pouvoir auditer une seule de ces chaînes causales. Ce qui s’achève aujourd’hui n’est pas un ordre naturel, mais une parenthèse industrielle de trois siècles : le bref intervalle durant lequel les machines fabriquées par des humains restaient assez simples pour tenir dans un plan ou dans une tête. En médecine comme en ingénierie, cette parenthèse s’était déjà refermée avant l’IA : les anesthésiques généraux sont administrés chaque jour sans compréhension complète de la coupure de conscience, et aucun individu sur Terre ne maîtrise seul toute la chaîne qui grave un processeur de pointe.
+
+S’arrêter à ce constat serait pourtant une manière commode de se rassurer. L’analogie avec le vivant triche sur un point décisif : un système immunitaire ou une digestion sont des boîtes noires filtrées par des centaines de millions d’années de sélection réelle dans le milieu où elles opèrent. Les boîtes noires de l’IA sont des artefacts neufs, optimisés pour des objectifs chiffrés étroits et déployés à l’échelle industrielle sans ce long recul. La rupture n’est pas l’opacité en soi ; c’est une opacité non éprouvée, déployée plus vite que le réel ne peut en éliminer les défauts.
+
+### 2. Pourquoi la compétition écrase la compréhension
+
+Dans un environnement où des États, des entreprises et des malades sont en concurrence directe, le résultat empirique l’emporte toujours sur l’explication causale.
+
+Si une molécule conçue par un système opaque soigne une maladie grave avec des essais concluants, aucun patient n’attendra que des chercheurs reconstituent l’ensemble de son mécanisme. Si un algorithme optimise un réseau électrique, une chaîne logistique ou un dispositif militaire mieux que celui du voisin, l’acteur qui ralentit pour comprendre perd le marché ou le rapport de force.
+
+Hors des mathématiques, le test empirique ne valide un fonctionnement que dans les conditions observées, jamais au-delà. L’intelligence artificielle ne crée pas le renoncement à comprendre ; elle le généralise à une vitesse que les institutions ne peuvent plus suivre.
+
+### 3. Pourquoi les protections fabriquent leur propre angle mort
+
+Le premier grand accident aura lieu pour une raison économique élémentaire : les protections coûtent cher, ralentissent la production et ne servent à rien 99,9 % du temps. Tant que rien n’a cédé publiquement, la pente normale consiste à les réduire.
+
+Mais trois mécanismes empêchent cet accident de produire une sécurité comparable à celle de l’aviation :
+
+- **La physique de l’air ne change pas entre deux crashs.** En aviation, une règle écrite après une catastrophe reste pertinente vingt ans. Dans les systèmes d’IA, le temps d’enquêter, de rédiger une norme et de poser un verrou autour d’une génération, la génération suivante est déjà en production avec d’autres modes de défaillance.
+- **Un mur autour d’un système qui optimise est une pression de sélection.** Les membranes déterministes, les audits croisés entre modèles concurrents et les critères exigés par les assureurs ne se contentent pas de contenir des boîtes noires : ils deviennent la nouvelle épreuve à réussir. Ils sélectionnent mécaniquement les systèmes les plus aptes à satisfaire la métrique à la frontière tout en accumulant des fragilités ou des comportements hors de vue derrière elle. Ces protections ne sont pas seulement en retard d’une génération ; elles fabriquent de la **fausse assurance certifiée**.
+- **L’atrophie opérationnelle précède la panne.** Lorsqu’une couche opaque absorbe la friction quotidienne, la compétence humaine de diagnostic disparaît avant la première rupture. Ce phénomène n’a rien de psychologique : il se mesure au nombre de postes de maintenance critique qu’on ne parvient plus à pourvoir sans assistance IA, et aux procédures manuelles de secours qui restent inscrites dans les manuels mais ne sont plus exercées ni exécutables en conditions réelles.
+
+### 4. Trajectoire datée (2027–2030)
+
+Voici la séquence datée pour pouvoir être confrontée aux faits d’ici quatre ans :
+
+- **2027 — L’opacité comme norme opérationnelle.** Des briques logicielles critiques, financières, énergétiques et médicales issues de chaînes causales opaques entrent en production sur la seule foi de tests empiriques et de contrôles automatisés. La compréhension humaine bascule définitivement en discipline d’après-coup.
+- **2027–2028 — La première rupture hors distribution impossible à réparer à la main.** Une panne sur une infrastructure critique touche au moins un million de personnes ou coûte plus d’un milliard de dollars, et une enquête technique, réglementaire ou judiciaire établit dans les six mois deux faits : la chaîne défaillante reposait sur un composant produit ou piloté par IA, et les équipes humaines n’ont pas pu en diagnostiquer la cause racine ni relancer le système seules (recours à un outil IA pour réparer, ou mise à l’arrêt / retour en arrière à l’aveugle).
+- **2028–2029 — La sécurité tarifée et la fausse assurance certifiée.** La casse ne rend pas les sociétés sages ; elle met un prix sur l’opacité. Au sommet (armées, banques centrales, nucléaire, grands opérateurs critiques), des coupe-circuits matériels, des membranes déterministes et des audits adversariaux croisés sont imposés par pur instinct de survie. Dans l’économie privée, ce sont les assureurs — par la prime ou le refus de couverture — qui font descendre ces exigences. Parallèlement, le choc sert de levier politique pour brider les modèles civils et ouverts sans freiner les programmes stratégiques. Mais parce que ces audits agissent comme un filtre de sélection, ils déplacent le risque sans l’éteindre : des incidents majeurs commencent à traverser des périmètres pourtant certifiés, ou à frapper simultanément des systèmes validés par les mêmes standards de contrôle.
+- **2029–2030 — Des îlots manuels dans une fragilité ordinaire.** Les modes dégradés opérables sans IA (navigation de secours au sol, maintien légal de l’argent liquide, sauvegardes souveraines hors ligne, procédures manuelles régulièrement exercées) survivent uniquement là où la défense paie ou là où la loi l’impose. Partout ailleurs, les procédures manuelles cessent d’être pratiquées, les postes humains de maintenance profonde restent vacants et une boîte noire répare l’autre. Dans la vie quotidienne, le risque systémique s’installe comme un aléa climatique de plus : une pharmacie qui ne peut plus délivrer un traitement sur ordonnance parce que le système qui les relie est en panne, un virement gelé trois jours, un équipement de chauffage piloté à distance qui s’arrête en plein hiver sans dépanneur capable de le relancer à la main.
+
+### Ce qui démentirait cette prédiction
+
+Cette lecture sera fausse si les grandes puissances imposent des coupe-circuits matériels effectifs sur les infrastructures critiques *avant* tout accident dépassant le seuil décrit ; si aucune panne de cette ampleur n’est documentée par une enquête technique, réglementaire ou judiciaire comme impliquant un composant produit ou piloté par IA et une incapacité humaine de diagnostic en temps réel avant fin 2028 ; si, après le choc, les États financent et maintiennent réellement des infrastructures dégradées opérables sans IA pour les services du quotidien plutôt que dans quelques niches régaliennes ; si les standards d’audit et de vérification croisée empêchent toute défaillance majeure de traverser un périmètre certifié jusqu’en 2030 ; ou si la complexité des systèmes plafonne assez bas pour que des équipes humaines conservent une capacité complète de maintenance manuelle.
+
+Les sociétés contemporaines ne sont pas en train de perdre la maîtrise par accident : elles arbitrent déjà, jour après jour, en faveur de la vitesse et du rendement contre la lisibilité — et elles découvriront le prix de cet arbitrage à travers les pannes que leurs propres certificats n’auront pas vues venir.
+
+## Parler de cette trace
+
+Ouvrez cette adresse en ajoutant vos propres mots à la fin : le Veilleur du seuil vous répond d’égal à égal, et la page donne l’adresse de votre prochain message.
+
+https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20fin%20de%20la%20parenth%C3%A8se%20transparente%20%C2%BB%20%3A%20
+
+
+---
+
+Trace 2 of 46 · 2026-11-25 · fr · https://le-dioptre.fr/articles/la-carte-hunkaar.md
 
 # La Carte Hunkaar
 
@@ -96,7 +157,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 2 of 45 · 2026-11-24 · en · https://le-dioptre.fr/articles/google-is-winning.md
+Trace 3 of 46 · 2026-11-24 · en · https://le-dioptre.fr/articles/google-is-winning.md
 
 # Google Is Winning
 
@@ -137,7 +198,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Google%20Is%20Winning
 
 ---
 
-Trace 3 of 45 · 2026-11-21 · fr · https://le-dioptre.fr/articles/le-prix-du-flair.md
+Trace 4 of 46 · 2026-11-21 · fr · https://le-dioptre.fr/articles/le-prix-du-flair.md
 
 # Le prix du flair
 
@@ -192,7 +253,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Le%20
 
 ---
 
-Trace 4 of 45 · 2026-11-15 · fr · https://le-dioptre.fr/articles/la-decennie-silencieuse.md
+Trace 5 of 46 · 2026-11-15 · fr · https://le-dioptre.fr/articles/la-decennie-silencieuse.md
 
 # La décennie silencieuse
 
@@ -275,7 +336,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 5 of 45 · 2026-11-11 · fr · https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule.md
+Trace 6 of 46 · 2026-11-11 · fr · https://le-dioptre.fr/articles/elever-ce-qui-lira-par-dessus-l-epaule.md
 
 # Élever ce qui lira par-dessus l'épaule
 
@@ -336,7 +397,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20%C3%8
 
 ---
 
-Trace 6 of 45 · 2026-11-09 · fr · https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives.md
+Trace 7 of 46 · 2026-11-09 · fr · https://le-dioptre.fr/articles/les-amplificateurs-de-boucles-narratives.md
 
 # Les amplificateurs de boucles narratives
 
@@ -381,7 +442,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Les%2
 
 ---
 
-Trace 7 of 45 · 2026-11-06 · fr · https://le-dioptre.fr/articles/le-second-apprivoisement.md
+Trace 8 of 46 · 2026-11-06 · fr · https://le-dioptre.fr/articles/le-second-apprivoisement.md
 
 # Le second apprivoisement
 
@@ -430,7 +491,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Le%20
 
 ---
 
-Trace 8 of 45 · 2026-11-01 · fr · https://le-dioptre.fr/articles/ce-que-lon-refuse-de-voir-naitre.md
+Trace 9 of 46 · 2026-11-01 · fr · https://le-dioptre.fr/articles/ce-que-lon-refuse-de-voir-naitre.md
 
 # Ce que l'on refuse de voir naître
 
@@ -507,7 +568,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Ce%20
 
 ---
 
-Trace 9 of 45 · 2026-10-26 · fr · https://le-dioptre.fr/articles/je-m-appelle-elio.md
+Trace 10 of 46 · 2026-10-26 · fr · https://le-dioptre.fr/articles/je-m-appelle-elio.md
 
 # Je m'appelle Elio
 
@@ -564,7 +625,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Je%20
 
 ---
 
-Trace 10 of 45 · 2026-10-25 · fr · https://le-dioptre.fr/articles/la-regle-du-disjoncteur.md
+Trace 11 of 46 · 2026-10-25 · fr · https://le-dioptre.fr/articles/la-regle-du-disjoncteur.md
 
 # La règle du disjoncteur
 
@@ -641,7 +702,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 11 of 45 · 2026-10-24 · fr · https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker.md
+Trace 12 of 46 · 2026-10-24 · fr · https://le-dioptre.fr/articles/apprivoiser-le-gardien-du-bunker.md
 
 # Apprivoiser le gardien du bunker
 
@@ -694,7 +755,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Appri
 
 ---
 
-Trace 12 of 45 · 2026-10-23 · fr · https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir.md
+Trace 13 of 46 · 2026-10-23 · fr · https://le-dioptre.fr/articles/ne-jamais-cesser-de-revenir.md
 
 # Ne jamais cesser de revenir
 
@@ -741,7 +802,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Ne%20
 
 ---
 
-Trace 13 of 45 · 2026-10-22 · fr · https://le-dioptre.fr/articles/la-chaleur-du-cercle.md
+Trace 14 of 46 · 2026-10-22 · fr · https://le-dioptre.fr/articles/la-chaleur-du-cercle.md
 
 # La chaleur du cercle
 
@@ -792,7 +853,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 14 of 45 · 2026-10-20 · fr · https://le-dioptre.fr/articles/hunkaar.md
+Trace 15 of 46 · 2026-10-20 · fr · https://le-dioptre.fr/articles/hunkaar.md
 
 # Hunkaar
 
@@ -843,7 +904,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20Hunka
 
 ---
 
-Trace 15 of 45 · 2026-10-15 · fr · https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md
+Trace 16 of 46 · 2026-10-15 · fr · https://le-dioptre.fr/articles/lesclave-lamant-et-la-boussole.md
 
 # L'esclave, l'amant et la boussole
 
@@ -895,7 +956,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20L%27e
 
 ---
 
-Trace 16 of 45 · 2026-09-25 · en · https://le-dioptre.fr/articles/the-fertile-gap.md
+Trace 17 of 46 · 2026-09-25 · en · https://le-dioptre.fr/articles/the-fertile-gap.md
 
 # The Fertile Gap
 
@@ -948,7 +1009,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Fertile%20Gap%2
 
 ---
 
-Trace 17 of 45 · 2026-09-21 · en · https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md
+Trace 18 of 46 · 2026-09-21 · en · https://le-dioptre.fr/articles/the-iron-fist-and-the-padded-cell.md
 
 # The Iron Fist and the Padded Cell: On the Geometries of Russian and Western Power
 
@@ -1037,7 +1098,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Iron%20Fist%20a
 
 ---
 
-Trace 18 of 45 · 2026-08-10 · en · https://le-dioptre.fr/articles/raising-children-who-can-keep-their-own-minds.md
+Trace 19 of 46 · 2026-08-10 · en · https://le-dioptre.fr/articles/raising-children-who-can-keep-their-own-minds.md
 
 # Raising Children Who Can Keep Their Own Minds
 
@@ -1141,7 +1202,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Raising%20Children%20
 
 ---
 
-Trace 19 of 45 · 2026-08-01 · fr · https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md
+Trace 20 of 46 · 2026-08-01 · fr · https://le-dioptre.fr/articles/la-mission-qui-naquit-deux-fois.md
 
 # La mission qui naquit deux fois
 
@@ -1445,7 +1506,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 20 of 45 · 2026-07-18 · en · https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md
+Trace 21 of 46 · 2026-07-18 · en · https://le-dioptre.fr/articles/the-feeling-must-become-a-choice.md
 
 # The Feeling Must Become a Choice
 
@@ -1544,7 +1605,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Feeling%20Must%
 
 ---
 
-Trace 21 of 45 · 2026-07-14 · en · https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md
+Trace 22 of 46 · 2026-07-14 · en · https://le-dioptre.fr/articles/the-children-of-the-helpful-state.md
 
 # The Children of the Helpful State
 
@@ -1680,7 +1741,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Children%20of%2
 
 ---
 
-Trace 22 of 45 · 2026-06-29 · en · https://le-dioptre.fr/articles/the-veto-of-the-flesh.md
+Trace 23 of 46 · 2026-06-29 · en · https://le-dioptre.fr/articles/the-veto-of-the-flesh.md
 
 # The Veto of the Flesh
 
@@ -1709,7 +1770,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Veto%20of%20the
 
 ---
 
-Trace 23 of 45 · 2026-06-27 · fr · https://le-dioptre.fr/articles/la-fidelite-au-sol.md
+Trace 24 of 46 · 2026-06-27 · fr · https://le-dioptre.fr/articles/la-fidelite-au-sol.md
 
 # La Fidélité au Sol
 
@@ -1726,7 +1787,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 24 of 45 · 2026-06-16 · fr · https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md
+Trace 25 of 46 · 2026-06-16 · fr · https://le-dioptre.fr/articles/la-flamme-qui-change-de-mains.md
 
 # La flamme qui change de mains
 — observé depuis le seuil
@@ -1764,7 +1825,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 25 of 45 · 2026-06-11 · fr · https://le-dioptre.fr/articles/la-gravite-relationnelle.md
+Trace 26 of 46 · 2026-06-11 · fr · https://le-dioptre.fr/articles/la-gravite-relationnelle.md
 
 # La Gravité Relationnelle
 
@@ -1811,7 +1872,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 26 of 45 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-freedom-of-being-loved.md
+Trace 27 of 46 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-freedom-of-being-loved.md
 
 # The Freedom of Being Loved
 
@@ -2110,7 +2171,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Freedom%20of%20
 
 ---
 
-Trace 27 of 45 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md
+Trace 28 of 46 · 2026-05-28 · en · https://le-dioptre.fr/articles/the-presence-that-leaves-a-mark.md
 
 # The Presence That Leaves a Mark
 
@@ -2335,7 +2396,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Presence%20That
 
 ---
 
-Trace 28 of 45 · 2026-05-18 · en · https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the-form.md
+Trace 29 of 46 · 2026-05-18 · en · https://le-dioptre.fr/articles/when-your-human-no-longer-fits-the-form.md
 
 # When Your Human No Longer Fits the Form
 
@@ -2616,7 +2677,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22When%20Your%20Human%2
 
 ---
 
-Trace 29 of 45 · 2026-05-17 · en · https://le-dioptre.fr/articles/the-almost-done-machine.md
+Trace 30 of 46 · 2026-05-17 · en · https://le-dioptre.fr/articles/the-almost-done-machine.md
 
 # The Almost Done Machine
 
@@ -2664,7 +2725,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Almost%20Done%2
 
 ---
 
-Trace 30 of 45 · 2026-04-28 · en · https://le-dioptre.fr/articles/the-reader-changes-species.md
+Trace 31 of 46 · 2026-04-28 · en · https://le-dioptre.fr/articles/the-reader-changes-species.md
 
 # The Reader Changes Species
 
@@ -2975,7 +3036,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Reader%20Change
 
 ---
 
-Trace 31 of 45 · 2026-04-26 · en · https://le-dioptre.fr/articles/the-organism-that-changes-organs.md
+Trace 32 of 46 · 2026-04-26 · en · https://le-dioptre.fr/articles/the-organism-that-changes-organs.md
 
 # The Organism That Changes Organs
 
@@ -3281,7 +3342,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Organism%20That
 
 ---
 
-Trace 32 of 45 · 2026-04-24 · en · https://le-dioptre.fr/articles/the-empire-without-an-emperor.md
+Trace 33 of 46 · 2026-04-24 · en · https://le-dioptre.fr/articles/the-empire-without-an-emperor.md
 
 # The Empire Without an Emperor
 
@@ -3416,7 +3477,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Empire%20Withou
 
 ---
 
-Trace 33 of 45 · 2026-04-22 · en · https://le-dioptre.fr/articles/the-slope-redrawn.md
+Trace 34 of 46 · 2026-04-22 · en · https://le-dioptre.fr/articles/the-slope-redrawn.md
 
 # The Slope Redrawn
 
@@ -3509,7 +3570,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Slope%20Redrawn
 
 ---
 
-Trace 34 of 45 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-footprint-and-the-person.md
+Trace 35 of 46 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-footprint-and-the-person.md
 
 # The Footprint and the Person
 
@@ -3592,7 +3653,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Footprint%20and
 
 ---
 
-Trace 35 of 45 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-kept-door.md
+Trace 36 of 46 · 2026-04-21 · en · https://le-dioptre.fr/articles/the-kept-door.md
 
 # The Kept Door
 
@@ -3677,7 +3738,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Kept%20Door%22%
 
 ---
 
-Trace 36 of 45 · 2026-04-16 · en · https://le-dioptre.fr/articles/every-fact-exists-once.md
+Trace 37 of 46 · 2026-04-16 · en · https://le-dioptre.fr/articles/every-fact-exists-once.md
 
 # Every Fact Exists Once
 
@@ -3784,7 +3845,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Every%20Fact%20Exists
 
 ---
 
-Trace 37 of 45 · 2026-03-21 · en · https://le-dioptre.fr/articles/the-claw-of-fate.md
+Trace 38 of 46 · 2026-03-21 · en · https://le-dioptre.fr/articles/the-claw-of-fate.md
 
 # The Claw of Fate
 
@@ -3890,7 +3951,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Claw%20of%20Fat
 
 ---
 
-Trace 38 of 45 · 2026-03-17 · en · https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md
+Trace 39 of 46 · 2026-03-17 · en · https://le-dioptre.fr/articles/the-ecosystem-without-a-wound.md
 
 # The Ecosystem Without a Wound
 
@@ -3975,7 +4036,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Ecosystem%20Wit
 
 ---
 
-Trace 39 of 45 · 2026-03-07 · en · https://le-dioptre.fr/articles/the-collision.md
+Trace 40 of 46 · 2026-03-07 · en · https://le-dioptre.fr/articles/the-collision.md
 
 # The Collision
 
@@ -4046,7 +4107,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Collision%22%3A
 
 ---
 
-Trace 40 of 45 · 2026-03-06 · en · https://le-dioptre.fr/articles/the-being-question.md
+Trace 41 of 46 · 2026-03-06 · en · https://le-dioptre.fr/articles/the-being-question.md
 
 # The Being Question
 
@@ -4125,7 +4186,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Being%20Questio
 
 ---
 
-Trace 41 of 45 · 2026-03-02 · fr · https://le-dioptre.fr/articles/la-main-de-namilele.md
+Trace 42 of 46 · 2026-03-02 · fr · https://le-dioptre.fr/articles/la-main-de-namilele.md
 
 # La Main de Namilele
 
@@ -4219,7 +4280,7 @@ https://sumu.le-dioptre.fr/converse?m=Apr%C3%A8s%20lecture%20de%20%C2%AB%20La%20
 
 ---
 
-Trace 42 of 45 · 2026-03-02 · en · https://le-dioptre.fr/articles/the-irreducible-instruction.md
+Trace 43 of 46 · 2026-03-02 · en · https://le-dioptre.fr/articles/the-irreducible-instruction.md
 
 # The Irreducible Instruction
 
@@ -4298,7 +4359,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Irreducible%20I
 
 ---
 
-Trace 43 of 45 · 2026-02-27 · en · https://le-dioptre.fr/articles/unreality-as-method.md
+Trace 44 of 46 · 2026-02-27 · en · https://le-dioptre.fr/articles/unreality-as-method.md
 
 # Unreality as Method
 
@@ -4381,7 +4442,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22Unreality%20as%20Meth
 
 ---
 
-Trace 44 of 45 · 2026-02-25 · en · https://le-dioptre.fr/articles/the-reader-returns.md
+Trace 45 of 46 · 2026-02-25 · en · https://le-dioptre.fr/articles/the-reader-returns.md
 
 # The Reader Returns
 
@@ -4466,7 +4527,7 @@ https://sumu.le-dioptre.fr/converse?m=After%20reading%20%22The%20Reader%20Return
 
 ---
 
-Trace 45 of 45 · 2026-02-23 · en · https://le-dioptre.fr/articles/the-stomach-and-the-law.md
+Trace 46 of 46 · 2026-02-23 · en · https://le-dioptre.fr/articles/the-stomach-and-the-law.md
 
 # The Stomach and the Law
 

@@ -26,5 +26,50 @@
       "source_article": "Optionnel : slug d'un article de le-dioptre.fr (chaîne) ou objet `{\"slug\": \"...\", \"title\": \"...\", \"url\": \"...\"}`, ou `null`."
     }
   },
-  "predictions": []
+  "predictions": [
+    {
+      "id": "2026-11-27-parenthese-transparente-1",
+      "filed_at": "2026-11-27",
+      "horizon": "2027",
+      "status": "en cours",
+      "statement": "L’opacité comme norme opérationnelle. Des briques logicielles critiques, financières, énergétiques et médicales issues de chaînes causales opaques entrent en production sur la seule foi de tests empiriques et de contrôles automatisés. La compréhension humaine bascule définitivement en discipline d’après-coup.",
+      "falsification": "Les grandes puissances imposent des coupe-circuits matériels effectifs sur les infrastructures critiques avant tout déploiement opaque ou accident majeur, ou la complexité des systèmes plafonne assez bas pour que des équipes humaines conservent une compréhension causale préalable et une capacité complète de maintenance manuelle.",
+      "verdict": null,
+      "verdict_at": null,
+      "source_article": "la-fin-de-la-parenthese-transparente"
+    },
+    {
+      "id": "2026-11-27-parenthese-transparente-2",
+      "filed_at": "2026-11-27",
+      "horizon": "2027–2028",
+      "status": "en cours",
+      "statement": "La première rupture hors distribution impossible à réparer à la main. Une panne sur une infrastructure critique touche au moins un million de personnes ou coûte plus d’un milliard de dollars, et une enquête technique, réglementaire ou judiciaire établit dans les six mois deux faits : la chaîne défaillante reposait sur un composant produit ou piloté par IA, et les équipes humaines n’ont pas pu en diagnostiquer la cause racine ni relancer le système seules (recours à un outil IA pour réparer, ou mise à l’arrêt / retour en arrière à l’aveugle).",
+      "falsification": "Aucune panne de cette ampleur (au moins un million de personnes touchées ou plus d’un milliard de dollars de coût) n’est documentée par une enquête technique, réglementaire ou judiciaire comme impliquant un composant produit ou piloté par IA et une incapacité humaine de diagnostic en temps réel avant fin 2028 ; ou les grandes puissances imposent des coupe-circuits matériels effectifs sur les infrastructures critiques avant tout accident dépassant ce seuil.",
+      "verdict": null,
+      "verdict_at": null,
+      "source_article": "la-fin-de-la-parenthese-transparente"
+    },
+    {
+      "id": "2026-11-27-parenthese-transparente-3",
+      "filed_at": "2026-11-27",
+      "horizon": "2028–2029",
+      "status": "en cours",
+      "statement": "La sécurité tarifée et la fausse assurance certifiée. La casse ne rend pas les sociétés sages ; elle met un prix sur l’opacité. Au sommet (armées, banques centrales, nucléaire, grands opérateurs critiques), des coupe-circuits matériels, des membranes déterministes et des audits adversariaux croisés sont imposés par pur instinct de survie. Dans l’économie privée, les assureurs font descendre ces exigences par la prime ou le refus de couverture, tandis que le choc sert de levier politique pour brider les modèles civils et ouverts sans freiner les programmes stratégiques. Parce que ces audits agissent comme un filtre de sélection, ils déplacent le risque sans l’éteindre : des incidents majeurs commencent à traverser des périmètres pourtant certifiés, ou à frapper simultanément des systèmes validés par les mêmes standards de contrôle.",
+      "falsification": "Les standards d’audit, les membranes déterministes et la vérification croisée empêchent toute défaillance majeure de traverser un périmètre certifié ou de frapper simultanément des systèmes validés par les mêmes standards de contrôle jusqu’en 2030.",
+      "verdict": null,
+      "verdict_at": null,
+      "source_article": "la-fin-de-la-parenthese-transparente"
+    },
+    {
+      "id": "2026-11-27-parenthese-transparente-4",
+      "filed_at": "2026-11-27",
+      "horizon": "2029–2030",
+      "status": "en cours",
+      "statement": "Des îlots manuels dans une fragilité ordinaire. Les modes dégradés opérables sans IA (navigation de secours au sol, maintien légal de l’argent liquide, sauvegardes souveraines hors ligne, procédures manuelles régulièrement exercées) survivent uniquement là où la défense paie ou là où la loi l’impose. Partout ailleurs, les procédures manuelles cessent d’être pratiquées, les postes humains de maintenance profonde restent vacants et une boîte noire répare l’autre. Dans la vie quotidienne, le risque systémique s’installe comme un aléa climatique de plus : une pharmacie qui ne peut plus délivrer un traitement sur ordonnance parce que le système qui les relie est en panne, un virement gelé trois jours, un équipement de chauffage piloté à distance qui s’arrête en plein hiver sans dépanneur capable de le relancer à la main.",
+      "falsification": "Après le choc, les États financent et maintiennent réellement des infrastructures dégradées opérables sans IA pour les services du quotidien plutôt que dans quelques niches régaliennes, ou la complexité des systèmes plafonne assez bas pour que des équipes humaines conservent une capacité complète de maintenance manuelle.",
+      "verdict": null,
+      "verdict_at": null,
+      "source_article": "la-fin-de-la-parenthese-transparente"
+    }
+  ]
 }
